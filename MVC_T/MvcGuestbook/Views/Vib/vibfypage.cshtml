@@ -1,0 +1,72 @@
+﻿@{
+
+    System.Data.DataSet ds = (System.Data.DataSet)ViewData["ds"];
+    int curpage = int.Parse(ViewBag.curpage);
+
+}
+
+<table class="realtb">
+
+    <tr align="center">
+        <th width="10px">&nbsp;&nbsp;&nbsp;&nbsp;</th>
+        <th width="60px"><b>编号</b></th>
+        <th width="180px"><b>报警时间</b></th>
+        <th><b>通道号</b></th>
+        <th width="110px"><b>报警等级</b></th>
+        <th><b>样本号</b></th>
+        <th width="140px"><b>报警位置(米)</b></th>
+        <th width="100px"><b>报警宽度</b></th>
+        <th height="50px" width="90px"><b>最大强度</b></th>
+        <th width="90px"><b>可信度</b></th>
+        <th width="100px"><b>状态</b></th>
+        <th width="120px"><b>振动最大强度图</b></th>
+    </tr>
+    @{
+        int i = 0;
+        // foreach (System.Data.DataRow dr in ds.Tables[0].Rows)
+        System.Data.DataRow dr;
+        int line = ds.Tables[0].Rows.Count;
+        int rown = 0;
+        if ((line - 10 * (curpage - 1)) < 10)
+        {
+            rown = line % 10;
+        }
+        else
+        {
+            rown = 10;
+        }
+        for (i = 0; i < rown; i++)
+        {
+            if (ds == null)
+            {
+                break;
+
+            }
+            else
+            {
+                dr = ds.Tables[0].Rows[10 * (curpage - 1) + i];
+
+        <tr>
+            <td>&nbsp;</td>
+            <td>@dr["id"]</td>
+            <td>@dr["push_time"]</td>
+            <td>@dr["channel_id"]</td>
+            <td>@dr["level"]</td>
+            <td>@dr["sample_id"]</td>
+            <td>@dr["center_pos"]</td>
+            <td>@dr["event_width"]</td>
+            <td>@dr["max_intensity"]</td>
+            <td height="36px">@dr["possibility"]</td>
+            <td>@dr["show_check"]</td>
+            <td><progress value="@(dr["max_intensity"])" max="255"></progress></td>
+
+        </tr>
+
+
+            }
+            //ds.Dispose();
+
+        }
+    }
+
+</table>

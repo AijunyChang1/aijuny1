@@ -1,0 +1,248 @@
+﻿@{
+    System.Data.DataSet ds = (System.Data.DataSet)ViewData["ds"];
+}
+
+<script src="~/Scripts/echarts.js"></script>
+<script src="~/Scripts/wonderland.js"></script>
+
+<script language="JavaScript" type="text/javascript">
+    function tempselectch(obj) {
+        var pos = [];
+        var valu = [];
+        var arr0 = [];
+        var ur = '/Dts/Getbarjson?ch=' + obj.value;
+        if ((DataChart != null) && (DataChart != "") && (DataChart != undefined)) {
+            DataChart.dispose();
+            DataChart = echarts.init(document.getElementById('Showchart'), 'wonderland');
+        }
+
+
+
+        //  $.get('/Dts/Getbarjson', function (data) {
+        $.get(ur, function (data) {
+            if (data.Pos.length > 1) {
+
+                for (var i = 0; i < data.Pos.length; i++) {
+                    pos[i] = JSON.parse(data.Pos[i]);//以特定的JSON的格式接收数字
+                }
+                for (var i = 0; i < data.Valu.length; i++) {
+                    valu[i] = data.Valu[i];//以JSON的方式接收字符串
+                }
+                //console.log("对象数组valu:" + valu)
+                DataChart.clear();
+                DataChart.setOption({
+                    tooltip: {
+                        trigger: 'axis',
+                        showContent: true,
+                    },
+                    dataZoom: {
+                        type: 'inside',
+                        show: true,
+                    },
+                    title: {
+                        text: '当前温度分布图',
+                        textStyle: {   //主标题的样式
+                            color: 'red',
+                            fontWeight: 'bold',
+                            fontStyle: 'italic',
+                            fontFamily: '微软雅黑'
+                        },
+                        x: 'center'
+                    },
+                    grid: {
+                        top: '20%',
+                    },
+                    xAxis: {
+                        name: '位置',
+                        type: 'category',
+                        data: pos,
+                        axisLabel: {
+                            rotate: '35',
+                            interval: 50,
+                        }
+                    },
+
+                    yAxis: {
+                        type: 'value',
+                        name: '温度（℃）',
+                    },
+
+                    series: [
+                        {
+                            name: '温度',
+                            type: 'line',    // 设置图表类型为饼图 bar
+                            data: valu,
+                            symbol: 'circle', //实心圆点
+                            smooth: 0.5,      //设置折线弧度
+                        }
+                    ],
+                    //color: ['#99CC33']
+                });
+                $("#Showchart").show();
+                $("#Showchart1").hide();
+            }
+            else {
+                $("#Showchart").hide();
+                $("#Showchart1").show();
+                $("#Showchart1").html("<br/><br/><div style='font-size:14px;padding-left:150px;color: red;'>无该通道的温度数据！</div>")
+            }
+        }, 'json');
+        // alert(obj.value);
+    }
+
+</script>
+
+<table>
+
+    <tr>
+
+        <td>
+            <div style="color: #3F4F70;font-weight:bold">DTS当前分区配置信息 </div><br/>
+            <table class="realtb">
+
+                <tr align="center">
+                    <th>&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                    <th><b>通道号</b></th>
+                    <th width="80px" height="40px"><b>分区号</b></th>
+                    <th width="180px"><b>分区起始位置（米）</b></th>
+                    <th width="180px"><b>分区终止位置（米）</b></th>
+
+                </tr>
+
+                @{
+
+                    double begin_pos;
+                    double end_pos;
+
+                    foreach (System.Data.DataRow dr in ds.Tables[0].Rows)
+                    {
+                        begin_pos = Convert.ToDouble(dr["begin_pos"]) * 0.41;
+                        end_pos = Convert.ToDouble(dr["end_pos"]) * 0.41;
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td height="35px">@dr["channel_id"]</td>
+                            <td>@dr["area_no"]</td>
+                            <td>@begin_pos.ToString()</td>
+                            <td>@end_pos.ToString()</td>
+                        </tr>
+
+                    }
+                    ds.Dispose();
+
+                }
+
+            </table>
+
+        </td>
+        <td>
+            <table>
+                <tr>
+                    <td>
+                        <span class="inputlabel">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;通道号:</span>
+                        <select id="tempchid" class="inputboxq" onchange="tempselectch(this)">
+                            <option value="1" selected>1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="Showchart" style="width: 600px;height:300px;margin-left:80px"> </div>
+                        <div id="Showchart1" style="width: 600px;height:300px;margin-left:80px"> </div>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+
+</table>
+
+<script language="JavaScript" type="text/javascript">
+    var DataChart = echarts.init(document.getElementById('Showchart'), 'wonderland');
+    $("#Showchart1").hide();
+    $('body').everyTime('5s', function () {
+
+
+        var pos = [];
+        var valu = [];
+        var arr0 = [];
+        var sel1 = document.getElementById("tempchid");
+        var urdts = '/Dts/Getbarjson?ch=' + sel1.value;
+
+       // $.get('/Dts/Getbarjson', function (data) {
+        $.get(urdts, function (data) {
+            if (data.Pos.length > 1) {
+            for (var i = 0; i < data.Pos.length; i++) {
+                pos[i] = JSON.parse(data.Pos[i]);//以特定的JSON的格式接收数字
+            }
+            for (var i = 0; i < data.Valu.length; i++) {
+                valu[i] = data.Valu[i];//以JSON的方式接收字符串
+            }
+            //console.log("对象数组valu:" + valu)
+            DataChart.setOption({
+                tooltip: {
+                    trigger: 'axis',
+                    showContent: true,
+                },
+                dataZoom: {
+                    type: 'inside',
+                    show: true,
+                },
+
+                title: {
+                    text: '当前温度分布图',
+                    textStyle: {   //主标题的样式
+                        color: 'red',
+                        fontWeight: 'bold',
+                        fontStyle: 'italic',
+                        fontFamily: '微软雅黑'
+                    },
+                    x: 'center'
+                },
+                grid: {
+                    top: '20%',
+                },
+                xAxis: {
+                    name: '位置',
+                    type: 'category',
+                    data: pos,
+                    axisLabel: {
+                        rotate: '35',
+                        interval: 100
+                    }
+                },
+
+                yAxis: {
+                    type: 'value',
+                    name: '温度（℃）',
+                },
+
+                series: [
+                    {
+                        name: '温度',
+                        type: 'line',    // 设置图表类型为饼图 bar
+                        data: valu,
+                        showSymbol: false,
+                    }
+                ]
+            })
+
+                $("#Showchart").show();
+                $("#Showchart1").hide();
+            }
+            else {
+                $("#Showchart").hide();
+                $("#Showchart1").show();
+                $("#Showchart1").html("<br/><br/><br/><br/><div style='font-size:14px;padding-left:150px;color: red;'>无该通道的温度数据！</div>")
+            }
+
+        }, 'json')
+
+
+    })
+
+</script>
+

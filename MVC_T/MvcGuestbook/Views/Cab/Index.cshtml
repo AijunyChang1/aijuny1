@@ -1,0 +1,117 @@
+﻿
+@{
+    ViewBag.Title = "电缆身份实时识别";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<script language="JavaScript" type="text/javascript">
+
+    $('body').everyTime('3s', function () {
+        $(".cardshow").load("/Cab/Cardshow");
+    })
+
+</script>
+<script language="JavaScript" type="text/javascript">
+
+    function clear_event() {
+
+        $.ajax({ url: "/Cab/Clearev", async: false });
+    }
+
+    function restore_event() {
+
+        $.ajax({ url: "/Cab/Restoreev", async: false });
+    }
+
+    function cable_img(ch) {
+        $("#showimg").attr("src", "/Pictures/ch" + ch + ".jpg");
+
+    }
+
+</script>
+
+<script language="JavaScript">
+    function call(htmlurl) {
+        //    var newwin=window.open(htmlurl,"airWin","top=0,left=0,toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=796,height=546");
+        //    newwin.focus();
+
+        //  return false;
+
+        //$.ajax({ url: "/Cab/Index", async: false });
+        if (document.documentElement.requestFullscreen) {
+            document.documentElement.requestFullscreen();
+        }
+        if (document.documentElement.mozRequestFullScreen) {
+            document.documentElement.mozRequestFullScreen();
+        }
+        if (document.documentElement.msRequestFullscreen) {
+            document.documentElement.msRequestFullscreen();
+        }
+        if (document.documentElement.webkitRequestFullscreen) {
+            document.documentElement.webkitRequestFullscreen();
+        }
+
+        return true;
+
+        // else {
+        //     if (document.exitFullscreen) {
+        //         document.exitFullscreen();
+        //     }
+        // }
+    }
+</script>
+<input type="button" id="hidbut" style="visibility:hidden" onclick="call(this)">
+<table>
+    <tr>
+        <td>
+            <table>
+                <tr>
+                    <td style="height:50px;">
+                        <div style="color: #3F4F70;font-weight:bold"> 最新电缆身份识别事件:</div>
+                    </td>
+                    <td width="750px">
+                        &nbsp;
+                    </td>
+                    <td width="150px">
+                        <a class="norbn" href="#" onclick="clear_event()">清除身份识别消息</a>
+                    </td>
+                    <td width="150px">
+                        <a class="norbn" href="#" onclick="restore_event()">恢复身份识别消息</a>
+                    </td>
+                </tr>
+            </table>
+
+        </td>
+
+    </tr>
+    <tr>
+        <td>
+
+            <table>
+                <tr>
+                    <td width="570px">
+                        <div class="cardshow" id="cardshow">
+                            @Html.Action("Cardshow")
+                        </div>
+                    </td>
+                    <td>
+                        <div class="cabimage" id="cabimage">
+                            <div id="imagepos" style="width:600px; height:560px; background:#888888; float:left;">
+                                <img id="showimg" src="~/images/backlab0.jpeg" width="600" height="560">
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+        </td>
+
+
+    </tr>
+</table>
+<script language="JavaScript" type="text/javascript">
+
+    $("#hidbut").click();
+</script>
+

@@ -1,0 +1,52 @@
+﻿@{
+
+    System.Data.DataSet ds = (System.Data.DataSet)ViewData["ds"];
+
+}
+
+
+
+<table id="alarmtb">
+    <tr>
+        <td>
+            <div style="color: #3F4F70;font-weight:bold">共有振动报警:&nbsp<font color="red"> @(ViewBag.Vibcount)</font> &nbsp;个 </div>
+
+        </td>
+    </tr>
+    <tr>    
+
+        <td>
+            <table class="alarmtb" >
+                <tr>
+                    <td width="60px" height="35px"><div class="inputlabel">序号</div></td>
+                    <td width="155px"><div class="inputlabel">报警时间</div></td>
+                    <td width="68px"><div class="inputlabel">通道号</div> </td>
+                    <td width="60px"><div class="inputlabel">位置</div></td>
+                    <td width="90px"><div class="inputlabel">报警等级</div></td>
+                    <td width="58px">&nbsp;</td>
+                </tr>
+                @{ 
+                    foreach (System.Data.DataRow dr in ds.Tables[0].Rows)
+                    { 
+                                <tr>
+                                    <td height="28px">@dr["id"]</td>
+                                    <td>@dr["push_time"]</td>
+                                    <td>@dr["channel_id"]</td>
+                                    <td>@dr["center_pos"]</td>
+                                    <td>@dr["level"]</td>
+                                    <td><a class="abutton"  href="#alarmtb" onclick="vib_detail('@(dr["id"])')">详情</a></td>
+
+                                </tr>
+                    
+                    }
+                    ds.Dispose();
+
+                }
+
+            </table>
+
+        </td>
+         
+    </tr>
+
+</table>

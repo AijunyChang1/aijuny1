@@ -1,0 +1,71 @@
+﻿@{
+
+    System.Data.DataSet ds = (System.Data.DataSet)ViewData["ds"];
+
+}
+
+
+<table>
+    <tr>
+        <td style="height:50px;">
+            <div style="color: #3F4F70;font-weight:bold">DTS分区温度信息 </div>
+
+        </td>
+    </tr>
+    <tr>
+
+        <td>
+            <table class="realtb">
+
+                <tr align="center">
+                    <th>&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                    <th><b>通道号</b></th>
+                    <th width="250px" height="30px"><b>更新时间</b></th>
+                    <th width="80px"><b>分区号</b></th>
+                    <th width="180px"><b>最高温度（℃）</b></th>
+                    <th width="180px"><b>高温位置（米）</b></th>
+                    <th width="140px"><b>最低温度（℃）</b></th>
+                    <th width="180px"><b>低温位置（米）</b></th>
+                    <th width="130px"><b>平均温度(℃)</b></th>
+                </tr>
+                
+                @{
+                    double max_temp;
+                    double low_temp;
+                    double ava_temp;
+                    double max_pos;
+                    double low_pos;
+
+                    foreach (System.Data.DataRow dr in ds.Tables[0].Rows)
+                    {
+                        max_temp = Convert.ToDouble(dr["high_temp"]) / 10.00;
+                        low_temp = Convert.ToDouble(dr["low_temp"]) / 10.00;
+                        ava_temp = Convert.ToDouble(dr["ava_temp"]) / 10.00;
+                        max_pos = Convert.ToDouble(dr["high_pos"]) *0.41;
+                        low_pos = Convert.ToDouble(dr["low_pos"]) * 0.41;
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td height="30px">@dr["channel_id"]</td>
+                            <td>@dr["create_time"]</td>
+                            <td>@dr["area_no"]</td>
+                            <td>@max_temp.ToString()</td>
+                            <td>@max_pos.ToString()</td>
+                            <td>@low_temp.ToString()</td>
+                            <td>@low_pos.ToString()</td>
+                            <td>@ava_temp.ToString()</td>                            
+                        </tr>
+
+                    }
+                    ds.Dispose();
+
+                }
+
+            </table>
+
+        </td>
+
+    </tr>
+
+</table>
+
+

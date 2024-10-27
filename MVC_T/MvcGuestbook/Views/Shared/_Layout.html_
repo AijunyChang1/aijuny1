@@ -1,0 +1,189 @@
+<!DOCTYPE html public "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+    <head>
+         <meta charset="UTF-8">
+         <title>vue01</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+          <style>
+             <!--
+                    body{
+                          background-color:#c1daff;
+                          margin:0px;
+                    }
+                   #navigation{
+                        width:200px;
+                        height: 100%;
+                        font-family:Arial;
+                        border-left:12px solid #711515;
+                        border-right:1px solid #711515;
+                        background-color:#c11136;
+                        padding:0px;
+                        margin:0px;
+
+                   }
+
+                   #navigation ul{
+                         padding:0px;
+                         margin:0px;
+                         list-style-type:none;
+                    }
+                  #navigation li {
+                         border-bottom:1px solid #ED9F9F;
+                   }
+                  #navigation li a{
+                         display:block;
+                         padding:5px 5px 5px 0.5em;
+                         text-decoration:none;
+
+                   }
+
+                  #navigation li  a:link,#navigation li a:visited{
+                         background-color:#c11136;
+                         color:#FFFFFF;
+                   }
+                  #navigation li  a:hover{
+                         background-color:#990020;
+                         color:#FFFF00;
+                  }
+
+
+                    ul{
+                         font-size:0.9em;
+                         color:#00458c;
+                         list-style-type:decimal;
+                    }
+                                          
+             -->
+          </style>
+          <script src=@Url.Content("~/Scripts/vue.js")></script>
+
+   </head>
+   <body>
+      <div id="navigation">
+            <ul>
+                  <li> <a href="#"><br> 首页 <br> <br> </a>     </li>
+                  
+
+                  <template v-for="pro in projs">
+                          <br><br>
+                         <li> <a :href="pro.url"> <img width="12px" height="12px" src="navicon.png"/>&nbsp;{{pro.name}} </a>     </li>
+                         <template v-for="ite in pro.submenu">
+                              <li> <a :href="ite.url">&nbsp;&nbsp;&nbsp {{ite.menudes}} </a>     </li>  
+                         </template>
+                   </template>
+            </ul>
+
+
+
+      </div>
+     <hr>
+     
+
+
+      <script language="JavaScript" type="text/javascript">
+            var vm=new Vue({
+                el: '#vue_01',
+                data: {
+                      projectname: "VueTest",
+                      filename: "vue01.html"
+                },
+                methods: {
+                      abc: function(){
+                           return this.projectname+"->"+this.filename+",这是第一个例子";
+                      }
+                }
+            })
+
+            var vm1=new Vue({
+                el: '#navigation',
+                data: {
+                      mainlink:"main.asp",
+                      projs: [
+                           { 
+                              name: "振动系统",
+                              url: "my.asp",
+                              submenu: [
+                                  {
+                                       menudes:"振动数据监控",
+                                       url: "my.asp",                                      
+                                  },
+                                  {
+                                       menudes:"振动历史数据查询",
+                                       url: "my.asp",
+                                  },
+                                  {
+                                       menudes:"振动光纤状态数据查询",
+                                       url: "my.asp",
+                                  },
+                              ],
+                           },
+                           {
+                                name: "Botda应变测量系统",
+                                url: "my.asp",
+                                submenu: [
+                                  {
+                                       menudes:"应变数据监控",
+                                       url: "my.asp",
+                                  },
+                                  {
+                                       menudes:"应变报警历史数据查询",
+                                       url: "my.asp",
+                                  },
+                                  {
+                                       menudes:"应变历史数据查询",
+                                       url: "my.asp",
+                                  },
+                              ]
+                           },
+                           {
+                                 name: "DTS测温系统",
+                                 url: "my.asp",
+                                 submenu: [
+                                  {
+                                       menudes:"温度实时数据监控",
+                                       url: "my.asp",
+                                  },
+                                  {
+                                       menudes:"温度报警历史数据查询",
+                                       url: "my.asp",
+                                  },
+                                  {
+                                       menudes:"温度历史数据查询",
+                                       url: "my.asp",
+                                  } 
+                                  ]                                  
+                           }
+                      ]
+                },
+                computed:{
+                      menutext: function(){
+                             var a="<a href='#'>hello</a>";
+                             return a;
+                      
+                       }                       
+                 }
+            })
+            var vm2=new Vue({
+                el: '#app1',
+                data: {
+                    name:""
+                }
+            })
+
+       </script>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - 我的 ASP.NET 应用程序</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+   </body>
+</html>

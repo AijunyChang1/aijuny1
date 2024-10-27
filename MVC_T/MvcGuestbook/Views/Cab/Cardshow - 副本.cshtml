@@ -1,0 +1,103 @@
+﻿@{
+
+    System.Data.DataSet ds = (System.Data.DataSet)ViewData["ds"];
+
+}
+
+<script language="JavaScript" type="text/javascript">
+
+    function clear_event() {
+
+        $.ajax({ url: "/Cab/Clearev", async: false });
+    }
+
+    function restore_event() {
+
+        $.ajax({ url: "/Cab/Restoreev", async: false });
+    }
+
+
+</script>
+
+
+<table>
+    <tr>
+        <td>
+            <table>
+                <tr>
+                    <td style="height:50px;">
+                        <div style="color: #3F4F70;font-weight:bold"> 最新电缆身份识别事件:</div>
+                    </td>
+                    <td width="750px">
+                        &nbsp;
+                    </td>
+                    <td width="150px">
+                        <a class="norbn" href="#" onclick="clear_event()">清除身份识别消息</a>
+                    </td>
+                    <td width="150px">
+                        <a class="norbn" href="#" onclick="restore_event()">恢复身份识别消息</a>
+                    </td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+  </table>
+
+  <table>
+    <tr>
+        <td>
+            <table>
+                <tr>
+                     
+                    @{
+
+                        int i = 0;
+                        foreach (System.Data.DataRow dr in ds.Tables[0].Rows)
+                        {
+                            i = i + 1;
+
+                            
+                                <td width="260px">
+                                    <div class="imgcard_b">
+                                                            
+                                        <div style="height: 30px; padding-top:10px;color: #5F6F90;font-weight:bold"> 通道号: @dr["channel"]</div>
+                                        <a href="aaa">
+                                            <div class="imgcard" id="imgcard">
+                                                <ul style=" padding: 0px; margin: 0px; list-style-type: none;">
+                                                    <li style=" display: block; padding: 5px 5px 5px 0.5em;"> 序号: @dr["id"] </li>
+                                                    <li style=" display: block; padding: 5px 5px 5px 0.5em;"> 事件时间: @dr["push_time"]</li>
+                                                    <li style=" display: block; padding: 5px 5px 5px 0.5em;"> 生产厂家: @dr["cable_producer"]</li>
+                                                    <li style=" display: block; padding: 5px 5px 5px 0.5em;"> 电缆型号: @dr["cable_type"]</li>
+                                                    <li style=" display: block; padding: 5px 5px 5px 0.5em;"> 缆芯材质: @dr["cable_material"]</li>
+                                                    <li style=" display: block; padding: 5px 5px 5px 0.5em;"> 截面直径（mm）: @dr["cable_d"]</li>
+                                                    <li style=" display: block; padding: 5px 5px 5px 0.5em;"> 生产日期: @dr["cable_produce_date"]</li>
+                                                    <li style=" display: block; padding: 5px 5px 5px 0.5em;"> 电缆长度: @dr["cable_len"]</li>
+                                                </ul>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </td>
+                                <td width="60px">
+                                    &nbsp
+                                </td>
+
+                            if (i == 4)
+                            {
+                                @:</tr>
+                                @:<tr>
+                                    @:<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+                                @:</tr>
+                                @:<tr>
+                            }
+
+
+                        }
+                        ds.Dispose();
+                      }
+                </tr>
+             </table>
+
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewBag.Title = "电缆身份管理";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section scripts
+{
+    <script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.js")"></script>
+}
+
+<script language="JavaScript" type="text/javascript">
+
+    function create_cab()
+    {
+
+        $(".admincab").load("/Cab/Create");
+    }
+
+    function cab_edit(id) {
+        $(".admincab").load("/Cab/Edit?id="+id);
+    }
+    function cab_del(id) {
+        var ques = confirm("确定删除该电缆信息？")
+        if (ques) {
+            $.ajax({ url: "/Cab/Delcabdb?id=" + id, async: false });
+            //$(".admincab").load("Cablist");
+            $(location).prop('href', "/Cab/Cabadmin");
+        } else {
+
+            return false;
+        }
+    }
+
+ </script>
+
+<table>
+    <tr>
+        <td>
+            <div v class="admincab" id="admincab">
+                <table>
+                    <tr>
+                        <td>
+                             <div class="listcab" id="listcab">
+
+                                   @Html.Action("Cablist")
+
+                             </div>
+                             <!--<div style="color: #3F4F70;font-weight:bold">现有未处理振动报警:&nbsp<font color="red"> @(ViewBag.Vibcount)</font> &nbsp;个 </div>-->
+                        </td>
+                     </tr>
+                     <tr>
+                         <td>
+                              <a class="norbn" href="#" onclick="create_cab()">添加电缆</a>
+                         </td>
+                     </tr>
+                </table>
+            </div>
+        </td>
+    <tr>
+
+</table>

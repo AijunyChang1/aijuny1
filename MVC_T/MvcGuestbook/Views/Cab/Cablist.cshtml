@@ -1,0 +1,59 @@
+﻿@{
+
+    System.Data.DataSet ds = (System.Data.DataSet)ViewData["ds"];
+
+}
+
+
+<table>
+    <tr>
+        <td style="height:50px;">
+            <div style="color: #3F4F70;font-weight:bold">共有电缆:&nbsp<font color="Orange"> @(ViewBag.Vibcount)</font> &nbsp;个 </div>
+
+        </td>
+    </tr>
+    <tr>
+
+        <td>
+            <table class="realtb">
+
+                <tr align="center">
+                    <th>&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                    <th width="60px"><b>编号</b></th>
+                    <th width="80px"><b>通道号</b></th>
+                    <th width="180px"><b>电缆型号</b></th>
+                    <th width="260px"><b>生产厂家</b></th>
+                    <th width="110px"><b>电缆长度(米)</b></th>
+                    <th width="140px"><b>电缆直径</b></th>
+                    <th height="50px" width="100px"><b>电缆芯材质</b></th>
+                    <th width="150px"><b>动作</b></th>
+                </tr>
+                @{
+                    foreach (System.Data.DataRow dr in ds.Tables[0].Rows)
+                    {
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td>@dr["id"]</td>
+                                    <td>@dr["channel"]</td>
+                                    <td>@dr["cable_type"]</td>
+                                    <td width="200px" height="35px">@dr["cable_producer"]</td>
+
+                                    <td>@dr["cable_len"]</td>
+                                    <td>@dr["cable_d"]</td>
+                                    <td>@dr["cable_material"]</td>
+                                    <td><a class="norbn" href="#" onclick="cab_edit('@(dr["id"])', 1)">修改</a><a class="norbn" href="#" onclick="cab_del('@(dr["id"])', 1)">删除</a></td>
+
+                                </tr>
+
+                    }
+                    ds.Dispose();
+
+                }
+
+            </table>
+
+        </td>
+
+    </tr>
+
+</table>

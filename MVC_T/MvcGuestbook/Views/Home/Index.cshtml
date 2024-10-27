@@ -1,0 +1,570 @@
+﻿
+@{
+    ViewBag.Title = "首页";
+}
+
+<script src="~/Scripts/echarts.js"></script>
+<script src="~/Scripts/wonderland.js"></script>
+
+@section scripts
+{
+    <script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.js")"></script>
+}
+<script language="JavaScript" type="text/javascript">
+    self.resizeTo(screen.availWidth, screen.availHeight);
+    self.moveTo(0,0);
+    var htmlvib;
+    var htmlvibfib;
+
+    var htmlbotda;
+    var htmldts;
+    $('body').everyTime('3s', function () {
+
+        // htmlvib = $.ajax({ url: "/Home/Vibalarm", async: false });
+        //htmlvib = $.ajax({ url: "http://www.baidu.com", async: false });
+        // if (htmlvib == null) { alert("NULL,NULL"); }
+        // $(".vibalarm").html(htmlvib.responseText);
+        $(".vibalarm").load("/Home/Vibalarm");
+        $(".vibfiberalarm").load("/Home/Vibfibalarm");
+        $(".botdaalarm").load("/Home/Botdaalarm");
+        $(".dtsalarm").load("/Home/Dtsalarm");
+        // alert(htmlvib.responseText);
+        // $(".vibalarm").html("hello");
+
+        //do something...
+
+    });
+
+    function vib_detail(vibid) {
+        $(".alarmdetail").load("/Home/Vibdetail?id=" + vibid);
+    }
+
+    function vib_fibdetail(vibid) {
+        $(".alarmdetail").load("/Home/Vibfibdetail?id=" + vibid);
+    }
+
+    function botda_detail(vibid) {
+        $(".alarmdetail").load("/Home/Botdadetail?id=" + vibid);
+    }
+
+    function dts_detail(vibid) {
+        $(".alarmdetail").load("/Home/Dtsdetail?id=" + vibid);
+    }
+
+    function vib_confirm(vibid, conflag) {
+        if (conflag == 1) {
+            jQuery("#oklable").css("visibility", "hidden");
+            jQuery("#oklable").hide();
+            jQuery("#conlable").css("visibility", "visible");
+            jQuery("#conlable").show();
+        }
+        else {
+            jQuery("#conlable").css("visibility", "hidden");
+            jQuery("#conlable").hide();
+            jQuery("#oklable").css("visibility", "visible");
+            jQuery("#oklable").show();
+
+        }
+        $.ajax({ url: "/Home/Setvibflag?id=" + vibid + "&flag=" + conflag, async: false });
+    }
+
+    function vib_fib_confirm(vibid, conflag) {
+        if (conflag == 1) {
+            jQuery("#oklable").css("visibility", "hidden");
+            jQuery("#oklable").hide();
+            jQuery("#conlable").css("visibility", "visible");
+            jQuery("#conlable").show();
+
+        }
+        else {
+            jQuery("#conlable").css("visibility", "hidden");
+            jQuery("#conlable").hide();
+            jQuery("#oklable").css("visibility", "visible");
+            jQuery("#oklable").show();
+        }
+        $.ajax({ url: "/Home/Setvibfibflag?id=" + vibid + "&flag=" + conflag, async: false });
+    }
+
+    function botda_confirm(vibid, conflag) {
+        if (conflag == 1) {
+            jQuery("#oklable").css("visibility", "hidden");
+            jQuery("#oklable").hide();
+            jQuery("#conlable").css("visibility", "visible");
+            jQuery("#conlable").show();
+        }
+        else {
+            jQuery("#conlable").css("visibility", "hidden");
+            jQuery("#conlable").hide();
+            jQuery("#oklable").css("visibility", "visible");
+            jQuery("#oklable").show();
+        }
+        $.ajax({ url: "/Home/Setbotdaflag?id=" + vibid + "&flag=" + conflag, async: false });
+    }
+
+    function dts_confirm(vibid, conflag) {
+        if (conflag == 1) {
+            jQuery("#oklable").css("visibility", "hidden");
+            jQuery("#oklable").hide();
+            jQuery("#conlable").css("visibility", "visible");
+            jQuery("#conlable").show();
+        }
+        else {
+            jQuery("#conlable").css("visibility", "hidden");
+            jQuery("#conlable").hide();
+            jQuery("#oklable").css("visibility", "visible");
+            jQuery("#oklable").show();
+        }
+        $.ajax({ url: "/Home/Setdtsflag?id=" + vibid + "&flag=" + conflag, async: false });
+    }
+    function tempselectch(obj) {
+        var pos = [];
+        var valu = [];
+        var arr0 = [];
+        var ur = '/Dts/Getbarjson?ch=' + obj.value;
+        if ((DataChart != null) && (DataChart != "") && (DataChart != undefined)) {
+            DataChart.dispose();
+            DataChart = echarts.init(document.getElementById('Dtschart'), 'wonderland');
+        }
+
+
+
+        //  $.get('/Dts/Getbarjson', function (data) {
+        $.get(ur, function (data) {
+            if (data.Pos.length > 1) {
+
+                for (var i = 0; i < data.Pos.length; i++) {
+                    pos[i] = JSON.parse(data.Pos[i]);//以特定的JSON的格式接收数字
+                }
+                for (var i = 0; i < data.Valu.length; i++) {
+                    valu[i] = data.Valu[i];//以JSON的方式接收字符串
+                }
+                //console.log("对象数组valu:" + valu)
+                DataChart.clear();
+                DataChart.setOption({
+                    tooltip: {
+                        trigger: 'axis',
+                        showContent: true,
+                    },
+                    dataZoom: {
+                        type: 'inside',
+                        show: true,
+                    },
+                    title: {
+                        text: '当前温度分布图',
+                        textStyle: {   //主标题的样式
+                            color: 'red',
+                            fontWeight: 'bold',
+                            fontStyle: 'italic',
+                            fontFamily: '微软雅黑'
+                        },
+                        x: 'center'
+                    },
+                    grid: {
+                        top: '20%',
+                    },
+                    xAxis: {
+                        name: '位置',
+                        type: 'category',
+                        data: pos,
+                        axisLabel: {
+                            rotate: '35',
+                            interval: 50,
+                        }
+                    },
+
+                    yAxis: {
+                        type: 'value',
+                        name: '温度（℃）',
+                    },
+
+                    series: [
+                        {
+                            name: '温度',
+                            type: 'line',    // 设置图表类型为饼图 bar
+                            data: valu,
+                      //      symbol: 'circle', //实心圆点
+                            symbol: 'none',
+                            showSymbol: false,
+                            smooth: 0.5,      //设置折线弧度
+                        }
+                    ],
+                    //color: ['#99CC33']
+                });
+               // var t_str = '$("#' + arr[k] + '").show()';
+               // eval(t_str);
+                $("#Dtschart").show();
+                $("#Dtschart1").hide();
+            }
+            else {
+                $("#Dtschart").hide();
+                $("#Dtschart1").show();
+                $("#Dtschart1").html("<br/><br/><div style='font-size:14px;padding-left:150px;color: red;'>无该通道的温度数据！</div>")
+            }
+        }, 'json');
+        // alert(obj.value);
+    }
+
+
+
+    function botselectch(obj) {
+        var pos = [];
+        var valu = [];
+        var arr0 = [];
+        var ur = '/Bot/Getbarjson?ch=' + obj.value;
+        if ((BotChart != null) && (BotChart != "") && (BotChart != undefined)) {
+            BotChart.dispose();
+            BotChart = echarts.init(document.getElementById('Botchart'), 'wonderland');
+        }
+
+        $.get(ur, function (data) {
+            if (data.Pos.length > 1) {
+                for (var i = 0; i < data.Pos.length; i++) {
+                    pos[i] = JSON.parse(data.Pos[i]);//以特定的JSON的格式接收数字
+                }
+                for (var i = 0; i < data.Valu.length; i++) {
+                    valu[i] = data.Valu[i];//以JSON的方式接收字符串
+                }
+                //console.log("对象数组valu:" + valu)
+                BotChart.setOption({
+                    tooltip: {
+                        trigger: 'axis',
+                        showContent: true,
+                    },
+                    dataZoom: {
+                        type: 'inside',
+                        show: true,
+                    },
+                    title: {
+                        text: '实时应变图',
+                        textStyle: {   //主标题的样式
+                            color: 'red',
+                            fontWeight: 'bold',
+                            fontStyle: 'italic',
+                            fontFamily: '微软雅黑'
+                        },
+                        x: 'center'
+                    },
+                    grid: {
+                        top: '20%',
+                    },
+                    xAxis: {
+                        name: '位置',
+                        type: 'category',
+                        data: pos,
+                        axisLabel: {
+                            rotate: '35',
+                            interval: 100
+                        }
+                    },
+
+                    yAxis: {
+                        type: 'value',
+                        name: '应变值(με)',
+                    },
+
+                    series: [
+                        {
+                            name: '应变值',
+                            type: 'bar',    // 设置图表类型为饼图 bar
+                            data: valu,
+                        }
+                    ]
+                });  //Set option
+                $("#Botchart").show();
+                $("#Botchart1").hide();
+            }
+            else {
+                $("#Botchart").hide();
+                $("#Botchart1").show();
+                $("#Botchart1").html("<br/><br/><div style='font-size:14px;padding-left:150px;color: red;'>无该通道的应变数据！</div>")
+            }
+
+        }, 'json')
+
+    }
+
+</script>
+
+<!--
+<div style="width: 600px;margin-left:0px;color: #3F4F70;">
+    <h4 align="left">实时报警</h4>
+</div>
+-->
+<br>
+<table>
+    <tr>
+        <td>
+            <table>
+                <tr>
+                    <td>
+                        <span class="inputlabel">通道号:</span>
+                        <select id="tempchid" class="inputboxq" onchange="tempselectch(this)">
+                            <option value="1" selected>1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                    </td>
+                    <td>
+                        <span class="inputlabel">通道号:</span>
+                        <select id="botchid" class="inputboxq" onchange="botselectch(this)">
+                            <option value="1" selected>1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="Dtschart" style="width: 550px;height:270px;margin-left:20px"> </div>
+                        <div id="Dtschart1" style="width: 550px;height:270px;margin-left:20px;"> </div>
+
+                    </td>
+                    <td>
+                        <div id="Botchart" style="width: 550px;height:270px;margin-left:20px"> </div>
+                        <div id="Botchart1" style="width: 550px;height:270px;margin-left:20px;"> </div>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div>
+                <table>
+                    <tr>
+                        <td>
+                            <div class="alarmarea">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <div class="dtsalarm">
+                                                @Html.Action("Dtsalarm")
+                                            </div>
+
+                                            <br />
+                                        </td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>
+                                            <div class="botdaalarm">@Html.Action("Botdaalarm")</div>
+
+                                            <br />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="vibalarm" id="vibalarm">
+                                                @Html.Action("Vibalarm")
+                                            </div>
+                                            <br />
+                                        </td>
+                                        <td>&nbsp;&nbsp;</td>
+                                        <td>
+                                            <div class="vibfiberalarm">
+                                                @Html.Action("Vibfibalarm")
+                                            </div>
+                                            <br />
+                                        </td>
+                                    </tr>
+                                </table>
+
+                            </div>
+
+                        <td>
+                    </tr>
+                </table>
+
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="alarmdetail" id="alarmdetail">
+                <div id="imagepos" style="width:1090px; height:250px; background:#888888; float:left; padding:10px 10px;">
+                    <img src="~/Images/backlab.jpeg" width="1090" height="250">
+                </div>
+            </div>
+            <br />
+        </td>
+    </tr>
+</table>
+
+
+<script language="JavaScript" type="text/javascript">
+    var sel1 = document.getElementById("tempchid");
+    sel1.addEventListener("change", tempselectch(sel1));
+    var sel2 = document.getElementById("botchid");
+    sel1.addEventListener("change", tempselectch(sel2));
+    var DataChart = echarts.init(document.getElementById('Dtschart'), 'wonderland');
+
+    var BotChart = echarts.init(document.getElementById('Botchart'), 'wonderland');
+    $("#Botchart1").hide();
+
+    $('body').everyTime('10s', function () {
+
+        var pos = [];
+        var valu = [];
+        var arr0 = [];
+        var sel1 = document.getElementById("tempchid");
+        var urdts = '/Dts/Getbarjson?ch=' + sel1.value;
+        //$.get('/Dts/Getbarjson', function (data) {
+        $.get(urdts, function (data) {
+            if (data.Pos.length > 1) {
+
+                for (var i = 0; i < data.Pos.length; i++) {
+                    pos[i] = JSON.parse(data.Pos[i]);//以特定的JSON的格式接收数字
+                }
+                for (var i = 0; i < data.Valu.length; i++) {
+                    valu[i] = data.Valu[i];//以JSON的方式接收字符串
+                }
+                //DataChart.clear();
+                //console.log("对象数组valu:" + valu)
+                DataChart.setOption({
+                    tooltip: {
+                        trigger: 'axis',
+                        showContent: true,
+                    },
+                    dataZoom: {
+                        type: 'inside',
+                        show: true,
+                    },
+                    title: {
+                        text: '当前温度分布图',
+                        textStyle: {   //主标题的样式
+                            color: 'red',
+                            fontWeight: 'bold',
+                            fontStyle: 'italic',
+                            fontFamily: '微软雅黑'
+                        },
+                        x: 'center'
+                    },
+                    grid: {
+                        top: '20%',
+                    },
+                    xAxis: {
+                        name: '位置',
+                        type: 'category',
+                        data: pos,
+                        axisLabel: {
+                            rotate: '35',
+                            interval: 50,
+                        }
+                    },
+
+                    yAxis: {
+                        type: 'value',
+                        name: '温度（℃）',
+                    },
+
+                    series: [
+                        {
+                            name: '温度',
+                            type: 'line',    // 设置图表类型为饼图 bar
+                            data: valu,
+                           // symbol: 'circle', //实心圆点
+                            symbol: 'none',
+                            showSymbol: false,
+                            smooth: 0.5,      //设置折线弧度
+                        }
+                    ],
+                    //color: ['#99CC33']
+                })        //set option
+                $("#Dtschart").show();
+                $("#Dtschart1").hide();
+            }
+            else {
+                $("#Dtschart").hide();
+                $("#Dtschart1").show();
+                $("#Dtschart1").html("<br/><br/><div style='font-size:14px;padding-left:150px;color: red;'>无该通道的温度数据！</div>")
+            }
+
+        }, 'json')   //get
+
+
+        ///////////////////////////////////////////////////////////////////
+        var sel2 = document.getElementById("botchid");
+        var urbot = '/Bot/Getbarjson?ch=' + sel2.value;
+
+        $.get(urbot, function (data) {
+            if (data.Pos.length > 1) {
+
+                for (var i = 0; i < data.Pos.length; i++) {
+                    pos[i] = JSON.parse(data.Pos[i]);//以特定的JSON的格式接收数字
+                }
+                for (var i = 0; i < data.Valu.length; i++) {
+                    valu[i] = data.Valu[i];//以JSON的方式接收字符串
+                }
+                //console.log("对象数组valu:" + valu)
+                BotChart.setOption({
+                    tooltip: {
+                        trigger: 'axis',
+                        showContent: true,
+                    },
+                    dataZoom: {
+                        type: 'inside',
+                        show: true,
+                    },
+                    title: {
+                        text: '实时应变图',
+                        textStyle: {   //主标题的样式
+                            color: 'red',
+                            fontWeight: 'bold',
+                            fontStyle: 'italic',
+                            fontFamily: '微软雅黑'
+                        },
+                        x: 'center'
+                    },
+                    grid: {
+                        top: '20%',
+                    },
+                    xAxis: {
+                        name: '位置',
+                        type: 'category',
+                        data: pos,
+                        axisLabel: {
+                            rotate: '35',
+                            interval: 100
+                        }
+                    },
+
+                    yAxis: {
+                        type: 'value',
+                        name: '应变值(με)',
+                    },
+
+                    series: [
+                        {
+                            name: '应变值',
+                            type: 'bar',    // 设置图表类型为饼图 bar
+                            data: valu,
+                        }
+                    ]
+                })
+
+                $("#Botchart").show();
+                $("#Botchart1").hide();
+            }
+            else {
+                $("#Botchart").hide();
+                $("#Botchart1").show();
+                $("#Botchart1").html("<br/><br/><div style='font-size:14px;padding-left:150px;color: red;'>无该通道的应变数据！</div>")
+            }
+        }, 'json')
+
+
+
+    })
+
+</script>
+<script language="JavaScript" type="text/javascript">
+
+</script>
+
+
+
+
+
+
+

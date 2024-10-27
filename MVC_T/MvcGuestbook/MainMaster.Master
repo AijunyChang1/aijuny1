@@ -1,0 +1,126 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MainMaster.master.cs" Inherits="MvcGuestbook.MainMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+ 
+    <script type="text/javascript">
+        function init() 
+        {
+            
+            var totalWidth = window.innerWidth || document.body.clientWidth;
+            var header_tag = document.getElementById('header');
+            if (header_tag != null) {
+                document.getElementById('header').style.width = totalWidth + 'px';
+            }
+            var mainWidth = totalWidth - 200;
+            var main_tag = document.getElementById('main');
+            if (main_tag != null) {
+                document.getElementById('main').style.width = totalWidth + 'px';
+            }
+            var content_tag = document.getElementById('content');
+            if (content_tag != null) {
+                document.getElementById('content').style.width = mainWidth + 'px';
+            }
+            
+            var totalHeight = window.innerHeight || document.body.clientHeight;
+            //var actHeight = totalHeight - 87;
+            var actHeight = totalHeight;
+            var menu_tag = document.getElementById('menu');
+            if (menu_tag != null) {
+                document.getElementById('menu').style.height = actHeight + 'px';
+            }
+        }
+         //document.body.clientHeight-87;
+    </script>
+
+
+   
+<head runat="server">
+    <!--<meta http-equiv="Refresh" content="10"/>-->
+    <link rel="stylesheet" href="~/Content/index.css"/>
+    <link rel="stylesheet" href="~/Content/hkcss.css" />
+    <!--  霍开数据综合管理系统   智能电缆监测管理平台 -->
+    <title>
+        隧道结构健康监测平台
+    </title>
+     <style type="text/css">
+         .submit_button {
+             display: inline-block;
+             zoom:1;
+             background-color: #409eff;
+             color: #ffffff;
+             outline:none;
+             border:0px;
+             border-radius:5px;
+             box-shadow: 0 2px 4px rgba(0,0,0,.4);
+         }
+             .submit_button:active {
+                 display: inline-block;
+                 zoom: 1;
+                 background-color: #50aeff;
+                 color: #ffffff;
+                 outline: none;
+                 border: 0px;
+                 border-radius: 5px;
+             }
+
+        .submit_button:hover{
+             display: inline-block;
+             zoom:1;
+             background-color: #60aeff;
+             color: #ffffff;
+             outline:none;
+             border:0px;
+             border-radius:5px;
+         }
+
+        .main_content{
+            background-image: url("Content/back.jpg");
+            background-repeat: no-repeat;
+            background-position-y:80%;
+            background-size: 100% 100%;
+
+        }
+
+     </style>
+
+
+
+    <script type="text/javascrpt" src="~/script/jquery-3.6.0.js"></script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body onload="init()">
+       
+   <div id="header" style="background-color:#3F4F70;height:87px;min-width:1520px;font-family:华文楷体">
+         <table  border="0" >
+             <tr>
+                 <td>
+                     <img src="/Content/logo.png" alt="Head"/> 
+                 </td>
+                 <td width="70%">
+                     <!--<font color="yellow" size="28" >  &nbsp &nbsp &nbsp &nbsp &nbsp; &nbsp;霍开数据综合管理系统 </font>-->
+                     <!--<font color="yellow" size="28" >  &nbsp &nbsp &nbsp &nbsp &nbsp; &nbsp;智能电缆监测管理平台 </font>-->
+                     <font color="yellow" size="28" >  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;隧道结构健康监测平台</font>
+                 </td>    
+ 
+             </tr>
+         </table>
+    </div>
+
+
+    <form id="form1" runat="server">
+        
+
+                <asp:ContentPlaceHolder ID="MainContent" runat="server">
+        
+                </asp:ContentPlaceHolder>               
+    </form>
+    <!--
+    <div id="footer" style="background-color:#0000BF;height:30px;float:none;">
+    -->
+
+</body>
+</html>

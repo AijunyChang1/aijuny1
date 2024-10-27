@@ -1,0 +1,61 @@
+﻿@{
+
+     System.Data.DataSet ds = (System.Data.DataSet)ViewData["ds"];
+
+}
+
+<table>
+    <tr>
+        <td>
+            <div style="color: #3F4F70;font-weight:bold">共有BOTDA报警:&nbsp<font color="red"> @(ViewBag.Botdacount)</font>&nbsp;个</div>
+
+</td>
+    </tr>
+    <tr>
+
+        <td>
+            <table class="alarmtb" style="background-color: #ffffff;">
+                 <tr>
+                     <td width="60px" height="35px"><div class="inputlabel">序号</div></td>
+                     <td width="160px"><div class="inputlabel">报警时间</div></td>
+                     <td width="70px"><div class="inputlabel">通道号</div> </td>
+                     <td><div class="inputlabel">位置</div></td>
+                     <td width="110px"><div class="inputlabel">应变最大值</div></td>
+                     <td width="60px">&nbsp;</td>
+                 </tr>
+                 @{
+                       foreach (System.Data.DataRow dr in ds.Tables[0].Rows)
+                       {
+                                <tr>
+                                    <td height="28px">@dr["id"]</td>
+                                    <td>@dr["alarm_time"]</td>
+                                    <td>@dr["channel_id"]</td>
+                                    <td>
+                                        @{
+                                            if (dr["cent_pos"].ToString().Length > 6)
+                                            {
+                                                @dr["cent_pos"].ToString().Substring(0, 6)
+                                            }
+                                            else
+                                            {
+                                                @dr["cent_pos"].ToString()
+                                            }
+                                        }
+                                    </td>
+                                    <td>@dr["max_value"].ToString().Substring(0, 6)</td>
+                                    <td><a class="abutton" href="#alarmtb"  onclick="botda_detail('@(dr["id"])')">详情</a></td>
+
+                                </tr>
+
+                       }
+                       ds.Dispose();
+
+                 }
+
+            </table>
+
+        </td>
+
+    </tr>
+
+</table>

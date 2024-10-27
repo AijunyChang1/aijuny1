@@ -1,0 +1,80 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewBag.Title = "创建用户";
+}
+<script language="JavaScript" type="text/javascript">
+    function text_focus(elem) {
+        elem.placeholder = "";
+    }
+    function verify(obj) {
+        var temp = obj.username.value;
+        temp = temp.trim();
+        if (temp == '') {
+            document.getElementById("errorlabel").innerHTML = "用户名不能为空，请重新输入";
+            document.getElementById("errorlabel").style.visibility = "visible";
+            return false;
+        }
+        if (obj.passwd.value == '') {
+            document.getElementById("errorlabel").innerHTML = "密码不能为空，请重新输入";
+            document.getElementById("errorlabel").style.visibility = "visible";
+            return false;
+        }
+        if (obj.passwd.value != obj.repasswd.value) {
+            document.getElementById("errorlabel").innerHTML = "密码和确认密码不一致，请重新输入";
+            document.getElementById("errorlabel").style.visibility = "visible";
+            return false;
+        }
+
+        var typeChoice = document.getElementsByName("usertype");
+        for (i = 0; i < typeChoice.length; i++) {
+            if (typeChoice[i].checked) {
+                break;
+            }
+        }
+        if (i == typeChoice.length) {
+            document.getElementById("errorlabel").innerHTML = "请选择用户类型";
+            document.getElementById("errorlabel").style.visibility = "visible";
+            return false;
+
+        }
+
+        return true;
+
+
+    }
+
+</script>
+<div>
+
+    <div style="width: 600px; margin-left: 200px; color: #3F4F70;">
+        <br>
+        <h3 align="center">创建新用户</h3>
+        <hr class="hrregist" />
+    </div>
+    <br><br>
+    <form action="/account/saveuser" onsubmit="return verify(this)">
+        <p class="pregist"><span class="inputlabel">用户名: &nbsp;&nbsp;&nbsp;</span> <input type="text" class="inputbox" name="username" placeholder="请填写用户名" required="required" onfocus="text_focus(this)"></p>
+        <p class="pregist"><span class="inputlabel">密&nbsp; &nbsp; 码: &nbsp;&nbsp;&nbsp; </span> <input type="password" class="inputbox" name="passwd" placeholder="请填写密码" required="required" onfocus="text_focus(this)"></p>
+        <p class="pregist"><span class="inputlabel">确认密码:&nbsp; </span> <input type="password" class="inputbox" name="repasswd" placeholder="请填写确认密码" onfocus="text_focus(this)"><br></p>
+        <p class="pregist">
+            <span class="inputlabel">用户类型: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <input type="radio" name="usertype" value="0" title="管理员"> <label class="inputlabel" for="usertype">管理员</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="radio" name="usertype" value="1" title="一般用户"> <label for="usertype" class="inputlabel">一般用户</label>
+        </p>
+
+        <p class="pregist"><span id="errorlabel" style="color:red;"></span></p>
+
+
+        <p class="pregist">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;<input type="submit" id="newaccbtn" class="submit_button" value="创建新用户"></p>
+
+
+
+    </form>
+
+
+</div>
+
+

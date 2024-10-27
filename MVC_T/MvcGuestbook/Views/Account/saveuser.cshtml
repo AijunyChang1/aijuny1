@@ -1,0 +1,34 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewBag.Title = "创建用户成功";
+}
+
+<br>
+<br>
+<br>
+<br>
+@{
+    if (ViewBag.Count == "0")
+    {
+        <p class="pregist" /><span class="inputlabel">创建新用户@(ViewBag.newusername)成功！还要创建一个新用户吗？ &nbsp;&nbsp;&nbsp;</span>
+        <p class="pregist">
+            <a href="~/Account/newaccount"><input type="button" id="newaccbtn" class="submit_button" value="是" onclick="~/Home/Index"></a>&nbsp; &nbsp;&nbsp;
+            <a href="~/Home/Index"><input type="button" id="newaccbtn" class="submit_button" value="否" onclick="~/Home/Index"></a>
+        </p>
+    }
+    else
+    {
+        <p class="pregist"/>
+        <span class="inputlabel">用户&nbsp;@(ViewBag.newusername) &nbsp;已存在，请换一个用户名！ &nbsp;&nbsp;&nbsp;</span>
+        <p class="pregist">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="~/Account/newaccount"><input type="button" id="newaccbtn" class="submit_button" value="确定"></a>
+        </p>
+
+    }
+
+
+}
+

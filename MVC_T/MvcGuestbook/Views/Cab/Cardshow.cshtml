@@ -1,0 +1,61 @@
+﻿@{
+
+    System.Data.DataSet ds = (System.Data.DataSet)ViewData["ds"];
+
+}
+
+
+
+
+
+            <table>
+                <tr>
+                     
+                    @{
+
+                        int i = 0;
+                        foreach (System.Data.DataRow dr in ds.Tables[0].Rows)
+                        {
+                            i = i + 1;
+
+                            
+                                <td width="260px">
+                                    <div class="imgcard_b">
+                                                            
+                                        <div style="height: 30px; padding-top:10px;color: #5F6F90;font-weight:bold"> 通道号: @dr["channel"]</div>
+                                        <a href="#" onclick="cable_img('@(dr["channel"])')">
+                                            <div class="imgcard" id="imgcard">
+                                                <ul style=" padding: 0px; margin: 0px; list-style-type: none;">
+                                                    <li style=" display: block; padding: 5px 5px 5px 0.5em;"> 序号: @dr["id"] </li>
+                                                    <li style=" display: block; padding: 5px 5px 5px 0.5em;"> 事件时间: @dr["push_time"]</li>
+                                                    <li style=" display: block; padding: 5px 5px 5px 0.5em;"> 生产厂家: @dr["cable_producer"]</li>
+                                                    <li style=" display: block; padding: 5px 5px 5px 0.5em;"> 电缆型号: @dr["cable_type"]</li>
+                                                    <li style=" display: block; padding: 5px 5px 5px 0.5em;"> 缆芯材质: @dr["cable_material"]</li>
+                                                    <li style=" display: block; padding: 5px 5px 5px 0.5em;"> 截面直径: @dr["cable_d"]</li>
+                                                    <li style=" display: block; padding: 5px 5px 5px 0.5em;"> 生产日期: @dr["cable_produce_date"]</li>
+                                                    <li style=" display: block; padding: 5px 5px 5px 0.5em;"> 电缆长度(米): @dr["cable_len"]</li>
+                                                </ul>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </td>
+                                <td width="60px">
+                                    &nbsp
+                                </td>
+
+                            if (i == 2)
+                            {
+                                @:</tr>
+                                @:<tr>
+                                    @:<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+                                @:</tr>
+                                @:<tr>
+                            }
+
+
+                        }
+                        ds.Dispose();
+                      }
+                      
+                </tr>
+             </table>

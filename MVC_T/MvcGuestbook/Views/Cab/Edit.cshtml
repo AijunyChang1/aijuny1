@@ -1,0 +1,337 @@
+﻿@{
+
+    System.Data.DataSet ds = (System.Data.DataSet)ViewData["ds"];
+    System.Data.DataRow dr = ds.Tables[0].Rows[0];
+
+}
+
+
+<script language="JavaScript" type="text/javascript">
+    function text_focus(elem) {
+        elem.placeholder = "";
+    }
+    function verify(obj) {
+/*
+        var channel_id = $("#channelid").val();
+        if (channel_id == 0) {
+            document.getElementById("errorlabel").innerHTML = "请选择通道号";
+            document.getElementById("errorlabel").style.visibility = "visible";
+            return false;
+
+        }
+
+        if (obj.cabmat.value == 0) {
+            document.getElementById("errorlabel").innerHTML = "请选择芯材";
+            document.getElementById("errorlabel").style.visibility = "visible";
+            return false;
+
+        }
+
+        return true;
+        */
+
+
+        document.getElementById("errorlabel").style.visibility = "hidden";
+        var cb_type = $("#type").val();
+        if (cb_type != null) {
+            cb_type = $.trim(cb_type);
+        }
+        if ((cb_type == null) || (cb_type.length == 0)) {
+            document.getElementById("errorlabel").innerHTML = "请输入电缆型号";
+            document.getElementById("errorlabel").style.visibility = "visible";
+            return false;
+
+        }
+
+        var cb_producer = $("#producer").val();
+        if (cb_producer != null) {
+            cb_producer = $.trim(cb_producer);
+        }
+        if ((cb_producer == null) || (cb_producer.length == 0)) {
+            document.getElementById("errorlabel").innerHTML = "请输入电缆生产厂家";
+            document.getElementById("errorlabel").style.visibility = "visible";
+            return false;
+
+        }
+
+        var cb_prodate = $("#prodate").val();
+        if (cb_prodate != null) {
+            cb_prodate = $.trim(cb_prodate);
+        }
+        if ((cb_prodate == null) || (cb_prodate.length == 0)) {
+            document.getElementById("errorlabel").innerHTML = "请输入电缆生产日期";
+            document.getElementById("errorlabel").style.visibility = "visible";
+            return false;
+
+        }
+
+        var cb_len = $("#cablen").val();
+        if (cb_len != null) {
+            cb_len = $.trim(cb_len);
+        }
+        if ((cb_len == null) || (cb_len.length == 0)) {
+            document.getElementById("errorlabel").innerHTML = "请输入电缆长度";
+            document.getElementById("errorlabel").style.visibility = "visible";
+            return false;
+        }
+
+        var cb_dia = $("#cabdi").val();
+        if (cb_dia != null) {
+            cb_dia = $.trim(cb_dia);
+        }
+        if ((cb_dia == null) || (cb_dia.length == 0)) {
+            document.getElementById("errorlabel").innerHTML = "请输入缆芯直径";
+            document.getElementById("errorlabel").style.visibility = "visible";
+            return false;
+        }
+
+
+        var channel_id = $("#channelid").val();
+        if (channel_id == 0) {
+            document.getElementById("errorlabel").innerHTML = "请选择通道号";
+            document.getElementById("errorlabel").style.visibility = "visible";
+            return false;
+
+        }
+
+        var cab_mat = $("#cabmat").val();
+        if (cab_mat != null) {
+            cab_mat = $.trim(cab_mat);
+        }
+        if (cab_mat == 0) {
+            document.getElementById("errorlabel").innerHTML = "请选择芯材";
+            document.getElementById("errorlabel").style.visibility = "visible";
+            return false;
+
+        } 
+        var url_str = '/Cab/Editcabdb?id=' +  @dr["id"];
+        url_str = url_str + "&type=" + cb_type;
+        url_str = url_str + "&producer=" + cb_producer;
+        url_str = url_str + "&prodate=" + cb_prodate;
+        url_str = url_str + "&cablen=" + cb_len;
+        url_str = url_str + "&cabdi=" + cb_dia;
+        url_str = url_str + "&channelid=" + channel_id;
+        url_str = url_str + "&cabmat=" + cab_mat;
+        $(location).prop('href', url_str);
+
+        return true;
+
+    }
+
+
+
+
+    function getfilepath() {
+        var channel_id = $("#channelid").val();
+        if (channel_id == 0) {
+            alert("请先选择通道号！");
+            return false;
+        }
+        var file_ctx = document.getElementById('fileinp');
+        var filename = file_ctx.files[0].name;
+        $("#picpath").val(filename);
+    }
+</script>
+
+<table>
+    <tr><td>&nbsp;</td></tr>
+    <tr>
+        <td>
+
+            <div style="width: 600px; margin-left: 200px; color: #3F4F70;">
+
+                <h3 align="center">修改电缆(电缆号: @(dr["id"]))</h3>
+                <hr class="hrregist" />
+
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td height="5px">&nbsp;</td>
+    </tr>
+    <tr>
+        <td>
+            @{
+                string ur = "/Cab/Editcabdb?id=" + dr["id"];
+
+            }
+            <!--<form action=@(ur) onsubmit="return verify(this)" method="post">-->
+            <p class="pregist"><span class="inputlabel">电缆型号: &nbsp;&nbsp;&nbsp;</span> <input type="text" class="inputbox" name="type" id="type" required="required" value='@dr["cable_type"]' onfocus="text_focus(this)"></p>
+            <p class="pregist"><span class="inputlabel">生产厂家: &nbsp;&nbsp;&nbsp; </span> <input type="text" class="inputbox" name="producer" id="producer" placeholder="请填写生产厂家" required="required" value='@dr["cable_producer"]' onfocus="text_focus(this)"></p>
+            <p class="pregist"><span class="inputlabel">生产日期: &nbsp;&nbsp;&nbsp; </span> <input type="text" class="inputbox" name="prodate" id="prodate" placeholder="请填写生产日期" required="required" value='@dr["cable_produce_date"]' onfocus="text_focus(this)"></p>
+
+            <p class="pregist"><span class="inputlabel">电缆直径: &nbsp;&nbsp;&nbsp; </span> <input type="text" class="inputbox" name="cabdi" id="cabdi" placeholder="请填写电缆直径" required="required" value='@dr["cable_d"]' onfocus="text_focus(this)"></p>
+
+
+            <p class="pregist">
+                <span class="inputlabel">电缆芯材: &nbsp;&nbsp;&nbsp;</span>
+                <select id="cabmat" class="inputboxq" name="cabmat" value='@dr["cable_material"]'>
+                    @{
+                        if (dr["cable_material"].ToString() == "0")
+                        {
+                            <option value="0" selected></option>
+                        }
+                        else
+                        {
+                            <option value="0"></option>
+                        }
+                        if (dr["cable_material"].ToString() == "1")
+                        {
+                            <option value="1" selected>铜芯</option>
+                        }
+                        else
+                        {
+                            <option value="1">铜芯</option>
+                        }
+                        if (dr["cable_material"].ToString() == "2")
+                        {
+                            <option value="2" selected>铝芯</option>
+                        }
+                        else
+                        {
+                            <option value="2">铝芯</option>
+                        }
+
+                        if (dr["cable_material"].ToString() == "3")
+                        {
+                            <option value="3" selected>铜铝合金</option>
+                        }
+                        else
+                        {
+                            <option value="3">铜铝合金</option>
+                        }
+                    }
+                </select>
+            </p>
+            <p class="pregist"><span class="inputlabel">电缆长度（米）: &nbsp;&nbsp;&nbsp; </span> <input type="text" class="inputbox" name="cablen" id="cablen" placeholder="请填写电缆长度" required="required" value='@dr["cable_len"]' onfocus="text_focus(this)"></p>
+            @using (Ajax.BeginForm("UploadFile", "Cab", new AjaxOptions() { OnSuccess = "OnQuerySuccess", OnFailure = "OnQueryFail", HttpMethod = "Post" }, new { enctype = "multipart/form-data", id = "FormBaseData" }))
+            {
+
+                //<p class="pregist">
+                //    <span class="inputlabel">通道号:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  </span>
+                //    <select id="channelid" class="inputboxq" name="channelid">
+                //        <option value="0" selected></option>
+                //        <option value="1">1</option>
+                //        <option value="2">2</option>
+                //        <option value="3">3</option>
+                //        <option value="4">4</option>
+
+                //   </select>
+                // </p>
+
+                <p class="pregist">
+                    <span class="inputlabel">通道号:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  </span>
+                    <select id="channelid" class="inputboxq" name="channelid">
+                        @{
+                            string picurl = "/Pictures/ch" + dr["channel"].ToString() + ".jpg";
+                            if (dr["channel"].ToString() == "0")
+                            {
+                                <option value="0" selected></option>
+                            }
+                            else
+                            {
+                                <option value="0"></option>
+                            }
+
+                            if (dr["channel"].ToString() == "1")
+                            {
+                                <option value="1" selected>1</option>
+                            }
+                            else
+                            {
+                                <option value="1">1</option>
+                            }
+
+                            if (dr["channel"].ToString() == "2")
+                            {
+                                <option value="2" selected>2</option>
+                            }
+                            else
+                            {
+                                <option value="2">2</option>
+                            }
+
+                            if (dr["channel"].ToString() == "3")
+                            {
+                                <option value="3" selected>3</option>
+                            }
+                            else
+                            {
+                                <option value="3">3</option>
+                            }
+
+                            if (dr["channel"].ToString() == "4")
+                            {
+                                <option value="4" selected>4</option>
+                            }
+                            else
+                            {
+                                <option value="4">4</option>
+                            }
+
+                        }
+
+                    </select>
+                </p>
+
+                <p class="pregist">
+                    <span class="inputlabel">电缆图片: &nbsp; </span>
+                    <label for="fileinp">
+                        <input type="hidden" name="MouldId" id="MouldId" value="9527" />
+                        <input type="text" class="inputboxpath" name="picpath" id="picpath" />
+                        <input type="file" name="file1" accept=".jpg;" id="fileinp" onchange="getfilepath()">
+                        <input type="button" value="浏览..." />
+                    </label>
+                </p>
+
+                <p class="pregist">
+                    <input type="submit" id="btnSubmit" value="重新上传图片" class="submit_button"><span id="text"></span>
+                    <img src="@picurl" height="80" display:inline; alt="图片预览" id="mypicture" />
+                </p>
+
+
+            }
+
+
+
+
+
+            <p class="pregist"><span id="errorlabel" style="color:red;"></span></p>
+            <p class="pregist">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;<input type="button" id="newaccbtn" class="submit_button" value="确认修改" onclick="verify(this)"></p>
+            <!-- </form>-->
+        </td>
+    </tr>
+
+</table>
+
+<script src="~/Scripts/jquery-ui.js"></script>
+<script>
+    $(document).ready(
+        function () {
+            $("#prodate").datepicker({
+                inline: true,
+                dateFormat: "yy-mm-dd"
+            });
+        }
+    );
+
+    function OnQuerySuccess(data) {
+        if (data[0] == '/') {
+            $("#mypicture").attr({ "src": data });
+            $("#mypicture").attr({ "width": 80 });
+            $("#mypicture").attr({ "height": 80 });
+            // $("#mypicture").style.visibility = "visible";
+            $("#mypicture").show();
+        }
+        else {
+            alert(data);
+        }
+    }
+
+    function OnQueryFail() {
+        alert("发生错误!");
+
+    }
+
+</script>
+

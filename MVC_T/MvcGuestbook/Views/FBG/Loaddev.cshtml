@@ -1,0 +1,40 @@
+﻿@{
+
+    System.Data.DataSet ds = (System.Data.DataSet)ViewData["ds"];
+
+}
+
+
+<span class="inputlabel">选择设备:</span>
+<select id="botchid" class="inputboxq" onchange="selectdev(this)">
+
+    @{
+        int a = 0;
+        string de_dev = "";
+        foreach (System.Data.DataRow dr in ds.Tables[0].Rows)
+        {
+            if (a == 0)
+            {
+
+                <option value='@(dr["dev_id"])' selected>@(dr["dev_id"])</option>
+                de_dev = dr["dev_id"].ToString();
+            }
+            else
+            {
+
+                <option value='@(dr["dev_id"])'>@(dr["dev_id"])</option>
+            }
+            a = a + 1;
+
+        }
+
+        ds.Dispose();
+    }
+
+
+</select>
+<script language="JavaScript" type="text/javascript">
+
+    default_dev = '@(de_dev)';
+    show_sor();
+</script>

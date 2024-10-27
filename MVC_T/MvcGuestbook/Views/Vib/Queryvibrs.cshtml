@@ -1,0 +1,176 @@
+﻿@{
+
+    System.Data.DataSet ds = (System.Data.DataSet)ViewData["ds"];
+    int fyleft = int.Parse(ViewBag.Vibcount) % 10;
+    int fypagen = int.Parse(ViewBag.Vibcount) / 10;
+    if (fyleft > 0)
+    {
+        fypagen = fypagen + 1;
+    }
+
+}
+
+<script language="JavaScript" type="text/javascript">
+    function getnextpage() {
+        var totpage =@(fypagen);
+        var curpage = $(".curpage").text();
+        curpage = parseInt(curpage) + 1;
+
+        var pagetxt;
+        if ((curpage >= 1) && (curpage <= 500)) {
+            if (curpage <= totpage) {
+                $(".curpage").text(curpage);
+
+                var qstr = "npage=" + curpage;
+                $(".showdetail").load("/Vib/vibfypage?" + qstr);
+            }
+        }
+        else {
+            $(".showdetail").html("<br/><div style='font-size:14px;padding-left:150px;color: red;'>共查到超过5000条记录，请选择查询条件进行过滤！</div><br/>")
+        }
+
+    }
+    function getprepage() {
+
+        var totpage =@(fypagen);
+        var curpage = $(".curpage").text();
+        curpage = parseInt(curpage) - 1;
+        var pagetxt;
+        if ((curpage >= 1) && (curpage <= 500)){
+            $(".curpage").text(curpage);
+
+            var qstr = "npage=" + curpage;
+            $(".showdetail").load("/Vib/vibfypage?" + qstr);
+        }
+        else
+        {
+            if (curpage > 500) {
+                $(".showdetail").html("<br/><div style='font-size:14px;padding-left:150px;color: red;'>共查到超过5000条记录，请选择查询条件进行过滤！</div><br/>")
+            }
+
+        }
+    }
+
+    function getfirstpage() {
+        $(".curpage").text("1");
+        var qstr = "npage=1" ;
+        $(".showdetail").load("/Vib/vibfypage?" + qstr);
+    }
+
+    function getlastpage() {
+        var totpage =@(fypagen);
+        if (totpage <= 500) {
+            $(".curpage").text(totpage);
+            var curpage = parseInt(totpage);
+            var qstr = "npage=" + curpage;
+            $(".showdetail").load("/Vib/vibfypage?" + qstr);
+        }
+        else
+        {
+            $(".showdetail").html("<br/><div style='font-size:14px;padding-left:150px;color: red;'>共查到超过5000条记录，请选择查询条件进行过滤！</div><br/>")
+        }
+    }
+
+    function getpage() {
+        var totpage =@(fypagen);
+        var curpage = $("#fyb").val();
+        if ((totpage > 500) && (curpage > 500)) {
+            $(".showdetail").html("<br/><div style='font-size:14px;padding-left:150px;color: red;'>共查到超过5000条记录，请选择查询条件进行过滤！</div><br/>")
+        }
+        else {
+            if ((curpage >= 1) && (curpage <= 500)) {
+                if (curpage <= totpage) {
+                    $(".curpage").text(curpage);
+                    var qstr = "npage=" + curpage;
+                    $(".showdetail").load("/Vib/vibfypage?" + qstr);
+                }
+            }
+        }
+    }
+
+</script>
+
+
+<table>
+    <tr>
+        <td style="height:50px;">
+            <div style="color: #3F4F70;font-weight:bold">共查到振动报警:&nbsp<font color="red"> @(ViewBag.Vibcount)</font> &nbsp;个 </div>
+
+        </td>
+    </tr>
+    <tr>
+
+        <td>
+            <div class="showdetail">
+                <table class="realtb">
+
+                    <tr align="center">
+                        <th width="10px">&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                        <th width="60px"><b>编号</b></th>
+                        <th width="180px"><b>报警时间</b></th>
+                        <th><b>通道号</b></th>
+                        <th width="110px"><b>报警等级</b></th>
+                        <th><b>样本号</b></th>
+                        <th width="140px"><b>报警位置(米)</b></th>
+                        <th width="100px"><b>报警宽度</b></th>
+                        <th height="50px" width="90px"><b>最大强度</b></th>
+                        <th width="90px"><b>可信度</b></th>
+                        <th width="100px"><b>状态</b></th>
+                        <th width="120px"><b>振动最大强度图</b></th>
+                    </tr>
+                    @{
+                        int i = 0;
+                        foreach (System.Data.DataRow dr in ds.Tables[0].Rows)
+                        {
+                            i = i + 1;
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td>@dr["id"]</td>
+                                            <td>@dr["push_time"]</td>
+                                            <td>@dr["channel_id"]</td>
+                                            <td>@dr["level"]</td>
+                                            <td>@dr["sample_id"]</td>
+                                            <td>@dr["center_pos"]</td>
+                                            <td>@dr["event_width"]</td>
+                                            <td>@dr["max_intensity"]</td>
+                                            <td height="36px">@dr["possibility"]</td>
+                                            <td>@dr["show_check"]</td>
+                                            <td><progress value="@(dr["max_intensity"])" max="255"></progress></td>
+                                        </tr>
+                            if (i == 10)
+                            {
+                                break;
+                            }
+
+                        }
+                        ds.Dispose();
+
+                    }
+
+                </table>
+             </div>
+
+        </td>
+
+    </tr>
+
+    <tr>
+        <td>
+
+
+            <div class="fy">
+                <a href="#" title="首页" onclick="getfirstpage()">首页</a>
+                <a href="#" title="上一页" onclick="getprepage()">上一页</a>
+                &nbsp; 共<span id="fytotal">@(fypagen)</span>页&nbsp; 第<span id="fytotal" class="curpage">1</span>页 &nbsp;
+                <a href="#" title="下一页" onclick="getnextpage()">下一页</a>
+                <a href="#" title="尾页" onclick="getlastpage()">尾页</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                转到第<input type="text" id="fyb" />页&nbsp; <a href="#" title="Go" onclick="getpage()">Go</a>
+            </div>
+
+
+        </td>
+    </tr>
+
+</table>
+

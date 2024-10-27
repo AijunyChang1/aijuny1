@@ -1,0 +1,36 @@
+﻿
+
+
+
+
+
+<div id="l-map" style="width:700px; height:660px; background:#888888; "></div>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=3.0&ak=VjAfS5eCdPUpM5vwTaHjcdPu977XY2uE"></script>
+
+<script type="text/javascript">
+
+            // 百度地图API功能
+        var map = new BMap.Map("l-map");
+        var point = new BMap.Point(121.441205, 31.103392);
+        map.centerAndZoom(point, 16);
+        var marker = new BMap.Marker(point);  // 创建标注
+        map.addOverlay(marker);              // 将标注添加到地图中
+        marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+
+
+        map.addControl(new BMap.OverviewMapControl());              //添加默认缩略地图控件
+        map.addControl(new BMap.OverviewMapControl({ isOpen: true, anchor: BMAP_ANCHOR_TOP_RIGHT }));   //右上角，打开
+
+
+        map.addControl(new BMap.NavigationControl());  //添加默认缩放平移控件
+        map.addControl(new BMap.NavigationControl({ anchor: BMAP_ANCHOR_TOP_RIGHT, type: BMAP_NAVIGATION_CONTROL_SMALL }));  //右上角，仅包含平移和缩放按钮
+        map.addControl(new BMap.NavigationControl({ anchor: BMAP_ANCHOR_BOTTOM_LEFT, type: BMAP_NAVIGATION_CONTROL_PAN }));  //左下角，仅包含平移按钮
+        map.addControl(new BMap.NavigationControl({ anchor: BMAP_ANCHOR_BOTTOM_RIGHT, type: BMAP_NAVIGATION_CONTROL_ZOOM }));  //右下角，仅包含缩放按钮
+
+        map.centerAndZoom(point, 17);                   // 初始化地图,设置城市和地图级别。
+
+        map.enableScrollWheelZoom();    //启用滚轮放大缩小，默认禁用
+        map.enableContinuousZoom();    //启用地图惯性拖拽，默认禁用
+
+
+</script>

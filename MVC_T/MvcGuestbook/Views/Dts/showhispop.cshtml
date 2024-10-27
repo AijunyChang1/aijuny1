@@ -1,0 +1,99 @@
+﻿
+@{
+
+    string rid = ViewBag.rid;
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>showhispop</title>
+    <link rel="stylesheet" href="~/Content/index.css" />
+    <link rel="stylesheet" href="~/Content/hkcss.css" />
+    <link href="~/Content/jquery-ui.css" rel="stylesheet" />
+    <script src="~/Scripts/echarts.js"></script>
+    <script src="~/Scripts/wonderland.js"></script>
+    <script src="~/Scripts/jquery-3.6.0.js"></script>
+
+</head>
+<body>
+
+    <div id="Showchart" style="width: 500px;height:300px;background:#ffffff">
+    </div>
+
+    <script language="JavaScript" type="text/javascript">
+        var DataChart;
+        DataChart = echarts.init(document.getElementById('Showchart'), 'wonderland');
+        var pos = [];
+        var valu = [];
+        var arr0 = [];
+        DataChart.showLoading();
+        var id =@rid;
+
+        $.get('/Dts/Getbarjson?id=' + id, function (data) {
+
+            for (var i = 0; i < data.Pos.length; i++) {
+                pos[i] = JSON.parse(data.Pos[i]);//以特定的JSON的格式接收数字
+            }
+            for (var i = 0; i < data.Valu.length; i++) {
+                valu[i] = data.Valu[i];//以JSON的方式接收字符串
+            }
+            //console.log("对象数组valu:" + valu)
+
+            DataChart.setOption({
+                tooltip: {
+                    trigger: 'axis',
+                    showContent: true,
+                },
+                dataZoom: {
+                    type: 'inside',
+                    show: true,
+                },
+                title: {
+                    text: '温度分布图(编号：' + id + ')',
+                    textStyle: {   //主标题的样式
+                        color: 'red',
+                        fontWeight: 'bold',
+                        fontStyle: 'italic',
+                        fontFamily: '微软雅黑'
+                    },
+                    x: 'center'
+                },
+                grid: {
+                    top: '20%',
+                },
+                xAxis: {
+                    name: '位置',
+                    type: 'category',
+                    data: pos,
+                    axisLabel: {
+                        rotate: '35',
+                        interval: 50
+                    }
+                },
+
+                yAxis: {
+                    type: 'value',
+                    name: '温度值（℃）',
+                },
+
+                series: [
+                    {
+                        name: '温度值',
+                        type: 'line',    // 设置图表类型为饼图
+                        data: valu,
+                        showSymbol: false,
+                    }
+                ]
+            })
+        }, 'json');
+        DataChart.hideLoading();
+
+    </script>
+</body>
+
+
+</html>

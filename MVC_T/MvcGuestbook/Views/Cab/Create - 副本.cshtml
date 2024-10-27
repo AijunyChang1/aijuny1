@@ -1,0 +1,112 @@
+﻿<script language="JavaScript" type="text/javascript">
+    function text_focus(elem) {
+        elem.placeholder = "";
+    }
+    function verify(obj) {
+        /*
+        var temp = obj.username.value;
+        temp = temp.trim();
+        if (temp == '') {
+            document.getElementById("errorlabel").innerHTML = "用户名不能为空，请重新输入";
+            document.getElementById("errorlabel").style.visibility = "visible";
+            return false;
+        }
+        if (obj.passwd.value == '') {
+            document.getElementById("errorlabel").innerHTML = "密码不能为空，请重新输入";
+            document.getElementById("errorlabel").style.visibility = "visible";
+            return false;
+        }
+        if (obj.passwd.value != obj.repasswd.value) {
+            document.getElementById("errorlabel").innerHTML = "密码和确认密码不一致，请重新输入";
+            document.getElementById("errorlabel").style.visibility = "visible";
+            return false;
+        }
+        */
+        var channel_id = $("#channelid").val();
+        if (channel_id==0) {
+            document.getElementById("errorlabel").innerHTML = "请选择通道号";
+            document.getElementById("errorlabel").style.visibility = "visible";
+            return false;
+
+        }
+
+        if (obj.cabmat.value == 0) {
+            document.getElementById("errorlabel").innerHTML = "请选择芯材";
+            document.getElementById("errorlabel").style.visibility = "visible";
+            return false;
+
+        }
+
+        return true;
+
+    }
+</script>
+
+<table>
+    <tr><td>&nbsp;</td></tr>
+    <tr>
+        <td>
+
+            <div style="width: 600px; margin-left: 200px; color: #3F4F70;">
+
+                <h3 align="center">创建电缆</h3>
+                <hr class="hrregist" />
+
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td height="5px">&nbsp;</td>
+    </tr>
+    <tr>
+        <td>
+            <form action="/Cab/Savecab" ENCTYPE="multipart/form-data" onsubmit="return verify(this)" method="post">
+                <p class="pregist"><span class="inputlabel">电缆型号: &nbsp;&nbsp;&nbsp;</span> <input type="text" class="inputbox" name="type" placeholder="请填写型号" required="required" onfocus="text_focus(this)"></p>
+                <p class="pregist"><span class="inputlabel">生产厂家: &nbsp;&nbsp;&nbsp; </span> <input type="text" class="inputbox" name="producer" placeholder="请填写生产厂家" required="required" onfocus="text_focus(this)"></p>
+                <p class="pregist"><span class="inputlabel">生产日期: &nbsp;&nbsp;&nbsp; </span> <input type="text" class="inputbox" name="prodate" id="prodate" placeholder="请选择生产日期" required="required" onfocus="text_focus(this)"></p>
+                <p class="pregist"><span class="inputlabel">电缆长度: &nbsp;&nbsp;&nbsp; </span> <input type="text" class="inputbox" name="cablen" placeholder="请填写电缆长度" required="required" onfocus="text_focus(this)"></p>
+                <p class="pregist"><span class="inputlabel">电缆直径: &nbsp;&nbsp;&nbsp; </span> <input type="text" class="inputbox" name="cabdi" placeholder="请填写电缆直径" required="required" onfocus="text_focus(this)"></p>
+                <p class="pregist"><span class="inputlabel">请上传电缆图片: &nbsp;&nbsp;&nbsp; </span></p>
+                <p class="pregist"><span class="inputlabel">&nbsp;&nbsp;&nbsp;</span> <input type="text" class="inputbox" name="cabdi" /><input type="button" name="uploadpic" class="submit_button" value="选择图片" /></p>
+
+                <p class="pregist">
+                    <span class="inputlabel">通道号:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  </span>
+                    <select id="channelid" class="inputboxq" name="channelid">
+                        <option value="0" selected></option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+
+                    </select>
+                </p>
+                <p class="pregist">
+                    <span class="inputlabel">电缆芯材: &nbsp;&nbsp;&nbsp;</span>
+                    <select id="cabmat" class="inputboxq" name="cabmat">
+                        <option value="0" selected></option>
+                        <option value="1">铜芯</option>
+                        <option value="2">铝芯</option>
+                        <option value="3">铜铝合金</option>
+
+                    </select>
+                </p>
+
+                <p class="pregist"><span id="errorlabel" style="color:red;"></span></p>
+                <p class="pregist">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;<input type="submit" id="newaccbtn" class="submit_button" value="创建电缆"></p>
+            </form>
+        </td>
+    </tr>
+
+</table>
+
+<script src="~/Scripts/jquery-ui.js"></script>
+<script>
+    $(document).ready(
+        function () {
+            $("#prodate").datepicker({
+                inline: true,
+                dateFormat: "yy-mm-dd"
+            });
+        }
+    );
+</script>

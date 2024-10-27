@@ -1,0 +1,73 @@
+﻿@{
+
+    System.Data.DataSet ds = (System.Data.DataSet)ViewData["ds"];
+    int curpage = int.Parse(ViewBag.curpage);
+
+}
+
+<table class="realtb">
+
+    <tr align="center">
+        <th>&nbsp;&nbsp;&nbsp;&nbsp;</th>
+        <th width="100px"><b>编号</b></th>
+        <th width="130px"><b>报警时间</b></th>
+        <th width="110px"><b>通道号</b></th>
+        <th width="110px"><b>分区号</b></th>
+        <th width="140px" height="50px"><b>起始位置（米）</b></th>
+        <th width="140px"><b>结束位置(米)</b></th>
+        <th width="120px"><b>报警类型</b></th>
+        <th width="120px"><b>是否已确认</b></th>
+        <th width="120px"><b>实时数据图</b></th>
+    </tr>
+
+    @{
+        int i = 0;
+        // foreach (System.Data.DataRow dr in ds.Tables[0].Rows)
+        System.Data.DataRow dr;
+        int line = ds.Tables[0].Rows.Count;
+        int rown = 0;
+        if ((line - 10 * (curpage - 1)) < 10)
+        {
+            rown = line % 10;
+        }
+        else
+        {
+            rown = 10;
+        }
+        for (i = 0; i < rown; i++)
+        {
+            if (ds == null)
+            {
+                break;
+
+            }
+            else
+            {
+                dr = ds.Tables[0].Rows[10 * (curpage - 1) + i];
+                double i_begin = double.Parse(dr["begin_pos"].ToString()) * 41 / 100;
+                double i_end = double.Parse(dr["end_pos"].ToString()) * 41 / 100;
+
+
+        <tr>
+            <td>&nbsp;</td>
+            <td>@dr["id"]</td>
+            <td width="200px">@dr["alarm_time"]</td>
+            <td style="height:36px">@dr["channel_id"]</td>
+            <td>@dr["area_no"]</td>
+            <td>@i_begin</td>
+            <td>@i_end</td>
+            <td>@dr["alarm_type"]</td>
+            <td>@dr["show_check"]</td>
+            <td><a class="norbn" href="#" onclick="query_dts_pop('@dr["id"]','@dr["alarm_time"]')">查询</a></td>
+
+
+        </tr>
+                //ds.Dispose();
+
+            }
+        }
+    }
+
+
+</table>
+

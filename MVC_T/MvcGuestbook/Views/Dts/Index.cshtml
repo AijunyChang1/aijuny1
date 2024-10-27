@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewBag.Title = "DTS测温系统实时数据";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts
+{
+    <script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.js")"></script>
+}
+
+
+<script src="~/Scripts/echarts.js"></script>
+<script src="~/Scripts/wonderland.js"></script>
+<script language="JavaScript" type="text/javascript">
+    $('body').everyTime('5s', function () {
+        $(".rlarea").load("/Dts/Areadata");
+        $(".alarmrea").load("/Dts/Areaalarm");
+    });
+</script>
+
+
+<table>
+    <tr>
+        <td>
+            <table>
+                <tr>
+                    <td>
+                        <div class="rlarea" id="botalarm">
+                            @Html.Action("Areadata")
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr><td height="40px">&nbsp;</td></tr>
+    <tr>
+        <td>
+            <table>
+                <tr>
+                    <td>
+                        @Html.Action("Areaset")
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr><td height="30px">&nbsp;</td></tr>
+    <tr>
+        <td>
+            <table>
+                <tr>
+                    <td>
+                        <div class="alarmrea" id="botalarm">
+                            @Html.Action("Areaalarm")
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+

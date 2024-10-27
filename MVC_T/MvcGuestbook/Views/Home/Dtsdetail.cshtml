@@ -1,0 +1,101 @@
+﻿@{
+
+    System.Data.DataSet ds = (System.Data.DataSet)ViewData["ds"];
+    System.Data.DataRow dr = ds.Tables[0].Rows[0];
+    string pos_begin = dr["begin_pos"].ToString();
+    string pos_end = dr["end_pos"].ToString();
+    double dot_len = ViewBag.dot_len;
+    double pos_b = Convert.ToDouble(pos_begin) * dot_len/100.00;
+    double pos_e = Convert.ToDouble(pos_end) * dot_len/100.00;
+    pos_begin = Convert.ToString(pos_b);
+    pos_end = Convert.ToString(pos_e);
+}
+
+
+
+<table>
+    <tr>
+        <td width="100px">&nbsp;</td>
+        <td>
+            <div style="color: #3F4F70;font-weight:bold">
+                DTS温度报警号： @ds.Tables[0].Rows[0]["id"]
+                <span id="conlable" style="visibility:hidden; color:red;">（已确认）</span>
+                <span id="oklable" style="visibility:hidden; color:green;">（确认为误报）</span>
+            </div>
+        </td>
+
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td width="100px">&nbsp;</td>
+        <td>
+            <table class="detailtb">
+                <tr>
+                    <td> <div style="color: #3F4F70;">报警详情:</div></td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr align="left">
+                    <td>&nbsp;</td>
+                    <td width="200px" align="left"><div class="inputlabel">通道号:</div></td>
+                    <td width="200px" align="left"><div>@dr["channel_id"]</div></td>
+                    <td width="100px">&nbsp;</td>
+                    <td width="200px" align="left"><div class="inputlabel">报警时间:</div></td>
+                    <td width="200px" align="left"><div>@dr["alarm_time"]</div></td>
+                </tr>
+
+                <tr align="left">
+                    <td>&nbsp;</td>
+                    <td width="200px" align="left"><div class="inputlabel">创建时间:</div></td>
+                    <td width="200px" align="left"><div>@dr["create_time"]</div></td>
+                    <td>&nbsp;</td>
+                    <td width="200px" align="left"><div class="inputlabel">域号:</div></td>
+                    <td width="200px" align="left"><div>@dr["area_no"]</div></td>
+                </tr>
+
+
+                <tr align="left">
+                    <td>&nbsp;</td>
+                    <td width="200px" align="left"><div class="inputlabel">报警类型:</div></td>
+                    <td width="200px" align="left"><div>@dr["alarm_type"]</div></td>
+                    <td>&nbsp;</td>
+                    <td width="200px" align="left"><div class="inputlabel">报警起始位置(米):</div></td>
+                    <td width="200px" align="left"><div>@pos_begin</div></td>
+                </tr>
+
+                <tr align="left">
+                    <td>&nbsp;</td>
+                    <td width="200px" align="left"><div class="inputlabel">最高温度（℃）:</div></td>
+                    <td width="200px" align="left"><div>@ViewBag.max_tmp</div></td>
+                    <td>&nbsp;</td>
+                    <td width="200px" align="left"><div class="inputlabel">报警结束位置（米）:</div></td>
+                    <td width="200px" align="left"><div>@pos_end</div></td>
+
+                </tr>
+
+                <tr><td> &nbsp;</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td> &nbsp;</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td> &nbsp;</td><td></td><td></td><td></td><td></td><td></td></tr>
+
+                <tr>
+                    <td> &nbsp;</td>
+                    <td> &nbsp;</td>
+                    <td>
+                        <a class="norbn" href="#alarmtb" onclick="dts_confirm('@(dr["id"])', 1)">确认</a>
+                    </td>
+                    <td><a class="norbn" href="#alarmtb" onclick="dts_confirm('@(dr["id"])', 2)">误报</a></td>
+                    <td> &nbsp;</td>
+                    <td> &nbsp;</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+
+</table>
+

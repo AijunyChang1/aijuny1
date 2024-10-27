@@ -1,0 +1,1109 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Bigscreen</title>
+    <link rel="stylesheet" href="~/Content/index.css" />
+    <link rel="stylesheet" href="~/Content/hkcss.css" />
+    <script src="~/Scripts/jquery-3.6.0.js"></script>
+    <script src="~/Scripts/jquery.timers-1.2.js" type="text/javascript"></script>
+    <link href="~/Content/jquery-ui.css" rel="stylesheet" />
+    <script src="~/Scripts/echarts.js"></script>
+    <script src="~/Scripts/wonderland.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=3.0&ak=VjAfS5eCdPUpM5vwTaHjcdPu977XY2uE"></script>
+    <script language="JavaScript" type="text/javascript">
+        var alarm_pos = 0;
+        var temp = 0;
+        var al_type = 0;
+        var al_id = 0;
+        var show_mode = 0; //默认显示全景模式
+        function vib_confirm(vibid, conflag) {
+
+            if (conflag == 1) {
+                $('#alarm_confirm').html("(已确认)");
+                $('#alarm_confirm').css("visibility", "visible");
+                /*
+                jQuery("#oklable").css("visibility", "hidden");
+                jQuery("#oklable").hide();
+                jQuery("#conlable").css("visibility", "visible");
+                jQuery("#conlable").show();
+                */
+            }
+            else {
+                /*
+                jQuery("#conlable").css("visibility", "hidden");
+                jQuery("#conlable").hide();
+                jQuery("#oklable").css("visibility", "visible");
+                jQuery("#oklable").show();
+                */
+                $('#alarm_confirm').html("(确认为误报)");
+                $('#alarm_confirm').css("visibility", "visible");
+
+            }
+
+            $.ajax({ url: "/Home/Setvibflag?id=" + vibid + "&flag=" + conflag, async: false });
+        }
+
+        function vib_fib_confirm(vibid, conflag) {
+
+            if (conflag == 1) {
+                /*
+                jQuery("#oklable").css("visibility", "hidden");
+                jQuery("#oklable").hide();
+                jQuery("#conlable").css("visibility", "visible");
+                jQuery("#conlable").show();
+                */
+                $('#alarm_confirm').html("(已确认)");
+                $('#alarm_confirm').css("visibility", "visible");
+            }
+            else {
+                /*
+                jQuery("#conlable").css("visibility", "hidden");
+                jQuery("#conlable").hide();
+                jQuery("#oklable").css("visibility", "visible");
+                jQuery("#oklable").show();
+                */
+                $('#alarm_confirm').html("(确认为误报)");
+                $('#alarm_confirm').css("visibility", "visible");
+            }
+
+            $.ajax({ url: "/Home/Setvibfibflag?id=" + vibid + "&flag=" + conflag, async: false });
+        }
+
+        function botda_confirm(vibid, conflag) {
+
+            if (conflag == 1) {
+                /*
+                jQuery("#oklable").css("visibility", "hidden");
+                jQuery("#oklable").hide();
+                jQuery("#conlable").css("visibility", "visible");
+                jQuery("#conlable").show();
+                */
+                $('#alarm_confirm').html("(已确认)");
+                $('#alarm_confirm').css("visibility", "visible");
+            }
+            else {
+                /*
+                jQuery("#conlable").css("visibility", "hidden");
+                jQuery("#conlable").hide();
+                jQuery("#oklable").css("visibility", "visible");
+                jQuery("#oklable").show();
+                */
+                $('#alarm_confirm').html("(确认为误报)");
+                $('#alarm_confirm').css("visibility", "visible");
+            }
+
+            $.ajax({ url: "/Home/Setbotdaflag?id=" + vibid + "&flag=" + conflag, async: false });
+        }
+
+        function dts_confirm(vibid, conflag) {
+
+            if (conflag == 1) {
+                /*
+                jQuery("#oklable").css("visibility", "hidden");
+                jQuery("#oklable").hide();
+                jQuery("#conlable").css("visibility", "visible");
+                jQuery("#conlable").show();
+                */
+                $('#alarm_confirm').html("(已确认)");
+                $('#alarm_confirm').css("visibility", "visible");
+            }
+            else {
+                /*
+                jQuery("#conlable").css("visibility", "hidden");
+                jQuery("#conlable").hide();
+                jQuery("#oklable").css("visibility", "visible");
+                jQuery("#oklable").show();
+                */
+                $('#alarm_confirm').html("(确认为误报)");
+                $('#alarm_confirm').css("visibility", "visible");
+            }
+
+            $.ajax({ url: "/Home/Setdtsflag?id=" + vibid + "&flag=" + conflag, async: false });
+        }
+
+
+
+
+
+        function call(htmlurl) {
+            //    var newwin=window.open(htmlurl,"airWin","top=0,left=0,toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=796,height=546");
+            //    newwin.focus();
+
+            //  return false;
+
+            //$.ajax({ url: "/Cab/Index", async: false });
+            if (document.documentElement.requestFullscreen) {
+                document.documentElement.requestFullscreen();
+            }
+            if (document.documentElement.mozRequestFullScreen) {
+                document.documentElement.mozRequestFullScreen();
+            }
+            if (document.documentElement.msRequestFullscreen) {
+                document.documentElement.msRequestFullscreen();
+            }
+            if (document.documentElement.webkitRequestFullscreen) {
+                document.documentElement.webkitRequestFullscreen();
+            }
+            $("#showBtn").hide();
+            return true;
+
+            // else {
+            //     if (document.exitFullscreen) {
+            //         document.exitFullscreen();
+            //     }
+            // }
+        }
+
+        function selectdev(obj)
+        {
+            var urgap = '/FBG/Getbarjson?dev=' + obj.value + '&sid=1-1&chartN=0';
+            GapChart.clear();
+            ShenyaChart.clear();
+            AlarmPie.clear();
+
+        }
+
+
+
+        function tempselectch(obj) {
+            var pos = [];
+            var valu = [];
+            var arr0 = [];
+            var ur = '/Dts/Getbarjson?ch=' + obj.value;
+            if ((DataChart != null) && (DataChart != "") && (DataChart != undefined)) {
+                DataChart.dispose();
+                DataChart = echarts.init(document.getElementById('Dtschart'), 'wonderland');
+            }
+
+
+
+            //  $.get('/Dts/Getbarjson', function (data) {
+            $.get(ur, function (data) {
+                if (data.Pos.length > 1) {
+
+                    for (var i = 0; i < data.Pos.length; i++) {
+                        pos[i] = JSON.parse(data.Pos[i]);//以特定的JSON的格式接收数字
+                    }
+                    for (var i = 0; i < data.Valu.length; i++) {
+                        valu[i] = data.Valu[i];//以JSON的方式接收字符串
+                    }
+                    //console.log("对象数组valu:" + valu)
+                    DataChart.clear();
+                    DataChart.setOption({
+                        tooltip: {
+                            trigger: 'axis',
+                            showContent: true,
+                        },
+                        dataZoom: {
+                            type: 'inside',
+                            show: true,
+                        },
+                        title: {
+                            text: '当前温度分布图',
+                            textStyle: {   //主标题的样式
+                                color: 'red',
+                                fontWeight: 'bold',
+                                fontStyle: 'italic',
+                                fontFamily: '微软雅黑',
+                                fontSize: 15,
+                            },
+                            x: 'center'
+                        },
+                        grid: {
+                            top: '20%',
+                            right: '15%',
+                        },
+                        xAxis: {
+                            name: '位置',
+                            type: 'category',
+                            data: pos,
+                            axisLabel: {
+                                rotate: '35',
+                                interval: 50,
+                            },
+                            splitLine: {
+                                show: false
+                            },
+                        },
+
+                        yAxis: {
+                            type: 'value',
+                            name: '温度（℃）',
+                            splitLine: {
+                                show: false
+                            },
+                        },
+
+                        series: [
+                            {
+                                name: '温度',
+                                type: 'line',    // 设置图表类型为饼图 bar
+                                data: valu,
+                                //      symbol: 'circle', //实心圆点
+                                symbol: 'none',
+                                showSymbol: false,
+                                smooth: 0.5,      //设置折线弧度
+                            }
+                        ],
+                        //color: ['#99CC33']
+                    });
+                    $("#Dtschart").show();
+                    $("#Dtschart1").hide();
+                }
+                else {
+                    $("#Dtschart").hide();
+                    $("#Dtschart1").show();
+                    $("#Dtschart1").html("<br/><br/><div style='font-size:14px;padding-left:150px;color: red;'>无该通道的温度数据！</div>")
+                }
+            }, 'json');
+            // alert(obj.value);
+
+
+
+
+        }
+
+        function botselectch(obj) {
+            var pos = [];
+            var valu = [];
+            var arr0 = [];
+            var ur = '/Bot/Getbarjson?ch=' + obj.value;
+            if ((BotChart != null) && (BotChart != "") && (BotChart != undefined)) {
+                BotChart.dispose();
+                BotChart = echarts.init(document.getElementById('Botchart'), 'wonderland');
+            }
+            $.get(ur, function (data) {
+                if (data.Pos.length > 1) {
+                    for (var i = 0; i < data.Pos.length; i++) {
+                        pos[i] = JSON.parse(data.Pos[i]);//以特定的JSON的格式接收数字
+                    }
+                    for (var i = 0; i < data.Valu.length; i++) {
+                        valu[i] = data.Valu[i];//以JSON的方式接收字符串
+                    }
+                    //console.log("对象数组valu:" + valu)
+                    BotChart.setOption({
+                        tooltip: {
+                            trigger: 'axis',
+                            showContent: true,
+                        },
+                        dataZoom: {
+                            type: 'inside',
+                            show: true,
+                        },
+                        title: {
+                            text: '实时应变图',
+                            textStyle: {   //主标题的样式
+                                color: 'red',
+                                fontWeight: 'bold',
+                                fontStyle: 'italic',
+                                fontFamily: '微软雅黑',
+                                fontSize: 15,
+                            },
+                            x: 'center'
+                        },
+                        grid: {
+                            top: '20%',
+                            right: '15%',
+                        },
+                        xAxis: {
+                            name: '位置',
+                            type: 'category',
+                            data: pos,
+                            splitLine: {
+                                show: false
+                            },
+                            axisLabel: {
+                                rotate: '35',
+                                interval: 200
+                            }
+                        },
+
+                        yAxis: {
+                            type: 'value',
+                            name: '应变值(με)',
+                            splitLine: {
+                                show: false
+                            },
+                        },
+
+                        series: [
+                            {
+                                name: '应变值',
+                                type: 'bar',    // 设置图表类型为饼图 bar
+                                data: valu,
+                            }
+                        ]
+                    });  //Set option
+                    $("#Botchart").show();
+                    $("#Botchart1").hide();
+                }
+                else {
+                    $("#Botchart").hide();
+                    $("#Botchart1").show();
+                    $("#Botchart1").html("<br/><br/><div style='font-size:14px;padding-left:150px;color: red;'>无该通道的应变数据！</div>")
+                }
+
+            }, 'json')
+
+        }
+
+
+        $("#showimg").hide();
+        $("#showimg1").hide();
+
+    </script>
+</head>
+<body style="background-image: url(\\Content\\bigscreen3.jpeg);background-size:1600px 1600px">
+    <table>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+
+                        <td width="350px" align="center">
+                            <div class="bigscntop">
+                                未处理的裂缝报警数：
+                                <br>
+                                <div id="vib_n" style="margin-top: 10px; color: #ffffff; font-size:15px">0</div>
+                            </div>
+                        </td>
+                        <td width="350px" align="center">
+                            <div class="bigscntop">
+                                未处理渗压报警数：
+                                <br>
+                                <div id="fib_n" style="margin-top: 10px; color: #ffffff; font-size:15px">0</div>
+                            </div>
+                        </td>
+                        <td width="350px" align="center">
+                            <div class="bigscntop">
+                                未处理沉降报警数：
+                                <br>
+                                <div id="bot_n" style="margin-top: 10px; color: #ffffff; font-size:15px">0</div>
+                            </div>
+                        </td>
+                        <td width="350px" align="center">
+                            <div class="bigscntop">
+                                未处理温度报警数：
+                                <br>
+                                <div id="dts_n" style="margin-top: 10px; color: #ffffff; font-size:15px">0</div>
+                            </div>
+                        </td>
+                        <td width="350px" align="center">
+                            <div class="bigscntop">
+                                登陆用户名：
+                                <br>
+                                <div id="uname" style="margin-top: 10px; color: #ffffff; font-size:15px"> </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td>
+                            <table border="1">
+                                <tr>
+                                    <td width="420px" align="center">
+                                        <table>
+                                            <tr>
+                                                <td height="400px">
+                                                    <!--
+    <span style="font-size:14px; color:#aaccff; margin-left:0px;">通道号: </span>
+    <select id="tempchid" class="inputboxq" onchange="tempselectch(this)">
+        <option value="1" selected>1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+    </select>
+    -->
+
+                                                    <div id="selectdev" class="selectdev">hello</div>
+                                                    <br>
+
+                                                    &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+                                                    <br>
+                                                    <!--
+    <div id="Dtschart" style="width: 320px;height:220px;margin-left:20px"> </div>
+    <div id="Dtschart1" style="width: 320px;height:220px;margin-left:20px;"> </div>
+    -->
+                                                    <div id="gapchart" style="width: 355px;height:220px;margin-left:10px"> </div>
+                                                    <div id="gapchart1" style="width: 355px;height:220px;margin-left:10px;"> </div>
+                                                   
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <br><br><br>
+                                                    <!--
+                                                    <span style="font-size:14px; color:#aaccff; margin-left:0px;">通道号:</span>
+                                                    <select id="botchid" class="inputboxq" onchange="botselectch(this)">
+                                                        <option value="1" selected>1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                    </select>
+                                                        -->
+                                                    &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+                                                    <br><br>
+                                                    <div id="shenyachart" style="width: 355px;height:220px;margin-left:10px"> </div>
+                                                    <div id="shenyachart1" style="width: 355px;height:220px;margin-left:10px;"> </div>
+                                                    <br><br><br>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+
+                                    <td width="800px" align="center">
+                                        <br>
+                                        <!--div class="cabimage" id="cabimage">-->
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <div id="imagepos" style="width:700px; height:660px; background:#888888; ">
+                                                        <div id="mpic">
+                                                            <img id="showimg" src="~/images/subway2.png" width="700" height="660">
+                                                            <img id="showimg1" src="~/images/subway1.png" width="700" height="660">
+                                                        </div>
+                                                        <div id="mmap">
+                                                            <div id="l-map" style="width:700px; height:660px; background:#888888; "></div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <a id="bsbn" class="bsbn" href="#" onclick="ldmap(al_id, al_type)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;切换为地图模式&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+
+                                                </td>
+                                            </tr>
+
+                                        </table>
+
+                                        <br>
+                                        <!-- </div> -->
+                                        <!--
+                                        <span style="font-size:14px; color:#aaccff; margin-left:0px;">通道号:</span>
+                                        <select id="botchid" class="inputboxq" onchange="botselectch(this)">
+                                            <option value="1" selected>1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                        </select>
+                                        &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+                                        <br><br>
+                                        <div id="Botchart" style="width: 380px;height:260px;margin-left:20px"> </div>
+                                        <div id="Botchart1" style="width: 380px;height:260px;margin-left:20px;"> </div>
+                                        -->
+                                    </td>
+
+                                    <td width="420px" align="center">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <br>
+                                                    <div id="Alarmpie" style="width:355px;height:260px;"></div>
+
+                                                    <div id="Alarmpie1" style="width: 355px;height:260px;margin-left:20px;"> </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <br>
+                                                    <br>
+                                                    <div class="bigalarmdetail">
+                                                        <div id="alarm_data" style="width: 330px;height: 30px;margin-left:20px;"> 最新未处理报警：</div>
+                                                        <br>
+                                                        <div id="alarm_type" style="margin-top: 10px; margin-left: 20px; color: #ffffff; font-size: 15px">报警类型：裂缝报警</div>
+                                                        <br>
+                                                        <div id="alarm_type" style="margin-top: 10px; margin-left: 20px; color: #ffffff; font-size: 15px">设备名称: dev_1</div>
+                                                        <br>
+                                                        <div id="alarm_type" style="margin-top: 10px; margin-left: 20px; color: #ffffff; font-size: 15px">传感器号: 1-1</div>
+                                                        <br>
+                                                        <div id="alarm_type" style="margin-top: 10px; margin-left: 20px; color: #ffffff; font-size: 15px">报警时间：2014-09-22 13:22:06</div>
+                                                        <br>
+                                                        <div id="alarm_type" style="margin-top: 10px; margin-left: 20px; color: #ffffff; font-size: 15px">报警值: 1.7mm</div>
+                                                        <br>
+                                                        <div id="alarm_type" style="margin-top: 10px; margin-left: 20px; color: #ffffff; font-size: 15px">报警位置：离入口262米</div>
+
+                                                    </div>
+                                                    <br><br><br><br>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+
+                                </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="1700px">
+                            <br>
+                            <table>
+
+                                <tr>
+                                    <td>
+                                        <br>
+                                        <div style="color: red; font-weight: bold; font-style:italic; font-Family:'微软雅黑';font-size:20px">
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;实时振动图
+                                        </div>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <IFRAME name="test" scrolling=yes style="overflow-x:auto; overflow-y:auto;" width=1150 height=340 src="@ViewBag.Viburl"></IFRAME>
+                                    </td>
+                                    <td align="center" width="200px">
+                                        <br>
+                                        <br>
+                                        <br><br><br><br><br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a class="bsbn" href="~/Home/Index">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;进入主页&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                                    </td>
+                                </tr>
+
+                            </table>
+
+
+                        </td>
+
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <div>
+        <a class="norbn" id="showBtn" href="#" onclick="call(this)">全屏显示</a>
+    </div>
+
+    <script language="JavaScript" type="text/javascript">
+        default_dev = "";
+        $(".selectdev").load("/FBG/Loaddev1");
+
+
+    </script>
+
+    <script language="JavaScript" type="text/javascript">
+
+        var GapChart = echarts.init(document.getElementById('gapchart'), 'wonderland');
+        $("#gapchart1").hide();
+        var ShenyaChart = echarts.init(document.getElementById('shenyachart'), 'wonderland');
+        $("#shenyachart1").hide();
+
+        var AlarmPie = echarts.init(document.getElementById('Alarmpie'), 'wonderland');
+        $("#Alarmpie1").hide();
+
+        $('body').everyTime('10s', 'A', function () {
+
+            var pos = [];
+            var valu = [];
+            var arr0 = [];
+            var p = 0;
+          //  var sel1 = document.getElementById("tempchid");
+           // var urdts = '/Dts/Getbarjson?ch=' + sel1.value;
+            var urgap = '/FBG/Getbarjson?dev=device3&sid=1-1&chartN=0';
+            $.get(urgap, function (data) {
+                if (data.Pos.length > 1) {
+
+                    for (var i = 0; i < data.Pos.length; i++) {
+                        pos[i] = JSON.parse(data.Pos[i]);//以特定的JSON的格式接收数字
+                    }
+                    for (var i = 0; i < data.Valu.length; i++) {
+                        valu[i] = data.Valu[i];//以JSON的方式接收字符串
+                    }
+                    p = data.Num[0];
+                    if (p == 0) {
+                        txt = '裂缝数据趋势图';
+                    }
+
+                    if (p == 1) {
+                        txt = '渗压数据趋势图';
+                    }
+
+                    if (p == 2) {
+                        txt = '沉降数据趋势图';
+                    }
+                    if (p == 3) {
+                        txt = '温度数据趋势图';
+                    }
+
+                    //DataChart.clear();
+                    //console.log("对象数组valu:" + valu)
+                    GapChart.setOption({
+                        tooltip: {
+                            trigger: 'axis',
+                            showContent: true,
+                        },
+                        dataZoom: {
+                            type: 'inside',
+                            show: true,
+                        },
+                        title: {
+                            text: txt,
+                            textStyle: {   //主标题的样式
+                                color: 'red',
+                                fontWeight: 'bold',
+                                fontStyle: 'italic',
+                                fontFamily: '微软雅黑',
+                                fontSize: 15,
+                            },
+                            x: 'center'
+                        },
+                        grid: {
+                            top: '20%',
+                            right: '15%',
+                        },
+                        xAxis: {
+                            name: '时间(S)',
+                            type: 'category',
+                            data: pos,
+                            splitLine: {
+                                show: false
+                            },
+                            axisLabel: {
+                                rotate: '35',
+                                interval: 200,
+
+                            },
+                            axisLine: {
+                                lineStyle: {
+                                    color: '#22a4ff',
+                                },
+                            },
+
+                        },
+
+                        yAxis: {
+                            type: 'value',
+                            name: '数值(mm)',
+                            min: function (valu) { return valu.min; },
+                            splitLine: {
+                                show: false
+                            },
+                            axisLine: {
+                                lineStyle: {
+                                    color: '#22a4ff',
+                                },
+                            },
+                        },
+
+                        series: [
+                            {
+                                name: '温度',
+                                type: 'line',    // 设置图表类型为饼图 bar
+                                data: valu,
+                                //  symbol: 'circle', //实心圆点
+                                symbol: 'none',
+                                showSymbol: false,
+                                smooth: 0.5,      //设置折线弧度
+                            }
+                        ],
+                        //color: ['#99CC33']
+                    })        //set option
+                    $("#gapchart").show();
+                    $("#gatchart1").hide();
+                }
+                else {
+                    $("#gapchart").hide();
+                    $("#gapchart1").show();
+                    $("#gapchart1").html("<br/><br/><div style='font-size:14px;padding-left:150px;color: red;'>无该通道的温度数据！</div>")
+                }
+
+            }, 'json')   //get
+
+            var arr = [];
+            pos = [];
+            valu = [];
+           // var sel2 = document.getElementById("botchid");
+            var urshenya = '/FBG/Getbarjson?dev=device3&sid=1-2&chartN=1';
+            $.get(urshenya, function (data) {
+                if (data.Pos.length > 1) {
+
+                    for (var i = 0; i < data.Pos.length; i++) {
+                        pos[i] = JSON.parse(data.Pos[i]);//以特定的JSON的格式接收数字
+                    }
+                    for (var i = 0; i < data.Valu.length; i++) {
+                        valu[i] = data.Valu[i];//以JSON的方式接收字符串
+                    }
+                    p = data.Num[0];
+
+                    if (p == 0) {
+                        txt = '裂缝数据趋势图';
+                    }
+
+                    if (p == 1) {
+                        txt = '渗压数据趋势图';
+                    }
+
+                    if (p == 2) {
+                        txt = '沉降数据趋势图';
+                    }
+                    if (p == 3) {
+                        txt = '温度数据趋势图';
+
+                    }
+
+                    //console.log("对象数组valu:" + valu)
+                    ShenyaChart.setOption({
+                        tooltip: {
+                            trigger: 'axis',
+                            showContent: true,
+                        },
+                        dataZoom: {
+                            type: 'inside',
+                            show: true,
+                        },
+                        title: {
+                            text: txt,
+                            textStyle: {   //主标题的样式
+                                color: 'red',
+                                fontWeight: 'bold',
+                                fontStyle: 'italic',
+                                fontFamily: '微软雅黑',
+                                fontSize: 15,
+                            },
+                            x: 'center'
+                        },
+                        grid: {
+                            left:'15%',
+                            top: '20%',
+                            right: '15%',
+
+                        },
+                        xAxis: {
+                            name: '时间(S)',
+                            type: 'category',
+                            data: pos,
+                            
+                            splitLine: {
+                                show: false
+                            },
+                            
+                            axisLabel: {
+                                rotate: '35',
+                                interval: 200,
+
+                            },
+                           
+                            axisLine: {
+                                lineStyle: {
+                                    color: '#22a4ff',
+                                },
+                            },
+                           
+                        },
+
+                        yAxis: {
+                            type: 'value',
+                            name: '数值(mm)',
+                            min: function (valu) { return valu.min; },
+                            
+                            splitLine: {
+                                show: false
+                            },
+                            
+                            axisLine: {
+                                lineStyle: {
+                                    color: '#22a4ff',
+                                },
+                            },
+
+                        },
+
+                        series: [
+                            {
+                                name: '数值',
+                               // type: 'bar',    // 设置图表类型为饼图 bar
+                                type: 'line',
+                                data: valu,
+                                symbol: 'none',
+                                showSymbol: false,
+                                smooth: 0.5,      //设置折线弧度
+
+                            }
+                        ]
+                    })
+
+                    $("#shenyachart").show();
+                    $("#shenyachart1").hide();
+                }
+                else {
+                    $("#shenyachart").hide();
+                    $("#shenyachart1").show();
+                    $("#shenyachart1").html("<br/><br/><div style='font-size:14px;padding-left:150px;color: red;'>无该通道的应变数据！</div>")
+                }
+            }, 'json')
+
+            pos = [];
+            valu = [];
+            // var sel2 = document.getElementById("botchid");
+            var chenjiangalarm = '/FBG/Getbarjson?dev=device2&sid=1-1&chartN=2';
+
+           // var urbotalarm = '/Home/Getpiejson';
+
+            $.get(chenjiangalarm, function (data) {
+
+                if (data.Pos.length > 1) {
+
+                    for (var i = 0; i < data.Pos.length; i++) {
+                        pos[i] = JSON.parse(data.Pos[i]);//以特定的JSON的格式接收数字
+                    }
+                    for (var i = 0; i < data.Valu.length; i++) {
+                        valu[i] = data.Valu[i];//以JSON的方式接收字符串
+                    }
+                    p = data.Num[0];
+
+                    if (p == 0) {
+                        txt = '裂缝数据趋势图';
+                    }
+
+                    if (p == 1) {
+                        txt = '渗压数据趋势图';
+                    }
+
+                    if (p == 2) {
+                        txt = '沉降数据趋势图';
+                    }
+                    if (p == 3) {
+                        txt = '温度数据趋势图';
+
+                    }
+
+                    //console.log("对象数组valu:" + valu)
+                    AlarmPie.setOption({
+                        tooltip: {
+                            trigger: 'axis',
+                            showContent: true,
+                        },
+                        dataZoom: {
+                            type: 'inside',
+                            show: true,
+                        },
+                        title: {
+                            text: txt,
+                            textStyle: {   //主标题的样式
+                                color: 'red',
+                                fontWeight: 'bold',
+                                fontStyle: 'italic',
+                                fontFamily: '微软雅黑',
+                                fontSize: 15,
+                            },
+                            x: 'center'
+                        },
+                        grid: {
+                            left: '15%',
+                            top: '20%',
+                            right: '15%',
+
+                        },
+                        xAxis: {
+                            name: '时间(S)',
+                            type: 'category',
+                            data: pos,
+
+                            splitLine: {
+                                show: false
+                            },
+
+                            axisLabel: {
+                                rotate: '35',
+                                interval: 200,
+
+                            },
+
+                            axisLine: {
+                                lineStyle: {
+                                    color: '#22a4ff',
+                                },
+                            },
+
+                        },
+
+                        yAxis: {
+                            type: 'value',
+                            name: '数值(mm)',
+                            min: function (valu) { return valu.min; },
+
+                            splitLine: {
+                                show: false
+                            },
+
+                            axisLine: {
+                                lineStyle: {
+                                    color: '#22a4ff',
+                                },
+                            },
+
+                        },
+
+                        series: [
+                            {
+                                name: '数值',
+                                // type: 'bar',    // 设置图表类型为饼图 bar
+                                type: 'line',
+                                data: valu,
+                                symbol: 'none',
+                                showSymbol: false,
+                                smooth: 0.5,      //设置折线弧度
+
+                            }
+                        ]
+                    })
+                    $("#Alarmpie").show();
+                    $("#Alarmpie1").hide();
+                } else {
+                    $("#Alarmpie").hide();
+                    $("#Alarmpie1").show();
+                    $("#Alarmpie1").html("<br/><br/><div style='font-size:14px;padding-left:150px;color: red;'>无该通道的应变报警数据！</div>")
+                }
+            }, 'json')
+
+            ///////////////////////////////////////////////////////////////////////////////数据刷新
+            var bsdataurl = '/Home/Getbsdata?ch=1';
+            //$.get('/Dts/Getbarjson', function (data) {
+            $.get(bsdataurl, function (data) {
+                var n_vib = 0;
+                var n_fib = 0;
+                var n_bot = 0;
+                var n_dts = 0;
+                var username = "";
+                if (data.n_alarm.length > 0) {
+                    n_vib = JSON.parse(data.n_alarm[0]);
+                    n_fib = JSON.parse(data.n_alarm[1]);
+                    n_bot = JSON.parse(data.n_alarm[2]);
+                    n_dts = JSON.parse(data.n_alarm[3]);
+                    username = data.n_alarm[4];
+                }
+                // if (data.uname.length > 0) {
+                //    username = data.uname[0];
+                // }
+                document.getElementById("vib_n").innerHTML = n_vib;
+                document.getElementById("fib_n").innerHTML = n_fib;
+                document.getElementById("bot_n").innerHTML = n_bot;
+                document.getElementById("dts_n").innerHTML = n_dts;
+                document.getElementById("uname").innerHTML = username;
+
+            })
+
+        })
+        var imgflag = 0;
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        $('body').everyTime('0.5s', 'B', function () {
+
+            $('#l-map').hide();
+            /*
+            if (temp != alarm_pos) {
+                alarm_pos = temp;
+
+                if ((alarm_pos >= 0) && (alarm_pos < 1000)) {
+                    $('#showimg').attr("src", "/images/pingyuan2.png");
+                    $('#showimg1').attr("src", "/images/pingyuan1.png")
+                }
+                if ((alarm_pos >= 1000) && (alarm_pos < 2000)) {
+                    $('#showimg').attr("src", "/images/subway2.png");
+                    $('#showimg1').attr("src", "/images/subway1.png")
+                }
+                if ((alarm_pos >= 2000) && (alarm_pos < 3000)) {
+                    $('#showimg').attr("src", "/images/pubu2.png");
+                    $('#showimg1').attr("src", "/images/pubu1.png")
+                }
+                if ((alarm_pos >= 3000) && (alarm_pos < 4000)) {
+                    $('#showimg').attr("src", "/images/pubu2.png");
+                    $('#showimg1').attr("src", "/images/pubu1.png")
+                }
+            }
+*/
+            if (imgflag == 0) {
+                if (show_mode == 0) {
+                    $('#l-map').hide();
+                    $('#showimg1').hide();
+                    $('#showimg').show();
+                }
+                $('#alarm_data').css("visibility", "visible");
+                imgflag = 1;
+                /////////////////////////////////////////////////////
+
+                $(".bigalarmdetail").load("/Home/BigscreenAlarm");
+
+                ///////////////////////////////////////////////////
+            }
+            else {
+                if (show_mode == 0) {
+                    $('#l-map').hide();
+                    $('#showimg').hide();
+                    $('#showimg1').show();
+                }
+                $('#alarm_data').css("visibility", "hidden");
+                imgflag = 0;
+            }
+
+        })
+
+    </script>
+    <script type="text/javascript">
+        function ldmap(al_id, al_type) {
+            if (show_mode == 0) {
+                show_mode = 1;
+                $('#showimg1').hide();
+                $('#showimg').hide();
+                $('#l-map').show();
+                $("#mmap").load("/Home/Showmap?id=al_id&type=al_type");
+                $('#bsbn').html("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;切换为全景模式&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+            }
+            else {
+                show_mode = 0;
+                $('#bsbn').html("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;切换为地图模式&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+
+            }
+
+        }
+    </script>
+    <script type="text/javascript">
+        /*
+                    // 百度地图API功能
+                    var map = new BMap.Map("l-map");
+                var point = new BMap.Point(121.441205, 31.103392);
+                map.centerAndZoom(point, 16);
+                var marker = new BMap.Marker(point);  // 创建标注
+                map.addOverlay(marker);              // 将标注添加到地图中
+                marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+
+
+                map.addControl(new BMap.OverviewMapControl());              //添加默认缩略地图控件
+                map.addControl(new BMap.OverviewMapControl({ isOpen: true, anchor: BMAP_ANCHOR_TOP_RIGHT }));   //右上角，打开
+
+
+                map.addControl(new BMap.NavigationControl());  //添加默认缩放平移控件
+                map.addControl(new BMap.NavigationControl({ anchor: BMAP_ANCHOR_TOP_RIGHT, type: BMAP_NAVIGATION_CONTROL_SMALL }));  //右上角，仅包含平移和缩放按钮
+                map.addControl(new BMap.NavigationControl({ anchor: BMAP_ANCHOR_BOTTOM_LEFT, type: BMAP_NAVIGATION_CONTROL_PAN }));  //左下角，仅包含平移按钮
+                map.addControl(new BMap.NavigationControl({ anchor: BMAP_ANCHOR_BOTTOM_RIGHT, type: BMAP_NAVIGATION_CONTROL_ZOOM }));  //右下角，仅包含缩放按钮
+
+                map.centerAndZoom(point, 17);                   // 初始化地图,设置城市和地图级别。
+
+                map.enableScrollWheelZoom();    //启用滚轮放大缩小，默认禁用
+                map.enableContinuousZoom();    //启用地图惯性拖拽，默认禁用
+
+        */
+
+    </script>
+
+
+
+
+
+
+</body>
+</html >

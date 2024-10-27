@@ -1,0 +1,355 @@
+﻿
+@{
+    ViewBag.Title = "BOTDA应变实时监控";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts
+{
+    <script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.js")"></script>
+}
+
+<script src="~/Scripts/echarts.js"></script>
+<script src="~/Scripts/wonderland.js"></script>
+
+<script language="JavaScript" type="text/javascript">
+    function botselectch(obj) {
+        var pos = [];
+        var valu = [];
+        var arr0 = [];
+        var ur = '/Bot/Getbarjson?ch=' + obj.value;
+        if ((DataChart != null) && (DataChart != "") && (DataChart != undefined)) {
+            DataChart.dispose();
+            DataChart = echarts.init(document.getElementById('Datachart'), 'wonderland');
+        }
+        $("#Datachart1").hide();
+        $.get(ur, function (data) {
+            if (data.Pos.length > 1) {
+                for (var i = 0; i < data.Pos.length; i++) {
+                    pos[i] = JSON.parse(data.Pos[i]);//以特定的JSON的格式接收数字
+                }
+                for (var i = 0; i < data.Valu.length; i++) {
+                    valu[i] = data.Valu[i];//以JSON的方式接收字符串
+                }
+                //console.log("对象数组valu:" + valu)
+                DataChart.setOption({
+                    tooltip: {
+                        trigger: 'axis',
+                        showContent: true,
+                    },
+                    dataZoom: {
+                        type: 'inside',
+                        show: true,
+                    },
+                    title: {
+                        text: '实时应变图',
+                        textStyle: {   //主标题的样式
+                            color: 'red',
+                            fontWeight: 'bold',
+                            fontStyle: 'italic',
+                            fontFamily: '微软雅黑'
+                        },
+                        x: 'center'
+                    },
+                    grid: {
+                        top: '20%',
+                    },
+                    xAxis: {
+                        name: '位置',
+                        type: 'category',
+                        data: pos,
+                        axisLabel: {
+                            rotate: '35',
+                            interval: 100
+                        }
+                    },
+
+                    yAxis: {
+                        type: 'value',
+                        name: '应变值(με)',
+                    },
+
+                    series: [
+                        {
+                            name: '应变值',
+                            type: 'bar',    // 设置图表类型为饼图 bar
+                            data: valu,
+                        }
+                    ]
+                });  //Set option
+                $("#Datachart").show();
+                $("#Datachart1").hide();
+            }
+            else {
+                $("#Datachart").hide();
+                $("#Datachart1").show();
+                $("#Datachart1").html("<br/><br/><div style='font-size:14px;padding-left:150px;color: red;'>无该通道的应变数据！</div>")
+            }
+
+        }, 'json')
+
+    }
+</script>
+
+
+<table>
+    <tr>
+        <td>
+            <div class="botalarm" id="botalarm">
+
+                @Html.Action("Botalarm")
+
+            </div>
+            <!--<div style="color: #3F4F70;font-weight:bold">现有未处理振动报警:&nbsp<font color="red"> @(ViewBag.Vibcount)</font> &nbsp;个 </div>-->
+        </td>
+    </tr>
+    <tr><td>&nbsp;&nbsp;</td></tr>
+    <tr>
+        <td>
+            <span class="inputlabel">通道号:</span>
+            <select id="botchid" class="inputboxq" onchange="botselectch(this)">
+                <option value="1" selected>1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+        </td>
+    </tr>
+    <tr><td>&nbsp;&nbsp;</td></tr>
+    <tr>
+        <td>
+            <table>
+                <tr>
+                    <td>
+                        <div id="Datachart" style="width: 500px;height:330px;"></div>
+                        <div id="Datachart1" style="width: 500px;height:330px;margin-left:20px;"> </div>
+                    </td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td>
+                        <div class="Alarmpie" id="Alarmpie" style="width: 500px;height:330px;"></div>
+                        <div id="Alarmpie1" style="width: 500px;height:330px;margin-left:20px;"> </div>
+                    </td>
+                </tr>
+            </table>
+        <td>
+
+    </tr>
+</table>
+
+
+
+<script language="JavaScript" type="text/javascript">
+    var DataChart = echarts.init(document.getElementById('Datachart'), 'wonderland');
+    var AlarmPie = echarts.init(document.getElementById('Alarmpie'));
+    DataChart.showLoading();
+    var option1 = {
+        title: {
+            text: '实例图'
+        },
+        tooltip: {
+            trigger: 'axis',
+            showContent: true,
+        },
+        dataZoom: {
+            type: 'inside',
+            show: true,
+        },
+        legend: {
+            data: ['图例']
+        },
+        xAxis: {
+            data: ["1", "2", "3", "4", "5", "6"]
+        },
+        yAxis: {},
+        series: [{
+            name: '图例',
+            type: 'bar',
+            data: [5, 20, 36, 10, 10, 20]
+        }]
+    };
+
+    var option2 = {
+        series: [
+            {
+                name: '访问来源',
+                type: 'pie',    // 设置图表类型为饼图
+                radius: '55%',  // 饼图的半径，外半径为可视区尺寸（容器高宽中较小一项）的 55% 长度。
+                data: [          // 数据数组，name 为数据项名称，value 为数据项值
+                    { value: 235, name: '1' },
+                    { value: 274, name: '2' },
+                    { value: 310, name: '3' },
+                    { value: 335, name: '4' },
+                    { value: 400, name: '5' }
+                ]
+            }
+        ]
+    }
+
+    // 使用刚指定的配置项和数据显示图表。
+    DataChart.setOption(option1);
+
+    AlarmPie.setOption(option2);
+    DataChart.hideLoading();
+
+</script>
+
+
+<script language="JavaScript" type="text/javascript">
+    
+    $("#Datachart1").hide();
+    $("#Alarmpie1").hide();
+    $('body').everyTime('5s', function () {
+        $(".botalarm").load("/Bot/Botalarm");
+
+        //////////////////////////////////////////////////////////////////////
+        /*
+        var option = {
+            title: {
+                text: '实时应变图'
+            },
+            tooltip: {},
+            legend: {
+                data: ['销量']
+            },
+            xAxis: {
+                data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
+            },
+            yAxis: {},
+            series: [{
+                name: '销量',
+                type: 'bar',
+                data: [5, 20, 36, 10, 10, 20]
+            }]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        DataChart.setOption(option);
+        */
+        //////////////////////////////////////////////////////////////////////
+        var pos = [];
+        var valu = [];
+        var arr0 = [];
+        var sel = document.getElementById("botchid");
+        var urbot = '/Bot/Getbarjson?ch=' + sel.value;
+
+        $.get(urbot, function (data) {
+            if (data.Pos.length > 1) {
+            for (var i = 0; i < data.Pos.length; i++) {
+                pos[i] = JSON.parse(data.Pos[i]);//以特定的JSON的格式接收数字
+            }
+            for (var i = 0; i < data.Valu.length; i++) {
+                valu[i] = data.Valu[i];//以JSON的方式接收字符串
+            }
+            // console.log("对象数组valu:" + valu)
+            DataChart.setOption({
+                tooltip: {
+                    trigger: 'axis',
+                    showContent: true,
+                },
+                dataZoom: {
+                    type: 'inside',
+                    show: true,
+                },
+                title: {
+                    text: '实时应变图',
+                    textStyle: {   //主标题的样式
+                        color: 'red',
+                        fontWeight: 'bold',
+                        fontStyle: 'italic',
+                        fontFamily: '微软雅黑'
+                    },
+                    x: 'center'
+                },
+                grid: {
+                    top: '20%',
+                },
+                xAxis: {
+                    name: '位置',
+                    type: 'category',
+                    data: pos,
+                    axisLabel: {
+                        rotate: '35',
+                        interval: 100
+                    }
+                },
+
+                yAxis: {
+                    type: 'value',
+                    name: '应变值(με)',
+                },
+
+                series: [
+                    {
+                        name: '应变值',
+                        type: 'bar',    // 设置图表类型为饼图
+                        data: valu,
+                    }
+                ]
+            })
+                $("#Datachart").show();
+                $("#Datachart1").hide();
+            }
+            else {
+                $("#Datachart").hide();
+                $("#Datachart1").show();
+                $("#Datachart1").html("<br/><br/><div style='font-size:14px;padding-left:150px;color: red;'>无该通道的应变数据！</div>")
+            }
+
+        }, 'json')
+
+
+
+        ///////////////////////////////////////////////////////////////////////
+
+        var formt;
+        var num;
+        var arr = [];
+        var urbotalarm = '/Bot/Getpiejson?ch=' + sel.value;
+        $.get(urbotalarm, function (data) {
+
+            if (data.Format.length > 0) {
+                formt = data.Format;
+
+                // console.log(formt);
+
+                num = data.Num;
+                $.each(formt, function (i, v) {
+                    var obj = {};
+                    obj.name = formt[i];
+                    obj.value = num[i];
+                    arr.push(obj);
+                })
+                //console.log("对象数组:"+arr)
+                AlarmPie.setOption({
+                    tooltip: {},
+                    title: {
+                        text: '报警格式占比图',
+                        textStyle: {   //主标题的样式
+                            color: 'red',
+                            fontWeight: 'bold',
+                            fontStyle: 'italic',
+                            fontFamily: '微软雅黑'
+                        },
+                        x: 'center'
+                    },
+                    series: [
+                        {
+                            name: '访问来源',
+                            type: 'pie',    // 设置图表类型为饼图
+                            radius: '55%',  // 饼图的半径，外半径为可视区尺寸（容器高宽中较小一项）的 55% 长度。
+                            data: arr,
+                        }
+                    ]
+                })
+                $("#Alarmpie").show();
+                $("#Alarmpie1").hide();
+            } else {
+                $("#Alarmpie").hide();
+                $("#Alarmpie1").show();
+                $("#Alarmpie1").html("<br/><br/><div style='font-size:14px;padding-left:150px;color: red;'>无该通道的应变报警数据！</div>")
+            }
+        }, 'json')
+
+        ////////////////////////////////////////////////////
+    })
+
+</script>

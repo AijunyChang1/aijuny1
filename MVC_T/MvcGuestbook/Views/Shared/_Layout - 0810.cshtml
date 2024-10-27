@@ -1,0 +1,370 @@
+<!DOCTYPE html public "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>@ViewBag.Title - 霍开综合数据管理系统</title>
+    <!--
+       @Styles.Render("~/Content/css")
+
+          @Scripts.Render("~/bundles/modernizr")
+          -->
+
+    <link rel="stylesheet" href="~/Content/index.css" />
+    <link rel="stylesheet" href="~/Content/hkcss.css" />
+    <link href="~/Content/jquery-ui.css" rel="stylesheet" />
+    <style>
+        .el-row {
+            margin-bottom: 20px;
+            &:last-child
+
+        {
+            margin-bottom: 0;
+        }
+
+        }
+
+        .el-col {
+            border-radius: 4px;
+        }
+
+        .bg-purple-dark {
+            background: #99a9bf;
+        }
+
+        .bg-purple {
+            background: #d3dce6;
+        }
+
+        .bg-purple-light {
+            background: #e5e9f2;
+        }
+
+        .grid-content {
+            border-radius: 4px;
+            min-height: 36px;
+        }
+
+        .row-bg {
+            padding: 10px 0;
+            background-color: #f9fafc;
+        }
+    </style>
+
+
+
+    <style>
+        <!--
+        body {
+            margin: 0px;
+            top: 0px;
+        }
+
+        #main {
+            width: 100%;
+            padding: 0px;
+            margin: 0px;
+            height: 1100px
+        }
+
+        a {
+            color: #337ab7;
+            text-decoration: none;
+        }
+
+
+
+            a:hover,
+            a:focus {
+                color: #23527c;
+                text-decoration: underline;
+            }
+
+            a:focus {
+                outline: 5px auto -webkit-focus-ring-color;
+                outline-offset: -2px;
+            }
+
+        #navigation {
+            width: 200px;
+            height: 100%;
+            font-family: Arial,sans-serif,Helvetica;
+            font-size: 12px;
+            border-left: 12px solid #711515;
+            border-right: 1px solid #711515;
+            background-color: #3F4F70;
+            padding: 0px;
+            margin: 0px;
+            float: left;
+            border-top-left-radius: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
+        }
+
+            #navigation ul {
+                padding: 0px;
+                margin: 0px;
+                list-style-type: none;
+            }
+
+            #navigation li {
+            }
+
+                #navigation li a {
+                    display: block;
+                    padding: 5px 5px 5px 0.5em;
+                    text-decoration: none;
+                }
+
+                    #navigation li a:link, #navigation li a:visited {
+                        background-color: #3F4F70;
+                        color: #FFFFFF;
+                    }
+
+                    #navigation li a:hover {
+                        background-color: #00A2E8;
+                        color: #FFFF00;
+                    }
+
+
+        ul {
+            font-size: 0.9em;
+            color: #FFFF00;
+            list-style-type: decimal;
+        }
+
+        #containerh {
+            position: absolute;
+            margin: 1px;
+            top: 10px;
+            left: 230px;
+            text-align: left;
+            background-color: #FFFFFF;
+        }
+
+        #top_banner {
+            float: right;
+            width: 1250px;
+            text-align: right;
+        }
+
+        .button a {
+            color: #FFFFFF;
+            text-decoration: none;
+        }
+
+            .button a:hover {
+                background-color: #00A2E8;
+                color: #FFFF00;
+            }
+
+        #user {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            color: #00458c;
+            font-size: 18px;
+            vertical-align: middle;
+            font-family: Arial,sans-serif,Helvetica;
+            display: inline-block;
+        }
+
+
+
+
+        #user1 {
+            position: absolute;
+            top: 5px;
+            left: 950px;
+            color: #00458c;
+            font-size: 14px;
+            align-content: center;
+            font-family: Arial,sans-serif,Helvetica;
+        }
+
+        -->
+    </style>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script src="~/Scripts/vue.js"></script>
+    <script src="~/Scripts/index.js"></script>
+    <script src="~/Scripts/jquery-3.6.0.js"></script>
+    <script src="~/Scripts/jquery.timers-1.2.js" type="text/javascript"></script>
+
+    
+
+</head>
+<body>
+
+
+            <div id="main">
+
+                <div id="navigation">
+                    <ul>
+                        <li><div style="border-bottom: 1px solid #ED9F9F;"> <a href="~/Home/Index"><br><img width="15px" height="15px" src="@Url.Content("~/content/icon_home.png")" /> 首页 <br> <br> </a> </div>    </li>
+
+
+                        <template v-for="pro in projs">
+                            <br>
+                            <br>
+                            <li> <a :href="pro.url"> <img width="12px" height="12px" src="@Url.Content("~/content/navicon.png")" />&nbsp;{{pro.name}} </a>     </li>
+                            <template v-for="ite in pro.submenu">
+                                <li> <a :href="ite.url">&nbsp;&nbsp;&nbsp {{ite.menudes}} </a>     </li>
+                            </template>
+                        </template>
+                    </ul>
+
+
+
+                </div>
+
+
+
+
+                <script language="JavaScript" type="text/javascript">
+
+                    var vm1 = new Vue({
+                        el: '#navigation',
+                        data: {
+                            mainlink: "main.asp",
+                            projs: [
+                                {
+                                    name: "振动系统",
+                                    url: "/Vib/Index",
+                                    submenu: [
+                                        {
+                                            menudes: "振动数据监控",
+                                            url: "/Vib/Index",
+                                        },
+                                        {
+                                            menudes: "振动报警历史数据查询",
+                                            url: "/Vib/Vibhis",
+                                        },
+                                        {
+                                            menudes: "振动光纤状态数据查询",
+                                            url: "/Vib/Fibhis",
+                                        }
+
+                                    ],
+                                },
+                                {
+                                    name: "BOTDA应变测量系统",
+                                    url: "/Bot/Index",
+                                    submenu: [
+                                        {
+                                            menudes: "应变数据监控",
+                                            url: "/Bot/Index",
+                                        },
+                                        {
+                                            menudes: "应变报警历史数据查询",
+                                            url: "/Bot/Bothis",
+                                        },
+                                        {
+                                            menudes: "应变历史数据查询",
+                                            url: "/Bot/Botdata",
+                                        },
+                                    ]
+                                },
+                                {
+                                    name: "DTS测温系统",
+                                    url: "/Dts/Index",
+                                    submenu: [
+                                        {
+                                            menudes: "温度实时数据监控",
+                                            url: "/Dts/Index",
+                                        },
+                                        {
+                                            menudes: "温度报警历史数据查询",
+                                            url: "/Dts/Dtshis",
+                                        },
+                                        {
+                                            menudes: "温度历史数据查询",
+                                            url: "/Dts/Dtsdata",
+                                        }
+                                    ]
+                                },
+                                {
+                                    name: "电缆身份识别系统",
+                                    url: "/Cab/Index",
+                                    submenu: [
+                                        {                                            
+                                            menudes: "电缆身份实时消息",
+                                            url: "/Cab/Index",
+                                        },
+                                        {
+                                            menudes: "电缆身份数据管理",
+                                            url: "/Cab/Cabadmin",
+                                        }
+
+                                    ]
+
+                                }
+                            ]
+                        },
+                        computed: {
+                            menutext: function () {
+                                var a = "<a href='#'>hello</a>";
+                                return a;
+
+                            }
+                        }
+                    })
+
+
+                </script>
+
+                <div id="containerh">
+                    <!--<el-row>-->
+                    <!--<el-col :span="24"><div id="top_banner" class="grid-content bg-purple-dark"><el-button type="primary" round>登出</el-button></div></el-col>-->
+                    <!--@Html.ActionLink("登出", "About", "Home")-->
+                    <!--</el-row>-->
+                    <div id="top_banner">
+                        <div id="user"><img width="25px" height="25px" src="@Url.Content("~/content/pageicon.png")" />&nbsp; @ViewBag.Title</div>
+                        <div id="btn_area">
+                            <!-- @DateTime.Now-->
+                            <div id="user1"><img width="18px" height="18px" src="@Url.Content("~/content/user_a.png")" />用户名: @ViewBag.Username </div>
+
+                            @if (ViewBag.Displaynewbn)
+                            {
+                                <a href="~/Account/newaccount"><el-button type="primary" size="small" round>创建新用户</el-button>&nbsp;&nbsp;</a>
+                            }
+                            <a href="~/Account/Logout"><el-button type="primary" size="small" round><div class="button" style="color:#FFFFFF;">登出</div></el-button></a>
+
+                        </div>
+                    </div>
+                    <br>
+                    <p style="margin-bottom: 23px;"> </p>
+                    <!--<p class="p20"> </p>-->
+                    <hr />
+
+
+                    <div style="padding:1px">
+                        @RenderBody()
+                    </div>
+                    <!--
+    <hr />
+    <footer>
+        <p>&copy; @DateTime.Now.Year - 我的 ASP.NET 应用程序</p>
+    </footer>
+    -->
+                </div>
+
+
+                @Scripts.Render("~/bundles/bootstrap")
+
+                @RenderSection("scripts", required: false)
+       
+                
+            </div>
+
+            <script>
+                new Vue({
+                    el: '#btn_area',
+                    data: function () {
+                        return { visible: false }
+                    }
+                })
+            </script>
+
+</body>
+
+</html>

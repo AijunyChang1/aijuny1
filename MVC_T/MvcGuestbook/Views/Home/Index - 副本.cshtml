@@ -1,0 +1,322 @@
+﻿
+@{
+    ViewBag.Title = "主页";
+}
+
+<script src="~/Scripts/echarts.js"></script>
+<script src="~/Scripts/wonderland.js"></script>
+
+@section scripts
+{
+    <script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.js")"></script>
+}
+<script language="JavaScript" type="text/javascript">
+    var htmlvib;
+    var htmlvibfib;
+
+    var htmlbotda;
+    var htmldts;
+    $('body').everyTime('3s', function () {
+
+        // htmlvib = $.ajax({ url: "/Home/Vibalarm", async: false });
+        //htmlvib = $.ajax({ url: "http://www.baidu.com", async: false });
+        // if (htmlvib == null) { alert("NULL,NULL"); }
+        // $(".vibalarm").html(htmlvib.responseText);
+        $(".vibalarm").load("/Home/Vibalarm");
+        $(".vibfiberalarm").load("/Home/Vibfibalarm");
+        $(".botdaalarm").load("/Home/Botdaalarm");
+        $(".dtsalarm").load("/Home/Dtsalarm");
+        // alert(htmlvib.responseText);
+        // $(".vibalarm").html("hello");
+
+        //do something...
+
+    });
+
+    function vib_detail(vibid) {
+        $(".alarmdetail").load("/Home/Vibdetail?id=" + vibid);
+    }
+
+    function vib_fibdetail(vibid) {
+        $(".alarmdetail").load("/Home/Vibfibdetail?id=" + vibid);
+    }
+
+    function botda_detail(vibid) {
+        $(".alarmdetail").load("/Home/Botdadetail?id=" + vibid);
+    }
+
+    function dts_detail(vibid) {
+        $(".alarmdetail").load("/Home/Dtsdetail?id=" + vibid);
+    }
+
+    function vib_confirm(vibid, conflag) {
+        if (conflag == 1) {
+            jQuery("#oklable").css("visibility", "hidden");
+            jQuery("#oklable").hide();
+            jQuery("#conlable").css("visibility", "visible");
+            jQuery("#conlable").show();
+        }
+        else {
+            jQuery("#conlable").css("visibility", "hidden");
+            jQuery("#conlable").hide();
+            jQuery("#oklable").css("visibility", "visible");
+            jQuery("#oklable").show();
+
+        }
+        $.ajax({ url: "/Home/Setvibflag?id=" + vibid + "&flag=" + conflag, async: false });
+    }
+
+    function vib_fib_confirm(vibid, conflag) {
+        if (conflag == 1) {
+            jQuery("#oklable").css("visibility", "hidden");
+            jQuery("#oklable").hide();
+            jQuery("#conlable").css("visibility", "visible");
+            jQuery("#conlable").show();
+
+        }
+        else {
+            jQuery("#conlable").css("visibility", "hidden");
+            jQuery("#conlable").hide();
+            jQuery("#oklable").css("visibility", "visible");
+            jQuery("#oklable").show();
+        }
+        $.ajax({ url: "/Home/Setvibfibflag?id=" + vibid + "&flag=" + conflag, async: false });
+    }
+
+    function botda_confirm(vibid, conflag) {
+        if (conflag == 1) {
+            jQuery("#oklable").css("visibility", "hidden");
+            jQuery("#oklable").hide();
+            jQuery("#conlable").css("visibility", "visible");
+            jQuery("#conlable").show();
+        }
+        else {
+            jQuery("#conlable").css("visibility", "hidden");
+            jQuery("#conlable").hide();
+            jQuery("#oklable").css("visibility", "visible");
+            jQuery("#oklable").show();
+        }
+        $.ajax({ url: "/Home/Setbotdaflag?id=" + vibid + "&flag=" + conflag, async: false });
+    }
+
+    function dts_confirm(vibid, conflag) {
+        if (conflag == 1) {
+            jQuery("#oklable").css("visibility", "hidden");
+            jQuery("#oklable").hide();
+            jQuery("#conlable").css("visibility", "visible");
+            jQuery("#conlable").show();
+        }
+        else {
+            jQuery("#conlable").css("visibility", "hidden");
+            jQuery("#conlable").hide();
+            jQuery("#oklable").css("visibility", "visible");
+            jQuery("#oklable").show();
+        }
+        $.ajax({ url: "/Home/Setdtsflag?id=" + vibid + "&flag=" + conflag, async: false });
+    }
+
+</script>
+
+<!--
+<div style="width: 600px;margin-left:0px;color: #3F4F70;">
+    <h4 align="left">实时报警</h4>
+</div>
+-->
+<br>
+<table>
+    <tr>
+        <td>
+            <table>
+                <tr>
+                    <td>
+                        <div id="Dtschart" style="width: 500px;height:300px;margin-left:80px"> </div>
+                    </td>
+                    <td>
+                        <div id="Botchart" style="width: 500px;height:300px;margin-left:80px"> </div>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div>
+                <table>
+                    <tr>
+                        <td>
+                            <div class="alarmarea">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <div class="vibalarm" id="vibalarm">
+                                                @Html.Action("Vibalarm")
+                                            </div>
+                                            <br />
+                                        </td>
+                                    <tr>
+                                    <tr>
+                                        <td>
+                                            <div class="vibfiberalarm">
+                                                @Html.Action("Vibfibalarm")
+                                            </div>
+                                            <br />
+                                        </td>
+                                    <tr>
+                                    <tr>
+                                        <td>
+                                            <div class="botdaalarm">@Html.Action("Botdaalarm")</div>
+                                            <br />
+                                        </td>
+                                    <tr>
+                                    <tr>
+                                        <td>
+                                            <div class="dtsalarm">
+                                                @Html.Action("Dtsalarm")
+                                            </div>
+                                            <br />
+                                        </td>
+                                    <tr>
+                                </table>
+
+                            </div>
+
+                        <td>
+                        <td>&nbsp;&nbsp;</td>
+                        <td>
+                            <div class="alarmdetail" id="alarmdetail">
+                                <div id="imagepos" style="width:680px; height:580px; background:#888888; float:left; padding:10px 10px;"><img src="~/Content/main1.png" width="680" height="580"></div>
+
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+        </td>
+    </tr>
+</table>
+
+
+<script language="JavaScript" type="text/javascript">
+    var DataChart = echarts.init(document.getElementById('Dtschart'), 'wonderland');
+
+    var BotChart = echarts.init(document.getElementById('Botchart'), 'wonderland');
+
+    $('body').everyTime('3s', function () {
+
+        var pos = [];
+        var valu = [];
+        var arr0 = [];
+
+        $.get('/Dts/Getbarjson', function (data) {
+
+            for (var i = 0; i < data.Pos.length; i++) {
+                pos[i] = JSON.parse(data.Pos[i]);//以特定的JSON的格式接收数字
+            }
+            for (var i = 0; i < data.Valu.length; i++) {
+                valu[i] = data.Valu[i];//以JSON的方式接收字符串
+            }
+            console.log("对象数组valu:" + valu)
+            DataChart.setOption({
+                tooltip:{},
+                title: {
+                    text: '当前温度分布图',
+                    textStyle: {   //主标题的样式
+                        color: 'red',
+                        fontWeight: 'bold',
+                        fontStyle: 'italic',
+                        fontFamily: '微软雅黑'
+                    },
+                    x: 'center'
+                },
+                grid: {
+                    top: '20%',
+                },
+                xAxis: {
+                    name: '位置',
+                    type: 'category',
+                    data: pos,
+                    axisLabel: {
+                        rotate: '35',
+                        interval: 100
+                    }
+                },
+
+                yAxis: {
+                    type: 'value',
+                    name: '温度（℃）',
+                },
+
+                series: [
+                    {
+                        name: '坐标',
+                        type: 'bar',    // 设置图表类型为饼图
+                        data: valu,
+                    }
+                ]
+            })
+        }, 'json')
+        ///////////////////////////////////////////////////////////////////
+
+        $.get('/Bot/Getbarjson', function (data) {
+
+            for (var i = 0; i < data.Pos.length; i++) {
+                pos[i] = JSON.parse(data.Pos[i]);//以特定的JSON的格式接收数字
+            }
+            for (var i = 0; i < data.Valu.length; i++) {
+                valu[i] = data.Valu[i];//以JSON的方式接收字符串
+            }
+            console.log("对象数组valu:" + valu)
+            BotChart.setOption({
+                tooltip:{},
+                title: {
+                    text: '实时应变图',
+                    textStyle: {   //主标题的样式
+                        color: 'red',
+                        fontWeight: 'bold',
+                        fontStyle: 'italic',
+                        fontFamily: '微软雅黑'
+                    },
+                    x: 'center'
+                },
+                grid: {
+                    top: '20%',
+                },
+                xAxis: {
+                    name: '位置',
+                    type: 'category',
+                    data: pos,
+                    axisLabel: {
+                        rotate: '35',
+                        interval: 100
+                    }
+                },
+
+                yAxis: {
+                    type: 'value',
+                    name: '应变值',
+                },
+
+                series: [
+                    {
+                        name: '坐标',
+                        type: 'bar',    // 设置图表类型为饼图
+                        data: valu,
+                    }
+                ]
+            })
+        }, 'json')
+
+
+
+
+    })
+
+</script>
+
+
+
+
+
+
+

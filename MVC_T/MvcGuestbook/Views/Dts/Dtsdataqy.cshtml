@@ -1,0 +1,216 @@
+﻿@{
+
+    System.Data.DataSet ds = (System.Data.DataSet)ViewData["ds"];
+    int fyleft = int.Parse(ViewBag.Vibcount) % 10;
+    int fypagen = int.Parse(ViewBag.Vibcount) / 10;
+    if (fyleft > 0)
+    {
+        fypagen = fypagen + 1;
+    }
+}
+
+<script src="~/Scripts/echarts.js"></script>
+<script src="~/Scripts/wonderland.js"></script>
+
+<script language="JavaScript" type="text/javascript">
+    function getnextpage() {
+        var totpage =@(fypagen);
+        var curpage = $(".curpage").text();
+        curpage = parseInt(curpage) + 1;
+
+        var pagetxt;
+        if (curpage <= totpage) {
+            $(".curpage").text(curpage);
+
+            var qstr = "npage=" + curpage;
+            $(".showdetail").load("/Dts/Dtsdfypage?" + qstr);
+        }
+
+    }
+    function getprepage() {
+
+        var totpage =@(fypagen);
+        var curpage = $(".curpage").text();
+        curpage = parseInt(curpage) - 1;
+        var pagetxt;
+        if (curpage >= 1) {
+            $(".curpage").text(curpage);
+
+            var qstr = "npage=" + curpage;
+            $(".showdetail").load("/Dts/Dtsdfypage?" + qstr);
+        }
+    }
+
+    function getfirstpage() {
+        $(".curpage").text("1");
+        var qstr = "npage=1" ;
+        $(".showdetail").load("/Dts/Dtsdfypage?" + qstr);
+    }
+
+    function getlastpage() {
+        var totpage =@(fypagen);
+        $(".curpage").text(totpage);
+        var curpage = parseInt(totpage);
+        var qstr = "npage="+curpage;
+        $(".showdetail").load("/Dts/Dtsdfypage?" + qstr);
+    }
+    function getpage() {
+        var curpage = $("#fyb").val();
+        $(".curpage").text(curpage);
+        var qstr = "npage=" + curpage;
+        $(".showdetail").load("/Dts/Dtsdfypage?" + qstr);
+    }
+    var DataChart;
+    function dts_showchart(eid) {
+        if ((DataChart != null) && (DataChart != "") && (DataChart != undefined)) {
+            DataChart.dispose();
+        }
+
+        DataChart = echarts.init(document.getElementById('Showchart'), 'wonderland');
+        var pos = [];
+        var valu = [];
+        var arr0 = [];
+        DataChart.showLoading();
+        $.get('/Dts/Getbarjson?id=' + eid, function (data) {
+
+            for (var i = 0; i < data.Pos.length; i++) {
+                pos[i] = JSON.parse(data.Pos[i]);//以特定的JSON的格式接收数字
+            }
+            for (var i = 0; i < data.Valu.length; i++) {
+                valu[i] = data.Valu[i];//以JSON的方式接收字符串
+            }
+            //console.log("对象数组valu:" + valu)
+
+            DataChart.setOption({
+                tooltip: {
+                    trigger: 'axis',
+                    showContent: true,
+                },
+                dataZoom: {
+                    type: 'inside',
+                    show: true,
+                },
+                title: {
+                    text: '温度分布图(编号：' + eid + ')',
+                    textStyle: {   //主标题的样式
+                        color: 'red',
+                        fontWeight: 'bold',
+                        fontStyle: 'italic',
+                        fontFamily: '微软雅黑'
+                    },
+                    x: 'center'
+                },
+                grid: {
+                    top: '20%',
+                },
+                xAxis: {
+                    name: '位置',
+                    type: 'category',
+                    data: pos,
+                    axisLabel: {
+                        rotate: '35',
+                        interval: 50
+                    }
+                },
+
+                yAxis: {
+                    type: 'value',
+                    name: '温度值（℃）',
+                },
+
+                series: [
+                    {
+                        name: '温度值',
+                        type: 'line',    // 设置图表类型为饼图
+                        data: valu,
+                        showSymbol: false,
+                    }
+                ]
+            })
+        }, 'json');
+        DataChart.hideLoading();
+
+    }
+
+</script>
+
+<table>
+    <tr>
+        <td style="height:50px;">
+            <div style="color: #3F4F70;font-weight:bold">共查到DTS温度历史数据:&nbsp<font color="red"> @(ViewBag.Vibcount)</font> &nbsp;条 </div>
+
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+
+        <td>
+            <table>
+                <tr>
+                    <td>
+                        <div class="showdetail">
+                            <table class="realtb">
+
+                                <tr align="center">
+                                    <th>&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                                    <th width="80px"><b>编号</b></th>
+                                    <th width="130px"><b>时间</b></th>
+                                    <th width="110px"><b>通道号</b></th>
+                                    <th width="110px" height="50px"><b>点距（厘米）</b></th>
+                                    <th width="140px"><b>详细</b></th>
+
+                                </tr>
+                                @{
+                                    int i = 0;
+                                    foreach (System.Data.DataRow dr in ds.Tables[0].Rows)
+                                    {
+                                        i = i + 1;
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td>@dr["id"]</td>
+                                            <td width="200px">@dr["create_time"]</td>
+                                            <td style="height:36px">@dr["channel_id"]</td>
+                                            <td>@dr["dot_len"]</td>
+                                            <td><a class="norbn" href="#" onclick="dts_showchart('@(dr["id"])')">详细</a></td>
+
+
+
+                                        </tr>
+                                        if (i == 10)
+                                        {
+                                            break;
+                                        }
+
+                                    }
+                                    //ds.Dispose();
+
+                                }
+
+
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="fy" style="width:100%;">
+                            <a href="#" title="首页" onclick="getfirstpage()">首页</a>
+                            <a href="#" title="上一页" onclick="getprepage()">上一页</a>
+                            &nbsp; 共<span id="fytotal">@(fypagen)</span>页&nbsp; 第<span id="fytotal" class="curpage">1</span>页 &nbsp;
+                            <a href="#" title="下一页" onclick="getnextpage()">下一页</a>
+                            <a href="#" title="尾页" onclick="getlastpage()">尾页</a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            转到第<input type="text" id="fyb" />页&nbsp; <a href="#" title="Go" onclick="getpage()">Go</a>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+        </td>
+        <td>
+            <div id="Showchart" style="width: 500px;height:330px;background:#ffffff"> </div>
+        </td>
+
+    </tr>
+
+</table>

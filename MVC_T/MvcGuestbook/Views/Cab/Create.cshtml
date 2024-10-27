@@ -1,0 +1,258 @@
+﻿<script language="JavaScript" type="text/javascript">
+    function text_focus(elem) {
+        elem.placeholder = "";
+    }
+    function verify(obj) {
+        /*
+        var temp = obj.username.value;
+        temp = temp.trim();
+        if (temp == '') {
+            document.getElementById("errorlabel").innerHTML = "用户名不能为空，请重新输入";
+            document.getElementById("errorlabel").style.visibility = "visible";
+            return false;
+        }
+        if (obj.passwd.value == '') {
+            document.getElementById("errorlabel").innerHTML = "密码不能为空，请重新输入";
+            document.getElementById("errorlabel").style.visibility = "visible";
+            return false;
+        }
+        if (obj.passwd.value != obj.repasswd.value) {
+            document.getElementById("errorlabel").innerHTML = "密码和确认密码不一致，请重新输入";
+            document.getElementById("errorlabel").style.visibility = "visible";
+            return false;
+        }
+        */
+        document.getElementById("errorlabel").style.visibility = "hidden";
+        var cb_type = $("#type").val();
+        if (cb_type != null) {
+            cb_type = $.trim(cb_type);
+        }
+        if ((cb_type == null) || (cb_type.length== 0)) {
+            document.getElementById("errorlabel").innerHTML = "请输入电缆型号";
+            document.getElementById("errorlabel").style.visibility = "visible";
+            return false;
+
+        }
+
+        var cb_producer = $("#producer").val();
+        if (cb_producer != null) {
+            cb_producer = $.trim(cb_producer);
+        }
+        if ((cb_producer == null) || (cb_producer.length == 0)) {
+            document.getElementById("errorlabel").innerHTML = "请输入电缆生产厂家";
+            document.getElementById("errorlabel").style.visibility = "visible";
+            return false;
+
+        }
+
+        var cb_prodate = $("#prodate").val();
+        if (cb_prodate != null) {
+            cb_prodate = $.trim(cb_prodate);
+        }
+        if ((cb_prodate == null) || (cb_prodate.length == 0)) {
+            document.getElementById("errorlabel").innerHTML = "请输入电缆生产日期";
+            document.getElementById("errorlabel").style.visibility = "visible";
+            return false;
+
+        }
+
+        var cb_len = $("#cablen").val();
+        if (cb_len != null) {
+            cb_len = $.trim(cb_len);
+        }
+        if ((cb_len == null) || (cb_len.length == 0)) {
+            document.getElementById("errorlabel").innerHTML = "请输入电缆长度";
+            document.getElementById("errorlabel").style.visibility = "visible";
+            return false;
+        }
+
+        var cb_dia = $("#cabdi").val();
+        if (cb_dia != null) {
+            cb_dia = $.trim(cb_dia);
+        }
+        if ((cb_dia == null) || (cb_dia.length == 0)) {
+            document.getElementById("errorlabel").innerHTML = "请输入缆芯直径";
+            document.getElementById("errorlabel").style.visibility = "visible";
+            return false;
+        }
+
+
+        var channel_id = $("#channelid").val();
+        if (channel_id==0) {
+            document.getElementById("errorlabel").innerHTML = "请选择通道号";
+            document.getElementById("errorlabel").style.visibility = "visible";
+            return false;
+
+        }
+
+        var cab_mat = $("#cabmat").val();
+        if (cab_mat != null) {
+            cab_mat = $.trim(cab_mat);
+        }
+        if (cab_mat == 0) {
+            document.getElementById("errorlabel").innerHTML = "请选择芯材";
+            document.getElementById("errorlabel").style.visibility = "visible";
+            return false;
+
+        }
+        var url_str = '/Cab/Savecab?type=' + cb_type;
+        url_str = url_str + "&producer=" + cb_producer;
+        url_str = url_str + "&prodate=" + cb_prodate;
+        url_str = url_str + "&cablen=" + cb_len;
+        url_str = url_str + "&cabdi=" + cb_dia;
+        url_str = url_str + "&channelid=" + channel_id;
+        url_str = url_str + "&cabmat=" + cab_mat ;
+        $(location).prop('href', url_str);
+
+        return true;
+
+    }
+    function getfilepath()
+    {
+        var channel_id = $("#channelid").val();
+        if (channel_id == 0) {
+            alert("请先选择通道号！");
+            return false;
+        }
+        var file_ctx = document.getElementById('fileinp');
+        var filename = file_ctx.files[0].name;
+        $("#picpath").val(filename);
+    }
+</script>
+
+<table>
+    <tr><td>&nbsp;</td></tr>
+    <tr>
+        <td>
+
+            <div style="width: 600px; margin-left: 200px; color: #3F4F70;">
+
+                <h3 align="center">创建电缆</h3>
+                <hr class="hrregist" />
+
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td height="5px">&nbsp;</td>
+    </tr>
+    <tr>
+        <td>
+            <!--  <form action="/Cab/Savecab" ENCTYPE="multipart/form-data" onsubmit="return verify(this)" method="post">-->
+            <p class="pregist"><span class="inputlabel">电缆型号: &nbsp;&nbsp;&nbsp;</span> <input type="text" class="inputbox" name="type" id="type" placeholder="请填写型号" required="required" onfocus="text_focus(this)"></p>
+            <p class="pregist"><span class="inputlabel">生产厂家: &nbsp;&nbsp;&nbsp; </span> <input type="text" class="inputbox" name="producer" id="producer" placeholder="请填写生产厂家" required="required" onfocus="text_focus(this)"></p>
+            <p class="pregist"><span class="inputlabel">生产日期: &nbsp;&nbsp;&nbsp; </span> <input type="text" class="inputbox" name="prodate" id="prodate" placeholder="请选择生产日期" required="required" onfocus="text_focus(this)"></p>
+
+            <p class="pregist"><span class="inputlabel">电缆直径: &nbsp;&nbsp;&nbsp; </span> <input type="text" class="inputbox" name="cabdi" id="cabdi" placeholder="请填写电缆直径" required="required" onfocus="text_focus(this)"></p>
+
+
+
+            <p class="pregist">
+                <span class="inputlabel">电缆芯材: &nbsp;&nbsp;&nbsp;</span>
+                <select id="cabmat" class="inputboxq" name="cabmat">
+                    <option value="0" selected="selected"></option>
+                    <option value="1">铜芯</option>
+                    <option value="2">铝芯</option>
+                    <option value="3">铜铝合金</option>
+
+                </select>
+            </p>
+
+            <p class="pregist"><span class="inputlabel">电缆长度(米): &nbsp;&nbsp;&nbsp; </span> <input type="text" class="inputbox" name="cablen" id="cablen" placeholder="请填写电缆长度" required="required" onfocus="text_focus(this)"></p>
+            <!--<form action="Url.Action("SavePictureByForm")" enctype="multipart/form-data" method="post">-->
+            @using (Ajax.BeginForm("UploadFile", "Cab", new AjaxOptions() { OnSuccess = "OnQuerySuccess", OnFailure = "OnQueryFail", HttpMethod = "Post" }, new { enctype = "multipart/form-data", id = "FormBaseData" }))
+            {
+
+                <p class="pregist">
+                    <span class="inputlabel">通道号:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  </span>
+                    <select id="channelid" class="inputboxq" name="channelid">
+                        <option value="0" selected></option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+
+                    </select>
+                </p>
+
+                <p class="pregist">
+                    <span class="inputlabel">请上传电缆图片: &nbsp; </span>
+                    <label for="fileinp">
+                        <input type="hidden" name="MouldId" id="MouldId" value="9527" />
+                        <input type="text" class="inputboxpath" name="picpath" id="picpath" />
+                        <!--<input type="file" name="file1" accept=".png, .jpg, .jpeg;" id="fileinp" onchange="getfilepath()">-->
+                        <input type="file" name="file1" accept=".jpg;" id="fileinp" onchange="getfilepath()">
+                        <input type="button" value="浏览..." />
+                    </label>
+                </p>
+
+                <p class="pregist">
+                    <input type="submit" id="btnSubmit" value="上传图片" class="submit_button"><span id="text"></span>
+                    <img src="/Pictures/ch1.jpg" width="40" height="40" display:inline; alt="图片预览" id="mypicture" />
+                </p>
+
+
+            }
+            <!-- </form>-->
+            <!--
+    <p class="pregist"><span class="inputlabel">&nbsp;&nbsp;&nbsp;</span> <input type="text" class="inputbox" name="cabpicpath" id="cabpicpath" />&nbsp;<input type="button" name="uploadpic" class="submit_button" value="选择图片" /></p>
+    -->
+            <!--
+    <form action="Url.Action("SavePictureByForm")" enctype="multipart/form-data" method="post">
+    <p class="pregist">
+
+        <span class="inputlabel">&nbsp;&nbsp;&nbsp;</span>
+        <label for="fileinp">
+            <input type="button" id="btn" value="选择文件" class="submit_button"><span id="text"></span>
+            <input class="excel_file" type="file" accept=".png, .jpg, .jpeg;" id="fileinp">
+        </label>
+    </p>
+    </form>
+    -->
+            <p class="pregist"><span id="errorlabel" style="color:red;"></span></p>
+
+            <p class="pregist">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;<input type="button" id="newaccbtn" class="submit_button" value="创建电缆" onclick="verify(this)"></p>
+            <!--</form>-->
+        </td>
+    </tr>
+
+</table>
+
+<script src="~/Scripts/jquery-ui.js"></script>
+<script>
+    $(document).ready(
+        function () {
+            $("#prodate").datepicker({
+                inline: true,
+                dateFormat: "yy-mm-dd"
+            });
+
+          //  $("#btnSubmit").bind("click", function () { Query(); });
+            $("#mypicture").hide();
+        }
+    );
+    function Query() {
+        $("#FormBaseData").attr("data-ajax-success", "OnQuerySuccess(data)");
+        $("#FormBaseData").attr("data-ajax-failure", "OnQueryFail()");
+        $("#FormBaseData").attr("action", "/Cab/UploadFile");
+        $("#FormBaseData").submit();
+    }
+
+    function OnQuerySuccess(data) {
+        if (data[0] == '/') {
+            $("#mypicture").attr({ "src": data });
+            $("#mypicture").attr({ "width": 80 });
+            $("#mypicture").attr({ "height": 80 });
+            // $("#mypicture").style.visibility = "visible";
+            $("#mypicture").show();
+        }
+        else {
+            alert(data);
+        }
+    }
+
+    function OnQueryFail() {
+      alert("发生错误!");
+
+    }
+</script>

@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "振动实时监控";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts
+{
+    <script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.js")"></script>
+}
+<script language="JavaScript" type="text/javascript">
+    $('body').everyTime('3s', function () {
+        $(".vibalarm").load("/Vib/Vibalarm");
+        $(".vibfibalarm").load("/Vib/Vibfibalarm");
+    });
+
+    function vib_confirm(vibid, conflag) {
+
+        $.ajax({ url: "/Vib/Setvibflag?id=" + vibid + "&flag=" + conflag, async: false });
+    }
+
+    function vib_fib_confirm(vibid, conflag) {
+
+        $.ajax({ url: "/Vib/Setfibflag?id=" + vibid + "&flag=" + conflag, async: false });
+    }
+
+
+</script>
+
+
+<table>
+    <tr>
+        <td style="height:50px;">
+            <div style="color: #3F4F70;font-weight:bold">实时振动图</div>
+
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <!-- <IFRAME name="test" scrolling=yes style="overflow-x:auto; overflow-y:auto;" width=600 height=400 src="http://192.168.0.109:8080/embed/chart_line.html"></IFRAME>-->
+            <IFRAME name="test" scrolling=yes style="overflow-x:auto; overflow-y:auto;" width=1200 height=340 src="@ViewBag.Viburl"></IFRAME>
+
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="vibalarm" id="vibalarm">
+
+                @Html.Action("Vibalarm")
+
+            </div>
+            <!--<div style="color: #3F4F70;font-weight:bold">现有未处理振动报警:&nbsp<font color="red"> @(ViewBag.Vibcount)</font> &nbsp;个 </div>-->
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="vibfibalarm" id="vibfibalarm">
+
+                @Html.Action("Vibfibalarm")
+
+            </div>
+        <td>
+
+    </tr>
+</table>
+

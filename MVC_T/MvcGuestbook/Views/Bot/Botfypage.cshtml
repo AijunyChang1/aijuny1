@@ -1,0 +1,69 @@
+﻿@{
+
+    System.Data.DataSet ds = (System.Data.DataSet)ViewData["ds"];
+    int curpage = int.Parse(ViewBag.curpage);
+
+}
+
+<table class="realtb">
+
+    <tr align="center">
+        <th>&nbsp;&nbsp;&nbsp;&nbsp;</th>
+        <th width="80px"><b>编号</b></th>
+        <th width="170px"><b>报警时间</b></th>
+        <th width="80px"><b>通道号</b></th>
+        <th width="110px"><b>应变值(με)</b></th>
+        <th width="140px" height="50px"><b>起始位置（米）</b></th>
+        <th width="120px"><b>结束位置(米)</b></th>
+        <th width="100px"><b>报警类型</b></th>
+        <th width="120px"><b>是否已确认</b></th>
+        <th width="120px"><b>应变强度图</b></th>
+
+    </tr>
+    @{
+        int i = 0;
+        // foreach (System.Data.DataRow dr in ds.Tables[0].Rows)
+        System.Data.DataRow dr;
+        int line = ds.Tables[0].Rows.Count;
+        int rown = 0;
+        if ((line - 10 * (curpage - 1)) < 10)
+        {
+            rown = line % 10;
+        }
+        else
+        {
+            rown = 10;
+        }
+        for (i = 0; i < rown; i++)
+        {
+            if (ds == null)
+            {
+                break;
+
+            }
+            else
+            {
+                dr = ds.Tables[0].Rows[10 * (curpage - 1) + i];
+        <tr>
+            <td>&nbsp;</td>
+            <td>@dr["id"]</td>
+            <td>@dr["alarm_time"]</td>
+            <td style="height:36px">@dr["channel_id"]</td>
+            <td>@dr["max_value"]</td>
+            <td>@dr["begin_pos"]</td>
+            <td>@dr["end_pos"]</td>
+            <td>@dr["alarm_type"]</td>
+            <td>@dr["show_check"]</td>
+            <td><progress value="@(dr["max_value"])" max="500.14"></progress></td>
+
+
+
+        </tr>
+                    //ds.Dispose();
+
+            }
+        }
+    }
+
+
+</table>

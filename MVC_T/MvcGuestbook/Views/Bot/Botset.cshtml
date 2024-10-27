@@ -1,0 +1,64 @@
+﻿
+<script language="JavaScript" type="text/javascript">
+    function set_botdata(eid) {
+        var pos = $("#pointpos").val();
+        pos = $.trim(pos);
+        if (pos == '') {
+            $("#Showtxt").html("<div style='font-size:14px;padding-left:110px;color:red;'>请输入位置！</div>");
+            return false;
+        }
+        var ang = $("#angle").val();
+        ang = $.trim(ang);
+        if (ang == '') {
+            $("#Showtxt").html("<div style='font-size:14px;padding-left:110px;color:red;'>请输入弯折角度！</div>");
+            return false;
+        }
+        var ann = $("#anno").val();
+        ann = $.trim(ann);
+        var qstr = "";
+        qstr = "id=" + eid;
+        qstr = qstr+"&pos=" + pos+"&ang="+ang;
+
+        if (ann != null) {
+            qstr = qstr+"&ann=" + ann;
+        }
+
+        $.ajax({ url: "/Bot/Setbotdata?" + qstr, async: false });
+        $("#Showtxt").html("<div style='font-size:14px;padding-left:110px;color:green;'>保存数据成功！</div>");
+    }
+</script>
+
+
+<div class="botset" id="botset">
+    <table>
+        <tr>
+            <td><h4 align="left" style="color: #3F4F70;">设置光纤应变角度(ID: @(ViewBag.Eid))</h4></td>
+        </tr>
+        <tr><td>&nbsp;</td></tr>
+        <tr>
+            <td width="300px" align="center">
+                <span class="inputlabel">位置:</span>
+                <input type="text" id="pointpos" class="inputboxa"/>
+            </td>
+        </tr>
+        <tr>
+            <td width="300px" align="center">
+                <span class="inputlabel">角度:</span>
+                <input type="text" id="angle" class="inputboxa"/>
+            </td>
+        </tr>
+        <tr>
+            <td width="300px" align="center">
+                <span class="inputlabel">备注:</span>
+                <input type="text" id="anno" class="inputboxa"/>
+            </td>
+        </tr>
+        <tr><td><div id="Showtxt"></div></td></tr>
+        <tr><td>&nbsp;</td></tr>
+        <tr>
+            <td align="center">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="norbn" href="#" onclick="set_botdata('@(ViewBag.Eid)')">确定</a>
+            </td>
+        </tr>
+    </table>
+</div>

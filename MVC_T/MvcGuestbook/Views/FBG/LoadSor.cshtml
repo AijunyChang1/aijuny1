@@ -1,0 +1,274 @@
+﻿@{
+
+    System.Data.DataSet ds = (System.Data.DataSet)ViewData["ds"];
+    string dev_id = (string)ViewData["dev"];
+
+}
+<script src="~/Scripts/echarts.js"></script>
+<script src="~/Scripts/wonderland.js"></script>
+<script language="JavaScript" type="text/javascript">
+    var arr = [];
+    var devid='@dev_id';
+
+</script>
+
+@{
+    foreach (System.Data.DataRow dr in ds.Tables[0].Rows)
+    {
+    <script language="JavaScript" type="text/javascript">
+           arr.push('@dr["sor_code"].ToString()');
+    </script>
+
+    }
+}
+
+
+<div style="color: #3F4F70;font-weight:bold"> 传感器列表:</div>
+<br>
+
+<table>
+    <tr>
+        @{
+            int i = 0;
+
+            foreach (System.Data.DataRow dr in ds.Tables[0].Rows)
+            {
+                i = i + 1;
+                if (i < 3)
+                {
+                    <td width="180px"> @(dr["sor_code"])</td>
+                }
+            }
+
+
+        }
+
+    </tr>
+
+    <tr>
+        @{
+            int j = 0;
+            foreach (System.Data.DataRow dr in ds.Tables[0].Rows)
+            {
+                j = j + 1;
+                if (j < 3)
+                {
+                    <td width="180px"> <div name="test" id="T@(dr["sor_code"].ToString())" style="width: 550px;height:270px;margin-left:20px"></div></td>
+                }
+            }
+
+
+        }
+    </tr>
+
+    <tr>
+        @{
+            int k = 0;
+
+            foreach (System.Data.DataRow dr in ds.Tables[0].Rows)
+            {
+                k = k + 1;
+                if (k >2)
+                {
+                    <td width="180px"> @(dr["sor_code"])</td>
+                }
+            }
+
+
+        }
+
+    </tr>
+
+    <tr>
+        @{
+            int m= 0;
+            foreach (System.Data.DataRow dr in ds.Tables[0].Rows)
+            {
+                m = m + 1;
+                if (m >2)
+                {
+                    <td width="180px"> <div name="test" id="T@(dr["sor_code"].ToString())" style="width: 550px;height:270px;margin-left:20px"></div></td>
+                }
+            }
+
+  
+        }
+    </tr>
+
+
+</table>
+<script>
+   // var obj = document.getElementsByName("test");
+   // alert(obj[0].id);
+</script>
+<script language="JavaScript" type="text/javascript">
+   // temp = "";
+    
+   // for (var i = 0; i < arr.length; i++) {
+      //  eval('var  DataChart' + i);
+      //  temp = "DataChart" + i;
+        //if ((eval(temp)!= null) && (eval(temp) != "") && (eval(temp)!= undefined)) {
+        // eval(temp).dispose();
+      //  eval(temp +" = echarts.init(document.getElementById('"+arr[i]+"'), 'wonderland')");
+       // DataChart.push(eval(temp));
+       // alert("hello " + DataChart[0]);
+       // }
+        
+
+   // }
+   // alert("hello" + DataChart.length + ":" + DataChart[0]);
+
+</script>
+
+
+<script language="JavaScript" type="text/javascript">
+    var pos = [];
+    var valu = [];
+    var echart;
+    var DataChart = [];
+    temp = "";
+
+
+    for (var i = 0; i < arr.length; i++) {
+        eval('var  DataChart' + i);
+        temp = "DataChart" + i;
+        //if ((eval(temp)!= null) && (eval(temp) != "") && (eval(temp)!= undefined)) {
+        // eval(temp).dispose();
+        eval(temp + " = echarts.init(document.getElementById('T" + arr[i] + "'), 'wonderland')");
+        DataChart.push(eval(temp));
+    //    alert("hello " + DataChart[i]);
+        // }
+
+
+    }
+
+
+     $('body').everyTime('5s', function () {
+         // setInterval(function () {
+         //alert("hello" + DataChart.length);
+         txt = '';
+         for (var k = 0; k < arr.length; k++) {
+
+
+             ur = '/FBG/Getbarjson?dev=' + devid +'&sid=' + arr[k]+'&chartN='+k;
+              // alert("hello " + ur);
+
+
+
+                    $.get(ur, function (data) {
+                        if (data.Pos.length > 1) {
+                            pos = [];
+                          // alert("hello 0 " + DataChart[k]);
+                            for (var i = 0; i < data.Pos.length; i++) {
+
+                               // pos[i] = JSON.parse(data.Pos[i]);//以特定的JSON的格式接收数字
+                                pos[i] = data.Pos[i];
+
+                            }
+                            valu = [];
+                            for (var i = 0; i < data.Valu.length; i++) {
+
+                                valu[i] = data.Valu[i];//以JSON的方式接收字符串
+                            }
+                            //console.log("对象数组valu:" + valu)
+                            //alert("hello " + DataChart[data.Num[0]]);
+                            p = data.Num[0];
+                            //DataChart[p].clear();
+
+                            if (p == 0) {
+                                txt = '裂缝数据趋势图';
+                            }
+
+                            if (p == 1) {
+                                txt = '渗压数据趋势图';
+                            }
+
+                            if (p == 2) {
+                                txt = '沉降数据趋势图';
+                            }
+                            if (p == 3) {
+                                txt = '温度数据趋势图';
+
+                            }
+
+
+                            DataChart[p].setOption({
+                                tooltip: {
+                                    trigger: 'axis',
+                                    showContent: true,
+                                },
+                                dataZoom: {
+                                    type: 'inside',
+                                    show: true,
+                                },
+                                title: {
+                                    text: txt,
+                                    textStyle: {   //主标题的样式
+                                        color: 'red',
+                                        fontWeight: 'bold',
+                                        fontStyle: 'italic',
+                                        fontFamily: '微软雅黑'
+                                    },
+                                    x: 'center'
+                                },
+                                grid: {
+                                    top: '20%',
+                                },
+                                xAxis: {
+                                    name: '时间(S)',
+                                    type: 'category',
+                                    data: pos,
+                                    axisLabel: {
+                                        rotate: '35',
+                                        interval: 200,
+                                    }
+                                },
+
+                                yAxis: {
+                                    type: 'value',
+                                   // type:'category',
+                                    name: '数值（mm）',
+                                //    min: 24.95,
+                                    min: function (valu) { return valu.min;},
+                                //    max: dataMax,
+                                //    max: 25.05,
+                                //  interval: 0.00001,
+                                    
+                                },
+
+                                series: [
+                                    {
+                                        name: '数值',
+                                        type: 'line',    // 设置图表类型为饼图 bar
+                                        data: valu,
+                                        //      symbol: 'circle', //实心圆点
+                                        symbol: 'none',
+                                        showSymbol: false,
+                                        smooth: 0.5,      //设置折线弧度
+
+                                    }
+                                ],
+                                //color: ['#99CC33']
+                            });
+                            var t_str = '$("#T' + arr[p] + '").show();';
+                            //alert(t_str);
+                            eval(t_str);
+                            //$("#Dtschart").show();
+                           // $("#Dtschart1").hide();
+                        }
+                        else {
+                            $("#Dtschart").hide();
+                            $("#Dtschart1").show();
+                            $("#Dtschart1").html("<br/><br/><div style='font-size:14px;padding-left:150px;color: red;'>无该通道的温度数据！</div>")
+                        }
+                    }, 'json');
+
+               }
+
+
+            })
+
+</script>
+
+
+

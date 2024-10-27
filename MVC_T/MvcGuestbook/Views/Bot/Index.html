@@ -1,0 +1,81 @@
+﻿
+@{
+    ViewBag.Title = "Botda应变实时监控";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts
+{
+    <script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.js")"></script>
+}
+
+
+<script language="JavaScript" type="text/javascript">
+
+    $('body').everyTime('3s', function () {
+        $(".botalarm").load("/Bot/Botalarm");
+        //////////////////////////////////////////////////
+
+
+
+        ////////////////////////////////////////////////////
+    })
+
+</script>
+
+<table>
+    <tr>
+        <td>
+            <div class="botalarm" id="botalarm">
+
+                @Html.Action("Botalarm")
+
+            </div>
+            <!--<div style="color: #3F4F70;font-weight:bold">现有未处理振动报警:&nbsp<font color="red"> @(ViewBag.Vibcount)</font> &nbsp;个 </div>-->
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table border="1">
+                <tr>
+                    <td>
+                         <div id="Datachart"  style="width: 600px;height:400px;"></div>
+                    </td>
+                    <td>
+                        <div class="Alarmchart" id="Alarmchart" style="width: 600px;height:400px;"></div>
+                    </td>
+                </tr>
+            </table>
+        <td>
+
+    </tr>
+</table>
+
+<script src="echarts.min.js"></script>
+
+<script language="JavaScript" type="text/javascript">
+    var DataChart = echarts.init(document.getElementById('Datachart'));
+   // var Alarm_Chart = echarts.init(document.getElementById("Alarmchart"));
+
+    var option = {
+        title: {
+            text: '第一个 ECharts 实例'
+        },
+        tooltip: {},
+        legend: {
+            data: ['销量']
+        },
+        xAxis: {
+            data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
+        },
+        yAxis: {},
+        series: [{
+            name: '销量',
+            type: 'bar',
+            data: [5, 20, 36, 10, 10, 20]
+        }]
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+    DataChart.setOption(option);
+</script>

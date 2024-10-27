@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "电缆身份实时识别";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<script language="JavaScript" type="text/javascript">
+
+    $('body').everyTime('3s', function () {
+        $(".cardshow").load("/Cab/Cardshow");
+    })
+
+</script>
+
+
+<table>
+    <tr>
+        <td>
+
+            <div class="cardshow" id="cardshow">
+                @Html.Action("Cardshow")
+            </div>
+
+        </td>
+    </tr>
+</table>
+

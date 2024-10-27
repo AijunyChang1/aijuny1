@@ -1,0 +1,72 @@
+﻿@{
+
+    System.Data.DataSet ds = (System.Data.DataSet)ViewData["ds"];
+    System.Data.DataRow dr = ds.Tables[0].Rows[0];
+
+}
+
+
+
+<table>
+    <tr>
+        <td width="100px">&nbsp;</td>
+        <td>
+            <div style="color: #3F4F70;font-weight:bold">
+                振动光纤状态报警号： @ds.Tables[0].Rows[0]["id"]
+                <span id="conlable" style="visibility:hidden; color:red;">（已确认）</span>
+                <span id="oklable" style="visibility:hidden; color:green;">（确认为误报）</span>
+            </div>
+        </td>
+
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td width="300px">&nbsp;</td>
+        <td>
+             <table class="detailtb">
+                <tr>
+                    <td> <div style="color: #3F4F70;">报警详情:</div></td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr align="left">
+                    <td>&nbsp;</td>
+                    <td width="200px" align="left"><div class="inputlabel">通道号:</div></td>
+                    <td width="200px" align="left"><div>@dr["channel_id"]</div></td>
+                </tr>
+
+                <tr align="left">
+                    <td>&nbsp;</td>
+                    <td width="200px" align="left"><div class="inputlabel">报警时间:</div></td>
+                    <td width="200px" align="left"><div>@dr["push_time"]</div></td>
+                </tr>
+                <tr align="left">
+                    <td>&nbsp;</td>
+                    <td width="200px" align="left"><div class="inputlabel">光纤状态:</div></td>
+                    <td width="200px" align="left"><div>@dr["fiber_stat"]</div></td>
+                </tr>
+
+                <tr align="left">
+                    <td>&nbsp;</td>
+                    <td width="200px" align="left"><div class="inputlabel">报警位置:</div></td>
+                    <td width="200px" align="left"><div>@dr["fiber_bk_len"]</div></td>
+                </tr>
+
+                <tr><td> &nbsp;</td><td></td><td></td></tr>
+                <tr><td> &nbsp;</td><td></td><td></td></tr>
+
+                <tr>
+                    <td> &nbsp;</td>
+                    <td>
+                        <a class="norbn" href="#alarmtb" onclick="vib_fib_confirm('@(dr["id"])', 1)">确认</a>
+                    </td>
+                    <td><a class="norbn" href="#alarmtb" onclick="vib_fib_confirm('@(dr["id"])', 2)">误报</a></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+
+</table>

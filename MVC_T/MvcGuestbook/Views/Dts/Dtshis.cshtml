@@ -1,0 +1,211 @@
+﻿
+@{
+    ViewBag.Title = "DTS报警历史数据查询";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section scripts
+{
+    <script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.js")"></script>
+}
+
+
+
+<script language="JavaScript" type="text/javascript">
+
+    function query_dts() {
+        var startdate = $("#startdate").val();
+        startdate = $.trim(startdate);
+        var qstr = "";
+        var varsn = 0;
+
+        if ((startdate != null) && (startdate.length > 0)) {
+            qstr = "startdate=" + startdate;
+            varsn = varsn + 1;
+        }
+
+        var enddate = $("#enddate").val();
+        if ((enddate != null) && (enddate.length > 0)) {
+            if (varsn == 0) {
+                qstr = "enddate=" + enddate;
+            }
+            else {
+                qstr = qstr + "&enddate=" + enddate;
+            }
+            varsn = varsn + 1;
+        }
+
+        var areano = $("#areano").val();
+        areano = $.trim(areano);
+        if ((areano != null) && (areano.length > 0)) {
+            if (areano != 0) {
+                if (varsn == 0) {
+                    qstr = "areano=" + areano;
+                }
+                else {
+                    qstr = qstr + "&areano=" + areano;
+                }
+                varsn = varsn + 1;
+            }
+        }
+
+        var alarmtype = $("#alarmtype").val();
+        alarmtype = $.trim(alarmtype);
+        if ((alarmtype != null) && (alarmtype.length > 0)) {
+            if (alarmtype != 0) {
+                if (varsn == 0) {
+                    qstr = "alarmtype=" + alarmtype;
+                }
+                else {
+                    qstr = qstr + "&alarmtype=" + alarmtype;
+                }
+                varsn = varsn + 1;
+            }
+        }
+
+        var channel_id = $("#channelid").val();
+        if ((channel_id != null) && (channel_id.length > 0)) {
+            if (channel_id != 0) {
+                if (varsn == 0) {
+                    qstr = "chid=" + channel_id;
+                }
+                else {
+                    qstr = qstr + "&chid=" + channel_id;
+                }
+                varsn = varsn + 1;
+            }
+        }
+
+        var stat = $("#confirm").val();
+        if ((stat != null) && (stat.length > 0)) {
+            if (varsn == 0) {
+                qstr = "stat=" + stat;
+            }
+            else {
+                qstr = qstr + "&stat=" + stat;
+            }
+            varsn = varsn + 1;
+        }
+
+
+        if (qstr.length > 0) {
+
+            $(".dtshisquery").load("/Dts/Dtshisquery?" + qstr);
+        }
+        else {
+            $(".dtshisquery").load("/Dts/Dtshisquery");
+        }
+
+    }
+
+</script>
+
+<br>
+
+<table>
+    <tr>
+        <td>
+
+            <div>
+                <div style="color: #3F4F70;font-weight:bold;">请选择查询条件:</div>
+                <br>
+                <table>
+                    <tr>
+                        <td><span class="inputlabel">起始日期:</span> <input type="text" id="startdate" class="inputboxq"></td>
+                        <td width="20px"></td>
+
+                        <td><span class="inputlabel">结束日期:</span> <input type="text" id="enddate" class="inputboxq"></td>
+                        <td width="20px"></td>
+
+                        <td>
+                            <span class="inputlabel">分区号:</span>
+                            <input type="text" id="areano" class="inputboxa">
+                        </td>
+                        <td width="20px"></td>
+
+                        <td>
+                            <span class="inputlabel">通道号:</span>
+                            <select id="channelid" class="inputboxq">
+                                <option value="0">所有</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
+                        </td>
+                        <td width="20px"></td>
+
+                        <td>
+                            <span class="inputlabel">报警类型:</span>
+                            <select id="alarmtype" class="inputboxq">
+                                <option value="0">所有</option>
+                                <option value="1">高温报警</option>
+                                <option value="2">差温报警</option>
+                                <option value="3">区域温差报警</option>
+                                <option value="4">正常</option>
+                            </select>
+                        </td>
+                        <td width="20px"></td>
+
+                        <td>
+                            <span class="inputlabel">是否已确认:</span>
+                            <select id="confirm" class="inputboxq">
+                                <option value="0">所有</option>
+                                <option value="1">已确认</option>
+                                <option value="2">未确认</option>
+                                <option value="3">误报</option>
+                            </select>
+                        </td>
+                        <td width="20px"></td>
+                        <td>
+                            <a class="norbn" href="#" onclick="query_dts()">查询</a>
+                        </td>
+
+                    </tr>
+                </table>
+
+            </div>
+
+
+        </td>
+
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+
+
+    <tr>
+        <td>
+            <div class="dtshisquery" id="dtshisquery">
+
+                @Html.Action("Dtshisquery")
+
+            </div>
+        </td>
+    </tr>
+</table>
+
+
+<script src="~/Scripts/jquery-ui.js"></script>
+
+
+<script>
+
+    $(document).ready(
+        function () {
+            $("#startdate").datepicker({
+                inline: true,
+                dateFormat: "yy-mm-dd"
+            });
+            $("#enddate").datepicker({
+                inline: true,
+                dateFormat: "yy-mm-dd"
+            });
+
+        }
+    );
+</script>
+
+

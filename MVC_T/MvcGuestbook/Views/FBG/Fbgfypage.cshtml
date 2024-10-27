@@ -1,0 +1,63 @@
+﻿@{
+
+    System.Data.DataSet ds = (System.Data.DataSet)ViewData["ds"];
+    int curpage = int.Parse(ViewBag.curpage);
+
+}
+
+<table class="realtb">
+
+    <tr align="center">
+        <th>&nbsp;&nbsp;&nbsp;&nbsp;</th>
+        <th width="100px"><b>编号</b></th>
+        <th width="200px"><b>采集时间</b></th>
+        <th width="110px"><b>设备名称</b></th>
+        <th width="320px" height="50px"><b>传感器号</b></th>
+        <th width="120px"><b>采集值</b></th>
+    </tr>
+
+    @{
+        int i = 0;
+        // foreach (System.Data.DataRow dr in ds.Tables[0].Rows)
+        System.Data.DataRow dr;
+        int line = ds.Tables[0].Rows.Count;
+        int rown = 0;
+        if ((line - 10 * (curpage - 1)) < 10)
+        {
+            rown = line % 10;
+        }
+        else
+        {
+            rown = 10;
+        }
+        for (i = 0; i < rown; i++)
+        {
+            if (ds == null)
+            {
+                break;
+
+            }
+            else
+            {
+                dr = ds.Tables[0].Rows[10 * (curpage - 1) + i];
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>@dr["id"]</td>
+                    <td>@dr["create_time"]</td>
+                    <td style="height:36px">@dr["dev_id"]</td>
+                    <td>@dr["sor_code"]</td>
+                    <td>@dr["data"]</td>
+
+
+
+
+                </tr>
+                //ds.Dispose();
+
+            }
+        }
+    }
+
+
+</table>
+

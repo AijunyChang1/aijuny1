@@ -1,0 +1,668 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Bigscreen</title>
+    <link rel="stylesheet" href="~/Content/index.css" />
+    <link rel="stylesheet" href="~/Content/hkcss.css" />
+    <script src="~/Scripts/jquery-3.6.0.js"></script>
+    <script src="~/Scripts/jquery.timers-1.2.js" type="text/javascript"></script>
+    <link href="~/Content/jquery-ui.css" rel="stylesheet" />
+    <script src="~/Scripts/echarts.js"></script>
+    <script src="~/Scripts/wonderland.js"></script>
+    <script language="JavaScript" type="text/javascript">
+        function call(htmlurl) {
+            //    var newwin=window.open(htmlurl,"airWin","top=0,left=0,toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=796,height=546");
+            //    newwin.focus();
+
+            //  return false;
+
+            //$.ajax({ url: "/Cab/Index", async: false });
+            if (document.documentElement.requestFullscreen) {
+                document.documentElement.requestFullscreen();
+            }
+            if (document.documentElement.mozRequestFullScreen) {
+                document.documentElement.mozRequestFullScreen();
+            }
+            if (document.documentElement.msRequestFullscreen) {
+                document.documentElement.msRequestFullscreen();
+            }
+            if (document.documentElement.webkitRequestFullscreen) {
+                document.documentElement.webkitRequestFullscreen();
+            }
+            $("#showBtn").hide();
+            return true;
+
+            // else {
+            //     if (document.exitFullscreen) {
+            //         document.exitFullscreen();
+            //     }
+            // }
+        }
+        function tempselectch(obj) {
+            var pos = [];
+            var valu = [];
+            var arr0 = [];
+            var ur = '/Dts/Getbarjson?ch=' + obj.value;
+            if ((DataChart != null) && (DataChart != "") && (DataChart != undefined)) {
+                DataChart.dispose();
+                DataChart = echarts.init(document.getElementById('Dtschart'), 'wonderland');
+            }
+
+
+
+            //  $.get('/Dts/Getbarjson', function (data) {
+            $.get(ur, function (data) {
+                if (data.Pos.length > 1) {
+
+                    for (var i = 0; i < data.Pos.length; i++) {
+                        pos[i] = JSON.parse(data.Pos[i]);//以特定的JSON的格式接收数字
+                    }
+                    for (var i = 0; i < data.Valu.length; i++) {
+                        valu[i] = data.Valu[i];//以JSON的方式接收字符串
+                    }
+                    //console.log("对象数组valu:" + valu)
+                    DataChart.clear();
+                    DataChart.setOption({
+                        tooltip: {
+                            trigger: 'axis',
+                            showContent: true,
+                        },
+                        dataZoom: {
+                            type: 'inside',
+                            show: true,
+                        },
+                        title: {
+                            text: '当前温度分布图',
+                            textStyle: {   //主标题的样式
+                                color: 'red',
+                                fontWeight: 'bold',
+                                fontStyle: 'italic',
+                                fontFamily: '微软雅黑'
+                            },
+                            x: 'center'
+                        },
+                        grid: {
+                            top: '20%',
+                        },
+                        xAxis: {
+                            name: '位置',
+                            type: 'category',
+                            data: pos,
+                            axisLabel: {
+                                rotate: '35',
+                                interval: 50,
+                            },
+                            splitLine: {
+                                show: false
+                            },
+                        },
+
+                        yAxis: {
+                            type: 'value',
+                            name: '温度（℃）',
+                            splitLine: {
+                                show: false
+                            },
+                        },
+
+                        series: [
+                            {
+                                name: '温度',
+                                type: 'line',    // 设置图表类型为饼图 bar
+                                data: valu,
+                                //      symbol: 'circle', //实心圆点
+                                symbol: 'none',
+                                showSymbol: false,
+                                smooth: 0.5,      //设置折线弧度
+                            }
+                        ],
+                        //color: ['#99CC33']
+                    });
+                    $("#Dtschart").show();
+                    $("#Dtschart1").hide();
+                }
+                else {
+                    $("#Dtschart").hide();
+                    $("#Dtschart1").show();
+                    $("#Dtschart1").html("<br/><br/><div style='font-size:14px;padding-left:150px;color: red;'>无该通道的温度数据！</div>")
+                }
+            }, 'json');
+            // alert(obj.value);
+
+
+        ur = '/Bot/Getbarjson?ch=' + obj.value;
+        if ((BotChart != null) && (BotChart != "") && (BotChart != undefined)) {
+            BotChart.dispose();
+            BotChart = echarts.init(document.getElementById('Botchart'), 'wonderland');
+        }
+        $.get(ur, function (data) {
+            if (data.Pos.length > 1) {
+                for (var i = 0; i < data.Pos.length; i++) {
+                    pos[i] = JSON.parse(data.Pos[i]);//以特定的JSON的格式接收数字
+                }
+                for (var i = 0; i < data.Valu.length; i++) {
+                    valu[i] = data.Valu[i];//以JSON的方式接收字符串
+                }
+                //console.log("对象数组valu:" + valu)
+                BotChart.setOption({
+                    tooltip: {
+                        trigger: 'axis',
+                        showContent: true,
+                    },
+                    dataZoom: {
+                        type: 'inside',
+                        show: true,
+                    },
+                    title: {
+                        text: '实时应变图',
+                        textStyle: {   //主标题的样式
+                            color: 'red',
+                            fontWeight: 'bold',
+                            fontStyle: 'italic',
+                            fontFamily: '微软雅黑'
+                        },
+                        x: 'center'
+                    },
+                    grid: {
+                        top: '20%',
+                    },
+                    xAxis: {
+                        name: '位置',
+                        type: 'category',
+                        data: pos,
+                        splitLine: {
+                            show: false
+                        },
+                        axisLabel: {
+                            rotate: '35',
+                            interval: 200
+                        }
+                    },
+
+                    yAxis: {
+                        type: 'value',
+                        name: '应变值(με)',
+                        splitLine: {
+                            show: false
+                        },
+                    },
+
+                    series: [
+                        {
+                            name: '应变值',
+                            type: 'bar',    // 设置图表类型为饼图 bar
+                            data: valu,
+                        }
+                    ]
+                });  //Set option
+                $("#Botchart").show();
+                $("#Botchart1").hide();
+            }
+            else {
+                $("#Botchart").hide();
+                $("#Botchart1").show();
+                $("#Botchart1").html("<br/><br/><div style='font-size:14px;padding-left:150px;color: red;'>无该通道的应变数据！</div>")
+            }
+
+        }, 'json')
+
+    }
+
+    </script>
+</head>
+<body style="background-image: url(\\Content\\bigscreen3.jpeg);background-size:1600px 1200px">
+    <table>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+ 
+                        <td width="300px" align="center" valign="top">
+                            <span style="font-size:18px; color:#aaccff; margin-left:0px;">通道号:</span>
+                            <select id="tempchid" class="inputboxq" onchange="tempselectch(this)">
+                                <option value="1" selected>1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
+                        </td>
+                        <td width="300px" align="center">
+                            <div class="bigscntop">
+                                未处理的振动报警数：
+                                <br>
+                                <div id="vib_n" style="margin-top: 10px; color: #ffffff; font-size:20px">0</div>
+                            </div>
+                        </td>
+                        <td width="300px" align="center">
+                            <div class="bigscntop">
+                                未处理光纤状态报警数：
+                                <br>
+                                <div id="fib_n" style="margin-top: 10px; color: #ffffff; font-size:20px">0</div>
+                            </div>
+                        </td>
+                        <td width="300px" align="center">
+                            <div class="bigscntop">
+                                未处理应变报警数：
+                                <br>
+                                <div id="bot_n" style="margin-top: 10px; color: #ffffff; font-size:20px">0</div>
+                            </div>
+                        </td>
+                        <td width="300px" align="center">
+                            <div class="bigscntop">
+                                未处理温度报警数：
+                                <br>
+                                <div id="dts_n" style="margin-top: 10px; color: #ffffff; font-size:20px">0</div>
+                            </div>
+                        </td>
+                        <td width="300px" align="center">
+                            <div class="bigscntop">
+                                登陆用户名：
+                                <br>
+                                <div id="uname" style="margin-top: 10px; color: #ffffff; font-size:20px"> </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td width="420px">
+                             <table>
+                                 <tr>
+                                     <td width="400px">
+                                         <br><br><br><br>
+                                         <div id="Dtschart" style="width: 380px;height:270px;margin-left:20px"> </div>
+                                         <div id="Dtschart1" style="width: 380px;height:270px;margin-left:20px;"> </div>
+                                     </td>
+                                 </tr>
+                                 <tr>
+                                     <td>
+                                         <br><br><br><br>
+                                         <div id="Botchart" style="width: 380px;height:270px;margin-left:20px"> </div>
+                                         <div id="Botchart1" style="width: 380px;height:270px;margin-left:20px;"> </div>
+                                     </td>
+                                 </tr>
+                             </table>
+                        </td>
+                        <td width="600px" align="center">
+                            <table>
+                                <tr>
+                                    <td align="center">
+                                        <a class="bsbn" href="~/Home/Index">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;进入主页&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="center">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="center">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td align="center">
+                                        <a class="bsbn" href="~/Dts/Index">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;测温系统&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="center">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="center">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="center">
+                                        <a class="bsbn" href="~/Bot/Index">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;应变系统&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="center">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="center">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="center">
+                                        <a class="bsbn" href="~/Vib/Index">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;振动系统&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                                    </td>
+                                </tr>
+
+                            </table>
+                        </td>
+                        <td width="500px">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <br><br>
+                                        <div id="Alarmpie" style="width:380px;height:270px;"></div>
+
+                                        <div id="Alarmpie1" style="width: 380px;height:270px;margin-left:20px;"> </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <br><br>
+                                            <div style="color: red; font-weight: bold; font-style:italic; font-Family:'微软雅黑';font-size:18px">
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;实时振动图
+                                            </div><br>
+                                        <IFRAME name="test" scrolling=yes style="overflow-x:auto; overflow-y:auto;" width=400 height=270 src="@ViewBag.Viburl"></IFRAME>
+                                    </td>
+                                </tr>
+
+                            </table>
+
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <div>
+        <a class="norbn" id="showBtn" href="#" onclick="call(this)">全屏显示</a>
+    </div>
+
+    <script language="JavaScript" type="text/javascript">
+      //  var sel1 = document.getElementById("tempchid");
+      //  sel1.addEventListener("change", tempselectch(sel1));
+      //  var sel2 = document.getElementById("botchid");
+      //  sel1.addEventListener("change", tempselectch(sel2));
+        var DataChart = echarts.init(document.getElementById('Dtschart'), 'wonderland');
+        $("#Dtschart1").hide();
+        var BotChart = echarts.init(document.getElementById('Botchart'), 'wonderland');
+        $("#Botchart1").hide();
+
+        var AlarmPie = echarts.init(document.getElementById('Alarmpie'), 'wonderland');
+        $("#Alarmpie1").hide();
+
+        $('body').everyTime('10s', function () {
+
+            var pos = [];
+            var valu = [];
+            var arr0 = [];
+            var sel1 = document.getElementById("tempchid");
+            var urdts = '/Dts/Getbarjson?ch=' + sel1.value;
+            //$.get('/Dts/Getbarjson', function (data) {
+            $.get(urdts, function (data) {
+                if (data.Pos.length > 1) {
+
+                    for (var i = 0; i < data.Pos.length; i++) {
+                        pos[i] = JSON.parse(data.Pos[i]);//以特定的JSON的格式接收数字
+                    }
+                    for (var i = 0; i < data.Valu.length; i++) {
+                        valu[i] = data.Valu[i];//以JSON的方式接收字符串
+                    }
+                    //DataChart.clear();
+                    //console.log("对象数组valu:" + valu)
+                    DataChart.setOption({
+                        tooltip: {
+                            trigger: 'axis',
+                            showContent: true,
+                        },
+                        dataZoom: {
+                            type: 'inside',
+                            show: true,
+                        },
+                        title: {
+                            text: '当前温度分布图',
+                            textStyle: {   //主标题的样式
+                                color: 'red',
+                                fontWeight: 'bold',
+                                fontStyle: 'italic',
+                                fontFamily: '微软雅黑'
+                            },
+                            x: 'center'
+                        },
+                        grid: {
+                            top: '20%',
+                        },
+                        xAxis: {
+                            name: '位置',
+                            type: 'category',
+                            data: pos,
+                            axisLabel: {
+                                rotate: '35',
+                                interval: 50,
+
+                            },
+                            axisLine: {
+                                lineStyle: {
+                                    color: '#22a4ff',
+                                },
+                            },
+                            splitLine: {
+                                show: false
+                            },
+                        },
+
+                        yAxis: {
+                            type: 'value',
+                            name: '温度（℃）',
+                            splitLine: {
+                                show: false
+                            },
+                            axisLine: {
+                                lineStyle: {
+                                    color: '#22a4ff',
+                                },
+                            },
+                        },
+
+                        series: [
+                            {
+                                name: '温度',
+                                type: 'line',    // 设置图表类型为饼图 bar
+                                data: valu,
+                                //  symbol: 'circle', //实心圆点
+                                symbol: 'none',
+                                showSymbol: false,
+                                smooth: 0.5,      //设置折线弧度
+                            }
+                        ],
+                        //color: ['#99CC33']
+                    })        //set option
+                    $("#Dtschart").show();
+                    $("#Dtschart1").hide();
+                }
+                else {
+                    $("#Dtschart").hide();
+                    $("#Dtschart1").show();
+                    $("#Dtschart1").html("<br/><br/><div style='font-size:14px;padding-left:150px;color: red;'>无该通道的温度数据！</div>")
+                }
+
+            }, 'json')   //get
+
+            var arr = [];
+            var urbot = '/Bot/Getbarjson?ch=' + sel1.value;
+            $.get(urbot, function (data) {
+                if (data.Pos.length > 1) {
+
+                    for (var i = 0; i < data.Pos.length; i++) {
+                        pos[i] = JSON.parse(data.Pos[i]);//以特定的JSON的格式接收数字
+                    }
+                    for (var i = 0; i < data.Valu.length; i++) {
+                        valu[i] = data.Valu[i];//以JSON的方式接收字符串
+                    }
+                    //console.log("对象数组valu:" + valu)
+                    BotChart.setOption({
+                        tooltip: {
+                            trigger: 'axis',
+                            showContent: true,
+                        },
+                        dataZoom: {
+                            type: 'inside',
+                            show: true,
+                        },
+                        title: {
+                            text: '实时应变图',
+                            textStyle: {   //主标题的样式
+                                color: 'red',
+                                fontWeight: 'bold',
+                                fontStyle: 'italic',
+                                fontFamily: '微软雅黑'
+                            },
+                            x: 'center'
+                        },
+                        grid: {
+                            top: '20%',
+                        },
+                        xAxis: {
+                            name: '位置',
+                            type: 'category',
+                            data: pos,
+                            splitLine: {
+                                show: false
+                            },
+                            axisLabel: {
+                                rotate: '35',
+                                interval: 200,
+                            },
+                            axisLine: {
+                                lineStyle: {
+                                    color: '#22a4ff',
+                                },
+                            },
+                        },
+
+                        yAxis: {
+                            type: 'value',
+                            name: '应变值(με)',
+                            splitLine: {
+                                show: false
+                            },
+                            axisLine: {
+                                lineStyle: {
+                                    color: '#22a4ff',
+                                },
+                            },
+                        },
+
+                        series: [
+                            {
+                                name: '应变值',
+                                type: 'bar',    // 设置图表类型为饼图 bar
+                                data: valu,
+                            }
+                        ]
+                    })
+
+                    $("#Botchart").show();
+                    $("#Botchart1").hide();
+                }
+                else {
+                    $("#Botchart").hide();
+                    $("#Botchart1").show();
+                    $("#Botchart1").html("<br/><br/><div style='font-size:14px;padding-left:150px;color: red;'>无该通道的应变数据！</div>")
+                }
+            }, 'json')
+
+            var urbotalarm = '/Bot/Getpiejson?ch=' + sel1.value;
+
+            $.get(urbotalarm, function (data) {
+
+                if (data.Format.length > 0) {
+                    formt = data.Format;
+
+                    // console.log(formt);
+
+                    num = data.Num;
+                    $.each(formt, function (i, v) {
+                        var obj = {};
+                        obj.name = formt[i];
+                        obj.value = num[i];
+                        arr.push(obj);
+                    })
+                    //console.log("对象数组:"+arr)
+                    AlarmPie.setOption({
+                        tooltip: {},
+                        title: {
+                            text: '报警格式占比图',
+                            textStyle: {   //主标题的样式
+                                color: 'red',
+                                fontWeight: 'bold',
+                                fontStyle: 'italic',
+                                fontFamily: '微软雅黑'
+                            },
+                            x: 'center'
+                        },
+                        color: [
+                            '#4CD964',
+                            '#5AC8FA',
+                            '#007AFF',
+                            '#5856D6',
+                            '#FFCC00',
+
+                        ],
+                        series: [
+                            {
+                                name: '访问来源',
+                                type: 'pie',    // 设置图表类型为饼图
+                                radius: '55%',  // 饼图的半径，外半径为可视区尺寸（容器高宽中较小一项）的 55% 长度。
+                                data: arr,
+                                colorBy: 'data',
+                            }
+                        ]
+                    })
+                    $("#Alarmpie").show();
+                    $("#Alarmpie1").hide();
+                } else {
+                    $("#Alarmpie").hide();
+                    $("#Alarmpie1").show();
+                    $("#Alarmpie1").html("<br/><br/><div style='font-size:14px;padding-left:150px;color: red;'>无该通道的应变报警数据！</div>")
+                }
+            }, 'json')
+
+            ///////////////////////////////////////////////////////////////////////////////数据刷新
+            var bsdataurl= '/Home/Getbsdata?ch=' + sel1.value;
+            //$.get('/Dts/Getbarjson', function (data) {
+            $.get(bsdataurl, function (data) {
+                var n_vib = 0;
+                var n_fib = 0;
+                var n_bot = 0;
+                var n_dts = 0;
+                var username = "";
+                if (data.n_alarm.length > 0) {
+                    n_vib = JSON.parse(data.n_alarm[0]);
+                    n_fib = JSON.parse(data.n_alarm[1]);
+                    n_bot = JSON.parse(data.n_alarm[2]);
+                    n_dts = JSON.parse(data.n_alarm[3]);
+                    username = data.n_alarm[4];
+                }
+               // if (data.uname.length > 0) {
+               //    username = data.uname[0];
+               // }
+                document.getElementById("vib_n").innerHTML = n_vib;
+                document.getElementById("fib_n").innerHTML = n_fib;
+                document.getElementById("bot_n").innerHTML = n_bot;
+                document.getElementById("dts_n").innerHTML = n_dts;
+                document.getElementById("uname").innerHTML = username;
+
+            })
+
+        })
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+       </script>
+     </body >
+</html >

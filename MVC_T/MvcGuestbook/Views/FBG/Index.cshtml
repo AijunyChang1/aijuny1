@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "FBG光纤测量系统";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+@section scripts
+{
+    <script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.js")"></script>
+
+}
+
+<script language="JavaScript" type="text/javascript">
+    function selectdev(obj) {
+
+        var ur = '/FBG/LoadSor?dev=' + obj.value;
+       // $(".sensorlist").unbind();
+        $(".sensorlist").load(ur);
+    }
+</script>
+
+        <br>
+            <table class="fbgrealtb">
+                <tr>
+                    <td>
+                        <div id="selectdev" class="selectdev">hello</div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <br>
+                            <div id="sensorlist" class="sensorlist">No Sensor</div>
+        </td>
+    </tr>
+</table>
+
+<script language="JavaScript" type="text/javascript">
+           default_dev = "";
+           $(".selectdev").load("/FBG/Loaddev");
+</script>
+<script language="JavaScript" type="text/javascript">
+    function show_sor() {
+        if (default_dev != "") {
+            $(".sensorlist").load("/FBG/LoadSor?dev=" + default_dev);
+        }
+    }
+</script>

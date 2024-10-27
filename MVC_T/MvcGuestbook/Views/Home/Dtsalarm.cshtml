@@ -1,0 +1,53 @@
+﻿@{
+
+    System.Data.DataSet ds = (System.Data.DataSet)ViewData["ds"];
+
+}
+
+<table>
+    <tr>
+        <td>
+            <div style="color: #3F4F70;font-weight:bold">共有DTS温度报警:&nbsp<font color="red"> @(ViewBag.Dtscount)</font>&nbsp;个</div>
+
+</td>
+    </tr>
+    <tr>
+
+        <td>
+            <table class="alarmtb">
+                <tr>
+                    <td width="50px" height="35px"><div class="inputlabel">序号</div></td>
+                    <td width="155px"><div class="inputlabel">报警时间</div></td>
+                    <td width="55px"><div class="inputlabel">通道号 </div></td>
+                    <td width="55px"><div class="inputlabel">位置</div></td>
+                    <td width="70px"><div class="inputlabel">报警类型</div></td>
+                    <td width="70px"><div class="inputlabel">报警域号</div></td>
+                    <td width="55px">&nbsp</td>
+                </tr>
+                @{
+                    foreach (System.Data.DataRow dr in ds.Tables[0].Rows)
+                    {
+                        <tr>
+                            <td style="text-align:center;">@dr["id"]</td>
+                            <td height="28px">@dr["alarm_time"]</td>
+                            <td>@dr["channel_id"]</td>
+                            <td>@dr["begin_pos"].ToString()</td>
+                            <td>@dr["alarm_type"]</td>
+                            <td>@dr["area_no"]</td>
+                            <td><a class="abutton" href="#alarmtb" onclick="dts_detail('@(dr["id"])')">详情</a></td>
+
+                        </tr>
+
+                    }
+                    ds.Dispose();
+
+                }
+
+            </table>
+
+        </td>
+
+    </tr>
+
+</table>
+
