@@ -1,0 +1,52 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="NavMaster.master.cs" Inherits="HK_webapp.NavMaster" MasterPageFile="~/MainMaster.master"%>
+
+<asp:Content ID="Content_nav_master" ContentPlaceHolderID="MainContent"  runat="Server">
+
+
+
+    <table border="1">
+<tr>
+<td>
+
+   <div id="main" style="min-width:1400px;">
+
+          <div id="menu" style="background-color:#00008F;min-height:100%;width:200px;height:800px;float:left; color:Orange" align="left">
+
+           <table border="0">
+              <tr><td>&nbsp</td></tr>
+              <tr><td>&nbsp</td></tr>
+              <tr><td>&nbsp; &nbsp;<b><asp:HyperLink ID="MainPageLink" runat="server"  Font-Underline="True" ForeColor="Cyan" Text="首 页" NavigateUrl="firstmain.aspx"></asp:HyperLink></b></td></tr>
+              <tr><td>&nbsp</td></tr>
+              <tr><td>&nbsp</td></tr>
+              <tr><td>&nbsp</td></tr>
+
+              <tr><td>&nbsp; &nbsp;<b><asp:HyperLink ID="VibMainLink" runat="server"  Font-Underline="True" ForeColor="Orange" Text="振动系统" NavigateUrl="vibmain.aspx"></asp:HyperLink></b></td></tr>
+              <tr><td>&nbsp</td></tr>
+              <tr><td>&nbsp; &nbsp;<b><asp:HyperLink ID="TempMainLink" runat="server"  Font-Underline="True" ForeColor="Orange" Text="DTS测温系统" NavigateUrl="dtsmain.aspx"></asp:HyperLink></b></td></tr>
+              <tr><td>&nbsp</td></tr>
+              <tr><td><b>&nbsp; &nbsp;<asp:HyperLink ID="BotdaMainLink" runat="server"  Font-Underline="True" ForeColor="Orange" Text="BOTDA应变测量系统" NavigateUrl="botdamain.aspx"></asp:HyperLink></b><br></td></tr>
+              <tr><td>&nbsp</td></tr>
+              <tr><td>&nbsp</td></tr>
+              <tr><td>&nbsp</td></tr>
+              <tr><td>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
+                  <asp:HyperLink ID="CreateUserLink" runat="server" Visible="False" Text="创建新用户" 
+                      Font-Size="10pt" Font-Underline="True" ForeColor="Cyan" NavigateUrl="createuser.aspx"></asp:HyperLink></td></tr>
+              <tr><td>&nbsp</td></tr>
+              <tr><td align="center"><asp:Button runat="server" Text="登   出" Width="60" 
+                      ForeColor="#776600" OnClick="On_Logout_Click"></asp:Button ></td></tr>
+            </table>
+           </div>
+
+            <div id="content" style="background-color:#EEEEEE;height:680px;min-width:1200px;float:left; width: 944px;">
+               <asp:ContentPlaceHolder ID="RightContent" runat="server">  </asp:ContentPlaceHolder>  
+
+            </div>
+ </div>
+
+</td>
+</tr>
+</table>
+
+
+
+</asp:Content>

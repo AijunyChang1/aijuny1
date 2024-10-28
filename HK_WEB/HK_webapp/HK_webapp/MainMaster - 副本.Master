@@ -1,0 +1,51 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MainMaster.master.cs" Inherits="HK_webapp.MainMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>霍开光纤监测系统</title>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+       
+   <div id="header" style="background-color:#00008F;height:87px;min-width:1500px;font-family:华文楷体">
+         <table  border="0" >
+             <tr>
+                 <td>
+                     <img src="logo.png" alt="Head"/> 
+                 </td>
+                 <td width="60%">
+                     <font color="yellow" size="28" > &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 霍开光纤监控系统 </font>
+                 </td>    
+                 <td>
+                     <font color="yellow" size="3" >登录时间：<asp:label ID="TimeLabel" runat="server" Text="<%#LoginTime%>"></asp:label></font>
+                 </td>    
+             </tr>
+         </table>
+    </div>
+    <br>
+    <form id="form1" runat="server">
+        
+
+    <table  border="0" align="center" cellpadding="0"cellspacing="0" id="Table1">
+        <tr>
+            <td>
+                <asp:ContentPlaceHolder ID="MainContent" runat="server">
+        
+                </asp:ContentPlaceHolder>               
+            </td>
+        </tr>
+    </table>
+
+    </form>
+    <!--
+    <div id="footer" style="background-color:#0000BF;height:30px;float:none;">
+    -->
+
+    </div>
+
+</body>
+</html>

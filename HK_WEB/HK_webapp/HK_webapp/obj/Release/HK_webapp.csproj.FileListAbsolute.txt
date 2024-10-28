@@ -1,0 +1,6 @@
+D:\work\HK_WEB\HK_webapp\HK_webapp\bin\HK_webapp.dll
+D:\work\HK_WEB\HK_webapp\HK_webapp\bin\HK_webapp.pdb
+D:\work\HK_WEB\HK_webapp\HK_webapp\obj\Release\HK_webapp.dll
+D:\work\HK_WEB\HK_webapp\HK_webapp\obj\Release\HK_webapp.pdb
+D:\work\HK_WEB\HK_webapp\HK_webapp\obj\Release\HK_webapp.csproj.CoreCompileInputs.cache
+D:\work\HK_WEB\HK_webapp\HK_webapp\obj\Release\HK_webapp.csproj.AssemblyReference.cache

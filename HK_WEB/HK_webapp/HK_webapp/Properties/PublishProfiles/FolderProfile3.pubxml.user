@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>F:\hkapp\</_PublishTargetUrl>
+    <History>True|2021-12-03T01:36:33.7712842Z;True|2021-12-01T15:24:30.0237251+08:00;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/HK_webapp.dll">
+      <publishTime>12/01/2021 15:22:48</publishTime>
+    </File>
+    <File Include="bin/HK_webapp.pdb">
+      <publishTime>12/01/2021 15:22:48</publishTime>
+    </File>
+    <File Include="botdamain.aspx">
+      <publishTime>11/17/2021 16:27:00</publishTime>
+    </File>
+    <File Include="botda_alarm_detail.aspx">
+      <publishTime>11/17/2021 16:31:31</publishTime>
+    </File>
+    <File Include="botda_data_detail.aspx">
+      <publishTime>11/23/2021 11:47:48</publishTime>
+    </File>
+    <File Include="createuser.aspx">
+      <publishTime>10/14/2021 10:43:19</publishTime>
+    </File>
+    <File Include="default.aspx">
+      <publishTime>11/17/2021 10:28:14</publishTime>
+    </File>
+    <File Include="dtsmain.aspx">
+      <publishTime>11/30/2021 15:42:55</publishTime>
+    </File>
+    <File Include="firstmain.aspx">
+      <publishTime>11/30/2021 15:44:42</publishTime>
+    </File>
+    <File Include="jquery-3.6.0.js">
+      <publishTime>10/18/2021 14:34:31</publishTime>
+    </File>
+    <File Include="login.aspx">
+      <publishTime>10/22/2021 17:01:50</publishTime>
+    </File>
+    <File Include="logo.png">
+      <publishTime>08/31/2021 10:13:09</publishTime>
+    </File>
+    <File Include="MainMaster.Master">
+      <publishTime>11/16/2021 15:23:25</publishTime>
+    </File>
+    <File Include="NavMaster.Master">
+      <publishTime>11/30/2021 15:24:21</publishTime>
+    </File>
+    <File Include="vibmain.aspx">
+      <publishTime>11/29/2021 10:21:39</publishTime>
+    </File>
+    <File Include="vib_detail.aspx">
+      <publishTime>11/09/2021 14:10:55</publishTime>
+    </File>
+    <File Include="vib_fiber_sta.aspx">
+      <publishTime>11/05/2021 09:30:25</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>12/01/2021 15:22:48</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

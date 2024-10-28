@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="F:\hkapp" deleteExistingFiles="True" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="web.config" publishMethod="FileSystem" replaceMatchingFiles="False" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="firstmain.aspx" publishTime="09/13/2021 14:28:37" />
+    <file relUrl="createuser.aspx" publishTime="10/14/2021 10:43:19" />
+    <file relUrl="login.aspx" publishTime="09/14/2021 17:11:00" />
+    <file relUrl="MainMaster.Master" publishTime="10/15/2021 11:26:21" />
+    <file relUrl="Web.config" publishTime="10/18/2021 09:32:00" />
+    <file relUrl="bin/HK_webapp.pdb" publishTime="10/18/2021 09:31:51" />
+    <file relUrl="bin/HK_webapp.dll" publishTime="10/18/2021 09:31:52" />
+    <file relUrl="logo.png" publishTime="08/31/2021 10:13:09" />
+    <file relUrl="NavMaster.Master" publishTime="10/15/2021 15:30:49" />
+    <file relUrl="vibmain.aspx" publishTime="10/18/2021 09:30:03" />
+  </publishProfile>
+</publishData>

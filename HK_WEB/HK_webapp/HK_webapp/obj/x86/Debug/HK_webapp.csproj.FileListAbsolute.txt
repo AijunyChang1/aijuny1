@@ -1,0 +1,4 @@
+D:\work\HK_WEB\HK_webapp\HK_webapp\bin\x86\Debug\HK_webapp.dll
+D:\work\HK_WEB\HK_webapp\HK_webapp\bin\x86\Debug\HK_webapp.pdb
+D:\work\HK_WEB\HK_webapp\HK_webapp\obj\x86\Debug\HK_webapp.dll
+D:\work\HK_WEB\HK_webapp\HK_webapp\obj\x86\Debug\HK_webapp.pdb

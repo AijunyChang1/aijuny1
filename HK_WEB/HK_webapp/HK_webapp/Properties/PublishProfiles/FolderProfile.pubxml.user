@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>F:\hkapp</_PublishTargetUrl>
+    <History>True|2021-12-01T07:17:23.8782920Z;True|2021-12-01T15:16:07.5723758+08:00;True|2021-12-01T15:14:11.4247601+08:00;True|2021-12-01T15:13:36.6058915+08:00;False|2021-12-01T14:43:24.7191500+08:00;</History>
+  </PropertyGroup>
+</Project>
