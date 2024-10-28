@@ -1,0 +1,360 @@
+20220621 00:00:09 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 00:00:14 SocketDisconnected!!!
+ 
+20220621 00:01:18 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 00:01:23 SocketDisconnected!!!
+ 
+20220621 00:02:27 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 00:02:32 SocketDisconnected!!!
+ 
+20220621 00:03:35 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 00:03:40 SocketDisconnected!!!
+ 
+20220621 00:04:44 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 00:04:49 SocketDisconnected!!!
+ 
+20220621 00:05:53 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 00:05:58 SocketDisconnected!!!
+ 
+20220621 00:07:01 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 00:07:06 SocketDisconnected!!!
+ 
+20220621 00:08:10 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 00:08:15 SocketDisconnected!!!
+ 
+20220621 00:09:19 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 00:09:24 SocketDisconnected!!!
+ 
+20220621 00:10:27 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 00:10:32 SocketDisconnected!!!
+ 
+20220621 00:11:36 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 00:11:41 SocketDisconnected!!!
+ 
+20220621 00:12:45 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 00:12:50 SocketDisconnected!!!
+ 
+20220621 00:13:53 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 00:13:58 SocketDisconnected!!!
+ 
+20220621 00:15:02 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 00:15:07 SocketDisconnected!!!
+ 
+20220621 00:16:11 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 00:16:16 SocketDisconnected!!!
+ 
+20220621 00:17:19 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 00:17:24 SocketDisconnected!!!
+ 
+20220621 00:18:28 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 00:18:33 SocketDisconnected!!!
+ 
+20220621 00:19:36 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 00:19:42 SocketDisconnected!!!
+ 
+20220621 00:20:45 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 00:20:50 SocketDisconnected!!!
+ 
+20220621 00:21:54 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 00:21:59 SocketDisconnected!!!
+ 
+20220621 00:23:02 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 00:23:07 SocketDisconnected!!!
+ 
+20220621 00:24:11 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 00:24:16 SocketDisconnected!!!
+ 
+20220621 00:25:20 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 00:25:25 SocketDisconnected!!!
+ 
+20220621 00:26:28 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 00:26:33 SocketDisconnected!!!
+ 
+20220621 00:27:37 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 00:27:42 SocketDisconnected!!!
+ 
+20220621 00:28:46 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 00:28:51 SocketDisconnected!!!
+ 
+20220621 00:29:54 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 00:29:59 SocketDisconnected!!!
+ 
+20220621 00:31:03 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 00:31:08 SocketDisconnected!!!
+ 
+20220621 00:32:12 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 00:32:17 SocketDisconnected!!!
+ 
+20220621 00:33:20 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 00:33:25 SocketDisconnected!!!
+ 
+20220621 00:34:29 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 00:34:34 SocketDisconnected!!!
+ 
+20220621 00:35:38 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 00:35:43 SocketDisconnected!!!
+ 
+20220621 00:36:46 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 00:36:51 SocketDisconnected!!!
+ 
+20220621 00:37:55 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 00:38:00 SocketDisconnected!!!
+ 
+20220621 00:39:04 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 00:39:09 SocketDisconnected!!!
+ 
+20220621 00:40:12 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 00:40:17 SocketDisconnected!!!
+ 
+20220621 00:41:21 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 00:41:26 SocketDisconnected!!!
+ 
+20220621 00:42:30 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 00:42:35 SocketDisconnected!!!
+ 
+20220621 00:43:38 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 00:43:43 SocketDisconnected!!!
+ 
+20220621 00:44:47 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 00:44:52 SocketDisconnected!!!
+ 
+20220621 00:45:55 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 00:46:00 SocketDisconnected!!!
+ 
+20220621 00:47:04 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 00:47:09 SocketDisconnected!!!
+ 
+20220621 00:48:13 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 00:48:18 SocketDisconnected!!!
+ 
+20220621 00:49:21 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 00:49:26 SocketDisconnected!!!
+ 
+20220621 00:50:30 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 00:50:35 SocketDisconnected!!!
+ 
+20220621 00:51:39 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 00:51:44 SocketDisconnected!!!
+ 
+20220621 00:52:47 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 00:52:52 SocketDisconnected!!!
+ 
+20220621 00:53:56 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 00:54:01 SocketDisconnected!!!
+ 
+20220621 00:55:05 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 00:55:10 SocketDisconnected!!!
+ 
+20220621 00:56:13 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 00:56:18 SocketDisconnected!!!
+ 
+20220621 00:57:22 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 00:57:27 SocketDisconnected!!!
+ 
+20220621 00:58:31 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 00:58:36 SocketDisconnected!!!
+ 
+20220621 00:59:39 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 00:59:44 SocketDisconnected!!!
+ 
+20220621 01:00:48 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 01:00:53 SocketDisconnected!!!
+ 
+20220621 01:01:57 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 01:02:02 SocketDisconnected!!!
+ 
+20220621 01:03:05 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 01:03:10 SocketDisconnected!!!
+ 
+20220621 01:04:14 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 01:04:19 SocketDisconnected!!!
+ 
+20220621 01:05:22 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 01:05:27 SocketDisconnected!!!
+ 
+20220621 01:06:31 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 01:06:36 SocketDisconnected!!!
+ 
+20220621 01:07:40 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 01:07:45 SocketDisconnected!!!
+ 
+20220621 01:08:48 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 01:08:53 SocketDisconnected!!!
+ 
+20220621 01:09:57 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 01:10:02 SocketDisconnected!!!
+ 
+20220621 01:11:06 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 01:11:11 SocketDisconnected!!!
+ 
+20220621 01:12:14 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 01:12:19 SocketDisconnected!!!
+ 
+20220621 01:13:23 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 01:13:28 SocketDisconnected!!!
+ 
+20220621 01:14:32 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 01:14:37 SocketDisconnected!!!
+ 
+20220621 01:15:40 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 01:15:45 SocketDisconnected!!!
+ 
+20220621 01:16:49 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 01:16:54 SocketDisconnected!!!
+ 
+20220621 01:17:58 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 01:18:03 SocketDisconnected!!!
+ 
+20220621 01:19:06 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 01:19:11 SocketDisconnected!!!
+ 
+20220621 01:20:15 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 01:20:20 SocketDisconnected!!!
+ 
+20220621 01:21:24 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 01:21:29 SocketDisconnected!!!
+ 
+20220621 01:22:32 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 01:22:37 SocketDisconnected!!!
+ 
+20220621 01:23:41 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 01:23:46 SocketDisconnected!!!
+ 
+20220621 01:24:49 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 01:24:54 SocketDisconnected!!!
+ 
+20220621 01:25:58 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 01:26:03 SocketDisconnected!!!
+ 
+20220621 01:27:07 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 01:27:12 SocketDisconnected!!!
+ 
+20220621 01:28:15 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 01:28:20 SocketDisconnected!!!
+ 
+20220621 01:29:24 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 01:29:29 SocketDisconnected!!!
+ 
+20220621 01:30:33 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 01:30:38 SocketDisconnected!!!
+ 
+20220621 01:31:41 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 01:31:46 SocketDisconnected!!!
+ 
+20220621 01:32:50 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 01:32:55 SocketDisconnected!!!
+ 
+20220621 01:33:59 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 01:34:04 SocketDisconnected!!!
+ 
+20220621 01:35:07 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 01:35:12 SocketDisconnected!!!
+ 
+20220621 01:36:16 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 01:36:21 SocketDisconnected!!!
+ 
+20220621 01:37:25 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 01:37:30 SocketDisconnected!!!
+ 
+20220621 01:38:33 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 01:38:38 SocketDisconnected!!!
+ 
+20220621 01:39:42 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 01:39:47 SocketDisconnected!!!
+ 
+20220621 01:40:51 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 01:40:56 SocketDisconnected!!!
+ 
+20220621 01:41:59 Socket reconnected failed, wait a moment and try again......
+ 
+20220621 01:42:04 SocketDisconnected!!!
+ 
