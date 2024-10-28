@@ -1,0 +1,133 @@
+USE [rep_ccms]
+GO
+/****** Object:  StoredProcedure [dbo].[sp_inbound_detail]    Script Date: 06/26/2013 16:42:43 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =======================================================================================
+-- Author:		<yibin.wu@vxichina.com>
+-- Create date: <2013.3.27>
+-- Description:	呼入明细查询
+/*Example:
+sp_inbound_detail @DateBegin=20130329,@DateEnd=20130329
+				,@TimeBegin='083000',@TimeEnd='213000'
+				--,@Skill='5000'
+				,@Agent='1059'
+				,@Calling=''
+*/
+-- =======================================================================================
+ALTER PROCEDURE [dbo].[sp_inbound_detail]
+    (
+      @ProjectId	varchar(15) = NULL, -- 项目名称(同被叫号码DigitsDialed)
+      @DateBegin	BIGINT		= NULL,
+      @DateEnd		BIGINT		= NULL,
+      @TimeBegin	VARCHAR(10) = '000000',
+      @TimeEnd		VARCHAR(10) = '235959',
+      @Agent		VARCHAR(20) = '',
+      @Skill		VARCHAR(20) = '',
+      @Calling		VARCHAR(20) = '',
+      @Preload		BIT			= 0
+    )
+AS 
+    BEGIN
+    
+    set @ProjectId = isnull(rtrim(@ProjectId), '')
+    set @Agent = isnull(rtrim(@Agent), '')
+	set @Skill = isnull(rtrim(@Skill), '')
+	set @Calling = isnull(rtrim(@Calling), '')
+	
+        declare @v_datebegin	varchar(20),
+				@v_dateend		varchar(20),
+				@v_timebegin	varchar(10),
+				@v_timeend		varchar(10)
+				
+		if len(@TimeBegin) < 6 or isnull(@TimeBegin,'0') = '0'
+			set @v_timebegin = '000000'
+        else 
+			set @v_timebegin = @TimeBegin
+			
+        if len(@TimeEnd) < 6 or isnull(@TimeEnd,'0') = '0'
+			set @v_timeend = '235959'
+        else
+			set @v_timeend = @TimeEnd
+		
+		-- 获得起始与结束时间	
+		select @v_datebegin=beg_date,
+				@v_dateend=end_date
+			from for_date(@datebegin, @dateend, @v_timebegin, @v_timeend)
+       
+        ;with cte0 as
+        (
+			select distinct skillgroupskilltargetid skillgroupskilltargetid
+				from t_Skill_Group_Member
+        ),
+		cte1 as 
+		(
+			select DateTime,
+					Agent = ta.PeripheralNumber,
+					Called = isnull(InstrumentPortNumber,DNIS),
+					Ring_t = RingTime,
+					Intalk_t = TalkTime,
+					CustPhone = ANI,
+					TimeToAband,
+					CallDisposition,
+					RouterCallKeyDay,
+					RouterCallKey
+				from t_termination_call_detail td
+						inner join t_Agent ta on ta.skilltargetid =  td.agentskilltargetid
+						left join cte0 c0 on c0.SkillGroupSkillTargetID = td.SkillGroupSkillTargetID
+				where DateTime between @v_datebegin and @v_dateend
+					and td.peripheralcalltype in (1,2,6)
+					and len(ANI) > 6
+					and (@Agent = '' or charindex(','+rtrim(td.agentperipheralnumber)+',',','+@Agent+',') > 0)
+					and (@Skill = '' or charindex(','+rtrim(c0.skillgroupskilltargetid)+',',','+@Skill+',') > 0)
+					and (@ProjectId = '' or digitsdialed = case when len(@ProjectId) > 0 then @ProjectId else digitsdialed end)
+					and (@Calling = '' or charindex(@Calling, td.ANI) > 0)
+					and 0 = @Preload
+		),
+		cte2 as
+		(
+			select DateTime,
+					Agent = AgentPeripheralNumber,
+					Called = isnull(InstrumentPortNumber,DNIS),
+					Ring_t = RingTime,
+					Intalk_t = TalkTime,
+					CustPhone = ANI
+				from t_termination_call_detail td
+						left join cte0 c0 on c0.SkillGroupSkillTargetID = td.SkillGroupSkillTargetID
+				where DateTime between @v_datebegin and @v_dateend
+					and td.peripheralcalltype in (1,2,6)
+					and len(ANI) > 6
+					and RouterCallKeySequenceNumber = 0
+					and (@Agent = '' or charindex(','+rtrim(td.agentperipheralnumber)+',',','+@Agent+',') > 0)
+					and (@Skill = '' or charindex(','+rtrim(c0.skillgroupskilltargetid)+',',','+@Skill+',') > 0)
+					and (@ProjectId = '' or digitsdialed = case when len(@ProjectId) > 0 then @ProjectId else digitsdialed end)
+					and (@Calling = '' or charindex(@Calling, td.ANI) > 0)
+					and 0 = @Preload
+					and not exists(select 1 from cte1 c1
+										where c1.RouterCallKeyDay = td.RouterCallKeyDay
+											and c1.RouterCallKey = td.RouterCallKey)
+		)
+		select RecTime = DateTime,
+				Agent,
+				Called,
+				Ring_t,
+				Intalk_t,
+				CustPhone,
+				bEstb = case when Intalk_t > 0 and TimeToAband = 0 then 1 else 0 end
+			from cte1
+		union
+		select DateTime,
+				Agent,
+				Called,
+				Ring_t,
+				Intalk_t,
+				CustPhone,
+				bEstb = 0
+			from cte2
+		order by DateTime,Agent
+
+    END 
+                
+

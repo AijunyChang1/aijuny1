@@ -1,0 +1,15 @@
+Start Testing...
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\\\ Module: test_module    Function: test_func\\\\\\\\\
+
+
+Test test_func: pass.
+End testing for test_func
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+End Testing.

@@ -1,0 +1,158 @@
+20130422 08:07:28 0000000001 [X....X.X ...XX.XX] recid:20130422000001 dev:50047 calling: called: fmt:.g711 date:20130422 start:08:04:46.873 len:160446 pos:2 srv:192.168.8.10:record
+20130422 08:17:04 0000000002 [X....X.X ...XX.XX] recid:20130422000002 dev:50031 calling: called: fmt:.g711 date:20130422 start:08:11:48.479 len:314263 pos:2 srv:192.168.8.10:record
+20130422 08:53:13 0000000003 [X....X.X ...XX.XX] recid:20130422000003 dev:50034 calling: called: fmt:.g711 date:20130422 start:08:17:58.293 len:2113960 pos:2 srv:192.168.8.10:record
+20130422 08:55:15 0000000004 [X....X.X ...XX.XX] recid:20130422000004 dev:50043 calling: called: fmt:.g711 date:20130422 start:08:53:58.632 len:74662 pos:2 srv:192.168.8.10:record
+20130422 08:59:24 0000000005 [X....X.X ...XX.XX] recid:20130422000005 dev:50007 calling: called: fmt:.g711 date:20130422 start:08:58:14.987 len:68344 pos:2 srv:192.168.8.10:record
+20130422 09:05:57 0000000006 [X....X.X ...XX.XX] recid:20130422000006 dev:50019 calling: called: fmt:.g711 date:20130422 start:09:00:55.714 len:299895 pos:2 srv:192.168.8.10:record
+20130422 09:08:40 0000000007 [X....X.X ...XX.XX] recid:20130422000007 dev:50005 calling: called: fmt:.g711 date:20130422 start:09:02:44.478 len:353917 pos:2 srv:192.168.8.10:record
+20130422 09:12:09 0000000008 [X....X.X ...XX.XX] recid:20130422000008 dev:50034 calling: called: fmt:.g711 date:20130422 start:09:06:00.117 len:367350 pos:2 srv:192.168.8.10:record
+20130422 09:42:21 0000000009 [X....X.X ...XX.XX] recid:20130422000009 dev:50005 calling: called: fmt:.g711 date:20130422 start:09:24:08.469 len:1091721 pos:2 srv:192.168.8.10:record
+20130422 09:47:15 0000000010 [X....X.X ...XX.XX] recid:20130422000010 dev:50030 calling: called: fmt:.g711 date:20130422 start:09:46:54.688 len:19219 pos:2 srv:192.168.8.10:record
+20130422 09:48:19 0000000011 [X....X.X ...XX.XX] recid:20130422000011 dev:50006 calling: called: fmt:.g711 date:20130422 start:09:47:55.045 len:22214 pos:2 srv:192.168.8.10:record
+20130422 09:49:57 0000000012 [X....X.X ...XX.XX] recid:20130422000012 dev:50012 calling: called: fmt:.g711 date:20130422 start:09:48:45.651 len:70247 pos:2 srv:192.168.8.10:record
+20130422 09:51:16 0000000013 [X....X.X ...XX.XX] recid:20130422000013 dev:50027 calling: called: fmt:.g711 date:20130422 start:09:50:54.882 len:20654 pos:2 srv:192.168.8.10:record
+20130422 10:00:32 0000000014 [X....X.X ...XX.XX] recid:20130422000014 dev:50039 calling: called: fmt:.g711 date:20130422 start:09:59:28.170 len:63039 pos:2 srv:192.168.8.10:record
+20130422 10:02:44 0000000016 [X....X.X ...XX.XX] recid:20130422000016 dev:50050 calling: called: fmt:.g711 date:20130422 start:10:02:33.857 len:8829 pos:2 srv:192.168.8.10:record
+20130422 10:03:34 0000000015 [X....X.X ...XX.XX] recid:20130422000015 dev:50019 calling: called: fmt:.g711 date:20130422 start:10:00:35.967 len:177373 pos:2 srv:192.168.8.10:record
+20130422 10:04:31 0000000017 [X....X.X ...XX.XX] recid:20130422000017 dev:50029 calling: called: fmt:.g711 date:20130422 start:10:03:25.368 len:65005 pos:2 srv:192.168.8.10:record
+20130422 10:08:41 0000000018 [X....X.X ...XX.XX] recid:20130422000018 dev:50028 calling: called: fmt:.g711 date:20130422 start:10:07:36.263 len:62915 pos:2 srv:192.168.8.10:record
+20130422 10:11:43 0000000019 [X....X.X ...XX.XX] recid:20130422000019 dev:50018 calling: called: fmt:.g711 date:20130422 start:10:10:26.771 len:75021 pos:2 srv:192.168.8.10:record
+20130422 10:29:23 0000000020 [X....X.X ...XX.XX] recid:20130422000020 dev:50029 calling: called: fmt:.g711 date:20130422 start:10:21:11.146 len:490137 pos:2 srv:192.168.8.10:record
+20130422 10:32:10 0000000021 [X....X.X ...XX.XX] recid:20130422000021 dev:50026 calling: called: fmt:.g711 date:20130422 start:10:29:47.211 len:141726 pos:2 srv:192.168.8.10:record
+20130422 10:35:56 0000000022 [X....X.X ...XX.XX] recid:20130422000022 dev:50012 calling: called: fmt:.g711 date:20130422 start:10:32:10.169 len:225421 pos:2 srv:192.168.8.10:record
+20130422 10:41:03 0000000023 [X....X.X ...XX.XX] recid:20130422000023 dev:50006 calling: called: fmt:.g711 date:20130422 start:10:38:54.928 len:127951 pos:2 srv:192.168.8.10:record
+20130422 11:05:58 0000000024 [X....X.X ...XX.XX] recid:20130422000024 dev:50043 calling: called: fmt:.g711 date:20130422 start:11:05:37.612 len:19266 pos:2 srv:192.168.8.10:record
+20130422 11:06:22 0000000025 [X....X.X ...XX.XX] recid:20130422000025 dev:50021 calling: called: fmt:.g711 date:20130422 start:11:06:03.321 len:17597 pos:2 srv:192.168.8.10:record
+20130422 11:19:28 0000000026 [X....X.X ...XX.XX] recid:20130422000026 dev:50014 calling: called: fmt:.g711 date:20130422 start:11:13:49.216 len:338021 pos:2 srv:192.168.8.10:record
+20130422 11:24:19 0000000027 [X....X.X ...XX.XX] recid:20130422000027 dev:50003 calling: called: fmt:.g711 date:20130422 start:11:19:33.290 len:285371 pos:2 srv:192.168.8.10:record
+20130422 11:27:16 0000000029 [X....X.X ...XX.XX] recid:20130422000029 dev:50031 calling: called: fmt:.g711 date:20130422 start:11:27:10.932 len:4244 pos:2 srv:192.168.8.10:record
+20130422 11:28:39 0000000028 [X....X.X ...XX.XX] recid:20130422000028 dev:50038 calling: called: fmt:.g711 date:20130422 start:11:24:49.799 len:228088 pos:2 srv:192.168.8.10:record
+20130422 11:28:50 0000000030 [X....X.X ...XX.XX] recid:20130422000030 dev:50032 calling: called: fmt:.g711 date:20130422 start:11:28:46.311 len:2574 pos:2 srv:192.168.8.10:record
+20130422 11:38:42 0000000031 [X....X.X ...XX.XX] recid:20130422000031 dev:50005 calling: called: fmt:.g711 date:20130422 start:11:35:43.097 len:177825 pos:2 srv:192.168.8.10:record
+20130422 11:40:19 0000000032 [X....X.X ...XX.XX] recid:20130422000032 dev:50002 calling: called: fmt:.g711 date:20130422 start:11:39:29.578 len:47877 pos:2 srv:192.168.8.10:record
+20130422 11:43:42 0000000033 [X....X.X ...XX.XX] recid:20130422000033 dev:50031 calling: called: fmt:.g711 date:20130422 start:11:40:56.923 len:164658 pos:2 srv:192.168.8.10:record
+20130422 11:48:17 0000000034 [X....X.X ...XX.XX] recid:20130422000034 dev:50014 calling: called: fmt:.g711 date:20130422 start:11:44:24.372 len:232144 pos:2 srv:192.168.8.10:record
+20130422 11:51:54 0000000035 [X....X.X ...XX.XX] recid:20130422000035 dev:50019 calling: called: fmt:.g711 date:20130422 start:11:50:50.301 len:62915 pos:2 srv:192.168.8.10:record
+20130422 12:28:10 0000000036 [X....X.X ...XX.XX] recid:20130422000036 dev:50020 calling: called: fmt:.g711 date:20130422 start:12:25:57.709 len:131648 pos:2 srv:192.168.8.10:record
+20130422 12:46:27 0000000037 [X....X.X ...XX.XX] recid:20130422000037 dev:50030 calling: called: fmt:.g711 date:20130422 start:12:42:10.043 len:256683 pos:2 srv:192.168.8.10:record
+20130422 12:53:25 0000000038 [X....X.X ...XX.XX] recid:20130422000038 dev:50031 calling: called: fmt:.g711 date:20130422 start:12:51:59.505 len:84552 pos:2 srv:192.168.8.10:record
+20130422 12:57:54 0000000039 [X....X.X ...XX.XX] recid:20130422000039 dev:50023 calling: called: fmt:.g711 date:20130422 start:12:55:25.628 len:147530 pos:2 srv:192.168.8.10:record
+20130422 12:59:38 0000000040 [X....X.X ...XX.XX] recid:20130422000040 dev:50005 calling: called: fmt:.g711 date:20130422 start:12:58:11.628 len:85941 pos:2 srv:192.168.8.10:record
+20130422 13:51:45 0000000041 [X....X.X ...XX.XX] recid:20130422000041 dev:50003 calling: called: fmt:.g711 date:20130422 start:13:43:54.082 len:469920 pos:2 srv:192.168.8.10:record
+20130422 14:01:57 0000000042 [X....X.X ...XX.XX] recid:20130422000042 dev:50021 calling: called: fmt:.g711 date:20130422 start:14:00:08.506 len:108015 pos:2 srv:192.168.8.10:record
+20130422 14:02:59 0000000043 [X....X.X ...XX.XX] recid:20130422000043 dev:50037 calling: called: fmt:.g711 date:20130422 start:14:02:53.290 len:4399 pos:2 srv:192.168.8.10:record
+20130422 14:08:59 0000000044 [X....X.X ...XX.XX] recid:20130422000044 dev:50035 calling: called: fmt:.g711 date:20130422 start:14:04:01.150 len:296587 pos:2 srv:192.168.8.10:record
+20130422 14:12:35 0000000045 [X....X.X ...XX.XX] recid:20130422000045 dev:50030 calling: called: fmt:.g711 date:20130422 start:14:10:08.983 len:144487 pos:2 srv:192.168.8.10:record
+20130422 14:15:52 0000000046 [X....X.X ...XX.XX] recid:20130422000046 dev:50033 calling: called: fmt:.g711 date:20130422 start:14:14:46.273 len:64834 pos:2 srv:192.168.8.10:record
+20130422 14:17:25 0000000047 [X....X.X ...XX.XX] recid:20130422000047 dev:50042 calling: called: fmt:.g711 date:20130422 start:14:16:16.769 len:66815 pos:2 srv:192.168.8.10:record
+20130422 14:20:40 0000000048 [X....X.X ...XX.XX] recid:20130422000048 dev:50040 calling: called: fmt:.g711 date:20130422 start:14:20:21.721 len:16785 pos:2 srv:192.168.8.10:record
+20130422 14:28:29 0000000049 [.X...... ...XX.X.] recid:-1 20130422001000   6050   dev:50031 calling: called: fmt:.g711 date:20130422 start:14:25:27.622 len:60871 pos:1 srv::
+20130422 14:31:36 0000000050 [.X...... ...XX.X.] recid:-1 20130422001001   6048   dev:50004 calling: called: fmt:.g711 date:20130422 start:14:29:32.370 len:2652 pos:1 srv::
+20130422 14:31:56 0000000051 [.X...... ...XX.X.] recid:-1 20130422001002   6048   dev:50029 calling: called: fmt:.g711 date:20130422 start:14:29:41.730 len:13588 pos:1 srv::
+20130422 14:32:30 0000000052 [.X...... ...XX.X.] recid:-1 20130422001003   6048   dev:50001 calling: called: fmt:.g711 date:20130422 start:14:30:20.777 len:8097 pos:1 srv::
+20130422 14:39:35 0000000053 [.X...... ...XX.X.] recid:-1 20130422001004   6048   dev:50040 calling: called: fmt:.g711 date:20130422 start:14:35:10.766 len:143801 pos:1 srv::
+20130422 14:58:14 0000000054 [.X...... ...XX.X.] recid:-1 20130422001005   6802   dev:50041 calling: called: fmt:.g711 date:20130422 start:14:54:56.711 len:76565 pos:1 srv::
+20130422 14:58:34 0000000057 [.X...... ...XX.X.] recid:-1 20130422001006   6807   dev:50020 calling: called: fmt:.g711 date:20130422 start:14:56:07.458 len:25818 pos:1 srv::
+20130422 14:58:47 0000000056 [.X...... ...XX.X.] recid:-1 20130422001007   6803   dev:50042 calling: called: fmt:.g711 date:20130422 start:14:56:03.074 len:43306 pos:1 srv::
+20130422 14:58:58 0000000055 [.X...... ...XX.X.] recid:-1 20130422001008   6048   dev:50049 calling: called: fmt:.g711 date:20130422 start:14:55:33.496 len:82883 pos:1 srv::
+20130422 14:59:21 0000000058 [.X...... ...XX.X.] recid:-1 20130422001009   6802   dev:50005 calling: called: fmt:.g711 date:20130422 start:14:56:40.592 len:39250 pos:1 srv::
+20130422 15:00:23 0000000059 [.X...... ...XX.X.] recid:-1 20130422001010   6802   dev:50026 calling: called: fmt:.g711 date:20130422 start:14:57:43.694 len:38002 pos:1 srv::
+20130422 15:00:37 0000000060 [.X...... ...XX.X.] recid:-1 20130422001011   6803   dev:50027 calling: called: fmt:.g711 date:20130422 start:14:58:24.582 len:11762 pos:1 srv::
+20130422 15:01:23 0000000061 [.X...... ...XX.X.] recid:-1 20130422001012   6802   dev:50004 calling: called: fmt:.g711 date:20130422 start:14:58:53.052 len:28969 pos:1 srv::
+20130422 15:03:31 0000000064 [.X...... ...XX.X.] recid:-1 20130422001013   6808   dev:50026 calling: called: fmt:.g711 date:20130422 start:15:01:25.480 len:4789 pos:1 srv::
+20130422 15:03:31 0000000063 [.X...... ...XX.X.] recid:-1 20130422001014   6802   dev:50045 calling: called: fmt:.g711 date:20130422 start:15:00:53.203 len:37487 pos:1 srv::
+20130422 15:03:51 0000000066 [.X...... ...XX.X.] recid:-1 20130422001015   6808   dev:50016 calling: called: fmt:.g711 date:20130422 start:15:01:43.560 len:6490 pos:1 srv::
+20130422 15:04:17 0000000065 [.X...... ...XX.X.] recid:-1 20130422001016   6802   dev:50046 calling: called: fmt:.g711 date:20130422 start:15:01:39.801 len:36051 pos:1 srv::
+20130422 15:04:43 0000000067 [.X...... ...XX.X.] recid:-1 20130422001017   6808   dev:50003 calling: called: fmt:.g711 date:20130422 start:15:02:07.194 len:35085 pos:1 srv::
+20130422 15:04:50 0000000062 [.X...... ...XX.X.] recid:-1 20130422001018   6807   dev:50021 calling: called: fmt:.g711 date:20130422 start:14:59:27.746 len:200258 pos:1 srv::
+20130422 15:08:04 0000000068 [.X...... ...XX.X.] recid:-1 20130422001019   6805   dev:50011 calling: called: fmt:.g711 date:20130422 start:15:02:34.276 len:208681 pos:1 srv::
+20130422 15:10:37 0000000069 [.X...... ...XX.X.] recid:-1 20130422001020   6048   dev:50006 calling: called: fmt:.g711 date:20130422 start:15:05:35.735 len:180555 pos:1 srv::
+20130422 15:12:10 0000000071 [.X...... ...XX.X.] recid:-1 20130422001021   6802   dev:50015 calling: called: fmt:.g711 date:20130422 start:15:09:11.078 len:57065 pos:1 srv::
+20130422 15:12:36 0000000072 [.X...... ...XX.X.] recid:-1 20130422001022   6803   dev:50005 calling: called: fmt:.g711 date:20130422 start:15:09:54.119 len:40622 pos:1 srv::
+20130422 15:13:03 0000000070 [.X...... ...XX.X.] recid:-1 20130422001023   6805   dev:50001 calling: called: fmt:.g711 date:20130422 start:15:08:56.040 len:125939 pos:1 srv::
+20130422 15:13:11 0000000074 [.X...... ...XX.X.] recid:-1 20130422001024   6803   dev:50002 calling: called: fmt:.g711 date:20130422 start:15:10:41.168 len:29500 pos:1 srv::
+20130422 15:14:46 0000000073 [.X...... ...XX.X.] recid:-1 20130422001025   6803   dev:50033 calling: called: fmt:.g711 date:20130422 start:15:09:54.337 len:170774 pos:1 srv::
+20130422 15:18:11 0000000075 [.X...... ...XX.X.] recid:-1 20130422001026   6803   dev:50013 calling: called: fmt:.g711 date:20130422 start:15:11:30.449 len:279022 pos:1 srv::
+20130422 15:18:19 0000000076 [.X...... ...XX.X.] recid:-1 20130422001027   6805   dev:50016 calling: called: fmt:.g711 date:20130422 start:15:13:59.445 len:138044 pos:1 srv::
+20130422 15:18:45 0000000077 [.X...... ...XX.X.] recid:-1 20130422001028   6802   dev:50032 calling: called: fmt:.g711 date:20130422 start:15:14:14.701 len:148965 pos:1 srv::
+20130422 15:21:28 0000000079 [.X...... ...XX.X.] recid:-1 20130422001029   6802   dev:50015 calling: called: fmt:.g711 date:20130422 start:15:18:46.282 len:41496 pos:1 srv::
+20130422 15:21:33 0000000078 [.X...... ...XX.X.] recid:-1 20130422001030   6805   dev:50043 calling: called: fmt:.g711 date:20130422 start:15:18:43.287 len:49327 pos:1 srv::
+20130422 15:23:23 0000000080 [.X...... ...XX.X.] recid:-1 20130422001031   6802   dev:50044 calling: called: fmt:.g711 date:20130422 start:15:19:49.072 len:92431 pos:1 srv::
+20130422 15:24:31 0000000081 [.X...... ...XX.X.] recid:-1 20130422001032   6048   dev:50003 calling: called: fmt:.g711 date:20130422 start:15:21:27.633 len:62588 pos:1 srv::
+20130422 15:24:54 0000000083 [.X...... ...XX.X.] recid:-1 20130422001033   6805   dev:50041 calling: called: fmt:.g711 date:20130422 start:15:22:23.310 len:29328 pos:1 srv::
+20130422 15:25:54 0000000082 [.X...... ...XX.X.] recid:-1 20130422001034   6803   dev:50040 calling: called: fmt:.g711 date:20130422 start:15:21:59.536 len:113037 pos:1 srv::
+20130422 15:28:16 0000000084 [.X...... ...XX.X.] recid:-1 20130422001035   6805   dev:50016 calling: called: fmt:.g711 date:20130422 start:15:25:52.959 len:21902 pos:1 srv::
+20130422 15:31:25 0000000086 [.X...... ...XX.X.] recid:-1 20130422001036   6807   dev:50036 calling: called: fmt:.g711 date:20130422 start:15:27:28.727 len:114395 pos:1 srv::
+20130422 15:33:49 0000000088 [.X...... ...XX.X.] recid:-1 20130422001037   6808   dev:50044 calling: called: fmt:.g711 date:20130422 start:15:31:22.307 len:24866 pos:1 srv::
+20130422 15:34:38 0000000090 [.X...... ...XX.X.] recid:-1 20130422001038   6802   dev:50010 calling: called: fmt:.g711 date:20130422 start:15:32:36.906 len:0 pos:1 srv::
+20130422 15:35:00 0000000089 [.X...... ...XX.X.] recid:-1 20130422001039   6808   dev:50022 calling: called: fmt:.g711 date:20130422 start:15:32:03.865 len:54631 pos:1 srv::
+20130422 15:35:30 0000000087 [.X...... ...XX.X.] recid:-1 20130422001040   6807   dev:50020 calling: called: fmt:.g711 date:20130422 start:15:30:14.462 len:194033 pos:1 srv::
+20130422 15:36:23 0000000085 [.X...... ...XX.X.] recid:-1 20130422001041   6803   dev:50038 calling: called: fmt:.g711 date:20130422 start:15:26:47.060 len:454974 pos:1 srv::
+20130422 15:39:19 0000000092 [.X...... ...XX.X.] recid:-1 20130422001042   6802   dev:50001 calling: called: fmt:.g711 date:20130422 start:15:34:52.361 len:145579 pos:1 srv::
+20130422 15:40:25 0000000094 [.X...... ...XX.X.] recid:-1 20130422001043   6050   dev:50045 calling: called: fmt:.g711 date:20130422 start:15:36:47.879 len:95815 pos:1 srv::
+20130422 15:42:18 0000000093 [.X...... ...XX.X.] recid:-1 20130422001044   6805   dev:50026 calling: called: fmt:.g711 date:20130422 start:15:36:23.746 len:233298 pos:1 srv::
+20130422 15:42:20 0000000091 [.X...... ...XX.X.] recid:-1 20130422001045   6801   dev:50019 calling: called: fmt:.g711 date:20130422 start:15:32:49.121 len:449374 pos:1 srv::
+20130422 15:43:32 0000000096 [.X...... ...XX.X.] recid:-1 20130422001046   6803   dev:50008 calling: called: fmt:.g711 date:20130422 start:15:40:43.892 len:46940 pos:1 srv::
+20130422 15:44:35 0000000095 [.X...... ...XX.X.] recid:-1 20130422001047   6802   dev:50028 calling: called: fmt:.g711 date:20130422 start:15:39:57.981 len:156936 pos:1 srv::
+20130422 15:45:04 0000000097 [.X...... ...XX.X.] recid:-1 20130422001048   6803   dev:50050 calling: called: fmt:.g711 date:20130422 start:15:42:07.695 len:54710 pos:1 srv::
+20130422 15:46:51 0000000098 [.X...... ...XX.X.] recid:-1 20130422001049   6807   dev:50022 calling: called: fmt:.g711 date:20130422 start:15:43:55.959 len:54569 pos:1 srv::
+20130422 15:47:19 0000000100 [.X...... ...XX.X.] recid:-1 20130422001050   6802   dev:50032 calling: called: fmt:.g711 date:20130422 start:15:44:56.176 len:21465 pos:1 srv::
+20130422 15:47:34 0000000099 [.X...... ...XX.X.] recid:-1 20130422001051   6803   dev:50006 calling: called: fmt:.g711 date:20130422 start:15:44:07.332 len:85987 pos:1 srv::
+20130422 15:49:08 0000000102 [.X...... ...XX.X.] recid:-1 20130422001052   6805   dev:50002 calling: called: fmt:.g711 date:20130422 start:15:46:18.575 len:48844 pos:1 srv::
+20130422 15:50:47 0000000104 [.X...... ...XX.X.] recid:-1 20130422001053   6807   dev:50027 calling: called: fmt:.g711 date:20130422 start:15:48:23.968 len:22027 pos:1 srv::
+20130422 15:50:49 0000000103 [.X...... ...XX.X.] recid:-1 20130422001054   6803   dev:50039 calling: called: fmt:.g711 date:20130422 start:15:47:25.483 len:81651 pos:1 srv::
+20130422 15:51:18 0000000101 [.X...... ...XX.X.] recid:-1 20130422001055   6802   dev:50010 calling: called: fmt:.g711 date:20130422 start:15:45:54.878 len:202317 pos:1 srv::
+20130422 15:51:53 0000000105 [.X...... ...XX.X.] recid:-1 20130422001056   6801   dev:50018 calling: called: fmt:.g711 date:20130422 start:15:48:46.557 len:64724 pos:1 srv::
+20130422 15:52:14 0000000108 [.X...... ...XX.X.] recid:-1 20130422001057   6803   dev:50006 calling: called: fmt:.g711 date:20130422 start:15:49:49.908 len:23510 pos:1 srv::
+20130422 15:54:10 0000000110 [.X...... ...XX.X.] recid:-1 20130422001058   6801   dev:50044 calling: called: fmt:.g711 date:20130422 start:15:51:43.804 len:24711 pos:1 srv::
+20130422 15:55:25 0000000107 [.X...... ...XX.X.] recid:-1 20130422001059   6805   dev:50047 calling: called: fmt:.g711 date:20130422 start:15:49:41.828 len:221972 pos:1 srv::
+20130422 15:56:17 0000000109 [.X...... ...XX.X.] recid:-1 20130422001060   6807   dev:50041 calling: called: fmt:.g711 date:20130422 start:15:50:27.161 len:229180 pos:1 srv::
+20130422 15:58:04 0000000106 [.X...... ...XX.X.] recid:-1 20130422001061   6048   dev:50007 calling: called: fmt:.g711 date:20130422 start:15:49:38.973 len:383464 pos:1 srv::
+20130422 16:00:41 0000000111 [.X...... ...XX.X.] recid:-1 20130422001062   6801   dev:50042 calling: called: fmt:.g711 date:20130422 start:15:54:04.080 len:275387 pos:1 srv::
+20130422 16:01:40 0000000112 [.X...... ...XX.X.] recid:-1 20130422001063   6803   dev:50035 calling: called: fmt:.g711 date:20130422 start:15:55:19.412 len:259507 pos:1 srv::
+20130422 16:01:48 0000000114 [.X...... ...XX.X.] recid:-1 20130422001064   6805   dev:50004 calling: called: fmt:.g711 date:20130422 start:15:57:05.009 len:161476 pos:1 srv::
+20130422 16:04:08 0000000118 [.X...... ...XX.X.] recid:-1 20130422001065   6801   dev:50002 calling: called: fmt:.g711 date:20130422 start:16:01:42.861 len:24024 pos:1 srv::
+20130422 16:04:44 0000000119 [.X...... ...XX.X.] recid:-1 20130422001066   6801   dev:50023 calling: called: fmt:.g711 date:20130422 start:16:02:31.065 len:12620 pos:1 srv::
+20130422 16:04:45 0000000113 [.X...... ...XX.X.] recid:-1 20130422001067   6050   dev:50033 calling: called: fmt:.g711 date:20130422 start:15:55:58.007 len:406100 pos:1 srv::
+20130422 16:04:55 0000000117 [.X...... ...XX.X.] recid:-1 20130422001068   6803   dev:50038 calling: called: fmt:.g711 date:20130422 start:16:01:30.927 len:83538 pos:1 srv::
+20130422 16:05:29 0000000116 [.X...... ...XX.X.] recid:-1 20130422001069   6802   dev:50040 calling: called: fmt:.g711 date:20130422 start:16:00:20.758 len:187637 pos:1 srv::
+20130422 16:06:25 0000000120 [.X...... ...XX.X.] recid:-1 20130422001070   6804   dev:50001 calling: called: fmt:.g711 date:20130422 start:16:02:47.944 len:95394 pos:1 srv::
+20130422 16:08:11 0000000122 [.X...... ...XX.X.] recid:-1 20130422001071   6801   dev:50023 calling: called: fmt:.g711 date:20130422 start:16:06:09.793 len:421 pos:1 srv::
+20130422 16:08:51 0000000121 [.X...... ...XX.X.] recid:-1 20130422001072   6803   dev:50039 calling: called: fmt:.g711 date:20130422 start:16:04:12.574 len:156812 pos:1 srv::
+20130422 16:09:13 0000000115 [.X...... ...XX.X.] recid:-1 20130422001073   6048   dev:50022 calling: called: fmt:.g711 date:20130422 start:15:57:28.799 len:583519 pos:1 srv::
+20130422 16:09:51 0000000123 [.X...... ...XX.X.] recid:-1 20130422001074   6801   dev:50028 calling: called: fmt:.g711 date:20130422 start:16:06:27.390 len:81884 pos:1 srv::
+20130422 16:10:48 0000000126 [.X...... ...XX.X.] recid:-1 20130422001075   6804   dev:50022 calling: called: fmt:.g711 date:20130422 start:16:08:18.883 len:28127 pos:1 srv::
+20130422 16:11:38 0000000124 [.X...... ...XX.X.] recid:-1 20130422001076   6803   dev:50005 calling: called: fmt:.g711 date:20130422 start:16:07:31.132 len:125658 pos:1 srv::
+20130422 16:12:58 0000000127 [.X...... ...XX.X.] recid:-1 20130422001077   6801   dev:50042 calling: called: fmt:.g711 date:20130422 start:16:09:11.861 len:104957 pos:1 srv::
+20130422 16:13:41 0000000128 [.X...... ...XX.X.] recid:-1 20130422001078   6807   dev:50036 calling: called: fmt:.g711 date:20130422 start:16:09:46.384 len:113802 pos:1 srv::
+20130422 16:14:44 0000000129 [.X...... ...XX.X.] recid:-1 20130422001079   6803   dev:50029 calling: called: fmt:.g711 date:20130422 start:16:09:50.892 len:171616 pos:1 srv::
+20130422 16:15:06 0000000131 [.X...... ...XX.X.] recid:-1 20130422001080   6801   dev:50005 calling: called: fmt:.g711 date:20130422 start:16:12:33.366 len:31793 pos:1 srv::
+20130422 16:15:52 0000000130 [.X...... ...XX.X.] recid:-1 20130422001081   6802   dev:50014 calling: called: fmt:.g711 date:20130422 start:16:10:26.039 len:204938 pos:1 srv::
+20130422 16:16:54 0000000125 [.X...... ...XX.X.] recid:-1 20130422001082   6805   dev:50048 calling: called: fmt:.g711 date:20130422 start:16:08:15.092 len:398565 pos:1 srv::
+20130422 16:19:06 0000000132 [.X...... ...XX.X.] recid:-1 20130422001083   6803   dev:50031 calling: called: fmt:.g711 date:20130422 start:16:14:35.281 len:150322 pos:1 srv::
+20130422 16:20:31 0000000133 [X....X.X ...XX.XX] recid:20130422000049 dev:50003 calling: called: fmt:.g711 date:20130422 start:16:20:05.533 len:24461 pos:2 srv:192.168.8.10:record
+20130422 16:23:18 0000000134 [X....X.X ...XX.XX] recid:20130422000050 dev:50020 calling: called: fmt:.g711 date:20130422 start:16:20:57.637 len:139246 pos:2 srv:192.168.8.10:record
+20130422 16:26:17 0000000135 [X....X.X ...XX.XX] recid:20130422000051 dev:50040 calling: called: fmt:.g711 date:20130422 start:16:25:28.875 len:47440 pos:2 srv:192.168.8.10:record
+20130422 16:26:58 0000000137 [X....X.X ...XX.XX] recid:20130422000053 dev:50003 calling: called: fmt:.g711 date:20130422 start:16:26:22.102 len:34991 pos:2 srv:192.168.8.10:record
+20130422 16:27:12 0000000136 [X....X.X ...XX.XX] recid:20130422000052 dev:50030 calling: called: fmt:.g711 date:20130422 start:16:25:55.099 len:76190 pos:2 srv:192.168.8.10:record
+20130422 16:27:58 0000000138 [X....X.X ...XX.XX] recid:20130422000054 dev:50004 calling: called: fmt:.g711 date:20130422 start:16:27:15.096 len:41121 pos:2 srv:192.168.8.10:record
+20130422 16:30:09 0000000139 [X....X.X ...XX.XX] recid:20130422000055 dev:50007 calling: called: fmt:.g711 date:20130422 start:16:29:28.897 len:39234 pos:2 srv:192.168.8.10:record
+20130422 16:38:03 0000000140 [X....X.X ...XX.XX] recid:20130422000056 dev:50022 calling: called: fmt:.g711 date:20130422 start:16:34:53.955 len:188323 pos:2 srv:192.168.8.10:record
+20130422 16:38:09 0000000141 [X....X.X ...XX.XX] recid:20130422000057 dev:50015 calling: called: fmt:.g711 date:20130422 start:16:35:41.067 len:146687 pos:2 srv:192.168.8.10:record
+20130422 16:39:28 0000000142 [X....X.X ...XX.XX] recid:20130422000058 dev:50036 calling: called: fmt:.g711 date:20130422 start:16:37:58.113 len:88546 pos:2 srv:192.168.8.10:record
+20130422 16:39:35 0000000144 [X....X.X ...XX.XX] recid:20130422000060 dev:50002 calling: called: fmt:.g711 date:20130422 start:16:38:59.047 len:35349 pos:2 srv:192.168.8.10:record
+20130422 16:40:40 0000000145 [X....X.X ...XX.XX] recid:20130422000061 dev:50035 calling: called: fmt:.g711 date:20130422 start:16:39:53.179 len:46098 pos:2 srv:192.168.8.10:record
+20130422 16:41:02 0000000147 [X....X.X ...XX.XX] recid:20130422000063 dev:50042 calling: called: fmt:.g711 date:20130422 start:16:40:55.673 len:5850 pos:2 srv:192.168.8.10:record
+20130422 16:42:22 0000000146 [X....X.X ...XX.XX] recid:20130422000062 dev:50048 calling: called: fmt:.g711 date:20130422 start:16:40:18.045 len:122554 pos:2 srv:192.168.8.10:record
+20130422 16:42:28 0000000148 [X....X.X ...XX.XX] recid:20130422000064 dev:50013 calling: called: fmt:.g711 date:20130422 start:16:41:04.471 len:82493 pos:2 srv:192.168.8.10:record
+20130422 16:42:42 0000000149 [X....X.X ...XX.XX] recid:20130422000065 dev:50017 calling: called: fmt:.g711 date:20130422 start:16:42:04.313 len:36317 pos:2 srv:192.168.8.10:record
+20130422 16:42:47 0000000150 [X....X.X ...XX.XX] recid:20130422000066 dev:50041 calling: called: fmt:.g711 date:20130422 start:16:42:28.259 len:17799 pos:2 srv:192.168.8.10:record
+20130422 16:44:13 0000000143 [X....X.X ...XX.XX] recid:20130422000059 dev:50030 calling: called: fmt:.g711 date:20130422 start:16:38:08.674 len:363013 pos:2 srv:192.168.8.10:record
+20130422 16:47:22 0000000151 [X....X.X ...XX.XX] recid:20130422000067 dev:50038 calling: called: fmt:.g711 date:20130422 start:16:44:27.037 len:173254 pos:2 srv:192.168.8.10:record
+20130422 16:47:50 0000000153 [X....X.X ...XX.XX] recid:20130422000069 dev:50014 calling: called: fmt:.g711 date:20130422 start:16:47:22.912 len:26458 pos:2 srv:192.168.8.10:record
+20130422 16:48:16 0000000152 [X....X.X ...XX.XX] recid:20130422000068 dev:50021 calling: called: fmt:.g711 date:20130422 start:16:44:56.365 len:198948 pos:2 srv:192.168.8.10:record
+20130422 16:48:59 0000000155 [X....X.X ...XX.XX] recid:20130422000071 dev:50030 calling: called: fmt:.g711 date:20130422 start:16:48:45.608 len:12355 pos:2 srv:192.168.8.10:record
+20130422 16:50:27 0000000154 [X....X.X ...XX.XX] recid:20130422000070 dev:50036 calling: called: fmt:.g711 date:20130422 start:16:47:44.939 len:161461 pos:2 srv:192.168.8.10:record
+20130422 16:53:07 0000000156 [X....X.X ...XX.XX] recid:20130422000072 dev:50002 calling: called: fmt:.g711 date:20130422 start:16:50:00.847 len:185718 pos:2 srv:192.168.8.10:record
+20130422 16:55:24 0000000158 [X....X.X ...XX.XX] recid:20130422000074 dev:50009 calling: called: fmt:.g711 date:20130422 start:16:55:10.351 len:13011 pos:2 srv:192.168.8.10:record
+20130422 16:55:58 0000000157 [X....X.X ...XX.XX] recid:20130422000073 dev:50031 calling: called: fmt:.g711 date:20130422 start:16:53:26.034 len:150930 pos:2 srv:192.168.8.10:record

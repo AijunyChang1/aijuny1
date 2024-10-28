@@ -1,0 +1,222 @@
+USE [rep_ccms]
+GO
+/****** Object:  StoredProcedure [dbo].[sp_Agent_Effic_Report_WXH]    Script Date: 07/15/2013 10:56:28 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		Summit.Lau
+-- Create date: 2012.07.05
+-- Description:	坐席工作统计报表 (需严格提供正确的参数，参数正确与否的逻辑判断需要页面过滤)
+/*
+ sp_Agent_Effic_Report_WXH @DateBegin=20110101,@DateEnd=20121110
+			,@Agent='8221,8222',@Skill='61870330'
+置忙原因码
+1 培训 
+2 会议 
+3 用餐 
+4 休息 
+5 公务 
+6 跟进 
+*/
+-- =============================================
+ALTER PROCEDURE [dbo].[sp_Agent_Effic_Report_WXH]
+    (
+      @ProjectId INT = NULL ,
+      @DateBegin BIGINT = NULL ,
+      @DateEnd BIGINT = NULL ,
+      @TimeBegin VARCHAR(10) = NULL ,
+      @TimeEnd VARCHAR(10) = NULL ,
+      @Agent VARCHAR(max) = '' ,
+      @Skill VARCHAR(max) = '' ,
+      @Preload BIT = 0
+    )
+AS 
+    BEGIN  
+        DECLARE @v_DateBegin VARCHAR(20) ,
+            @v_DateEnd VARCHAR(20) ,
+            @v_BeginTime VARCHAR(10) ,
+            @v_EndTime VARCHAR(10) ,
+            @v_Agent VARCHAR(max) ,
+            @v_Skill VARCHAR(max) ,
+            @Error INT
+        SET @Error = 0        
+        IF LEN(@TimeBegin) < 6 OR ISNULL(@TimeBegin,'0') = '0'
+           set @v_BeginTime = '000000'
+          ELSE 
+         SET   @v_BeginTime = @TimeBegin
+        IF LEN(@TimeEnd) < 6 OR ISNULL(@TimeEnd,'0') = '0'
+           SET @v_EndTime = '235959'
+        ELSE
+        SET  @v_EndTime = @TimeEnd
+       
+        SELECT  @v_DateBegin = Beg_Date ,
+                @v_DateEnd = End_Date
+        FROM    For_Date(@DateBegin, @DateEnd, @v_BeginTime, @v_EndTime)  --获得起始与结束时间 
+        CREATE TABLE #TempSkill ( Skill VARCHAR(12) )  ---  技能组临时表
+         CREATE UNIQUE CLUSTERED INDEX PK_SKILL ON #TempSkill(Skill)
+        CREATE TABLE #TempAgent ( Agent VARCHAR(6) )  ---  坐席临时表
+         CREATE UNIQUE CLUSTERED INDEX PK_AGENT ON #TempAgent(Agent)
+        INSERT  INTO #TempSkill
+                SELECT  *
+                FROM    Format_Skill(@Skill)
+        INSERT  INTO #TempAgent
+                SELECT  *
+                FROM    Format_Agent(@Agent)
+ PRINT @v_DateBegin
+ PRINT @v_DateEnd
+------------------
+;
+WITH    cte
+                  AS ( SELECT
+                               DAY,
+DateTime,
+AgentSkillTargetID, --坐席
+SkillGroupSkillTargetID,-- 技能
+InCall,-- 呼入数
+InTalkTime,--呼入应答时长
+InDuration,--呼入总时长
+InAnswer,--呼入应答数
+Answer15,-- 呼入振铃15秒内应答数
+InAbandNum,--呼入呼损数 
+InAbandTime,--呼入呼损总时长
+TRANSFER,--转接数 
+Insides,-- 内部通话数
+InsideTime,--内部通话时长
+OutCall,--呼出数
+OutDuration,--呼出总时长
+OutAnswer, --呼出应答数
+OutTalkTime,-- 呼出应答时长
+DigitsDialed
+from 
+V_TERM_CALL_DETAIL_DAY A ,
+                                t_Agent B
+                       WHERE    A.AgentSkillTargetID IS NOT NULL
+                                --and SkillGroupSkillTargetID IN ( SELECT
+                                --                              Skill
+                                --                              FROM
+                                --                              #TempSkill )
+
+                                AND DigitsDialed IN ( SELECT
+                                                              Skill
+                                                             FROM
+                                                              #TempSkill )
+                                --AND len(DigitsDialed) > 6
+                                AND A.AgentSkillTargetID = B.SkillTargetID
+                                AND AgentSkillTargetID IN ( SELECT
+                                                              Agent
+                                                            FROM
+                                                              #TempAgent)
+                                AND A.DateTime BETWEEN @v_DateBegin AND @v_DateEnd
+                     )
+
+select 
+ agentid,agent,
+isnull(SUM(login_t),0) login_t, --登录时长
+SUM(ans_n) ans_n,-- 呼入应答数
+SUM(aban_n) aban_n,--呼入放弃数
+sum(aban_t) aban_t,--呼入放弃时长
+SUM(calltrans) calltrans, -- 转接呼叫数
+case when SUM(ans_n) = 0 then 0
+else 
+Round(SUM(InTalkTime)/SUM(ans_n),0)
+end asa ,-- 呼入平均应答时长(秒)
+sum(InTalkTime) ans_t,-- 呼入应答总时长
+cast(cast(dbo.Func_Defin_Rate(SUM(Answer15), SUM(ans_n)) As float)*100 As varchar) + '%'  [15sAnsRate] ,--15秒内应答率
+
+Sum(OutAnswer) outtalk , -- 呼出应答(通话)数
+case when SUM(OutAnswer) = 0 then 0
+else 
+ROUND(SUM(OutTalkTime)/SUM(OutAnswer),0)
+end outbound_tdn,--呼出平均应答时长
+SUM(OutTalkTime) outboundans_t,--呼出应答总时长 (秒)
+isnull(sum(ready_t),0) ready_t, --就绪时长
+isnull(SUM(Dining_t),0) Dining_t, -- 用餐时长
+isnull(sum(conf_t),0) conf_t,-- 会议时长
+isnull(SUM(Train_t),0) Train_t -- 培训时长
+into #Temp_WXh
+from 
+(
+SELECT  
+        F.day RecTime,  -- 时间
+        D.PeripheralNumber agentid , -- 坐席工号 
+        D.PeripheralNumber agent, -- 坐席名称 
+        H.loginDuration login_t ,  -- 登陆时长 
+        --CallOffer,  -- 呼叫数
+        ans_n,--总应答数
+        aban_n,-- 呼损数
+        aban_t ,-- 呼损时长
+        TRANSFER calltrans,--转接呼叫数
+        InTalkTime ,-- 呼入应答时长
+         Answer15 , -- 15秒内应答数
+        OutAnswer , -- 呼出应答数
+        OutTalkTime,-- 呼出应答时长
+        H.AvailTime ready_t,--就绪时长
+        G.DinnerTime Dining_t,
+        G.MeetingTime conf_t,
+        G.TrainTime  Train_t
+FROM    ( SELECT    DAY,-- 时间
+                    AgentSkillTargetID , -- 座席
+                    SUM(InCall) + SUM(OutCall) CallOffer , --总呼叫数
+                    SUM(InCall) InCall , -- 呼入
+                    SUM(Insides) Insides , --内部呼叫
+                    ISNULL(SUM(InAnswer), 0) ans_n , -- 呼入应答数
+                    SUM(InAbandNum) aban_n ,-- 呼损数
+                    SUM(TRANSFER) TRANSFER ,-- 转接数
+                    SUM(InTalkTime) InTalkTime ,-- 呼入应答时长
+                    dbo.Func_Defin_Rate(SUM(InTalkTime),
+                                        SUM(InAnswer)) AvgTalkTime , -- 呼入平均应答时长
+                    SUM(Answer15) Answer15 , -- 15秒内应答
+                    SUM(InAbandTime) aban_t,  -- 呼入呼损时长
+                    cast(cast(dbo.Func_Defin_Rate(SUM(Answer15), SUM(InAnswer)) As float)*100 As varchar(4)) + '%' RateAns15S , -- 15秒内应答率
+                    SUM(OutCall) OutCall, -- 呼出数
+                    SUM(OutAnswer) OutAnswer , -- 呼出应答数
+                    SUM(OutDuration) OutCallTime ,-- 呼出总时长
+                    SUM(OutTalkTime) OutTalkTime,-- 呼出应答时长
+                    dbo.Func_Defin_Rate(SUM(OutTalkTime), SUM(OutAnswer)) AvgOutTalktime , -- 平均呼出应答时长
+                    SUM(InsideTime) InsideTime -- 内部呼叫时长
+          FROM      cte
+          GROUP BY  Day,AgentSkillTargetID
+        ) F
+        LEFT JOIN 
+        (
+SELECT  Day ,
+                                                skilltargetid ,
+                                                SUM(DinnerTimes) DinnerTimes ,
+                                                SUM(DinnerTime) DinnerTime ,
+                                                SUM(RestTimes) RestTimes ,
+                                                SUM(RestTime) RestTime ,
+                                                SUM(TrainTimes) TrainTimes ,
+                                                SUM(TrainTime) TrainTime ,
+                                                SUM(FollowInTimes) FollowInTimes ,
+                                                SUM(FollowInTime) FollowInTime ,
+                                                SUM(MeetingTimes) MeetingTimes ,
+                                                SUM(MeetingTime) MeetingTime
+                                        FROM    V_AGNET_EVENT_SDAY
+                                        GROUP BY Day ,
+                                                skilltargetid
+        )G ON F.Day = G.Day
+                                             AND F.AgentSkillTargetID = G.skilltargetid
+                            left JOIN ( 
+SELECT  Day ,
+                                                SkillTargetID ,
+                                                SUM(LoggedOnTime) loginDuration,
+                                                SUM(AvailTime) AvailTime
+                                        FROM    V_AGNET_INTERVAL_DAY
+                                        GROUP BY Day ,
+                                                SkillTargetID
+                                      ) H ON F.Day = H.Day
+                                             AND F.AgentSkillTargetID = H.SkillTargetID        
+    
+        INNER JOIN t_Agent D ON F.AgentSkillTargetID = D.SkillTargetID 
+        --order by F.DAY desc
+        )S
+       group by agentid,agent
+  
+        
+        
+select * from #Temp_WXh  where ans_n > 0
+     order by  agentid      
+    END ;
+           

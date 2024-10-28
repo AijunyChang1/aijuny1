@@ -1,0 +1,45 @@
+﻿生成启动时间为 2024/5/27 16:59:56。
+     1>项目“D:\document\google_test\GoogleTest\TestNewTracker_0517_newframe\TestFrame\TestFrame.vcxproj”在节点 2 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在对“Release\TestFrame.unsuccessfulbuild”执行 Touch 任务。
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /IE:\TeliDH\src\WebcamLib /IE:\TeliDH\src\tracker /IE:\TeliDH\src\GoogleTest\TestFrame\TestFrame\mobinex\util /IE:\TeliDH\src\capture /Zi /nologo /W3 /WX- /O2 /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"StdAfx.h" /Fp"Release\TestFrame.pch" /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
+         stdafx.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /IE:\TeliDH\src\WebcamLib /IE:\TeliDH\src\tracker /IE:\TeliDH\src\GoogleTest\TestFrame\TestFrame\mobinex\util /IE:\TeliDH\src\capture /Zi /nologo /W3 /WX- /O2 /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Release\TestFrame.pch" /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt FXStcImage.cpp TestFrame.cpp
+         FXStcImage.cpp
+     1>FXStcImage.cpp(3): fatal error C1083: 无法打开包括文件:“FXUtil.h”: No such file or directory
+         TestFrame.cpp
+     1>d:\document\google_test\googletest\testnewtracker_0517_newframe\testframe\defineh.h(61): error C2143: 语法错误 : 缺少“;”(在“*”的前面)
+     1>d:\document\google_test\googletest\testnewtracker_0517_newframe\testframe\defineh.h(61): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+     1>d:\document\google_test\googletest\testnewtracker_0517_newframe\testframe\defineh.h(61): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+     1>d:\document\google_test\googletest\testnewtracker_0517_newframe\testframe\defineh.h(65): error C2143: 语法错误 : 缺少“;”(在“*”的前面)
+     1>d:\document\google_test\googletest\testnewtracker_0517_newframe\testframe\defineh.h(65): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+     1>d:\document\google_test\googletest\testnewtracker_0517_newframe\testframe\defineh.h(65): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+     1>d:\document\google_test\googletest\testnewtracker_0517_newframe\testframe\defineh.h(311): error C2516: “CVdoFrameHandler”: 是非法基类
+                 d:\document\google_test\googletest\testnewtracker_0517_newframe\testframe\defineh.h(65) : 参见“CVdoFrameHandler”的声明
+     1>d:\document\google_test\googletest\testnewtracker_0517_newframe\testframe\defineh.h(445): error C3861: “CreateWebcam”: 找不到标识符
+     1>d:\document\google_test\googletest\testnewtracker_0517_newframe\testframe\defineh.h(447): error C2297: “*”: 非法，右操作数包含“int *”类型
+     1>d:\document\google_test\googletest\testnewtracker_0517_newframe\testframe\defineh.h(448): error C2440: “=”: 无法从“CMyFrameHandler *”转换为“int *”
+                 与指向的类型无关；转换要求 reinterpret_cast、C 样式转换或函数样式转换
+     1>d:\document\google_test\googletest\testnewtracker_0517_newframe\testframe\defineh.h(449): error C2227: “->start”的左边必须指向类/结构/联合/泛型类型
+                 类型是“int *”
+     1>d:\document\google_test\googletest\testnewtracker_0517_newframe\testframe\defineh.h(482): error C2227: “->stop”的左边必须指向类/结构/联合/泛型类型
+                 类型是“int *”
+     1>d:\document\google_test\googletest\testnewtracker_0517_newframe\testframe\defineh.h(483): error C3861: “ReleaseWebcam”: 找不到标识符
+     1>TestFrame.cpp(93): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+     1>TestFrame.cpp(93): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+     1>TestFrame.cpp(93): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+     1>TestFrame.cpp(93): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+     1>TestFrame.cpp(94): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+     1>TestFrame.cpp(94): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+     1>TestFrame.cpp(94): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+     1>TestFrame.cpp(94): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+     1>TestFrame.cpp(95): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+     1>TestFrame.cpp(95): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+     1>TestFrame.cpp(95): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+     1>TestFrame.cpp(95): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+     1>已完成生成项目“D:\document\google_test\GoogleTest\TestNewTracker_0517_newframe\TestFrame\TestFrame.vcxproj”(build 个目标)的操作 - 失败。
+
+生成失败。
+
+已用时间 00:00:02.89

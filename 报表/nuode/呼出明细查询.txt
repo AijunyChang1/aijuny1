@@ -1,0 +1,107 @@
+USE [rep_ccms]
+GO
+/****** Object:  StoredProcedure [dbo].[sp_Outbound_Call_Report]    Script Date: 06/26/2013 16:34:28 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[sp_Outbound_Call_Report] (
+      @ProjectId INT = NULL ,
+      @DateBegin BIGINT = NULL ,
+      @DateEnd BIGINT = NULL ,
+      @TimeBegin VARCHAR(10) = '000000' ,
+      @TimeEnd VARCHAR(10) = '235959' ,
+      @Agent VARCHAR(16) = '' ,
+      @Skill VARCHAR(16) = '' ,
+      @Calling VARCHAR(20) = NULL ,
+      --@Group_level VARCHAR(20) = NULL ,	-- 分组级别（monthly, daily, hourly)
+      @Preload BIT = 0
+    )
+-- =======================================================================================
+-- Author:		Summit.Lau
+-- Create date: 2012.07.05
+-- Description:	呼出明细报表 (需严格提供正确的参数，参数正确与否的逻辑判断需要页面过滤)
+/*Example:
+sp_Outbound_Call_Report @DateBegin=20130507,@DateEnd=20130507
+				,@TimeBegin='160000',@TimeEnd='163000'
+				,@Skill='5000'
+*/
+-- =======================================================================================
+AS 
+    BEGIN  
+        DECLARE @v_DateBegin VARCHAR(20) ,
+            @v_DateEnd VARCHAR(20) ,
+            @v_BeginTime VARCHAR(10) ,
+            @v_EndTime VARCHAR(10) ,
+            @v_Agent VARCHAR(16) ,
+            @v_Skill VARCHAR(16) ,
+            @Error INT
+        SET @Error = 0
+         IF LEN(@TimeBegin) < 6 OR ISNULL(@TimeBegin,'0') = '0'
+           set @v_BeginTime = '000000'
+          ELSE 
+         SET   @v_BeginTime = @TimeBegin
+        IF LEN(@TimeEnd) < 6 OR ISNULL(@TimeEnd,'0') = '0'
+           SET @v_EndTime = '235959'
+        ELSE
+        SET  @v_EndTime = @TimeEnd
+                SELECT  @v_DateBegin = Beg_Date ,
+                        @v_DateEnd = End_Date
+                FROM    For_Date(@DateBegin, @DateEnd, @v_BeginTime, @v_EndTime)  --获得起始与结束时间
+       
+        CREATE TABLE #TempSkill ( Skill VARCHAR(16) )  ---  技能组临时表
+        CREATE TABLE #TempAgent ( Agent VARCHAR(6) )  ---  坐席临时表
+        INSERT  INTO #TempSkill
+                SELECT  *
+                FROM    Format_Skill(@Skill)
+        INSERT  INTO #TempAgent
+                SELECT  *
+                FROM    Format_Agent(@Agent)
+--------------
+     
+;WITH cte
+      AS ( SELECT
+                    RecTime = A.DateTime ,
+                    Agent = B.PeripheralNumber,
+                    B.EnterpriseName AgentName ,
+                    A.SkillGroupSkillTargetID ,
+                    A.AgentSkillTargetID ,
+                    A.InstrumentPortNumber extension,
+                    A.OutDigitsDialed,
+                    CustName = isnull(d2.Name, ''),
+                    c.Name Company,
+					A.OutTalkTime
+			from V_TERM_CALL_DETAIL_DAY A 
+					inner join t_Agent B on A.AgentSkillTargetID = B.SkillTargetID
+					--left join sinopharm_common..doctor d1 --on charindex(case when len(rtrim(d1.phone)) > 0 then rtrim(d1.phone) else null end + ',', rtrim(a.OutDigitsDialed)+',') > 0
+					left join sinopharm_common..doctor d2 on --charindex(case when len(rtrim(d2.mobile)) > 0 then rtrim(d2.mobile) else null end + ',', rtrim(a.OutDigitsDialed)+',') > 0
+						--on charindex(d1.phone, a.OutDigitsDialed) > 0 --or charindex(d.mobile, a.OutDigitsDialed) > 0)
+						--on (charindex(case when len(rtrim(d.phone)) > 0 then rtrim(d.phone) else null end + ',', rtrim(a.OutDigitsDialed)+',') > 0 
+							 charindex(case when len(rtrim(d2.mobile)) > 0 then rtrim(d2.mobile) else null end + ',', rtrim(a.OutDigitsDialed)+',') > 0
+					left join sinopharm_common..Company c on c.ID = d2.CompanyId
+            WHERE A.AgentSkillTargetID IS NOT NULL
+				AND AgentSkillTargetID IN ( SELECT
+                                                              Agent
+                                                            FROM
+                                                              #TempAgent )                               
+                                                        
+AND PeripheralCallType IN (7,9)
+AND len(DigitsDialed) > 6
+                                AND DigitsDialed = CASE WHEN LEN(@Calling) > 1
+                                               THEN @Calling
+                                               ELSE DigitsDialed
+                                          END
+                                AND A.DateTime BETWEEN @v_DateBegin AND @v_DateEnd
+                     )
+       SELECT RecTime,
+              Agent,
+              extension,
+              OutDigitsDialed custphone,
+              CustName,
+              Company,
+              OutTalkTime OutTalk_t,
+              bEstb = case when OutTalkTime > 0 then 1 else 0 end
+            FROM cte
+            ORDER BY RecTime, Agent
+    END 
+                

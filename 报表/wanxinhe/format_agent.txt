@@ -1,0 +1,48 @@
+USE [rep_ccms]
+GO
+/****** Object:  UserDefinedFunction [dbo].[Format_Agents]    Script Date: 07/15/2013 11:01:10 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER FUNCTION [dbo].[Format_Agents]  ------- 针对传入的坐席参数，格式化坐席组  By:Summit.Lau
+(
+ @Agent VARCHAR(120)
+)
+RETURNS @Agent_Table TABLE
+(
+ Agent varchar(10)
+)
+AS
+BEGIN
+ DECLARE @v_Agent varchar(10),
+         @len int,
+         @Count int
+         
+ IF CHARINDEX(',',@Agent) > 0
+    begin
+       DECLARE @string varchar(20)
+       SELECT @string = @Agent + ','
+       SET @len = CHARINDEX(',',@Agent)
+       WHILE @len > 0
+         begin         
+          INSERT INTO @Agent_Table
+            SELECT Agent FROM  vxi_sys..Agent WHERE Agent = SUBSTRING(@string,1,@len-1) 
+          --PRINT SUBSTRING(@string,1,@len-1) 
+          SET @string = SUBSTRING(@string,@len+1,LEN(@string))
+          SET @len =  CHARINDEX(',',@string)
+         END
+     END
+ ELSE IF LEN(@Agent) > 0
+     begin
+      INSERT INTO @Agent_Table
+         select Agent FROM  vxi_sys..Agent WHERE Agent = @Agent 
+     END
+ ELSE
+  BEGIN
+    INSERT INTO @Agent_Table
+       SELECT Agent FROM  vxi_sys..Agent
+  END 
+ 
+ RETURN
+END

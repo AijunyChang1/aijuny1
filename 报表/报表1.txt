@@ -1,0 +1,29 @@
+  select 
+     extension, 
+     COUNT(*) as total, 
+     sum(cast(inbound AS int)) as inbound, 
+     sum(cast(outbound as int)) as outbound 
+  from ucd 
+  where extension in ('6801','6805', '6809') 
+  group by extension;
+
+  select 
+    agent=(select top 1 agent from Login where Device=Extension order by LogID desc), 
+    COUNT(*) as total, 
+    sum(cast(inbound AS int)) as inbound, 
+    sum(cast(outbound as int)) as outbound 
+  from ucd 
+  where extension in (select device from login) 
+  group by extension 
+  having Extension like '68%';
+
+
+SELECT country,          
+       SUM( CASE WHEN sex = '1' THEN          
+                      population ELSE 0 END),  --男性人口         
+       SUM( CASE WHEN sex = '2' THEN          
+                      population ELSE 0 END)   --女性人口         
+FROM  Table_A      
+    
+GROUP BY country;     
+

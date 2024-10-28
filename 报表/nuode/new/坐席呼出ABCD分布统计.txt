@@ -1,0 +1,327 @@
+USE [rep_ccms]
+GO
+/****** Object:  StoredProcedure [dbo].[sp_outbound_abcd_stat_sec]    Script Date: 07/10/2013 11:16:34 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Aijun.Chang@vxichina.com>
+-- Create date: <2013.7.1>
+-- Description:	坐席呼出ABCD分布统计（按日、月、年）
+/*Example:
+sp_outbound_abcd_stat_sec @DateBegin=20130320,@DateEnd=20130326
+				,@TimeBegin='000000',@TimeEnd='235959'
+				,@Period2='yearly'
+				--,@Agent='1024'
+				--,@Skill='5316'
+				,@Preload=1
+*/
+-- =============================================
+ALTER PROCEDURE [dbo].[sp_outbound_abcd_stat_sec] 
+    (
+       @ProjectId	varchar(15) = NULL, -- 项目名称(同被叫号码DigitsDialed)
+       @Period2		varchar(10)	= NULL,	-- 查询周期(daily=日、monthly=月、yearly=年)
+       @DateBegin	bigint		= NULL,
+       @DateEnd		bigint		= NULL,
+       @TimeBegin	varchar(10) = '000000',
+       @TimeEnd		varchar(10) = '235959',
+       @Agent		varchar(200) = '',
+       @Skill		varchar(200) = '',
+       @Preload		bit			= 0
+    )
+AS 
+    BEGIN  
+    
+		set @Period2 = isnull(@Period2, 'daily')
+		set @Agent = isnull(rtrim(@Agent), '')
+		set @Skill = isnull(rtrim(@Skill), '')
+		
+        declare	@v_datebegin	varchar(20),
+				@v_dateend		varchar(20),
+				@v_timebegin	varchar(10),
+				@v_timeend		varchar(10)
+        
+        if len(@TimeBegin) < 6 or isnull(@TimeBegin,'0') = '0'
+			set @v_timebegin = '000000'
+        else 
+			set @v_timebegin = @TimeBegin
+			
+        if len(@TimeEnd) < 6 or isnull(@TimeEnd,'0') = '0'
+			set @v_timeend = '235959'
+        else
+			set @v_timeend = @TimeEnd
+		
+		-- 获得起始与结束时间	
+		select @v_datebegin=beg_date,
+				@v_dateend=end_date
+			from for_date(@datebegin, @dateend, @v_timebegin, @v_timeend)
+        
+        if @Period2 = 'monthly' begin
+			-- 按月查询
+			;with cte0 as
+			(
+				select distinct skillgroupskilltargetid skillgroupskilltargetid
+					from t_Skill_Group_Member
+			),
+			cte1 as
+			(
+				select  recdt =convert(varchar(8),td.datetime,112),
+				        td.agentperipheralnumber as Agent,
+						td.DigitsDialed as callednumber,
+						Success = case when talktime > 0 then 1 else 0 end,
+						td.talktime
+					from t_termination_call_detail td
+							inner join t_agent ta on ta.skilltargetid =  td.agentskilltargetid
+							left join cte0 c0 on c0.skillgroupskilltargetid = td.skillgroupskilltargetid
+					where DateTime between @v_datebegin and @v_dateend
+							and (@Agent = '' or charindex(','+rtrim(td.agentperipheralnumber)+',',','+@Agent+',') > 0)
+							and (@Skill = '' or charindex(','+rtrim(td.skillgroupskilltargetid)+',',','+@Skill+',') > 0)
+							and td.agentperipheralnumber in (select Agent from vxi_sys.dbo.Agent)
+							and 0 = @Preload
+							and td.peripheralcalltype = 9
+
+			),
+			cte2 as
+			(
+			   select  t.recdt date_time,t.agent agent,t.callednumber callednumber,t.success success,d.ID as ID
+			   from cte1 t
+			        left join sinopharm_common.dbo.doctor d on 
+			        --CHARINDEX(right(t.callednumber,7),d.mobile)>0
+			        (right(t.callednumber,9)=right(d.mobile,9) or (right(t.callednumber,7)=right(d.phone,7)))
+			),
+			
+			cte3 as 
+			(
+			   select distinct date_time, agent, callednumber, success, MIN(ID) as ID 
+			   from cte2 
+			   group by date_time, agent, callednumber, success
+			
+			
+			),
+			
+			
+			cte4 as 
+			(
+			   select date_time, agent, callednumber, success,
+			        doc_class=case when (dh.doctorClass=923)  then 'A'
+			                       when (dh.doctorClass=924)  then 'B'
+			                       when (dh.doctorClass=925)  then 'C'
+			                       when (dh.doctorClass=926)  then 'D'
+			                       else 'E'
+			                   end
+			                       
+			                   
+			   from cte3 t
+			        inner join sinopharm_ccs..DoctorHabit dh on t.ID=dh.doctorId
+			   
+			  /*                                    
+			   where  
+			        CHARINDEX(right(t.callednumber,7),d.mobile)>0
+			        and d.ID=dh.doctorId
+			   */
+			
+			),
+			cte00 as 
+			(
+			   select agent, COUNT(agent) as total from cte4 group by agent
+			
+			)
+			
+			 select 
+			       -- a.Agent,
+			        doc_class,
+			        Callout_num=COUNT(doc_class),
+			        Success_n=SUM(success),
+			        not_success=COUNT(doc_class)-SUM(success),
+			        cast((SUM(success)*100/COUNT(doc_class)) as CHAR(20))+'%' as suc_rate
+
+			from cte4 a 
+			where doc_class<>'E'
+			group by  doc_class 
+							
+			union
+				
+			select '总计:',COUNT(*),sum(success),COUNT(*)-SUM(success),cast((sum(Success)*100/COUNT(*)) as CHAR(20))+'%' from cte4 where doc_class<>'E' 
+
+			order by  doc_class
+        end
+        else if @Period2 = 'yearly' begin
+			-- 按年查询
+			;with cte0 as
+			(
+				select distinct skillgroupskilltargetid skillgroupskilltargetid
+					from t_Skill_Group_Member
+			),
+			cte1 as
+			(
+				select  recdt =convert(varchar(8),td.datetime,112),
+				        td.agentperipheralnumber as Agent,
+						td.DigitsDialed as callednumber,
+						Success = case when talktime > 0 then 1 else 0 end,
+						td.talktime
+					from t_termination_call_detail td
+							inner join t_agent ta on ta.skilltargetid =  td.agentskilltargetid
+							left join cte0 c0 on c0.skillgroupskilltargetid = td.skillgroupskilltargetid
+					where DateTime between @v_datebegin and @v_dateend
+							and (@Agent = '' or charindex(','+rtrim(td.agentperipheralnumber)+',',','+@Agent+',') > 0)
+							and (@Skill = '' or charindex(','+rtrim(td.skillgroupskilltargetid)+',',','+@Skill+',') > 0)
+							and td.agentperipheralnumber in (select Agent from vxi_sys.dbo.Agent)
+							and 0 = @Preload
+							and td.peripheralcalltype = 9
+
+			),
+			cte2 as
+			(
+			   select  t.recdt date_time,t.agent agent,t.callednumber callednumber,t.success success,d.ID as ID
+			   from cte1 t
+			        left join sinopharm_common.dbo.doctor d on 
+			        --CHARINDEX(right(t.callednumber,7),d.mobile)>0
+			        (right(t.callednumber,9)=right(d.mobile,9) or (right(t.callednumber,7)=right(d.phone,7)))
+			),
+			
+			cte3 as 
+			(
+			   select distinct date_time, agent, callednumber, success, MIN(ID) as ID 
+			   from cte2 
+			   group by date_time, agent, callednumber, success
+			
+			
+			),
+			
+			
+			cte4 as 
+			(
+			   select date_time, agent, callednumber, success,
+			        doc_class=case when (dh.doctorClass=923)  then 'A'
+			                       when (dh.doctorClass=924)  then 'B'
+			                       when (dh.doctorClass=925)  then 'C'
+			                       when (dh.doctorClass=926)  then 'D'
+			                       else 'E'
+			                   end
+			                       
+			                   
+			   from cte3 t
+			        inner join sinopharm_ccs..DoctorHabit dh on t.ID=dh.doctorId
+			   
+			  /*                                    
+			   where  
+			        CHARINDEX(right(t.callednumber,7),d.mobile)>0
+			        and d.ID=dh.doctorId
+			   */
+			
+			),
+			cte00 as 
+			(
+			   select agent, COUNT(agent) as total from cte4 group by agent
+			
+			)
+			
+			 select 
+			      	doc_class,
+			        Callout_num=COUNT(doc_class),
+			        Success_n=SUM(success),
+			        not_success=COUNT(doc_class)-SUM(success),
+			        cast((SUM(success)*100/COUNT(doc_class)) as CHAR(20))+'%' as suc_rate
+
+			from cte4 a 
+			where doc_class<>'E'
+			group by doc_class 
+							
+			union
+				
+			select  '总计:',COUNT(*),sum(success),COUNT(*)-SUM(success),cast((sum(Success)*100/COUNT(*)) as CHAR(20))+'%' from cte4 where doc_class<>'E' 
+
+			order by  doc_class
+        end
+        else begin
+			-- 按日查询
+			;with cte0 as
+			(
+				select distinct skillgroupskilltargetid skillgroupskilltargetid
+					from t_Skill_Group_Member
+			),
+			cte1 as
+			(
+				select  recdt =convert(varchar(8),td.datetime,112),
+				        td.agentperipheralnumber as Agent,
+						td.DigitsDialed as callednumber,
+						Success = case when talktime > 0 then 1 else 0 end,
+						td.talktime
+					from t_termination_call_detail td
+							inner join t_agent ta on ta.skilltargetid =  td.agentskilltargetid
+							left join cte0 c0 on c0.skillgroupskilltargetid = td.skillgroupskilltargetid
+					where DateTime between @v_datebegin and @v_dateend
+							and (@Agent = '' or charindex(','+rtrim(td.agentperipheralnumber)+',',','+@Agent+',') > 0)
+							and (@Skill = '' or charindex(','+rtrim(td.skillgroupskilltargetid)+',',','+@Skill+',') > 0)
+							and td.agentperipheralnumber in (select Agent from vxi_sys.dbo.Agent)
+							and 0 = @Preload
+							and td.peripheralcalltype = 9
+
+			),
+			cte2 as
+			(
+			   select  t.recdt date_time,t.agent agent,t.callednumber callednumber,t.success success,d.ID as ID
+			   from cte1 t
+			        left join sinopharm_common.dbo.doctor d on 
+			        --CHARINDEX(right(t.callednumber,7),d.mobile)>0
+			        (right(t.callednumber,9)=right(d.mobile,9) or (right(t.callednumber,7)=right(d.phone,7)))
+			),
+			
+			cte3 as 
+			(
+			   select distinct date_time, agent, callednumber, success, MIN(ID) as ID 
+			   from cte2 
+			   group by date_time, agent, callednumber, success
+			
+			
+			),
+			
+			
+			cte4 as 
+			(
+			   select date_time, agent, callednumber, success,
+			        doc_class=case when (dh.doctorClass=923)  then 'A'
+			                       when (dh.doctorClass=924)  then 'B'
+			                       when (dh.doctorClass=925)  then 'C'
+			                       when (dh.doctorClass=926)  then 'D'
+			                       else 'E'
+			                   end
+			                       
+			                   
+			   from cte3 t
+			        inner join sinopharm_ccs..DoctorHabit dh on t.ID=dh.doctorId
+			   
+			  /*                                    
+			   where  
+			        CHARINDEX(right(t.callednumber,7),d.mobile)>0
+			        and d.ID=dh.doctorId
+			   */
+			
+			),
+			cte00 as 
+			(
+			   select agent, COUNT(agent) as total from cte4 group by agent
+			
+			)
+			
+			 select 
+			        doc_class,
+			        Callout_num=COUNT(doc_class),
+			        Success_n=SUM(success),
+			        not_success=COUNT(doc_class)-SUM(success),
+			        cast((SUM(success)*100/COUNT(doc_class)) as CHAR(20))+'%' as suc_rate
+
+			from cte4 a 
+			where doc_class<>'E'
+			group by  doc_class 
+							
+			union
+				
+			select  '总计:',COUNT(*),sum(success),COUNT(*)-SUM(success),cast((sum(Success)*100/COUNT(*)) as CHAR(20))+'%' from cte4 where doc_class<>'E' 
+
+			order by doc_class
+        end
+                
+    END
+

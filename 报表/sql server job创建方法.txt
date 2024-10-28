@@ -1,0 +1,110 @@
+1. 执行以下脚本,消除xp错误:
+sp_configure 'show advanced options', 1;   
+GO   
+RECONFIGURE WITH OVERRIDE;   --加上WITH OVERRIDE   
+GO   
+sp_configure 'Agent XPs', 1;   
+GO   
+RECONFIGURE WITH OVERRIDE     --加上WITH OVERRIDE   
+GO 
+sp_configure 'show advanced options', 1;
+GO
+RECONFIGURE WITH OVERRIDE;   --加上WITH OVERRIDE
+GO
+sp_configure 'Agent XPs', 1;
+GO
+RECONFIGURE WITH OVERRIDE     --加上WITH OVERRIDE
+GO
+
+2. 修改 sql server agent(实例名)的登陆用户名/密码与登陆用户一致,启动服务.
+
+=================================================================================================================================
+
+如果在SQL Server 里需要定时或者每隔一段时间执行某个存储过程或3200字符以内的SQL语句时，可以用管理->SQL Server代理->作业来实现。 
+
+
+1、管理->SQL Server代理->作业(按鼠标右键)->新建作业 
+
+
+2、新建作业属性(常规)->名称[自定义本次作业的名称]->启用的方框内是勾号->分类处可选择也可用默认的[未分类(本地)]->所有者默认为登录SQL Server用户[也可选其它的登录]
+   ->描述[填写本次工作详细描述内容]； 
+
+
+创建作业分类的步骤： SQL Server代理->作业->右键选所有任务->添加、修改、删除 
+
+
+3、新建作业属性(步骤)->新建->步骤名[自定义第一步骤名称]->类型[Transact-SQL(TSQL)脚本]->数据库[要操作的数据库]->命令 [ 如果是简单的SQL直接写进去即可，
+   也可用打开按钮输入一个已写好的*.sql。文件如果要执行存储过程，填 exec p_procedure_name v_parameter1，[ v_parameter2…v_parameterN] ->确定 (如果有多个步骤，
+   可以再次调用下面的新建按钮；也可以对已有的多个步骤插入、编辑、删除)； 
+
+
+4、建作业属性(调度)->新建调度->名称[自定义调度名称]->启用的方框内是勾号->调度->反复出现-> 更改[调度时间表]->确定(如果只要保存此作业，不要定时做可以把启用的方
+   框内是勾号去掉)； 
+
+
+5、建作业属性(通知)->用默认的通知方法就好[当作业失败时，写入Windows应用程序系统日志] ->确定。 
+
+
+跟作业执行相关的一些SQL Server知识： 
+
+
+SQL Server Agent服务必须正常运行，启动它的NT登录用户要跟启动SQL Server数据库的NT登录用户一致； 
+
+
+点作业右键可以查看作业执行的历史记录情况，也可以立即启动作业和停止作业。 
+
+
+最近在看作业历史记录时，发现有的作业记录的历史记录多，有的作业记录的记录的历史记录少。如何能使某些作业按各自的需求，保留一段时间.比如保留一个月的历史记录.看了SQL Server的在线帮助文档，里面介绍说： 
+
+
+在管理->SQL Server代理->右键选属性->作业系统->限制作业历史记录日志的大小 
+
+
+作业历史记录日志的最大大小(行数) ，默认为1000 。如果某台机器的作业数量很多，一定要提高它，例如为100000 
+
+
+每个作业历史记录日志的最大行数，默认为100。如果作业每天执行两次，需要保留一个月的日志，可以设为60 
+
+
+它们之间有一个相互制约关系， 我们可以根据自己的需要来改. 
+
+
+如果SQL Server服务器改过机器名， 管理是旧名称时建立的job的时候可能会遇到。错误14274： 无法添加、更新或删除从MSX服务器上发起的作业(或其步骤或调度)。看了Microsoft的文档：http：//support.microsoft.com/default.aspx?scid=kb;en-us;281642说SQL Server 2000系统里msdb..sysjobs 里originating_server 字段里存的是原来的服务器的名称。24X7在用的系统肯定不能按上面Microsoft的文档说的那样把名字改回来又改过去。于是想，msdb..sysjobs 能否update originating_server 字段成现在在用的新服务器名？ 
+
+
+use msdb
+select * from sysjobs 
+
+
+
+找到originating_server 字段还是旧服务器的job_id， 然后执行update语句： 
+
+
+update sysjobs set originating_server='new_server_name'
+where job_id='B23BBEBE-A3C1-4874-A4AB-0E2B7CD01E14' 
+
+
+
+（所影响的行数为 1 行） 
+
+
+这样就可以添加、更新或删除那些曾经出error 14274 的作业了。 
+
+
+如果想把作业由一台机器迁移到另一台机器，可以先保留好创建作业的脚本， 然后在另一台机器上运行。 
+
+
+导出所有作业的创建脚本操作步骤： 
+
+
+管理->SQL Server代理->作业(鼠标右键)->所有任务->生成SQL脚本->保存到操作系统下的某个sql文件 
+
+
+导出某一个作业的创建脚本操作步骤： 
+
+
+管理->SQL Server代理->作业->选中待转移的作业(鼠标右键)->所有任务->生成SQL脚本->保存到OS下的某个sql文件 
+
+
+然后在目的服务器上运行刚才保存下来的创建作业的sql脚本。( 如果建作业的用户或者提醒的用户不存在， 则会出错； 我们需要在目的服务器上建立相关的WINDOWS用户或者SQL Server数据库登录， 也可以修改创建作业的脚本， 把目的服务器上不存在的用户替换成已经有的用户。如果生成日志的物理文件目录不存在，也应该做相关的修改，例如d：\区转f：\区等字符串的 @command 命令里有分隔符号 go 也会出错， 可以把它去掉) 
+

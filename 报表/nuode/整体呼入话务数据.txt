@@ -1,0 +1,114 @@
+USE [rep_ccms]
+GO
+/****** Object:  StoredProcedure [dbo].[SP_Over_TraffND_Report]    Script Date: 06/26/2013 16:20:28 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		Summit.Lau
+-- Create date: 2012.07.05
+-- Description:	整体话务数据报表 (需严格提供正确的参数，参数正确与否的逻辑判断需要页面过滤)
+--              分段输出 用户所需数据，且在分段时 在此段内无数据时 不进行输出和统计  
+/*
+  sp_Outbound_Call_Report @DateBegin = 20111101 ,@DateEnd = 20111101 ,@TimeBegin = '151030' ,@TimeEnd = '093000',@Skill = '5000'
+  SP_Over_TraffND_Report @DateBegin = 20110401 ,@DateEnd = 20111107,@TimeBegin = '180303',@TimeEnd = '020336'
+  SP_Over_TraffND_Report @Project='',@DateBegin = 20110101 ,@DateEnd = 20120101 ,@Group_level = 'DAY'
+  EXECUTE rep_ccms.dbo.SP_Over_TraffND_Report @preload='1',@DateBegin='20120921',@DateEnd='20120928',@TimeBegin='000000',@TimeEnd='235959',@group_level='hourly'
+  SP_Over_TraffND_Report @DateBegin = 20110101 ,@DateEnd = 20120101 
+  SP_Over_TraffND_Report @DateBegin = 20110101 ,@DateEnd = 20120101 ,@Calling = '8892'
+  rep_ccms.dbo.SP_Over_TraffND_Report @DateBegin='',@DateEnd='',@TimeBegin='',@TimeEnd='',@Skill='',@agent=''
+  rep_ccms.dbo.SP_Over_TraffND_Report @preload='',@ProjectId='23',@DateBegin='',@DateEnd='',@TimeBegin='',@TimeEnd='',@Skill='',@agent=''
+*/
+-- =============================================
+ALTER PROCEDURE [dbo].[SP_Over_TraffND_Report]
+    (
+      @ProjectId  varchar(15),-- 项目名称(同被叫号码DigitsDialed)
+      @DateBegin BIGINT = NULL ,
+      @DateEnd BIGINT = NULL ,
+      @TimeBegin VARCHAR(10) = '000000' ,
+      @TimeEnd VARCHAR(10) = '235959' ,
+      @Agent VARCHAR(16) = '' ,
+      @Skill VARCHAR(16) = '' ,     
+     -- @Group_level VARCHAR(20) = NULL ,	-- 分组级别（quarter,half,hourly,daily | 15分,30分,1小时,1天)
+      @Preload BIT = 0
+    )
+AS 
+    BEGIN  
+        DECLARE @v_DateBegin VARCHAR(20) ,
+            @v_DateEnd VARCHAR(20) ,
+            @v_DateBegin_s VARCHAR(20) ,
+            @v_DateEnd_s VARCHAR(20) ,
+            @v_DateBegin_a VARCHAR(20) ,
+            @v_DateEnd_a VARCHAR(20) ,
+            @v_BeginTime VARCHAR(10) ,
+            @v_EndTime VARCHAR(10) ,
+            @v_Agent VARCHAR(16) ,
+            @v_Skill VARCHAR(16) ,
+            @v_Porject varchar(15),
+            @Sql VARCHAR(MAX) ,
+            @SqlCount VARCHAR(MAX) ,
+            @v_Group_level VARCHAR(20),
+            @Count INT ,
+            @dayoff INT ,
+            @hour1 INT ,
+            @hour2 INT ,
+            @i INT ,
+            @Error INT
+        SET @Error = 0
+        set @v_Porject = ISNULL(@ProjectId,'') 
+        SET @Sql = ''
+        IF LEN(@TimeBegin) < 6
+            OR ISNULL(@TimeBegin, '0') = '0' 
+            SET @v_BeginTime = '000000'
+        ELSE 
+            SET @v_BeginTime = @TimeBegin
+        IF LEN(@TimeEnd) < 6
+            OR ISNULL(@TimeEnd, '0') = '0' 
+            SET @v_EndTime = '235959'
+        ELSE 
+            SET @v_EndTime = @TimeEnd
+         
+        SELECT  @v_DateBegin = Beg_Date ,
+                @v_DateEnd = End_Date
+        FROM    For_Date(@DateBegin, @DateEnd, @v_BeginTime, @v_EndTime)  --获得起始与结束时间
+        
+        exec SP_Over_TraffND_Day @Project = @v_Porject,@DateBegin = @v_DateBegin ,@DateEnd = @v_DateEnd,@Agent = @Agent ,  @Skill = @Skill
+        
+        print @v_Porject
+        print @v_DateBegin
+        print @v_DateEnd
+        --SET @v_Group_level = ISNULL(@Group_level,'daily')
+        --IF LEN(@Group_level) < 1 
+        --    BEGIN
+        --      SET @v_Group_level = 'daily'
+        --    END 
+        --PRINT @v_DateBegin
+        --PRINT @v_DateEnd
+        --PRINT @v_Group_level
+        -- IF @v_Group_level = 'hourly' 
+        --  BEGIN
+        --    print 'hourlyddad'
+        --    EXEC SP_Over_TraffND_Report_Hour @DateBegin = @v_DateBegin ,@DateEnd = @v_DateEnd         
+        --  END 
+        --ELSE 
+        --    IF @v_Group_level = 'quarter'
+        --       BEGIN
+        --         EXEC SP_Over_TraffND_Report_QUARTER @DateBegin = @v_DateBegin ,@DateEnd = @v_DateEnd   
+        --       END
+        --  ELSE 
+        --     IF @v_Group_level = 'half'
+        --       BEGIN
+        --         EXEC SP_Over_TraffND_Report_HALF @DateBegin = @v_DateBegin ,@DateEnd = @v_DateEnd 
+        --       END
+        --  ELSE
+        --    IF  @v_Group_level = 'daily'
+        --   BEGIN           
+        --         EXEC SP_Over_TraffND_Report_DAY @DateBegin = @v_DateBegin ,@DateEnd = @v_DateEnd  
+        --    END
+        --  ELSE IF @v_Group_level = 'monthly'  
+        --   BEGIN
+        --        EXEC SP_Over_TraffND_Report_Month @DateBegin = @v_DateBegin ,@DateEnd = @v_DateEnd  
+        --   END   
+    END
+

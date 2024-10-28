@@ -1,0 +1,123 @@
+Start Testing...
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\\\ Module: test_module    Function: test_func\\\\\\\\\
+
+
+Test test_func: pass.
+End testing for test_func
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+End Testing.
+Start Testing...
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\\\ Module: test_module    Function: test_func\\\\\\\\\
+
+
+Test test_func: pass.
+End testing for test_func
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+End Testing.
+Start Testing...
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\\\ Module: test_module    Function: test_func\\\\\\\\\
+
+
+Test test_func: pass.
+End testing for test_func
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+End Testing.
+Start Testing...
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\\\ Module: test_module    Function: test_func\\\\\\\\\
+
+
+Test test_func: pass.
+End testing for test_func
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+End Testing.
+Start Testing...
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\\\ Module: test_module    Function: test_func\\\\\\\\\
+
+
+Test test_func: pass.
+End testing for test_func
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+End Testing.
+Start Testing...
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\\\ Module: test_module    Function: test_func\\\\\\\\\
+
+
+Test test_func: pass.
+End testing for test_func
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+End Testing.
+Start Testing...
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\\\ Module: test_module    Function: test_func\\\\\\\\\
+
+
+Test test_func: pass.
+End testing for test_func
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+End Testing.
+Start Testing...
+please input correct case number
+End Testing.
+Start Testing...
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\\\ Module: test_module    Function: test_func\\\\\\\\\
+
+
+Test test_func: pass.
+End testing for test_func
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+End Testing.

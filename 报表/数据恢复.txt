@@ -1,0 +1,36 @@
+use vxi_rec;
+select * from Records where RecordId>20130614000100 and RecordId<20130614011111;
+
+update vxi_rec.dbo.Records  
+   set Calling=(select Calling from vxi_ucd.dbo.ucd a where a.UcdId=vxi_rec.dbo.Records.ucdid),
+    called= (select Called from vxi_ucd.dbo.ucd a where a.UcdId=vxi_rec.dbo.Records.ucdid)
+ where RecordId>20130614000100 and RecordId<20130614000189 and UcdId<>0 and calling is null;
+ 
+ select COUNT(*) from Records where RecordId>20130614000100 and RecordId<20130614000189 and UcdId<>0 and Calling is null;
+ select * from Records where RecordId>20130614000100 and RecordId<20130614000189 and UcdId<>0 and Calling is null;
+
+ update Records set Calling='053268071666', Called='31758757' where RecordId=20130614000141
+ update Records set Calling='057788832364', Called='26079233' where RecordId=20130614000140
+ update Records set Calling='057788832364', Called='26079233' where RecordId=20130614000138
+ update Records set Calling='013963491829', Called='26079233' where RecordId=20130614000136
+ 
+ update Records set Calling='6802', Called='997059522372936' where RecordId=20130614000104
+ update Records set Calling='6805', Called='997051382519120' where RecordId=20130614000107
+ update Records set Calling='02224700556', Called='26079233' where RecordId=20130614000117
+ update Records set Calling='02224700556', Called='26079233' where RecordId=20130614000118
+ update Records set Calling='50801010', Called='26079233' where RecordId=20130614000125
+ update Records set Calling='6805', Called='997013801463857' where RecordId=20130614000129
+ 
+ update Records set Calling='02224700556', Called='26079233' where RecordId=20130614000132
+ update Records set Calling='6805', Called='997015962896800' where RecordId=20130614000144
+ 
+  update Records set Calling='6808', Called='8062' where RecordId=20130614000148
+  update Records set Calling='02262015000', Called='26079233' where RecordId=20130614000150
+  update Records set Calling='01095510', Called='26079233' where RecordId=20130614000155
+  
+  update Records set Calling='6808', Called='99713564344585' where RecordId=20130614000161
+  update Records set Calling='6808', Called='99713564344585' where RecordId=20130614000167 
+  
+  update Records set Calling='6803', Called='99701060422508' where RecordId=20130614000175
+  update Records set Calling='6803', Called='99701060422508' where RecordId=20130614000183
+  update Records set Calling='051253522376', Called='26079251' where RecordId=20130614000187

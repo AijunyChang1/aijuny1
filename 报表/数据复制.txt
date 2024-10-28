@@ -1,0 +1,34 @@
+select * into vxi_back.dbo.GroupType from vxi_sys.dbo.GroupType
+select * into vxi_back.dbo.Groups from vxi_sys.dbo.Groups
+select * into vxi_back.dbo.Records from vxi_rec.dbo.Records
+select * into vxi_back.dbo.Station from vxi_sys.dbo.Station 
+select * into vxi_back.dbo.StationGroup from vxi_sys.dbo.StationGroup 
+select * into vxi_back.dbo.Devices from vxi_sys.dbo.Devices 
+select * into vxi_back.dbo.Route from vxi_sys.dbo.Route
+select * into vxi_back.dbo.Trunk from vxi_sys.dbo.Trunk
+select * into vxi_back.dbo.TrunkGroup from vxi_sys.dbo.TrunkGroup
+select * into vxi_back.dbo.ChType from vxi_sys.dbo.ChType
+select * into vxi_back.dbo.VoiceType from vxi_sys.dbo.VoiceType
+select * into vxi_back.dbo.Channels from vxi_sys.dbo.Channels
+select * into vxi_back.dbo.Agent from vxi_sys.dbo.Agent
+select * into vxi_back.dbo.Store from vxi_rec.dbo.Store
+select * into vxi_back.dbo.Task from vxi_rec.dbo.Task
+
+
+INSERT INTO People 
+( 
+    --Id, 
+    FirstName, 
+    LastName, 
+    Weight, 
+    Height 
+) 
+SELECT
+    --Id, 
+    FirstName, 
+    LastName, 
+    Weight, 
+    Height 
+FROM
+    Person 
+    WHERE Id<10 

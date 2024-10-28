@@ -1,0 +1,191 @@
+set ANSI_NULLS ON
+set QUOTED_IDENTIFIER ON
+go
+
+
+
+/*
+返回参数：
+	@PrjId：返回当前记录对应的PrjId
+返回值：0 - 成功
+		1 - RecordId错误
+		2 - 更新Records错误
+*/
+ALTER  PROCEDURE [dbo].[sp_insert_record]
+	@OperType		varchar(1) = '',	-- 'N'-新增记录；'U'-更新；''-自动判断新增还是更新
+	@RecordId 		bigint,
+	@UcdId 			bigint,
+	@Calling 		varchar(20),
+	@Called 		varchar(20),
+	@Answer 		varchar(20),
+	@StartTime 		datetime,
+	@TimeLen 		int,
+	@Agent 			varchar(20),
+	@Skill 			varchar(20),
+	@Route			varchar(20),
+	@Trunk			varchar(20),
+	@TrunkGroupId 	int,
+	@VideoURL 		smallint,
+	@AudioURL 		smallint,
+	@Channel 		varchar(20),
+	@Extension 		varchar(20),
+	@VoiceType 		tinyint,
+	@StartDate 		int,
+	@StartHour 		tinyint,
+	@Inbound 		bit,
+	@Outbound 		bit,
+	@UCID 			varchar(50),
+	@UUI 			varchar(100),
+	@PrjId 			int = -2 out,	-- -1表示需手工匹配；0由手工设置；>0表示已经匹配到项目；本过程-2表示需要查找匹配项目
+	@Finished 		tinyint,
+	@Labeled 		bit,
+	@Tasks			varchar(2048),	-- 任务列表，以逗号隔开
+	@AgentGroupId	int,
+	@ExtGroupId		int,
+	@CallID			int = null,
+    @FileCount      smallint = 1,
+	@DataEncry		bit = 0,
+	@AssRec			bigint = 0,
+    @Established    bit = 1
+AS
+
+	if (isnull(@RecordId, 0) <= 0) begin
+		return 1	-- RecordId错误
+	end
+
+	-- 判断操作类型
+	if (isnull(@OperType, '') = '') begin
+		-- 为空，判断是否记录已经存在，以次确定新增还是更新
+		declare @Recc int
+		select @Recc = count(RecordId) from Records where RecordId = @RecordId
+		set @OperType = case when @Recc > 0 then 'U' else 'N'end
+	end
+
+	if (@PrjId is null) begin
+		-- 为空置-2
+		set @PrjId = -2
+	end
+	
+	if isnull(@CallID, 0) = 0 begin
+		set @AssRec = 0
+	end
+
+	-- 如PrjId为-2，查找对应的项目Id，找不到设置为-1
+	if (@PrjId = -2) begin
+		set @PrjId = dbo.find_match_prjid(@TrunkGroupId,
+										  @Skill,
+								  	  	  @Agent,
+								  	  	  @Extension,
+								  	  	  @Route,
+								  	  	  @Calling,
+								  	  	  @Called
+								 	 	 )
+	end
+
+	-- 开始更新表
+	--begin tran
+
+	-- 根据操作类型执行insert或update records
+	declare @ErrCode int, @RowEffect int
+	if (upper(@OperType) = 'U') begin
+		-- 更新操作
+		update Records set
+			UcdId 			= case when @UcdId > 0 then @UcdId else UcdId end, 
+			CallID			= @CallID, 
+			Calling			= @Calling, 
+			Called 			= @Called, 
+			Answer 			= @Answer, 
+			StartTime 		= @StartTime, 
+			TimeLen 		= @TimeLen, 
+			Agent 			= @Agent, 
+			Skill 			= @Skill, 
+			Route			= @Route,
+			Trunk			= @Trunk,
+			TrunkGroupId	= @TrunkGroupId,
+      		VideoURL 		= @VideoURL, 
+			AudioURL 		= @AudioURL, 
+			Channel 		= @Channel, 
+			Extension 		= @Extension, 
+			VoiceType 		= @VoiceType, 
+			StartDate		= @StartDate, 
+			StartHour		= @StartHour, 
+			Inbound 		= @Inbound, 
+      		Outbound		= @Outbound, 
+			UCID			= @UCID, 
+			UUI				= @UUI, 
+			PrjId			= @PrjId, 
+			Finished		= @Finished, 
+			Labeled			= @Labeled,
+            FileCount       = @FileCount,
+			DataEncry		= @DataEncry,
+			AssRec			= 0,
+            Established     = @Established
+		where RecordId = @RecordId
+		
+	end
+	else begin
+		-- 新增操作
+		insert into Records(RecordId, UcdId, Calling, Called, Answer, StartTime, TimeLen, Agent, Skill, Route, Trunk, 
+			TrunkGroupId, VideoURL, AudioURL, Channel, Extension, VoiceType, StartDate, StartHour, Inbound, Outbound, 
+			UCID, UUI, PrjId, Finished, Labeled, CallID, FileCount, DataEncry, AssRec, Established) 
+		values (@RecordId, @UcdId, @Calling, @Called, @Answer, @StartTime, @TimeLen, @Agent, @Skill, @Route, @Trunk, 
+			@TrunkGroupId, @VideoURL, @AudioURL, @Channel, @Extension, @VoiceType, @StartDate, @StartHour, @Inbound, 
+			@Outbound, @UCID, @UUI, @PrjId, @Finished, @Labeled, @CallID, @FileCount, @DataEncry, 0, @Established)
+
+	end	-- end if (upper(@OperType) = 'U')
+	
+	select @ErrCode = @@Error, @RowEffect = @@RowCount	-- 保存错误代码和插入/更新数
+
+	if ( (@ErrCode != 0) or (@RowEffect != 1) ) begin
+		--rollback tran
+		return 2	-- 更新Records表错误
+	end
+	
+
+	-- 插入GroupRec表
+	if ( @AgentGroupId > 0 ) begin
+		if (not exists(select * from GroupRec where RecordId = @RecordId and GroupId = @AgentGroupId)) begin
+			insert into GroupRec(RecordId, GroupId) values(@RecordId, @AgentGroupId)
+			--select @RecordId, GroupId from vxi_sys..AgentGroup where Agent = @Agent
+		end
+	end
+
+	if ( @ExtGroupId > 0) begin
+		if (not exists(select * from GroupRec where RecordId = @RecordId and GroupId = @ExtGroupId)) begin
+			insert into GroupRec(RecordId, GroupId) values(@RecordId, @ExtGroupId)
+			--select @RecordId, GroupId from vxi_sys..ExtGroup where Device = @Extension
+		end
+	end
+
+	-- 插入TaskRec表
+	if ( len(@Tasks) > 0 ) begin
+		declare @TaskItem int, @Pos int, @LastPos int, @curLen int
+		set @Tasks = @Tasks + ','
+		set @LastPos = 1
+		set @Pos = charindex(',', @Tasks)
+		while @Pos > 0 begin
+			set @curLen = @Pos - @LastPos
+			if (@curLen > 0) begin
+				set @TaskItem = cast(substring(@Tasks, @LastPos, @curLen) as int)
+				if (not exists(select * from TaskRec where RecordId = @RecordId and TaskId = @TaskItem)) begin
+					insert into TaskRec(RecordId, TaskId) values(@RecordId, @TaskItem)
+				end
+			end
+
+			set @LastPos = @Pos + 1
+			set @Pos = charindex(',', @Tasks, @LastPos)
+		end
+
+	end
+
+	-- 提交所有更改
+	--commit tran
+	return 0	-- 成功返回
+
+
+
+
+
+
+
+

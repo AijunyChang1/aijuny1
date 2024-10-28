@@ -1,0 +1,789 @@
+20130422 02:00:27 [ocx.ech.3AE].reg.evt resp=ok
+20130422 02:00:38 [ocx.ech.3AE].reg.evt resp=ok
+20130422 08:04:46 [bds.ech.35A].[50047].record.file cause=1 dev=50047 rec=0 recno=1
+20130422 08:04:46 [bds.evt.154].[50047].rec.started c.type=1 cause=1 dev=50047 dev.type=9 ext=6050 file.count=2 file.fmt=0 rec=-1 recno=1
+20130422 08:04:46 [bds.ech.35A].[50047].record.file cause=1 dev=50047 rec=20130422000001 recno=1
+20130422 08:04:46 [bds.evt.162].[50047].connected c.type=1 cause=0 dev=50047 dev.type=9 ext=6050 file.count=2
+20130422 08:07:27 [bds.evt.155].[50047].rec.end c.type=1 cause=0 date=20130422 dev=50047 dev.type=9 encry=no ext=6050 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50047.0000000001.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000001 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=1
+20130422 08:07:27 [bds.evt.164].[50047].released cause=0 date=20130422 dev=50047 dev.type=9 encry=no ext=6050 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50047.0000000001.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000001 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=1
+20130422 08:11:48 [bds.evt.154].[50031].rec.started c.type=1 cause=1 dev=50031 dev.type=9 ext=6050 file.count=2 file.fmt=0 rec=-1 recno=2
+20130422 08:11:48 [bds.ech.35A].[50031].record.file cause=1 dev=50031 rec=0 recno=2
+20130422 08:11:48 [bds.evt.162].[50031].connected c.type=1 cause=0 dev=50031 dev.type=9 ext=6050 file.count=2
+20130422 08:11:48 [bds.ech.35A].[50031].record.file cause=1 dev=50031 rec=20130422000002 recno=2
+20130422 08:17:02 [bds.evt.155].[50031].rec.end c.type=1 cause=0 date=20130422 dev=50031 dev.type=9 encry=no ext=6050 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50031.0000000002.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000002 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=2
+20130422 08:17:02 [bds.evt.164].[50031].released cause=0 date=20130422 dev=50031 dev.type=9 encry=no ext=6050 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50031.0000000002.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000002 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=2
+20130422 08:17:58 [bds.evt.154].[50034].rec.started c.type=1 cause=1 dev=50034 dev.type=9 ext=6050 file.count=2 file.fmt=0 rec=-1 recno=3
+20130422 08:17:58 [bds.ech.35A].[50034].record.file cause=1 dev=50034 rec=0 recno=3
+20130422 08:17:58 [bds.evt.162].[50034].connected c.type=1 cause=0 dev=50034 dev.type=9 ext=6050 file.count=2
+20130422 08:17:58 [bds.ech.35A].[50034].record.file cause=1 dev=50034 rec=20130422000003 recno=3
+20130422 08:53:12 [bds.evt.155].[50034].rec.end c.type=1 cause=0 date=20130422 dev=50034 dev.type=9 encry=no ext=6050 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50034.0000000003.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000003 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=3
+20130422 08:53:12 [bds.ech.35D].[50034].stop.channel cause=1 dev=50034 rec=20130422000003 recno=3
+20130422 08:53:58 [bds.evt.154].[50043].rec.started c.type=1 cause=1 dev=50043 dev.type=9 ext=6050 file.count=2 file.fmt=0 rec=-1 recno=4
+20130422 08:53:58 [bds.ech.35A].[50043].record.file cause=1 dev=50043 rec=0 recno=4
+20130422 08:53:58 [bds.evt.162].[50043].connected c.type=1 cause=0 dev=50043 dev.type=9 ext=6050 file.count=2
+20130422 08:53:58 [bds.ech.35A].[50043].record.file cause=1 dev=50043 rec=20130422000004 recno=4
+20130422 08:55:13 [bds.evt.155].[50043].rec.end c.type=1 cause=0 date=20130422 dev=50043 dev.type=9 encry=no ext=6050 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50043.0000000004.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000004 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=4
+20130422 08:55:13 [bds.evt.164].[50043].released cause=0 date=20130422 dev=50043 dev.type=9 encry=no ext=6050 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50043.0000000004.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000004 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=4
+20130422 08:58:14 [bds.evt.154].[50007].rec.started c.type=1 cause=1 dev=50007 dev.type=9 ext=6050 file.count=2 file.fmt=0 rec=-1 recno=5
+20130422 08:58:14 [bds.ech.35A].[50007].record.file cause=1 dev=50007 rec=0 recno=5
+20130422 08:58:14 [bds.evt.162].[50007].connected c.type=1 cause=0 dev=50007 dev.type=9 ext=6050 file.count=2
+20130422 08:58:14 [bds.ech.35A].[50007].record.file cause=1 dev=50007 rec=20130422000005 recno=5
+20130422 08:59:23 [bds.evt.155].[50007].rec.end c.type=1 cause=0 date=20130422 dev=50007 dev.type=9 encry=no ext=6050 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50007.0000000005.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000005 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=5
+20130422 08:59:23 [bds.evt.164].[50007].released cause=0 date=20130422 dev=50007 dev.type=9 encry=no ext=6050 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50007.0000000005.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000005 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=5
+20130422 09:00:55 [bds.evt.154].[50019].rec.started c.type=1 cause=1 dev=50019 dev.type=9 ext=6048 file.count=2 file.fmt=0 rec=-1 recno=6
+20130422 09:00:55 [bds.ech.35A].[50019].record.file cause=1 dev=50019 rec=0 recno=6
+20130422 09:00:55 [bds.evt.162].[50019].connected c.type=1 cause=0 dev=50019 dev.type=9 ext=6048 file.count=2
+20130422 09:00:55 [bds.ech.35A].[50019].record.file cause=1 dev=50019 rec=20130422000006 recno=6
+20130422 09:02:44 [bds.ech.35A].[50005].record.file cause=1 dev=50005 rec=0 recno=7
+20130422 09:02:44 [bds.evt.154].[50005].rec.started c.type=1 cause=1 dev=50005 dev.type=9 ext=6050 file.count=2 file.fmt=0 rec=-1 recno=7
+20130422 09:02:44 [bds.evt.162].[50005].connected c.type=1 cause=0 dev=50005 dev.type=9 ext=6050 file.count=2
+20130422 09:02:44 [bds.ech.35A].[50005].record.file cause=1 dev=50005 rec=20130422000007 recno=7
+20130422 09:05:55 [bds.evt.155].[50019].rec.end c.type=1 cause=0 date=20130422 dev=50019 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50019.0000000006.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000006 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=6
+20130422 09:05:55 [bds.evt.164].[50019].released cause=0 date=20130422 dev=50019 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50019.0000000006.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000006 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=6
+20130422 09:06:00 [bds.ech.35A].[50034].record.file cause=1 dev=50034 rec=0 recno=8
+20130422 09:06:00 [bds.evt.154].[50034].rec.started c.type=1 cause=1 dev=50034 dev.type=9 ext=6048 file.count=2 file.fmt=0 rec=-1 recno=8
+20130422 09:06:00 [bds.evt.162].[50034].connected c.type=1 cause=0 dev=50034 dev.type=9 ext=6048 file.count=2
+20130422 09:06:00 [bds.ech.35A].[50034].record.file cause=1 dev=50034 rec=20130422000008 recno=8
+20130422 09:08:38 [bds.evt.155].[50005].rec.end c.type=1 cause=0 date=20130422 dev=50005 dev.type=9 encry=no ext=6050 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50005.0000000007.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000007 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=7
+20130422 09:08:38 [bds.evt.164].[50005].released cause=0 date=20130422 dev=50005 dev.type=9 encry=no ext=6050 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50005.0000000007.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000007 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=7
+20130422 09:12:07 [bds.evt.155].[50034].rec.end c.type=1 cause=0 date=20130422 dev=50034 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50034.0000000008.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000008 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=8
+20130422 09:12:07 [bds.evt.164].[50034].released cause=0 date=20130422 dev=50034 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50034.0000000008.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000008 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=8
+20130422 09:24:08 [bds.evt.154].[50005].rec.started c.type=1 cause=1 dev=50005 dev.type=9 ext=6050 file.count=2 file.fmt=0 rec=-1 recno=9
+20130422 09:24:08 [bds.ech.35A].[50005].record.file cause=1 dev=50005 rec=0 recno=9
+20130422 09:24:08 [bds.evt.162].[50005].connected c.type=1 cause=0 dev=50005 dev.type=9 ext=6050 file.count=2
+20130422 09:24:08 [bds.ech.35A].[50005].record.file cause=1 dev=50005 rec=20130422000009 recno=9
+20130422 09:42:20 [bds.evt.155].[50005].rec.end c.type=1 cause=0 date=20130422 dev=50005 dev.type=9 encry=no ext=6050 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50005.0000000009.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000009 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=9
+20130422 09:42:20 [bds.evt.164].[50005].released cause=0 date=20130422 dev=50005 dev.type=9 encry=no ext=6050 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50005.0000000009.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000009 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=9
+20130422 09:46:54 [bds.evt.154].[50030].rec.started c.type=1 cause=1 dev=50030 dev.type=9 ext=6048 file.count=2 file.fmt=0 rec=-1 recno=10
+20130422 09:46:54 [bds.ech.35A].[50030].record.file cause=1 dev=50030 rec=0 recno=10
+20130422 09:46:54 [bds.evt.162].[50030].connected c.type=1 cause=0 dev=50030 dev.type=9 ext=6048 file.count=2
+20130422 09:46:54 [bds.ech.35A].[50030].record.file cause=1 dev=50030 rec=20130422000010 recno=10
+20130422 09:47:13 [bds.evt.155].[50030].rec.end c.type=1 cause=0 date=20130422 dev=50030 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50030.0000000010.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000010 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=10
+20130422 09:47:13 [bds.evt.164].[50030].released cause=0 date=20130422 dev=50030 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50030.0000000010.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000010 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=10
+20130422 09:47:55 [bds.evt.154].[50006].rec.started c.type=1 cause=1 dev=50006 dev.type=9 ext=6048 file.count=2 file.fmt=0 rec=-1 recno=11
+20130422 09:47:55 [bds.ech.35A].[50006].record.file cause=1 dev=50006 rec=0 recno=11
+20130422 09:47:55 [bds.evt.162].[50006].connected c.type=1 cause=0 dev=50006 dev.type=9 ext=6048 file.count=2
+20130422 09:47:55 [bds.ech.35A].[50006].record.file cause=1 dev=50006 rec=20130422000011 recno=11
+20130422 09:48:17 [bds.evt.155].[50006].rec.end c.type=1 cause=0 date=20130422 dev=50006 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50006.0000000011.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000011 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=11
+20130422 09:48:17 [bds.evt.164].[50006].released cause=0 date=20130422 dev=50006 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50006.0000000011.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000011 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=11
+20130422 09:48:45 [bds.evt.154].[50012].rec.started c.type=1 cause=1 dev=50012 dev.type=9 ext=6810 file.count=2 file.fmt=0 rec=-1 recno=12
+20130422 09:48:45 [bds.evt.162].[50012].connected c.type=1 cause=0 dev=50012 dev.type=9 ext=6810 file.count=2
+20130422 09:48:45 [bds.ech.35A].[50012].record.file cause=1 dev=50012 rec=0 recno=12
+20130422 09:48:45 [bds.ech.35A].[50012].record.file cause=1 dev=50012 rec=20130422000012 recno=12
+20130422 09:49:55 [bds.evt.155].[50012].rec.end c.type=1 cause=0 date=20130422 dev=50012 dev.type=9 encry=no ext=6810 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50012.0000000012.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000012 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=12
+20130422 09:49:55 [bds.evt.164].[50012].released cause=0 date=20130422 dev=50012 dev.type=9 encry=no ext=6810 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50012.0000000012.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000012 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=12
+20130422 09:50:54 [bds.evt.154].[50027].rec.started c.type=1 cause=1 dev=50027 dev.type=9 ext=6048 file.count=2 file.fmt=0 rec=-1 recno=13
+20130422 09:50:54 [bds.ech.35A].[50027].record.file cause=1 dev=50027 rec=0 recno=13
+20130422 09:50:54 [bds.evt.162].[50027].connected c.type=1 cause=0 dev=50027 dev.type=9 ext=6048 file.count=2
+20130422 09:50:54 [bds.ech.35A].[50027].record.file cause=1 dev=50027 rec=20130422000013 recno=13
+20130422 09:51:15 [bds.evt.155].[50027].rec.end c.type=1 cause=0 date=20130422 dev=50027 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50027.0000000013.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000013 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=13
+20130422 09:51:15 [bds.evt.164].[50027].released cause=0 date=20130422 dev=50027 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50027.0000000013.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000013 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=13
+20130422 09:59:28 [bds.evt.154].[50039].rec.started c.type=1 cause=1 dev=50039 dev.type=9 ext=6048 file.count=2 file.fmt=0 rec=-1 recno=14
+20130422 09:59:28 [bds.evt.162].[50039].connected c.type=1 cause=0 dev=50039 dev.type=9 ext=6048 file.count=2
+20130422 09:59:28 [bds.ech.35A].[50039].record.file cause=1 dev=50039 rec=0 recno=14
+20130422 09:59:28 [bds.ech.35A].[50039].record.file cause=1 dev=50039 rec=20130422000014 recno=14
+20130422 10:00:31 [bds.evt.155].[50039].rec.end c.type=1 cause=0 date=20130422 dev=50039 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50039.0000000014.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000014 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=14
+20130422 10:00:31 [bds.evt.164].[50039].released cause=0 date=20130422 dev=50039 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50039.0000000014.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000014 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=14
+20130422 10:00:35 [bds.evt.154].[50019].rec.started c.type=1 cause=1 dev=50019 dev.type=9 ext=6048 file.count=2 file.fmt=0 rec=-1 recno=15
+20130422 10:00:35 [bds.ech.35A].[50019].record.file cause=1 dev=50019 rec=0 recno=15
+20130422 10:00:35 [bds.evt.162].[50019].connected c.type=1 cause=0 dev=50019 dev.type=9 ext=6048 file.count=2
+20130422 10:00:35 [bds.ech.35A].[50019].record.file cause=1 dev=50019 rec=20130422000015 recno=15
+20130422 10:02:33 [bds.evt.154].[50050].rec.started c.type=1 cause=1 dev=50050 dev.type=9 ext=6050 file.count=2 file.fmt=0 rec=-1 recno=16
+20130422 10:02:33 [bds.ech.35A].[50050].record.file cause=1 dev=50050 rec=0 recno=16
+20130422 10:02:33 [bds.evt.162].[50050].connected c.type=1 cause=0 dev=50050 dev.type=9 ext=6050 file.count=2
+20130422 10:02:33 [bds.ech.35A].[50050].record.file cause=1 dev=50050 rec=20130422000016 recno=16
+20130422 10:02:42 [bds.evt.155].[50050].rec.end c.type=1 cause=0 date=20130422 dev=50050 dev.type=9 encry=no ext=6050 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50050.0000000016.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000016 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=16
+20130422 10:02:42 [bds.evt.164].[50050].released cause=0 date=20130422 dev=50050 dev.type=9 encry=no ext=6050 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50050.0000000016.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000016 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=16
+20130422 10:03:25 [bds.ech.35A].[50029].record.file cause=1 dev=50029 rec=0 recno=17
+20130422 10:03:25 [bds.evt.154].[50029].rec.started c.type=1 cause=1 dev=50029 dev.type=9 ext=6050 file.count=2 file.fmt=0 rec=-1 recno=17
+20130422 10:03:25 [bds.evt.162].[50029].connected c.type=1 cause=0 dev=50029 dev.type=9 ext=6050 file.count=2
+20130422 10:03:25 [bds.ech.35A].[50029].record.file cause=1 dev=50029 rec=20130422000017 recno=17
+20130422 10:03:33 [bds.evt.155].[50019].rec.end c.type=1 cause=0 date=20130422 dev=50019 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50019.0000000015.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000015 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=15
+20130422 10:03:33 [bds.evt.164].[50019].released cause=0 date=20130422 dev=50019 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50019.0000000015.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000015 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=15
+20130422 10:04:30 [bds.evt.155].[50029].rec.end c.type=1 cause=0 date=20130422 dev=50029 dev.type=9 encry=no ext=6050 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50029.0000000017.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000017 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=17
+20130422 10:04:30 [bds.evt.164].[50029].released cause=0 date=20130422 dev=50029 dev.type=9 encry=no ext=6050 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50029.0000000017.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000017 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=17
+20130422 10:07:36 [bds.evt.154].[50028].rec.started c.type=1 cause=1 dev=50028 dev.type=9 ext=6048 file.count=2 file.fmt=0 rec=-1 recno=18
+20130422 10:07:36 [bds.ech.35A].[50028].record.file cause=1 dev=50028 rec=0 recno=18
+20130422 10:07:36 [bds.evt.162].[50028].connected c.type=1 cause=0 dev=50028 dev.type=9 ext=6048 file.count=2
+20130422 10:07:36 [bds.ech.35A].[50028].record.file cause=1 dev=50028 rec=20130422000018 recno=18
+20130422 10:08:39 [bds.evt.155].[50028].rec.end c.type=1 cause=0 date=20130422 dev=50028 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50028.0000000018.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000018 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=18
+20130422 10:08:39 [bds.evt.164].[50028].released cause=0 date=20130422 dev=50028 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50028.0000000018.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000018 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=18
+20130422 10:10:26 [bds.evt.154].[50018].rec.started c.type=1 cause=1 dev=50018 dev.type=9 ext=6048 file.count=2 file.fmt=0 rec=-1 recno=19
+20130422 10:10:26 [bds.ech.35A].[50018].record.file cause=1 dev=50018 rec=0 recno=19
+20130422 10:10:26 [bds.evt.162].[50018].connected c.type=1 cause=0 dev=50018 dev.type=9 ext=6048 file.count=2
+20130422 10:10:26 [bds.ech.35A].[50018].record.file cause=1 dev=50018 rec=20130422000019 recno=19
+20130422 10:11:41 [bds.evt.155].[50018].rec.end c.type=1 cause=0 date=20130422 dev=50018 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50018.0000000019.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000019 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=19
+20130422 10:11:41 [bds.evt.164].[50018].released cause=0 date=20130422 dev=50018 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50018.0000000019.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000019 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=19
+20130422 10:21:11 [bds.evt.154].[50029].rec.started c.type=1 cause=1 dev=50029 dev.type=9 ext=6048 file.count=2 file.fmt=0 rec=-1 recno=20
+20130422 10:21:11 [bds.evt.162].[50029].connected c.type=1 cause=0 dev=50029 dev.type=9 ext=6048 file.count=2
+20130422 10:21:11 [bds.ech.35A].[50029].record.file cause=1 dev=50029 rec=0 recno=20
+20130422 10:21:11 [bds.ech.35A].[50029].record.file cause=1 dev=50029 rec=20130422000020 recno=20
+20130422 10:29:21 [bds.evt.155].[50029].rec.end c.type=1 cause=0 date=20130422 dev=50029 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50029.0000000020.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000020 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=20
+20130422 10:29:21 [bds.evt.164].[50029].released cause=0 date=20130422 dev=50029 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50029.0000000020.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000020 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=20
+20130422 10:29:47 [bds.evt.154].[50026].rec.started c.type=1 cause=1 dev=50026 dev.type=9 ext=6048 file.count=2 file.fmt=0 rec=-1 recno=21
+20130422 10:29:47 [bds.ech.35A].[50026].record.file cause=1 dev=50026 rec=0 recno=21
+20130422 10:29:47 [bds.evt.162].[50026].connected c.type=1 cause=0 dev=50026 dev.type=9 ext=6048 file.count=2
+20130422 10:29:47 [bds.ech.35A].[50026].record.file cause=1 dev=50026 rec=20130422000021 recno=21
+20130422 10:32:08 [bds.evt.155].[50026].rec.end c.type=1 cause=0 date=20130422 dev=50026 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50026.0000000021.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000021 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=21
+20130422 10:32:08 [bds.evt.164].[50026].released cause=0 date=20130422 dev=50026 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50026.0000000021.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000021 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=21
+20130422 10:32:10 [bds.evt.154].[50012].rec.started c.type=1 cause=1 dev=50012 dev.type=9 ext=6048 file.count=2 file.fmt=0 rec=-1 recno=22
+20130422 10:32:10 [bds.ech.35A].[50012].record.file cause=1 dev=50012 rec=0 recno=22
+20130422 10:32:10 [bds.evt.162].[50012].connected c.type=1 cause=0 dev=50012 dev.type=9 ext=6048 file.count=2
+20130422 10:32:10 [bds.ech.35A].[50012].record.file cause=1 dev=50012 rec=20130422000022 recno=22
+20130422 10:35:55 [bds.evt.155].[50012].rec.end c.type=1 cause=0 date=20130422 dev=50012 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50012.0000000022.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000022 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=22
+20130422 10:35:55 [bds.evt.164].[50012].released cause=0 date=20130422 dev=50012 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50012.0000000022.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000022 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=22
+20130422 10:38:54 [bds.evt.154].[50006].rec.started c.type=1 cause=1 dev=50006 dev.type=9 ext=6810 file.count=2 file.fmt=0 rec=-1 recno=23
+20130422 10:38:54 [bds.ech.35A].[50006].record.file cause=1 dev=50006 rec=0 recno=23
+20130422 10:38:54 [bds.evt.162].[50006].connected c.type=1 cause=0 dev=50006 dev.type=9 ext=6810 file.count=2
+20130422 10:38:54 [bds.ech.35A].[50006].record.file cause=1 dev=50006 rec=20130422000023 recno=23
+20130422 10:41:02 [bds.evt.155].[50006].rec.end c.type=1 cause=0 date=20130422 dev=50006 dev.type=9 encry=no ext=6810 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50006.0000000023.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000023 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=23
+20130422 10:41:02 [bds.evt.164].[50006].released cause=0 date=20130422 dev=50006 dev.type=9 encry=no ext=6810 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50006.0000000023.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000023 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=23
+20130422 11:05:37 [bds.evt.154].[50043].rec.started c.type=1 cause=1 dev=50043 dev.type=9 ext=6048 file.count=2 file.fmt=0 rec=-1 recno=24
+20130422 11:05:37 [bds.ech.35A].[50043].record.file cause=1 dev=50043 rec=0 recno=24
+20130422 11:05:37 [bds.evt.162].[50043].connected c.type=1 cause=0 dev=50043 dev.type=9 ext=6048 file.count=2
+20130422 11:05:37 [bds.ech.35A].[50043].record.file cause=1 dev=50043 rec=20130422000024 recno=24
+20130422 11:05:56 [bds.evt.155].[50043].rec.end c.type=1 cause=0 date=20130422 dev=50043 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50043.0000000024.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000024 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=24
+20130422 11:05:56 [bds.evt.164].[50043].released cause=0 date=20130422 dev=50043 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50043.0000000024.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000024 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=24
+20130422 11:06:03 [bds.evt.154].[50021].rec.started c.type=1 cause=1 dev=50021 dev.type=9 ext=6048 file.count=2 file.fmt=0 rec=-1 recno=25
+20130422 11:06:03 [bds.ech.35A].[50021].record.file cause=1 dev=50021 rec=0 recno=25
+20130422 11:06:03 [bds.evt.162].[50021].connected c.type=1 cause=0 dev=50021 dev.type=9 ext=6048 file.count=2
+20130422 11:06:03 [bds.ech.35A].[50021].record.file cause=1 dev=50021 rec=20130422000025 recno=25
+20130422 11:06:20 [bds.evt.155].[50021].rec.end c.type=1 cause=0 date=20130422 dev=50021 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50021.0000000025.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000025 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=25
+20130422 11:06:20 [bds.evt.164].[50021].released cause=0 date=20130422 dev=50021 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50021.0000000025.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000025 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=25
+20130422 11:13:49 [bds.evt.154].[50014].rec.started c.type=1 cause=1 dev=50014 dev.type=9 ext=6048 file.count=2 file.fmt=0 rec=-1 recno=26
+20130422 11:13:49 [bds.ech.35A].[50014].record.file cause=1 dev=50014 rec=0 recno=26
+20130422 11:13:49 [bds.evt.162].[50014].connected c.type=1 cause=0 dev=50014 dev.type=9 ext=6048 file.count=2
+20130422 11:13:49 [bds.ech.35A].[50014].record.file cause=1 dev=50014 rec=20130422000026 recno=26
+20130422 11:19:27 [bds.evt.155].[50014].rec.end c.type=1 cause=0 date=20130422 dev=50014 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50014.0000000026.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000026 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=26
+20130422 11:19:27 [bds.evt.164].[50014].released cause=0 date=20130422 dev=50014 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50014.0000000026.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000026 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=26
+20130422 11:19:33 [bds.evt.154].[50003].rec.started c.type=1 cause=1 dev=50003 dev.type=9 ext=6048 file.count=2 file.fmt=0 rec=-1 recno=27
+20130422 11:19:33 [bds.ech.35A].[50003].record.file cause=1 dev=50003 rec=0 recno=27
+20130422 11:19:33 [bds.evt.162].[50003].connected c.type=1 cause=0 dev=50003 dev.type=9 ext=6048 file.count=2
+20130422 11:19:33 [bds.ech.35A].[50003].record.file cause=1 dev=50003 rec=20130422000027 recno=27
+20130422 11:24:18 [bds.evt.155].[50003].rec.end c.type=1 cause=0 date=20130422 dev=50003 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50003.0000000027.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000027 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=27
+20130422 11:24:18 [bds.evt.164].[50003].released cause=0 date=20130422 dev=50003 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50003.0000000027.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000027 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=27
+20130422 11:24:49 [bds.evt.154].[50038].rec.started c.type=1 cause=1 dev=50038 dev.type=9 ext=6048 file.count=2 file.fmt=0 rec=-1 recno=28
+20130422 11:24:49 [bds.ech.35A].[50038].record.file cause=1 dev=50038 rec=0 recno=28
+20130422 11:24:49 [bds.evt.162].[50038].connected c.type=1 cause=0 dev=50038 dev.type=9 ext=6048 file.count=2
+20130422 11:24:49 [bds.ech.35A].[50038].record.file cause=1 dev=50038 rec=20130422000028 recno=28
+20130422 11:27:10 [bds.evt.154].[50031].rec.started c.type=1 cause=1 dev=50031 dev.type=9 ext=6810 file.count=2 file.fmt=0 rec=-1 recno=29
+20130422 11:27:10 [bds.ech.35A].[50031].record.file cause=1 dev=50031 rec=0 recno=29
+20130422 11:27:10 [bds.evt.162].[50031].connected c.type=1 cause=0 dev=50031 dev.type=9 ext=6810 file.count=2
+20130422 11:27:10 [bds.ech.35A].[50031].record.file cause=1 dev=50031 rec=20130422000029 recno=29
+20130422 11:27:15 [bds.evt.155].[50031].rec.end c.type=1 cause=0 date=20130422 dev=50031 dev.type=9 encry=no ext=6810 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50031.0000000029.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000029 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=29
+20130422 11:27:15 [bds.evt.164].[50031].released cause=0 date=20130422 dev=50031 dev.type=9 encry=no ext=6810 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50031.0000000029.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000029 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=29
+20130422 11:28:37 [bds.evt.155].[50038].rec.end c.type=1 cause=0 date=20130422 dev=50038 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50038.0000000028.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000028 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=28
+20130422 11:28:37 [bds.evt.164].[50038].released cause=0 date=20130422 dev=50038 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50038.0000000028.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000028 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=28
+20130422 11:28:46 [bds.evt.154].[50032].rec.started c.type=1 cause=1 dev=50032 dev.type=9 ext=6048 file.count=2 file.fmt=0 rec=-1 recno=30
+20130422 11:28:46 [bds.ech.35A].[50032].record.file cause=1 dev=50032 rec=0 recno=30
+20130422 11:28:46 [bds.evt.162].[50032].connected c.type=1 cause=0 dev=50032 dev.type=9 ext=6048 file.count=2
+20130422 11:28:46 [bds.ech.35A].[50032].record.file cause=1 dev=50032 rec=20130422000030 recno=30
+20130422 11:28:48 [bds.evt.155].[50032].rec.end c.type=1 cause=0 date=20130422 dev=50032 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50032.0000000030.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000030 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=30
+20130422 11:28:48 [bds.evt.164].[50032].released cause=0 date=20130422 dev=50032 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50032.0000000030.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000030 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=30
+20130422 11:35:43 [bds.evt.154].[50005].rec.started c.type=1 cause=1 dev=50005 dev.type=9 ext=6048 file.count=2 file.fmt=0 rec=-1 recno=31
+20130422 11:35:43 [bds.ech.35A].[50005].record.file cause=1 dev=50005 rec=0 recno=31
+20130422 11:35:43 [bds.evt.162].[50005].connected c.type=1 cause=0 dev=50005 dev.type=9 ext=6048 file.count=2
+20130422 11:35:43 [bds.ech.35A].[50005].record.file cause=1 dev=50005 rec=20130422000031 recno=31
+20130422 11:38:40 [bds.evt.155].[50005].rec.end c.type=1 cause=0 date=20130422 dev=50005 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50005.0000000031.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000031 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=31
+20130422 11:38:40 [bds.evt.164].[50005].released cause=0 date=20130422 dev=50005 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50005.0000000031.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000031 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=31
+20130422 11:39:29 [bds.evt.154].[50002].rec.started c.type=1 cause=1 dev=50002 dev.type=9 ext=6048 file.count=2 file.fmt=0 rec=-1 recno=32
+20130422 11:39:29 [bds.evt.162].[50002].connected c.type=1 cause=0 dev=50002 dev.type=9 ext=6048 file.count=2
+20130422 11:39:29 [bds.ech.35A].[50002].record.file cause=1 dev=50002 rec=0 recno=32
+20130422 11:39:29 [bds.ech.35A].[50002].record.file cause=1 dev=50002 rec=20130422000032 recno=32
+20130422 11:40:17 [bds.evt.155].[50002].rec.end c.type=1 cause=0 date=20130422 dev=50002 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50002.0000000032.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000032 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=32
+20130422 11:40:17 [bds.evt.164].[50002].released cause=0 date=20130422 dev=50002 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50002.0000000032.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000032 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=32
+20130422 11:40:56 [bds.evt.154].[50031].rec.started c.type=1 cause=1 dev=50031 dev.type=9 ext=6048 file.count=2 file.fmt=0 rec=-1 recno=33
+20130422 11:40:56 [bds.ech.35A].[50031].record.file cause=1 dev=50031 rec=0 recno=33
+20130422 11:40:56 [bds.evt.162].[50031].connected c.type=1 cause=0 dev=50031 dev.type=9 ext=6048 file.count=2
+20130422 11:40:56 [bds.ech.35A].[50031].record.file cause=1 dev=50031 rec=20130422000033 recno=33
+20130422 11:43:41 [bds.evt.155].[50031].rec.end c.type=1 cause=0 date=20130422 dev=50031 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50031.0000000033.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000033 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=33
+20130422 11:43:41 [bds.evt.164].[50031].released cause=0 date=20130422 dev=50031 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50031.0000000033.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000033 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=33
+20130422 11:44:24 [bds.evt.154].[50014].rec.started c.type=1 cause=1 dev=50014 dev.type=9 ext=6048 file.count=2 file.fmt=0 rec=-1 recno=34
+20130422 11:44:24 [bds.ech.35A].[50014].record.file cause=1 dev=50014 rec=0 recno=34
+20130422 11:44:24 [bds.evt.162].[50014].connected c.type=1 cause=0 dev=50014 dev.type=9 ext=6048 file.count=2
+20130422 11:44:24 [bds.ech.35A].[50014].record.file cause=1 dev=50014 rec=20130422000034 recno=34
+20130422 11:48:16 [bds.evt.155].[50014].rec.end c.type=1 cause=0 date=20130422 dev=50014 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50014.0000000034.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000034 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=34
+20130422 11:48:16 [bds.evt.164].[50014].released cause=0 date=20130422 dev=50014 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50014.0000000034.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000034 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=34
+20130422 11:50:50 [bds.evt.154].[50019].rec.started c.type=1 cause=1 dev=50019 dev.type=9 ext=6048 file.count=2 file.fmt=0 rec=-1 recno=35
+20130422 11:50:50 [bds.ech.35A].[50019].record.file cause=1 dev=50019 rec=0 recno=35
+20130422 11:50:50 [bds.evt.162].[50019].connected c.type=1 cause=0 dev=50019 dev.type=9 ext=6048 file.count=2
+20130422 11:50:50 [bds.ech.35A].[50019].record.file cause=1 dev=50019 rec=20130422000035 recno=35
+20130422 11:51:53 [bds.evt.155].[50019].rec.end c.type=1 cause=0 date=20130422 dev=50019 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50019.0000000035.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000035 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=35
+20130422 11:51:53 [bds.evt.164].[50019].released cause=0 date=20130422 dev=50019 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50019.0000000035.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000035 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=35
+20130422 12:25:57 [bds.evt.154].[50020].rec.started c.type=1 cause=1 dev=50020 dev.type=9 ext=6050 file.count=2 file.fmt=0 rec=-1 recno=36
+20130422 12:25:57 [bds.ech.35A].[50020].record.file cause=1 dev=50020 rec=0 recno=36
+20130422 12:25:57 [bds.evt.162].[50020].connected c.type=1 cause=0 dev=50020 dev.type=9 ext=6050 file.count=2
+20130422 12:25:57 [bds.ech.35A].[50020].record.file cause=1 dev=50020 rec=20130422000036 recno=36
+20130422 12:28:09 [bds.evt.155].[50020].rec.end c.type=1 cause=0 date=20130422 dev=50020 dev.type=9 encry=no ext=6050 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50020.0000000036.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000036 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=36
+20130422 12:28:09 [bds.evt.164].[50020].released cause=0 date=20130422 dev=50020 dev.type=9 encry=no ext=6050 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50020.0000000036.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000036 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=36
+20130422 12:42:10 [bds.evt.154].[50030].rec.started c.type=1 cause=1 dev=50030 dev.type=9 ext=6050 file.count=2 file.fmt=0 rec=-1 recno=37
+20130422 12:42:10 [bds.evt.162].[50030].connected c.type=1 cause=0 dev=50030 dev.type=9 ext=6050 file.count=2
+20130422 12:42:10 [bds.ech.35A].[50030].record.file cause=1 dev=50030 rec=0 recno=37
+20130422 12:42:10 [bds.ech.35A].[50030].record.file cause=1 dev=50030 rec=20130422000037 recno=37
+20130422 12:46:26 [bds.evt.155].[50030].rec.end c.type=1 cause=0 date=20130422 dev=50030 dev.type=9 encry=no ext=6050 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50030.0000000037.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000037 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=37
+20130422 12:46:26 [bds.evt.164].[50030].released cause=0 date=20130422 dev=50030 dev.type=9 encry=no ext=6050 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50030.0000000037.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000037 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=37
+20130422 12:51:59 [bds.ech.35A].[50031].record.file cause=1 dev=50031 rec=0 recno=38
+20130422 12:51:59 [bds.evt.154].[50031].rec.started c.type=1 cause=1 dev=50031 dev.type=9 ext=6050 file.count=2 file.fmt=0 rec=-1 recno=38
+20130422 12:51:59 [bds.evt.162].[50031].connected c.type=1 cause=0 dev=50031 dev.type=9 ext=6050 file.count=2
+20130422 12:51:59 [bds.ech.35A].[50031].record.file cause=1 dev=50031 rec=20130422000038 recno=38
+20130422 12:53:24 [bds.evt.164].[50031].released cause=0 date=20130422 dev=50031 dev.type=9 encry=no ext=6050 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50031.0000000038.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000038 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=38
+20130422 12:53:24 [bds.evt.155].[50031].rec.end c.type=1 cause=0 date=20130422 dev=50031 dev.type=9 encry=no ext=6050 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50031.0000000038.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000038 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=38
+20130422 12:53:24 [bds.ech.35D].[50031].stop.channel cause=1 dev=50031 rec=20130422000038 recno=38
+20130422 12:55:25 [bds.evt.154].[50023].rec.started c.type=1 cause=1 dev=50023 dev.type=9 ext=6050 file.count=2 file.fmt=0 rec=-1 recno=39
+20130422 12:55:25 [bds.ech.35A].[50023].record.file cause=1 dev=50023 rec=0 recno=39
+20130422 12:55:25 [bds.evt.162].[50023].connected c.type=1 cause=0 dev=50023 dev.type=9 ext=6050 file.count=2
+20130422 12:55:25 [bds.ech.35A].[50023].record.file cause=1 dev=50023 rec=20130422000039 recno=39
+20130422 12:57:53 [bds.evt.155].[50023].rec.end c.type=1 cause=0 date=20130422 dev=50023 dev.type=9 encry=no ext=6050 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50023.0000000039.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000039 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=39
+20130422 12:57:53 [bds.evt.164].[50023].released cause=0 date=20130422 dev=50023 dev.type=9 encry=no ext=6050 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50023.0000000039.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000039 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=39
+20130422 12:58:11 [bds.evt.154].[50005].rec.started c.type=1 cause=1 dev=50005 dev.type=9 ext=6050 file.count=2 file.fmt=0 rec=-1 recno=40
+20130422 12:58:11 [bds.ech.35A].[50005].record.file cause=1 dev=50005 rec=0 recno=40
+20130422 12:58:11 [bds.evt.162].[50005].connected c.type=1 cause=0 dev=50005 dev.type=9 ext=6050 file.count=2
+20130422 12:58:11 [bds.ech.35A].[50005].record.file cause=1 dev=50005 rec=20130422000040 recno=40
+20130422 12:59:37 [bds.evt.155].[50005].rec.end c.type=1 cause=0 date=20130422 dev=50005 dev.type=9 encry=no ext=6050 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50005.0000000040.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000040 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=40
+20130422 12:59:37 [bds.evt.164].[50005].released cause=0 date=20130422 dev=50005 dev.type=9 encry=no ext=6050 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50005.0000000040.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000040 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=40
+20130422 13:43:54 [bds.evt.154].[50003].rec.started c.type=1 cause=1 dev=50003 dev.type=9 ext=6048 file.count=2 file.fmt=0 rec=-1 recno=41
+20130422 13:43:54 [bds.ech.35A].[50003].record.file cause=1 dev=50003 rec=0 recno=41
+20130422 13:43:54 [bds.evt.162].[50003].connected c.type=1 cause=0 dev=50003 dev.type=9 ext=6048 file.count=2
+20130422 13:43:54 [bds.ech.35A].[50003].record.file cause=1 dev=50003 rec=20130422000041 recno=41
+20130422 13:51:44 [bds.evt.155].[50003].rec.end c.type=1 cause=0 date=20130422 dev=50003 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50003.0000000041.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000041 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=41
+20130422 13:51:44 [bds.evt.164].[50003].released cause=0 date=20130422 dev=50003 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50003.0000000041.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000041 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=41
+20130422 14:00:08 [bds.evt.154].[50021].rec.started c.type=1 cause=1 dev=50021 dev.type=9 ext=6048 file.count=2 file.fmt=0 rec=-1 recno=42
+20130422 14:00:08 [bds.ech.35A].[50021].record.file cause=1 dev=50021 rec=0 recno=42
+20130422 14:00:08 [bds.evt.162].[50021].connected c.type=1 cause=0 dev=50021 dev.type=9 ext=6048 file.count=2
+20130422 14:00:08 [bds.ech.35A].[50021].record.file cause=1 dev=50021 rec=20130422000042 recno=42
+20130422 14:01:56 [bds.evt.155].[50021].rec.end c.type=1 cause=0 date=20130422 dev=50021 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50021.0000000042.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000042 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=42
+20130422 14:01:56 [bds.evt.164].[50021].released cause=0 date=20130422 dev=50021 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50021.0000000042.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000042 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=42
+20130422 14:02:53 [bds.evt.154].[50037].rec.started c.type=1 cause=1 dev=50037 dev.type=9 ext=6048 file.count=2 file.fmt=0 rec=-1 recno=43
+20130422 14:02:53 [bds.ech.35A].[50037].record.file cause=1 dev=50037 rec=0 recno=43
+20130422 14:02:53 [bds.evt.162].[50037].connected c.type=1 cause=0 dev=50037 dev.type=9 ext=6048 file.count=2
+20130422 14:02:53 [bds.ech.35A].[50037].record.file cause=1 dev=50037 rec=20130422000043 recno=43
+20130422 14:02:57 [bds.evt.155].[50037].rec.end c.type=1 cause=0 date=20130422 dev=50037 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50037.0000000043.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000043 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=43
+20130422 14:02:57 [bds.evt.164].[50037].released cause=0 date=20130422 dev=50037 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50037.0000000043.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000043 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=43
+20130422 14:04:01 [bds.evt.154].[50035].rec.started c.type=1 cause=1 dev=50035 dev.type=9 ext=6048 file.count=2 file.fmt=0 rec=-1 recno=44
+20130422 14:04:01 [bds.ech.35A].[50035].record.file cause=1 dev=50035 rec=0 recno=44
+20130422 14:04:01 [bds.evt.162].[50035].connected c.type=1 cause=0 dev=50035 dev.type=9 ext=6048 file.count=2
+20130422 14:04:01 [bds.ech.35A].[50035].record.file cause=1 dev=50035 rec=20130422000044 recno=44
+20130422 14:08:57 [bds.evt.155].[50035].rec.end c.type=1 cause=0 date=20130422 dev=50035 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50035.0000000044.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000044 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=44
+20130422 14:08:57 [bds.evt.164].[50035].released cause=0 date=20130422 dev=50035 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50035.0000000044.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000044 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=44
+20130422 14:10:08 [bds.evt.154].[50030].rec.started c.type=1 cause=1 dev=50030 dev.type=9 ext=6810 file.count=2 file.fmt=0 rec=-1 recno=45
+20130422 14:10:08 [bds.ech.35A].[50030].record.file cause=1 dev=50030 rec=0 recno=45
+20130422 14:10:08 [bds.evt.162].[50030].connected c.type=1 cause=0 dev=50030 dev.type=9 ext=6810 file.count=2
+20130422 14:10:08 [bds.ech.35A].[50030].record.file cause=1 dev=50030 rec=20130422000045 recno=45
+20130422 14:12:33 [bds.evt.155].[50030].rec.end c.type=1 cause=0 date=20130422 dev=50030 dev.type=9 encry=no ext=6810 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50030.0000000045.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000045 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=45
+20130422 14:12:33 [bds.evt.164].[50030].released cause=0 date=20130422 dev=50030 dev.type=9 encry=no ext=6810 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50030.0000000045.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000045 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=45
+20130422 14:14:46 [bds.ech.35A].[50033].record.file cause=1 dev=50033 rec=0 recno=46
+20130422 14:14:46 [bds.evt.154].[50033].rec.started c.type=1 cause=1 dev=50033 dev.type=9 ext=6050 file.count=2 file.fmt=0 rec=-1 recno=46
+20130422 14:14:46 [bds.evt.162].[50033].connected c.type=1 cause=0 dev=50033 dev.type=9 ext=6050 file.count=2
+20130422 14:14:46 [bds.ech.35A].[50033].record.file cause=1 dev=50033 rec=20130422000046 recno=46
+20130422 14:15:51 [bds.evt.155].[50033].rec.end c.type=1 cause=0 date=20130422 dev=50033 dev.type=9 encry=no ext=6050 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50033.0000000046.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000046 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=46
+20130422 14:15:51 [bds.evt.164].[50033].released cause=0 date=20130422 dev=50033 dev.type=9 encry=no ext=6050 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50033.0000000046.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000046 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=46
+20130422 14:16:16 [bds.evt.154].[50042].rec.started c.type=1 cause=1 dev=50042 dev.type=9 ext=6050 file.count=2 file.fmt=0 rec=-1 recno=47
+20130422 14:16:16 [bds.ech.35A].[50042].record.file cause=1 dev=50042 rec=0 recno=47
+20130422 14:16:16 [bds.evt.162].[50042].connected c.type=1 cause=0 dev=50042 dev.type=9 ext=6050 file.count=2
+20130422 14:16:16 [bds.ech.35A].[50042].record.file cause=1 dev=50042 rec=20130422000047 recno=47
+20130422 14:17:23 [bds.evt.155].[50042].rec.end c.type=1 cause=0 date=20130422 dev=50042 dev.type=9 encry=no ext=6050 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50042.0000000047.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000047 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=47
+20130422 14:17:23 [bds.evt.164].[50042].released cause=0 date=20130422 dev=50042 dev.type=9 encry=no ext=6050 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50042.0000000047.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000047 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=47
+20130422 14:20:21 [bds.evt.154].[50040].rec.started c.type=1 cause=1 dev=50040 dev.type=9 ext=6050 file.count=2 file.fmt=0 rec=-1 recno=48
+20130422 14:20:21 [bds.evt.162].[50040].connected c.type=1 cause=0 dev=50040 dev.type=9 ext=6050 file.count=2
+20130422 14:20:21 [bds.ech.35A].[50040].record.file cause=1 dev=50040 rec=0 recno=48
+20130422 14:20:21 [bds.ech.35A].[50040].record.file cause=1 dev=50040 rec=20130422000048 recno=48
+20130422 14:20:38 [bds.evt.155].[50040].rec.end c.type=1 cause=0 date=20130422 dev=50040 dev.type=9 encry=no ext=6050 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50040.0000000048.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000048 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=48
+20130422 14:20:38 [bds.evt.164].[50040].released cause=0 date=20130422 dev=50040 dev.type=9 encry=no ext=6050 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50040.0000000048.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000048 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=48
+20130422 14:25:27 [bds.evt.154].[50031].rec.started c.type=1 cause=1 dev=50031 dev.type=9 ext=6050 file.count=2 file.fmt=0 rec=-1 recno=49
+20130422 14:25:27 [bds.evt.162].[50031].connected c.type=1 cause=0 dev=50031 dev.type=9 ext=6050 file.count=2
+20130422 14:26:28 [bds.evt.155].[50031].rec.end c.type=1 cause=0 date=20130422 dev=50031 dev.type=9 encry=no ext=6050 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50031.0000000049.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=49
+20130422 14:26:28 [bds.evt.164].[50031].released cause=0 date=20130422 dev=50031 dev.type=9 encry=no ext=6050 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50031.0000000049.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=49
+20130422 14:29:32 [bds.evt.154].[50004].rec.started c.type=1 cause=1 dev=50004 dev.type=9 ext=6048 file.count=2 file.fmt=0 rec=-1 recno=50
+20130422 14:29:32 [bds.evt.162].[50004].connected c.type=1 cause=0 dev=50004 dev.type=9 ext=6048 file.count=2
+20130422 14:29:35 [bds.evt.155].[50004].rec.end c.type=1 cause=0 date=20130422 dev=50004 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50004.0000000050.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=50
+20130422 14:29:35 [bds.evt.164].[50004].released cause=0 date=20130422 dev=50004 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50004.0000000050.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=50
+20130422 14:29:41 [bds.evt.154].[50029].rec.started c.type=1 cause=1 dev=50029 dev.type=9 ext=6048 file.count=2 file.fmt=0 rec=-1 recno=51
+20130422 14:29:41 [bds.evt.162].[50029].connected c.type=1 cause=0 dev=50029 dev.type=9 ext=6048 file.count=2
+20130422 14:29:55 [bds.evt.155].[50029].rec.end c.type=1 cause=0 date=20130422 dev=50029 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50029.0000000051.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=51
+20130422 14:29:55 [bds.evt.164].[50029].released cause=0 date=20130422 dev=50029 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50029.0000000051.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=51
+20130422 14:30:20 [bds.evt.154].[50001].rec.started c.type=1 cause=1 dev=50001 dev.type=9 ext=6048 file.count=2 file.fmt=0 rec=-1 recno=52
+20130422 14:30:20 [bds.evt.162].[50001].connected c.type=1 cause=0 dev=50001 dev.type=9 ext=6048 file.count=2
+20130422 14:30:28 [bds.evt.155].[50001].rec.end c.type=1 cause=0 date=20130422 dev=50001 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50001.0000000052.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=52
+20130422 14:30:28 [bds.evt.164].[50001].released cause=0 date=20130422 dev=50001 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50001.0000000052.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=52
+20130422 14:35:10 [bds.evt.154].[50040].rec.started c.type=1 cause=1 dev=50040 dev.type=9 ext=6048 file.count=2 file.fmt=0 rec=-1 recno=53
+20130422 14:35:10 [bds.evt.162].[50040].connected c.type=1 cause=0 dev=50040 dev.type=9 ext=6048 file.count=2
+20130422 14:37:34 [bds.evt.155].[50040].rec.end c.type=1 cause=0 date=20130422 dev=50040 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50040.0000000053.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=53
+20130422 14:37:34 [bds.evt.164].[50040].released cause=0 date=20130422 dev=50040 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50040.0000000053.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=53
+20130422 14:54:56 [bds.evt.154].[50041].rec.started c.type=1 cause=1 dev=50041 dev.type=9 ext=6802 file.count=2 file.fmt=0 rec=-1 recno=54
+20130422 14:54:56 [bds.evt.162].[50041].connected c.type=1 cause=0 dev=50041 dev.type=9 ext=6802 file.count=2
+20130422 14:55:33 [bds.evt.154].[50049].rec.started c.type=1 cause=1 dev=50049 dev.type=9 ext=6048 file.count=2 file.fmt=0 rec=-1 recno=55
+20130422 14:55:33 [bds.evt.162].[50049].connected c.type=1 cause=0 dev=50049 dev.type=9 ext=6048 file.count=2
+20130422 14:56:03 [bds.evt.154].[50042].rec.started c.type=1 cause=1 dev=50042 dev.type=9 ext=6803 file.count=2 file.fmt=0 rec=-1 recno=56
+20130422 14:56:03 [bds.evt.162].[50042].connected c.type=1 cause=0 dev=50042 dev.type=9 ext=6803 file.count=2
+20130422 14:56:07 [bds.evt.154].[50020].rec.started c.type=1 cause=1 dev=50020 dev.type=9 ext=6807 file.count=2 file.fmt=0 rec=-1 recno=57
+20130422 14:56:07 [bds.evt.162].[50020].connected c.type=1 cause=0 dev=50020 dev.type=9 ext=6807 file.count=2
+20130422 14:56:13 [bds.evt.155].[50041].rec.end c.type=1 cause=0 date=20130422 dev=50041 dev.type=9 encry=no ext=6802 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50041.0000000054.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=54
+20130422 14:56:13 [bds.evt.164].[50041].released cause=0 date=20130422 dev=50041 dev.type=9 encry=no ext=6802 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50041.0000000054.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=54
+20130422 14:56:33 [bds.evt.155].[50020].rec.end c.type=1 cause=0 date=20130422 dev=50020 dev.type=9 encry=no ext=6807 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50020.0000000057.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=57
+20130422 14:56:33 [bds.evt.164].[50020].released cause=0 date=20130422 dev=50020 dev.type=9 encry=no ext=6807 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50020.0000000057.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=57
+20130422 14:56:40 [bds.evt.154].[50005].rec.started c.type=1 cause=1 dev=50005 dev.type=9 ext=6802 file.count=2 file.fmt=0 rec=-1 recno=58
+20130422 14:56:40 [bds.evt.162].[50005].connected c.type=1 cause=0 dev=50005 dev.type=9 ext=6802 file.count=2
+20130422 14:56:46 [bds.evt.155].[50042].rec.end c.type=1 cause=0 date=20130422 dev=50042 dev.type=9 encry=no ext=6803 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50042.0000000056.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=56
+20130422 14:56:46 [bds.evt.164].[50042].released cause=0 date=20130422 dev=50042 dev.type=9 encry=no ext=6803 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50042.0000000056.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=56
+20130422 14:56:56 [bds.evt.155].[50049].rec.end c.type=1 cause=0 date=20130422 dev=50049 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50049.0000000055.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=55
+20130422 14:56:56 [bds.evt.164].[50049].released cause=0 date=20130422 dev=50049 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50049.0000000055.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=55
+20130422 14:57:19 [bds.evt.155].[50005].rec.end c.type=1 cause=0 date=20130422 dev=50005 dev.type=9 encry=no ext=6802 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50005.0000000058.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=58
+20130422 14:57:19 [bds.evt.164].[50005].released cause=0 date=20130422 dev=50005 dev.type=9 encry=no ext=6802 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50005.0000000058.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=58
+20130422 14:57:43 [bds.evt.154].[50026].rec.started c.type=1 cause=1 dev=50026 dev.type=9 ext=6802 file.count=2 file.fmt=0 rec=-1 recno=59
+20130422 14:57:43 [bds.evt.162].[50026].connected c.type=1 cause=0 dev=50026 dev.type=9 ext=6802 file.count=2
+20130422 14:58:21 [bds.evt.155].[50026].rec.end c.type=1 cause=0 date=20130422 dev=50026 dev.type=9 encry=no ext=6802 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50026.0000000059.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=59
+20130422 14:58:21 [bds.evt.164].[50026].released cause=0 date=20130422 dev=50026 dev.type=9 encry=no ext=6802 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50026.0000000059.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=59
+20130422 14:58:24 [bds.evt.154].[50027].rec.started c.type=1 cause=1 dev=50027 dev.type=9 ext=6803 file.count=2 file.fmt=0 rec=-1 recno=60
+20130422 14:58:24 [bds.evt.162].[50027].connected c.type=1 cause=0 dev=50027 dev.type=9 ext=6803 file.count=2
+20130422 14:58:36 [bds.evt.155].[50027].rec.end c.type=1 cause=0 date=20130422 dev=50027 dev.type=9 encry=no ext=6803 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50027.0000000060.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=60
+20130422 14:58:36 [bds.evt.164].[50027].released cause=0 date=20130422 dev=50027 dev.type=9 encry=no ext=6803 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50027.0000000060.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=60
+20130422 14:58:53 [bds.evt.154].[50004].rec.started c.type=1 cause=1 dev=50004 dev.type=9 ext=6802 file.count=2 file.fmt=0 rec=-1 recno=61
+20130422 14:58:53 [bds.evt.162].[50004].connected c.type=1 cause=0 dev=50004 dev.type=9 ext=6802 file.count=2
+20130422 14:59:22 [bds.evt.155].[50004].rec.end c.type=1 cause=0 date=20130422 dev=50004 dev.type=9 encry=no ext=6802 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50004.0000000061.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=61
+20130422 14:59:22 [bds.evt.164].[50004].released cause=0 date=20130422 dev=50004 dev.type=9 encry=no ext=6802 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50004.0000000061.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=61
+20130422 14:59:27 [bds.evt.154].[50021].rec.started c.type=1 cause=1 dev=50021 dev.type=9 ext=6807 file.count=2 file.fmt=0 rec=-1 recno=62
+20130422 14:59:27 [bds.evt.162].[50021].connected c.type=1 cause=0 dev=50021 dev.type=9 ext=6807 file.count=2
+20130422 15:00:53 [bds.evt.154].[50045].rec.started c.type=1 cause=1 dev=50045 dev.type=9 ext=6802 file.count=2 file.fmt=0 rec=-1 recno=63
+20130422 15:00:53 [bds.evt.162].[50045].connected c.type=1 cause=0 dev=50045 dev.type=9 ext=6802 file.count=2
+20130422 15:01:25 [bds.evt.154].[50026].rec.started c.type=1 cause=1 dev=50026 dev.type=9 ext=6808 file.count=2 file.fmt=0 rec=-1 recno=64
+20130422 15:01:25 [bds.evt.162].[50026].connected c.type=1 cause=0 dev=50026 dev.type=9 ext=6808 file.count=2
+20130422 15:01:30 [bds.evt.155].[50026].rec.end c.type=1 cause=0 date=20130422 dev=50026 dev.type=9 encry=no ext=6808 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50026.0000000064.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=64
+20130422 15:01:30 [bds.evt.164].[50026].released cause=0 date=20130422 dev=50026 dev.type=9 encry=no ext=6808 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50026.0000000064.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=64
+20130422 15:01:30 [bds.evt.155].[50045].rec.end c.type=1 cause=0 date=20130422 dev=50045 dev.type=9 encry=no ext=6802 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50045.0000000063.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=63
+20130422 15:01:30 [bds.evt.164].[50045].released cause=0 date=20130422 dev=50045 dev.type=9 encry=no ext=6802 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50045.0000000063.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=63
+20130422 15:01:39 [bds.evt.154].[50046].rec.started c.type=1 cause=1 dev=50046 dev.type=9 ext=6802 file.count=2 file.fmt=0 rec=-1 recno=65
+20130422 15:01:39 [bds.evt.162].[50046].connected c.type=1 cause=0 dev=50046 dev.type=9 ext=6802 file.count=2
+20130422 15:01:43 [bds.evt.154].[50016].rec.started c.type=1 cause=1 dev=50016 dev.type=9 ext=6808 file.count=2 file.fmt=0 rec=-1 recno=66
+20130422 15:01:43 [bds.evt.162].[50016].connected c.type=1 cause=0 dev=50016 dev.type=9 ext=6808 file.count=2
+20130422 15:01:50 [bds.evt.155].[50016].rec.end c.type=1 cause=0 date=20130422 dev=50016 dev.type=9 encry=no ext=6808 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50016.0000000066.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=66
+20130422 15:01:50 [bds.evt.164].[50016].released cause=0 date=20130422 dev=50016 dev.type=9 encry=no ext=6808 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50016.0000000066.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=66
+20130422 15:02:07 [bds.evt.154].[50003].rec.started c.type=1 cause=1 dev=50003 dev.type=9 ext=6808 file.count=2 file.fmt=0 rec=-1 recno=67
+20130422 15:02:07 [bds.evt.162].[50003].connected c.type=1 cause=0 dev=50003 dev.type=9 ext=6808 file.count=2
+20130422 15:02:15 [bds.evt.155].[50046].rec.end c.type=1 cause=0 date=20130422 dev=50046 dev.type=9 encry=no ext=6802 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50046.0000000065.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=65
+20130422 15:02:15 [bds.evt.164].[50046].released cause=0 date=20130422 dev=50046 dev.type=9 encry=no ext=6802 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50046.0000000065.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=65
+20130422 15:02:34 [bds.evt.154].[50011].rec.started c.type=1 cause=1 dev=50011 dev.type=9 ext=6805 file.count=2 file.fmt=0 rec=-1 recno=68
+20130422 15:02:34 [bds.evt.162].[50011].connected c.type=1 cause=0 dev=50011 dev.type=9 ext=6805 file.count=2
+20130422 15:02:42 [bds.evt.155].[50003].rec.end c.type=1 cause=0 date=20130422 dev=50003 dev.type=9 encry=no ext=6808 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50003.0000000067.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=67
+20130422 15:02:42 [bds.evt.164].[50003].released cause=0 date=20130422 dev=50003 dev.type=9 encry=no ext=6808 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50003.0000000067.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=67
+20130422 15:02:48 [bds.evt.155].[50021].rec.end c.type=1 cause=0 date=20130422 dev=50021 dev.type=9 encry=no ext=6807 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50021.0000000062.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=62
+20130422 15:02:48 [bds.evt.164].[50021].released cause=0 date=20130422 dev=50021 dev.type=9 encry=no ext=6807 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50021.0000000062.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=62
+20130422 15:05:35 [bds.evt.154].[50006].rec.started c.type=1 cause=1 dev=50006 dev.type=9 ext=6048 file.count=2 file.fmt=0 rec=-1 recno=69
+20130422 15:05:35 [bds.evt.162].[50006].connected c.type=1 cause=0 dev=50006 dev.type=9 ext=6048 file.count=2
+20130422 15:06:02 [bds.evt.155].[50011].rec.end c.type=1 cause=0 date=20130422 dev=50011 dev.type=9 encry=no ext=6805 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50011.0000000068.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=68
+20130422 15:06:02 [bds.evt.164].[50011].released cause=0 date=20130422 dev=50011 dev.type=9 encry=no ext=6805 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50011.0000000068.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=68
+20130422 15:08:36 [bds.evt.155].[50006].rec.end c.type=1 cause=0 date=20130422 dev=50006 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50006.0000000069.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=69
+20130422 15:08:36 [bds.evt.164].[50006].released cause=0 date=20130422 dev=50006 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50006.0000000069.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=69
+20130422 15:08:56 [bds.evt.154].[50001].rec.started c.type=1 cause=1 dev=50001 dev.type=9 ext=6805 file.count=2 file.fmt=0 rec=-1 recno=70
+20130422 15:08:56 [bds.evt.162].[50001].connected c.type=1 cause=0 dev=50001 dev.type=9 ext=6805 file.count=2
+20130422 15:09:11 [bds.evt.154].[50015].rec.started c.type=1 cause=1 dev=50015 dev.type=9 ext=6802 file.count=2 file.fmt=0 rec=-1 recno=71
+20130422 15:09:11 [bds.evt.162].[50015].connected c.type=1 cause=0 dev=50015 dev.type=9 ext=6802 file.count=2
+20130422 15:09:54 [bds.evt.154].[50005].rec.started c.type=1 cause=1 dev=50005 dev.type=9 ext=6803 file.count=2 file.fmt=0 rec=-1 recno=72
+20130422 15:09:54 [bds.evt.162].[50005].connected c.type=1 cause=0 dev=50005 dev.type=9 ext=6803 file.count=2
+20130422 15:09:54 [bds.evt.154].[50033].rec.started c.type=1 cause=1 dev=50033 dev.type=9 ext=6050 file.count=2 file.fmt=0 rec=-1 recno=73
+20130422 15:09:54 [bds.evt.162].[50033].connected c.type=1 cause=0 dev=50033 dev.type=9 ext=6050 file.count=2
+20130422 15:10:08 [bds.evt.155].[50015].rec.end c.type=1 cause=0 date=20130422 dev=50015 dev.type=9 encry=no ext=6802 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50015.0000000071.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=71
+20130422 15:10:08 [bds.evt.164].[50015].released cause=0 date=20130422 dev=50015 dev.type=9 encry=no ext=6802 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50015.0000000071.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=71
+20130422 15:10:34 [bds.evt.155].[50005].rec.end c.type=1 cause=0 date=20130422 dev=50005 dev.type=9 encry=no ext=6803 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50005.0000000072.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=72
+20130422 15:10:34 [bds.evt.164].[50005].released cause=0 date=20130422 dev=50005 dev.type=9 encry=no ext=6803 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50005.0000000072.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=72
+20130422 15:10:41 [bds.evt.154].[50002].rec.started c.type=1 cause=1 dev=50002 dev.type=9 ext=6803 file.count=2 file.fmt=0 rec=-1 recno=74
+20130422 15:10:41 [bds.evt.162].[50002].connected c.type=1 cause=0 dev=50002 dev.type=9 ext=6803 file.count=2
+20130422 15:11:01 [bds.evt.155].[50001].rec.end c.type=1 cause=0 date=20130422 dev=50001 dev.type=9 encry=no ext=6805 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50001.0000000070.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=70
+20130422 15:11:01 [bds.evt.164].[50001].released cause=0 date=20130422 dev=50001 dev.type=9 encry=no ext=6805 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50001.0000000070.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=70
+20130422 15:11:10 [bds.evt.155].[50002].rec.end c.type=1 cause=0 date=20130422 dev=50002 dev.type=9 encry=no ext=6803 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50002.0000000074.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=74
+20130422 15:11:10 [bds.evt.164].[50002].released cause=0 date=20130422 dev=50002 dev.type=9 encry=no ext=6803 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50002.0000000074.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=74
+20130422 15:11:30 [bds.evt.154].[50013].rec.started c.type=1 cause=1 dev=50013 dev.type=9 ext=6803 file.count=2 file.fmt=0 rec=-1 recno=75
+20130422 15:11:30 [bds.evt.162].[50013].connected c.type=1 cause=0 dev=50013 dev.type=9 ext=6803 file.count=2
+20130422 15:12:45 [bds.evt.155].[50033].rec.end c.type=1 cause=0 date=20130422 dev=50033 dev.type=9 encry=no ext=6050 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50033.0000000073.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=73
+20130422 15:12:45 [bds.evt.164].[50033].released cause=0 date=20130422 dev=50033 dev.type=9 encry=no ext=6050 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50033.0000000073.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=73
+20130422 15:13:59 [bds.evt.154].[50016].rec.started c.type=1 cause=1 dev=50016 dev.type=9 ext=6805 file.count=2 file.fmt=0 rec=-1 recno=76
+20130422 15:13:59 [bds.evt.162].[50016].connected c.type=1 cause=0 dev=50016 dev.type=9 ext=6805 file.count=2
+20130422 15:14:14 [bds.evt.154].[50032].rec.started c.type=1 cause=1 dev=50032 dev.type=9 ext=6802 file.count=2 file.fmt=0 rec=-1 recno=77
+20130422 15:14:14 [bds.evt.162].[50032].connected c.type=1 cause=0 dev=50032 dev.type=9 ext=6802 file.count=2
+20130422 15:16:09 [bds.evt.155].[50013].rec.end c.type=1 cause=0 date=20130422 dev=50013 dev.type=9 encry=no ext=6803 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50013.0000000075.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=75
+20130422 15:16:09 [bds.evt.164].[50013].released cause=0 date=20130422 dev=50013 dev.type=9 encry=no ext=6803 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50013.0000000075.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=75
+20130422 15:16:17 [bds.evt.155].[50016].rec.end c.type=1 cause=0 date=20130422 dev=50016 dev.type=9 encry=no ext=6805 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50016.0000000076.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=76
+20130422 15:16:17 [bds.evt.164].[50016].released cause=0 date=20130422 dev=50016 dev.type=9 encry=no ext=6805 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50016.0000000076.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=76
+20130422 15:16:43 [bds.evt.155].[50032].rec.end c.type=1 cause=0 date=20130422 dev=50032 dev.type=9 encry=no ext=6802 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50032.0000000077.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=77
+20130422 15:16:43 [bds.evt.164].[50032].released cause=0 date=20130422 dev=50032 dev.type=9 encry=no ext=6802 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50032.0000000077.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=77
+20130422 15:18:43 [bds.evt.154].[50043].rec.started c.type=1 cause=1 dev=50043 dev.type=9 ext=6805 file.count=2 file.fmt=0 rec=-1 recno=78
+20130422 15:18:43 [bds.evt.162].[50043].connected c.type=1 cause=0 dev=50043 dev.type=9 ext=6805 file.count=2
+20130422 15:18:46 [bds.evt.154].[50015].rec.started c.type=1 cause=1 dev=50015 dev.type=9 ext=6802 file.count=2 file.fmt=0 rec=-1 recno=79
+20130422 15:18:46 [bds.evt.162].[50015].connected c.type=1 cause=0 dev=50015 dev.type=9 ext=6802 file.count=2
+20130422 15:19:27 [bds.evt.155].[50015].rec.end c.type=1 cause=0 date=20130422 dev=50015 dev.type=9 encry=no ext=6802 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50015.0000000079.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=79
+20130422 15:19:27 [bds.evt.164].[50015].released cause=0 date=20130422 dev=50015 dev.type=9 encry=no ext=6802 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50015.0000000079.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=79
+20130422 15:19:32 [bds.evt.155].[50043].rec.end c.type=1 cause=0 date=20130422 dev=50043 dev.type=9 encry=no ext=6805 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50043.0000000078.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=78
+20130422 15:19:32 [bds.evt.164].[50043].released cause=0 date=20130422 dev=50043 dev.type=9 encry=no ext=6805 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50043.0000000078.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=78
+20130422 15:19:49 [bds.evt.154].[50044].rec.started c.type=1 cause=1 dev=50044 dev.type=9 ext=6802 file.count=2 file.fmt=0 rec=-1 recno=80
+20130422 15:19:49 [bds.evt.162].[50044].connected c.type=1 cause=0 dev=50044 dev.type=9 ext=6802 file.count=2
+20130422 15:21:21 [bds.evt.155].[50044].rec.end c.type=1 cause=0 date=20130422 dev=50044 dev.type=9 encry=no ext=6802 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50044.0000000080.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=80
+20130422 15:21:21 [bds.evt.164].[50044].released cause=0 date=20130422 dev=50044 dev.type=9 encry=no ext=6802 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50044.0000000080.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=80
+20130422 15:21:27 [bds.evt.154].[50003].rec.started c.type=1 cause=1 dev=50003 dev.type=9 ext=6048 file.count=2 file.fmt=0 rec=-1 recno=81
+20130422 15:21:27 [bds.evt.162].[50003].connected c.type=1 cause=0 dev=50003 dev.type=9 ext=6048 file.count=2
+20130422 15:21:59 [bds.evt.154].[50040].rec.started c.type=1 cause=1 dev=50040 dev.type=9 ext=6803 file.count=2 file.fmt=0 rec=-1 recno=82
+20130422 15:21:59 [bds.evt.162].[50040].connected c.type=1 cause=0 dev=50040 dev.type=9 ext=6803 file.count=2
+20130422 15:22:23 [bds.evt.154].[50041].rec.started c.type=1 cause=1 dev=50041 dev.type=9 ext=6805 file.count=2 file.fmt=0 rec=-1 recno=83
+20130422 15:22:23 [bds.evt.162].[50041].connected c.type=1 cause=0 dev=50041 dev.type=9 ext=6805 file.count=2
+20130422 15:22:30 [bds.evt.155].[50003].rec.end c.type=1 cause=0 date=20130422 dev=50003 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50003.0000000081.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=81
+20130422 15:22:30 [bds.evt.164].[50003].released cause=0 date=20130422 dev=50003 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50003.0000000081.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=81
+20130422 15:22:52 [bds.evt.155].[50041].rec.end c.type=1 cause=0 date=20130422 dev=50041 dev.type=9 encry=no ext=6805 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50041.0000000083.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=83
+20130422 15:22:52 [bds.evt.164].[50041].released cause=0 date=20130422 dev=50041 dev.type=9 encry=no ext=6805 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50041.0000000083.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=83
+20130422 15:23:52 [bds.evt.155].[50040].rec.end c.type=1 cause=0 date=20130422 dev=50040 dev.type=9 encry=no ext=6803 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50040.0000000082.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=82
+20130422 15:23:52 [bds.evt.164].[50040].released cause=0 date=20130422 dev=50040 dev.type=9 encry=no ext=6803 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50040.0000000082.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=82
+20130422 15:25:52 [bds.evt.154].[50016].rec.started c.type=1 cause=1 dev=50016 dev.type=9 ext=6805 file.count=2 file.fmt=0 rec=-1 recno=84
+20130422 15:25:52 [bds.evt.162].[50016].connected c.type=1 cause=0 dev=50016 dev.type=9 ext=6805 file.count=2
+20130422 15:26:14 [bds.evt.155].[50016].rec.end c.type=1 cause=0 date=20130422 dev=50016 dev.type=9 encry=no ext=6805 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50016.0000000084.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=84
+20130422 15:26:14 [bds.evt.164].[50016].released cause=0 date=20130422 dev=50016 dev.type=9 encry=no ext=6805 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50016.0000000084.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=84
+20130422 15:26:47 [bds.evt.154].[50038].rec.started c.type=1 cause=1 dev=50038 dev.type=9 ext=6803 file.count=2 file.fmt=0 rec=-1 recno=85
+20130422 15:26:47 [bds.evt.162].[50038].connected c.type=1 cause=0 dev=50038 dev.type=9 ext=6803 file.count=2
+20130422 15:27:28 [bds.evt.154].[50036].rec.started c.type=1 cause=1 dev=50036 dev.type=9 ext=6807 file.count=2 file.fmt=0 rec=-1 recno=86
+20130422 15:27:28 [bds.evt.162].[50036].connected c.type=1 cause=0 dev=50036 dev.type=9 ext=6807 file.count=2
+20130422 15:29:23 [bds.evt.155].[50036].rec.end c.type=1 cause=0 date=20130422 dev=50036 dev.type=9 encry=no ext=6807 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50036.0000000086.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=86
+20130422 15:29:23 [bds.evt.164].[50036].released cause=0 date=20130422 dev=50036 dev.type=9 encry=no ext=6807 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50036.0000000086.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=86
+20130422 15:30:14 [bds.evt.154].[50020].rec.started c.type=1 cause=1 dev=50020 dev.type=9 ext=6807 file.count=2 file.fmt=0 rec=-1 recno=87
+20130422 15:30:14 [bds.evt.162].[50020].connected c.type=1 cause=0 dev=50020 dev.type=9 ext=6807 file.count=2
+20130422 15:31:22 [bds.evt.154].[50044].rec.started c.type=1 cause=1 dev=50044 dev.type=9 ext=6808 file.count=2 file.fmt=0 rec=-1 recno=88
+20130422 15:31:22 [bds.evt.162].[50044].connected c.type=1 cause=0 dev=50044 dev.type=9 ext=6808 file.count=2
+20130422 15:31:47 [bds.evt.155].[50044].rec.end c.type=1 cause=0 date=20130422 dev=50044 dev.type=9 encry=no ext=6808 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50044.0000000088.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=88
+20130422 15:31:47 [bds.evt.164].[50044].released cause=0 date=20130422 dev=50044 dev.type=9 encry=no ext=6808 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50044.0000000088.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=88
+20130422 15:32:03 [bds.evt.154].[50022].rec.started c.type=1 cause=1 dev=50022 dev.type=9 ext=6808 file.count=2 file.fmt=0 rec=-1 recno=89
+20130422 15:32:03 [bds.evt.162].[50022].connected c.type=1 cause=0 dev=50022 dev.type=9 ext=6808 file.count=2
+20130422 15:32:36 [bds.evt.154].[50010].rec.started c.type=1 cause=1 dev=50010 dev.type=9 ext=6802 file.count=2 file.fmt=0 rec=-1 recno=90
+20130422 15:32:36 [bds.evt.162].[50010].connected c.type=1 cause=0 dev=50010 dev.type=9 ext=6802 file.count=2
+20130422 15:32:36 [bds.evt.155].[50010].rec.end c.type=1 cause=0 date=20130422 dev=50010 dev.type=9 encry=no ext=6802 file.count=2 file.fmt=0 fname=d:\temp\20130422\20130422.50010.0000000090. rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=90
+20130422 15:32:36 [bds.evt.164].[50010].released cause=0 date=20130422 dev=50010 dev.type=9 encry=no ext=6802 file.count=2 file.fmt=0 fname=d:\temp\20130422\20130422.50010.0000000090. rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=90
+20130422 15:32:49 [bds.evt.154].[50019].rec.started c.type=1 cause=1 dev=50019 dev.type=9 ext=6801 file.count=2 file.fmt=0 rec=-1 recno=91
+20130422 15:32:49 [bds.evt.162].[50019].connected c.type=1 cause=0 dev=50019 dev.type=9 ext=6801 file.count=2
+20130422 15:32:58 [bds.evt.155].[50022].rec.end c.type=1 cause=0 date=20130422 dev=50022 dev.type=9 encry=no ext=6808 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50022.0000000089.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=89
+20130422 15:32:58 [bds.evt.164].[50022].released cause=0 date=20130422 dev=50022 dev.type=9 encry=no ext=6808 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50022.0000000089.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=89
+20130422 15:33:28 [bds.evt.155].[50020].rec.end c.type=1 cause=0 date=20130422 dev=50020 dev.type=9 encry=no ext=6807 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50020.0000000087.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=87
+20130422 15:33:28 [bds.evt.164].[50020].released cause=0 date=20130422 dev=50020 dev.type=9 encry=no ext=6807 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50020.0000000087.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=87
+20130422 15:34:22 [bds.evt.155].[50038].rec.end c.type=1 cause=0 date=20130422 dev=50038 dev.type=9 encry=no ext=6803 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50038.0000000085.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=85
+20130422 15:34:22 [bds.evt.164].[50038].released cause=0 date=20130422 dev=50038 dev.type=9 encry=no ext=6803 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50038.0000000085.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=85
+20130422 15:34:52 [bds.evt.154].[50001].rec.started c.type=1 cause=1 dev=50001 dev.type=9 ext=6802 file.count=2 file.fmt=0 rec=-1 recno=92
+20130422 15:34:52 [bds.evt.162].[50001].connected c.type=1 cause=0 dev=50001 dev.type=9 ext=6802 file.count=2
+20130422 15:36:23 [bds.evt.154].[50026].rec.started c.type=1 cause=1 dev=50026 dev.type=9 ext=6805 file.count=2 file.fmt=0 rec=-1 recno=93
+20130422 15:36:23 [bds.evt.162].[50026].connected c.type=1 cause=0 dev=50026 dev.type=9 ext=6805 file.count=2
+20130422 15:36:47 [bds.evt.154].[50045].rec.started c.type=1 cause=1 dev=50045 dev.type=9 ext=6050 file.count=2 file.fmt=0 rec=-1 recno=94
+20130422 15:36:47 [bds.evt.162].[50045].connected c.type=1 cause=0 dev=50045 dev.type=9 ext=6050 file.count=2
+20130422 15:37:17 [bds.evt.155].[50001].rec.end c.type=1 cause=0 date=20130422 dev=50001 dev.type=9 encry=no ext=6802 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50001.0000000092.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=92
+20130422 15:37:17 [bds.evt.164].[50001].released cause=0 date=20130422 dev=50001 dev.type=9 encry=no ext=6802 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50001.0000000092.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=92
+20130422 15:38:23 [bds.evt.155].[50045].rec.end c.type=1 cause=0 date=20130422 dev=50045 dev.type=9 encry=no ext=6050 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50045.0000000094.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=94
+20130422 15:38:23 [bds.evt.164].[50045].released cause=0 date=20130422 dev=50045 dev.type=9 encry=no ext=6050 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50045.0000000094.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=94
+20130422 15:39:57 [bds.evt.154].[50028].rec.started c.type=1 cause=1 dev=50028 dev.type=9 ext=6802 file.count=2 file.fmt=0 rec=-1 recno=95
+20130422 15:39:57 [bds.evt.162].[50028].connected c.type=1 cause=0 dev=50028 dev.type=9 ext=6802 file.count=2
+20130422 15:40:17 [bds.evt.155].[50026].rec.end c.type=1 cause=0 date=20130422 dev=50026 dev.type=9 encry=no ext=6805 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50026.0000000093.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=93
+20130422 15:40:17 [bds.evt.164].[50026].released cause=0 date=20130422 dev=50026 dev.type=9 encry=no ext=6805 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50026.0000000093.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=93
+20130422 15:40:18 [bds.evt.155].[50019].rec.end c.type=1 cause=0 date=20130422 dev=50019 dev.type=9 encry=no ext=6801 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50019.0000000091.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=91
+20130422 15:40:18 [bds.evt.164].[50019].released cause=0 date=20130422 dev=50019 dev.type=9 encry=no ext=6801 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50019.0000000091.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=91
+20130422 15:40:43 [bds.evt.154].[50008].rec.started c.type=1 cause=1 dev=50008 dev.type=9 ext=6803 file.count=2 file.fmt=0 rec=-1 recno=96
+20130422 15:40:43 [bds.evt.162].[50008].connected c.type=1 cause=0 dev=50008 dev.type=9 ext=6803 file.count=2
+20130422 15:41:30 [bds.evt.155].[50008].rec.end c.type=1 cause=0 date=20130422 dev=50008 dev.type=9 encry=no ext=6803 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50008.0000000096.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=96
+20130422 15:41:30 [bds.evt.164].[50008].released cause=0 date=20130422 dev=50008 dev.type=9 encry=no ext=6803 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50008.0000000096.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=96
+20130422 15:42:07 [bds.evt.154].[50050].rec.started c.type=1 cause=1 dev=50050 dev.type=9 ext=6803 file.count=2 file.fmt=0 rec=-1 recno=97
+20130422 15:42:07 [bds.evt.162].[50050].connected c.type=1 cause=0 dev=50050 dev.type=9 ext=6803 file.count=2
+20130422 15:42:34 [bds.evt.155].[50028].rec.end c.type=1 cause=0 date=20130422 dev=50028 dev.type=9 encry=no ext=6802 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50028.0000000095.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=95
+20130422 15:42:34 [bds.evt.164].[50028].released cause=0 date=20130422 dev=50028 dev.type=9 encry=no ext=6802 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50028.0000000095.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=95
+20130422 15:43:02 [bds.evt.155].[50050].rec.end c.type=1 cause=0 date=20130422 dev=50050 dev.type=9 encry=no ext=6803 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50050.0000000097.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=97
+20130422 15:43:02 [bds.evt.164].[50050].released cause=0 date=20130422 dev=50050 dev.type=9 encry=no ext=6803 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50050.0000000097.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=97
+20130422 15:43:55 [bds.evt.154].[50022].rec.started c.type=1 cause=1 dev=50022 dev.type=9 ext=6807 file.count=2 file.fmt=0 rec=-1 recno=98
+20130422 15:43:55 [bds.evt.162].[50022].connected c.type=1 cause=0 dev=50022 dev.type=9 ext=6807 file.count=2
+20130422 15:44:07 [bds.evt.154].[50006].rec.started c.type=1 cause=1 dev=50006 dev.type=9 ext=6803 file.count=2 file.fmt=0 rec=-1 recno=99
+20130422 15:44:07 [bds.evt.162].[50006].connected c.type=1 cause=0 dev=50006 dev.type=9 ext=6803 file.count=2
+20130422 15:44:50 [bds.evt.155].[50022].rec.end c.type=1 cause=0 date=20130422 dev=50022 dev.type=9 encry=no ext=6807 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50022.0000000098.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=98
+20130422 15:44:50 [bds.evt.164].[50022].released cause=0 date=20130422 dev=50022 dev.type=9 encry=no ext=6807 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50022.0000000098.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=98
+20130422 15:44:56 [bds.evt.154].[50032].rec.started c.type=1 cause=1 dev=50032 dev.type=9 ext=6802 file.count=2 file.fmt=0 rec=-1 recno=100
+20130422 15:44:56 [bds.evt.162].[50032].connected c.type=1 cause=0 dev=50032 dev.type=9 ext=6802 file.count=2
+20130422 15:45:17 [bds.evt.155].[50032].rec.end c.type=1 cause=0 date=20130422 dev=50032 dev.type=9 encry=no ext=6802 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50032.0000000100.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=100
+20130422 15:45:17 [bds.evt.164].[50032].released cause=0 date=20130422 dev=50032 dev.type=9 encry=no ext=6802 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50032.0000000100.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=100
+20130422 15:45:33 [bds.evt.155].[50006].rec.end c.type=1 cause=0 date=20130422 dev=50006 dev.type=9 encry=no ext=6803 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50006.0000000099.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=99
+20130422 15:45:33 [bds.evt.164].[50006].released cause=0 date=20130422 dev=50006 dev.type=9 encry=no ext=6803 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50006.0000000099.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=99
+20130422 15:45:54 [bds.evt.154].[50010].rec.started c.type=1 cause=1 dev=50010 dev.type=9 ext=6802 file.count=2 file.fmt=0 rec=-1 recno=101
+20130422 15:45:54 [bds.evt.162].[50010].connected c.type=1 cause=0 dev=50010 dev.type=9 ext=6802 file.count=2
+20130422 15:46:18 [bds.evt.154].[50002].rec.started c.type=1 cause=1 dev=50002 dev.type=9 ext=6805 file.count=2 file.fmt=0 rec=-1 recno=102
+20130422 15:46:18 [bds.evt.162].[50002].connected c.type=1 cause=0 dev=50002 dev.type=9 ext=6805 file.count=2
+20130422 15:47:07 [bds.evt.155].[50002].rec.end c.type=1 cause=0 date=20130422 dev=50002 dev.type=9 encry=no ext=6805 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50002.0000000102.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=102
+20130422 15:47:07 [bds.evt.164].[50002].released cause=0 date=20130422 dev=50002 dev.type=9 encry=no ext=6805 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50002.0000000102.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=102
+20130422 15:47:25 [bds.evt.154].[50039].rec.started c.type=1 cause=1 dev=50039 dev.type=9 ext=6803 file.count=2 file.fmt=0 rec=-1 recno=103
+20130422 15:47:25 [bds.evt.162].[50039].connected c.type=1 cause=0 dev=50039 dev.type=9 ext=6803 file.count=2
+20130422 15:48:23 [bds.evt.154].[50027].rec.started c.type=1 cause=1 dev=50027 dev.type=9 ext=6807 file.count=2 file.fmt=0 rec=-1 recno=104
+20130422 15:48:23 [bds.evt.162].[50027].connected c.type=1 cause=0 dev=50027 dev.type=9 ext=6807 file.count=2
+20130422 15:48:45 [bds.evt.155].[50027].rec.end c.type=1 cause=0 date=20130422 dev=50027 dev.type=9 encry=no ext=6807 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50027.0000000104.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=104
+20130422 15:48:45 [bds.evt.164].[50027].released cause=0 date=20130422 dev=50027 dev.type=9 encry=no ext=6807 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50027.0000000104.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=104
+20130422 15:48:46 [bds.evt.154].[50018].rec.started c.type=1 cause=1 dev=50018 dev.type=9 ext=6801 file.count=2 file.fmt=0 rec=-1 recno=105
+20130422 15:48:46 [bds.evt.162].[50018].connected c.type=1 cause=0 dev=50018 dev.type=9 ext=6801 file.count=2
+20130422 15:48:47 [bds.evt.155].[50039].rec.end c.type=1 cause=0 date=20130422 dev=50039 dev.type=9 encry=no ext=6803 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50039.0000000103.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=103
+20130422 15:48:47 [bds.evt.164].[50039].released cause=0 date=20130422 dev=50039 dev.type=9 encry=no ext=6803 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50039.0000000103.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=103
+20130422 15:49:17 [bds.evt.155].[50010].rec.end c.type=1 cause=0 date=20130422 dev=50010 dev.type=9 encry=no ext=6802 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50010.0000000101.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=101
+20130422 15:49:17 [bds.evt.164].[50010].released cause=0 date=20130422 dev=50010 dev.type=9 encry=no ext=6802 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50010.0000000101.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=101
+20130422 15:49:38 [bds.evt.154].[50007].rec.started c.type=1 cause=1 dev=50007 dev.type=9 ext=6048 file.count=2 file.fmt=0 rec=-1 recno=106
+20130422 15:49:38 [bds.evt.162].[50007].connected c.type=1 cause=0 dev=50007 dev.type=9 ext=6048 file.count=2
+20130422 15:49:41 [bds.evt.154].[50047].rec.started c.type=1 cause=1 dev=50047 dev.type=9 ext=6805 file.count=2 file.fmt=0 rec=-1 recno=107
+20130422 15:49:41 [bds.evt.162].[50047].connected c.type=1 cause=0 dev=50047 dev.type=9 ext=6805 file.count=2
+20130422 15:49:49 [bds.evt.154].[50006].rec.started c.type=1 cause=1 dev=50006 dev.type=9 ext=6803 file.count=2 file.fmt=0 rec=-1 recno=108
+20130422 15:49:49 [bds.evt.162].[50006].connected c.type=1 cause=0 dev=50006 dev.type=9 ext=6803 file.count=2
+20130422 15:49:51 [bds.evt.155].[50018].rec.end c.type=1 cause=0 date=20130422 dev=50018 dev.type=9 encry=no ext=6801 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50018.0000000105.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=105
+20130422 15:49:51 [bds.evt.164].[50018].released cause=0 date=20130422 dev=50018 dev.type=9 encry=no ext=6801 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50018.0000000105.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=105
+20130422 15:50:13 [bds.evt.155].[50006].rec.end c.type=1 cause=0 date=20130422 dev=50006 dev.type=9 encry=no ext=6803 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50006.0000000108.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=108
+20130422 15:50:13 [bds.evt.164].[50006].released cause=0 date=20130422 dev=50006 dev.type=9 encry=no ext=6803 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50006.0000000108.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=108
+20130422 15:50:27 [bds.evt.154].[50041].rec.started c.type=1 cause=1 dev=50041 dev.type=9 ext=6807 file.count=2 file.fmt=0 rec=-1 recno=109
+20130422 15:50:27 [bds.evt.162].[50041].connected c.type=1 cause=0 dev=50041 dev.type=9 ext=6807 file.count=2
+20130422 15:51:43 [bds.evt.154].[50044].rec.started c.type=1 cause=1 dev=50044 dev.type=9 ext=6801 file.count=2 file.fmt=0 rec=-1 recno=110
+20130422 15:51:43 [bds.evt.162].[50044].connected c.type=1 cause=0 dev=50044 dev.type=9 ext=6801 file.count=2
+20130422 15:52:08 [bds.evt.155].[50044].rec.end c.type=1 cause=0 date=20130422 dev=50044 dev.type=9 encry=no ext=6801 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50044.0000000110.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=110
+20130422 15:52:08 [bds.evt.164].[50044].released cause=0 date=20130422 dev=50044 dev.type=9 encry=no ext=6801 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50044.0000000110.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=110
+20130422 15:53:23 [bds.evt.155].[50047].rec.end c.type=1 cause=0 date=20130422 dev=50047 dev.type=9 encry=no ext=6805 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50047.0000000107.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=107
+20130422 15:53:23 [bds.evt.164].[50047].released cause=0 date=20130422 dev=50047 dev.type=9 encry=no ext=6805 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50047.0000000107.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=107
+20130422 15:54:04 [bds.evt.154].[50042].rec.started c.type=1 cause=1 dev=50042 dev.type=9 ext=6801 file.count=2 file.fmt=0 rec=-1 recno=111
+20130422 15:54:04 [bds.evt.162].[50042].connected c.type=1 cause=0 dev=50042 dev.type=9 ext=6801 file.count=2
+20130422 15:54:16 [bds.evt.155].[50041].rec.end c.type=1 cause=0 date=20130422 dev=50041 dev.type=9 encry=no ext=6807 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50041.0000000109.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=109
+20130422 15:54:16 [bds.evt.164].[50041].released cause=0 date=20130422 dev=50041 dev.type=9 encry=no ext=6807 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50041.0000000109.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=109
+20130422 15:55:19 [bds.evt.154].[50035].rec.started c.type=1 cause=1 dev=50035 dev.type=9 ext=6803 file.count=2 file.fmt=0 rec=-1 recno=112
+20130422 15:55:19 [bds.evt.162].[50035].connected c.type=1 cause=0 dev=50035 dev.type=9 ext=6803 file.count=2
+20130422 15:55:58 [bds.evt.154].[50033].rec.started c.type=1 cause=1 dev=50033 dev.type=9 ext=6050 file.count=2 file.fmt=0 rec=-1 recno=113
+20130422 15:55:58 [bds.evt.162].[50033].connected c.type=1 cause=0 dev=50033 dev.type=9 ext=6050 file.count=2
+20130422 15:56:02 [bds.evt.155].[50007].rec.end c.type=1 cause=0 date=20130422 dev=50007 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50007.0000000106.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=106
+20130422 15:56:02 [bds.evt.164].[50007].released cause=0 date=20130422 dev=50007 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50007.0000000106.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=106
+20130422 15:57:05 [bds.evt.154].[50004].rec.started c.type=1 cause=1 dev=50004 dev.type=9 ext=6805 file.count=2 file.fmt=0 rec=-1 recno=114
+20130422 15:57:05 [bds.evt.162].[50004].connected c.type=1 cause=0 dev=50004 dev.type=9 ext=6805 file.count=2
+20130422 15:57:28 [bds.evt.154].[50022].rec.started c.type=1 cause=1 dev=50022 dev.type=9 ext=6048 file.count=2 file.fmt=0 rec=-1 recno=115
+20130422 15:57:28 [bds.evt.162].[50022].connected c.type=1 cause=0 dev=50022 dev.type=9 ext=6048 file.count=2
+20130422 15:58:39 [bds.evt.155].[50042].rec.end c.type=1 cause=0 date=20130422 dev=50042 dev.type=9 encry=no ext=6801 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50042.0000000111.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=111
+20130422 15:58:39 [bds.evt.164].[50042].released cause=0 date=20130422 dev=50042 dev.type=9 encry=no ext=6801 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50042.0000000111.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=111
+20130422 15:59:38 [bds.evt.155].[50035].rec.end c.type=1 cause=0 date=20130422 dev=50035 dev.type=9 encry=no ext=6803 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50035.0000000112.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=112
+20130422 15:59:38 [bds.evt.164].[50035].released cause=0 date=20130422 dev=50035 dev.type=9 encry=no ext=6803 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50035.0000000112.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=112
+20130422 15:59:46 [bds.evt.155].[50004].rec.end c.type=1 cause=0 date=20130422 dev=50004 dev.type=9 encry=no ext=6805 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50004.0000000114.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=114
+20130422 15:59:46 [bds.evt.164].[50004].released cause=0 date=20130422 dev=50004 dev.type=9 encry=no ext=6805 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50004.0000000114.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=114
+20130422 16:00:20 [bds.evt.154].[50040].rec.started c.type=1 cause=1 dev=50040 dev.type=9 ext=6802 file.count=2 file.fmt=0 rec=-1 recno=116
+20130422 16:00:20 [bds.evt.162].[50040].connected c.type=1 cause=0 dev=50040 dev.type=9 ext=6802 file.count=2
+20130422 16:01:30 [bds.evt.154].[50038].rec.started c.type=1 cause=1 dev=50038 dev.type=9 ext=6803 file.count=2 file.fmt=0 rec=-1 recno=117
+20130422 16:01:30 [bds.evt.162].[50038].connected c.type=1 cause=0 dev=50038 dev.type=9 ext=6803 file.count=2
+20130422 16:01:42 [bds.evt.154].[50002].rec.started c.type=1 cause=1 dev=50002 dev.type=9 ext=6801 file.count=2 file.fmt=0 rec=-1 recno=118
+20130422 16:01:42 [bds.evt.162].[50002].connected c.type=1 cause=0 dev=50002 dev.type=9 ext=6801 file.count=2
+20130422 16:02:06 [bds.evt.155].[50002].rec.end c.type=1 cause=0 date=20130422 dev=50002 dev.type=9 encry=no ext=6801 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50002.0000000118.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=118
+20130422 16:02:06 [bds.evt.164].[50002].released cause=0 date=20130422 dev=50002 dev.type=9 encry=no ext=6801 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50002.0000000118.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=118
+20130422 16:02:31 [bds.evt.154].[50023].rec.started c.type=1 cause=1 dev=50023 dev.type=9 ext=6801 file.count=2 file.fmt=0 rec=-1 recno=119
+20130422 16:02:31 [bds.evt.162].[50023].connected c.type=1 cause=0 dev=50023 dev.type=9 ext=6801 file.count=2
+20130422 16:02:43 [bds.evt.155].[50023].rec.end c.type=1 cause=0 date=20130422 dev=50023 dev.type=9 encry=no ext=6801 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50023.0000000119.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=119
+20130422 16:02:43 [bds.evt.164].[50023].released cause=0 date=20130422 dev=50023 dev.type=9 encry=no ext=6801 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50023.0000000119.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=119
+20130422 16:02:44 [bds.evt.155].[50033].rec.end c.type=1 cause=0 date=20130422 dev=50033 dev.type=9 encry=no ext=6050 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50033.0000000113.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=113
+20130422 16:02:44 [bds.evt.164].[50033].released cause=0 date=20130422 dev=50033 dev.type=9 encry=no ext=6050 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50033.0000000113.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=113
+20130422 16:02:47 [bds.evt.154].[50001].rec.started c.type=1 cause=1 dev=50001 dev.type=9 ext=6804 file.count=2 file.fmt=0 rec=-1 recno=120
+20130422 16:02:47 [bds.evt.162].[50001].connected c.type=1 cause=0 dev=50001 dev.type=9 ext=6804 file.count=2
+20130422 16:02:54 [bds.evt.155].[50038].rec.end c.type=1 cause=0 date=20130422 dev=50038 dev.type=9 encry=no ext=6803 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50038.0000000117.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=117
+20130422 16:02:54 [bds.evt.164].[50038].released cause=0 date=20130422 dev=50038 dev.type=9 encry=no ext=6803 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50038.0000000117.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=117
+20130422 16:03:28 [bds.evt.155].[50040].rec.end c.type=1 cause=0 date=20130422 dev=50040 dev.type=9 encry=no ext=6802 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50040.0000000116.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=116
+20130422 16:03:28 [bds.evt.164].[50040].released cause=0 date=20130422 dev=50040 dev.type=9 encry=no ext=6802 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50040.0000000116.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=116
+20130422 16:04:12 [bds.evt.154].[50039].rec.started c.type=1 cause=1 dev=50039 dev.type=9 ext=6803 file.count=2 file.fmt=0 rec=-1 recno=121
+20130422 16:04:12 [bds.evt.162].[50039].connected c.type=1 cause=0 dev=50039 dev.type=9 ext=6803 file.count=2
+20130422 16:04:23 [bds.evt.155].[50001].rec.end c.type=1 cause=0 date=20130422 dev=50001 dev.type=9 encry=no ext=6804 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50001.0000000120.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=120
+20130422 16:04:23 [bds.evt.164].[50001].released cause=0 date=20130422 dev=50001 dev.type=9 encry=no ext=6804 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50001.0000000120.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=120
+20130422 16:06:09 [bds.evt.154].[50023].rec.started c.type=1 cause=1 dev=50023 dev.type=9 ext=6801 file.count=2 file.fmt=0 rec=-1 recno=122
+20130422 16:06:09 [bds.evt.162].[50023].connected c.type=1 cause=0 dev=50023 dev.type=9 ext=6801 file.count=2
+20130422 16:06:10 [bds.evt.155].[50023].rec.end c.type=1 cause=0 date=20130422 dev=50023 dev.type=9 encry=no ext=6801 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50023.0000000122.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=122
+20130422 16:06:10 [bds.evt.164].[50023].released cause=0 date=20130422 dev=50023 dev.type=9 encry=no ext=6801 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50023.0000000122.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=122
+20130422 16:06:27 [bds.evt.154].[50028].rec.started c.type=1 cause=1 dev=50028 dev.type=9 ext=6801 file.count=2 file.fmt=0 rec=-1 recno=123
+20130422 16:06:27 [bds.evt.162].[50028].connected c.type=1 cause=0 dev=50028 dev.type=9 ext=6801 file.count=2
+20130422 16:06:49 [bds.evt.155].[50039].rec.end c.type=1 cause=0 date=20130422 dev=50039 dev.type=9 encry=no ext=6803 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50039.0000000121.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=121
+20130422 16:06:49 [bds.evt.164].[50039].released cause=0 date=20130422 dev=50039 dev.type=9 encry=no ext=6803 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50039.0000000121.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=121
+20130422 16:07:12 [bds.evt.155].[50022].rec.end c.type=1 cause=0 date=20130422 dev=50022 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50022.0000000115.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=115
+20130422 16:07:12 [bds.evt.164].[50022].released cause=0 date=20130422 dev=50022 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50022.0000000115.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=115
+20130422 16:07:31 [bds.evt.154].[50005].rec.started c.type=1 cause=1 dev=50005 dev.type=9 ext=6803 file.count=2 file.fmt=0 rec=-1 recno=124
+20130422 16:07:31 [bds.evt.162].[50005].connected c.type=1 cause=0 dev=50005 dev.type=9 ext=6803 file.count=2
+20130422 16:07:49 [bds.evt.155].[50028].rec.end c.type=1 cause=0 date=20130422 dev=50028 dev.type=9 encry=no ext=6801 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50028.0000000123.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=123
+20130422 16:07:49 [bds.evt.164].[50028].released cause=0 date=20130422 dev=50028 dev.type=9 encry=no ext=6801 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50028.0000000123.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=123
+20130422 16:08:15 [bds.evt.154].[50048].rec.started c.type=1 cause=1 dev=50048 dev.type=9 ext=6805 file.count=2 file.fmt=0 rec=-1 recno=125
+20130422 16:08:15 [bds.evt.162].[50048].connected c.type=1 cause=0 dev=50048 dev.type=9 ext=6805 file.count=2
+20130422 16:08:18 [bds.evt.154].[50022].rec.started c.type=1 cause=1 dev=50022 dev.type=9 ext=6804 file.count=2 file.fmt=0 rec=-1 recno=126
+20130422 16:08:18 [bds.evt.162].[50022].connected c.type=1 cause=0 dev=50022 dev.type=9 ext=6804 file.count=2
+20130422 16:08:47 [bds.evt.155].[50022].rec.end c.type=1 cause=0 date=20130422 dev=50022 dev.type=9 encry=no ext=6804 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50022.0000000126.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=126
+20130422 16:08:47 [bds.evt.164].[50022].released cause=0 date=20130422 dev=50022 dev.type=9 encry=no ext=6804 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50022.0000000126.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=126
+20130422 16:09:11 [bds.evt.154].[50042].rec.started c.type=1 cause=1 dev=50042 dev.type=9 ext=6801 file.count=2 file.fmt=0 rec=-1 recno=127
+20130422 16:09:11 [bds.evt.162].[50042].connected c.type=1 cause=0 dev=50042 dev.type=9 ext=6801 file.count=2
+20130422 16:09:36 [bds.evt.155].[50005].rec.end c.type=1 cause=0 date=20130422 dev=50005 dev.type=9 encry=no ext=6803 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50005.0000000124.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=124
+20130422 16:09:36 [bds.evt.164].[50005].released cause=0 date=20130422 dev=50005 dev.type=9 encry=no ext=6803 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50005.0000000124.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=124
+20130422 16:09:46 [bds.evt.154].[50036].rec.started c.type=1 cause=1 dev=50036 dev.type=9 ext=6807 file.count=2 file.fmt=0 rec=-1 recno=128
+20130422 16:09:46 [bds.evt.162].[50036].connected c.type=1 cause=0 dev=50036 dev.type=9 ext=6807 file.count=2
+20130422 16:09:50 [bds.evt.154].[50029].rec.started c.type=1 cause=1 dev=50029 dev.type=9 ext=6803 file.count=2 file.fmt=0 rec=-1 recno=129
+20130422 16:09:50 [bds.evt.162].[50029].connected c.type=1 cause=0 dev=50029 dev.type=9 ext=6803 file.count=2
+20130422 16:10:26 [bds.evt.154].[50014].rec.started c.type=1 cause=1 dev=50014 dev.type=9 ext=6802 file.count=2 file.fmt=0 rec=-1 recno=130
+20130422 16:10:26 [bds.evt.162].[50014].connected c.type=1 cause=0 dev=50014 dev.type=9 ext=6802 file.count=2
+20130422 16:10:56 [bds.evt.155].[50042].rec.end c.type=1 cause=0 date=20130422 dev=50042 dev.type=9 encry=no ext=6801 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50042.0000000127.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=127
+20130422 16:10:56 [bds.evt.164].[50042].released cause=0 date=20130422 dev=50042 dev.type=9 encry=no ext=6801 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50042.0000000127.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=127
+20130422 16:11:40 [bds.evt.155].[50036].rec.end c.type=1 cause=0 date=20130422 dev=50036 dev.type=9 encry=no ext=6807 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50036.0000000128.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=128
+20130422 16:11:40 [bds.evt.164].[50036].released cause=0 date=20130422 dev=50036 dev.type=9 encry=no ext=6807 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50036.0000000128.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=128
+20130422 16:12:33 [bds.evt.154].[50005].rec.started c.type=1 cause=1 dev=50005 dev.type=9 ext=6801 file.count=2 file.fmt=0 rec=-1 recno=131
+20130422 16:12:33 [bds.evt.162].[50005].connected c.type=1 cause=0 dev=50005 dev.type=9 ext=6801 file.count=2
+20130422 16:12:42 [bds.evt.155].[50029].rec.end c.type=1 cause=0 date=20130422 dev=50029 dev.type=9 encry=no ext=6803 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50029.0000000129.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=129
+20130422 16:12:42 [bds.evt.164].[50029].released cause=0 date=20130422 dev=50029 dev.type=9 encry=no ext=6803 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50029.0000000129.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=129
+20130422 16:13:05 [bds.evt.155].[50005].rec.end c.type=1 cause=0 date=20130422 dev=50005 dev.type=9 encry=no ext=6801 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50005.0000000131.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=131
+20130422 16:13:05 [bds.evt.164].[50005].released cause=0 date=20130422 dev=50005 dev.type=9 encry=no ext=6801 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50005.0000000131.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=131
+20130422 16:13:50 [bds.evt.155].[50014].rec.end c.type=1 cause=0 date=20130422 dev=50014 dev.type=9 encry=no ext=6802 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50014.0000000130.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=130
+20130422 16:13:50 [bds.evt.164].[50014].released cause=0 date=20130422 dev=50014 dev.type=9 encry=no ext=6802 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50014.0000000130.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=130
+20130422 16:14:35 [bds.evt.154].[50031].rec.started c.type=1 cause=1 dev=50031 dev.type=9 ext=6803 file.count=2 file.fmt=0 rec=-1 recno=132
+20130422 16:14:35 [bds.evt.162].[50031].connected c.type=1 cause=0 dev=50031 dev.type=9 ext=6803 file.count=2
+20130422 16:14:53 [bds.evt.155].[50048].rec.end c.type=1 cause=0 date=20130422 dev=50048 dev.type=9 encry=no ext=6805 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50048.0000000125.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=125
+20130422 16:14:53 [bds.evt.164].[50048].released cause=0 date=20130422 dev=50048 dev.type=9 encry=no ext=6805 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50048.0000000125.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=125
+20130422 16:17:05 [bds.evt.155].[50031].rec.end c.type=1 cause=0 date=20130422 dev=50031 dev.type=9 encry=no ext=6803 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50031.0000000132.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=132
+20130422 16:17:05 [bds.evt.164].[50031].released cause=0 date=20130422 dev=50031 dev.type=9 encry=no ext=6803 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50031.0000000132.g711 rec=-1 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=132
+20130422 16:20:05 [bds.ech.35A].[50003].record.file cause=1 dev=50003 rec=0 recno=133
+20130422 16:20:05 [bds.evt.154].[50003].rec.started c.type=1 cause=1 dev=50003 dev.type=9 ext=6805 file.count=2 file.fmt=0 rec=-1 recno=133
+20130422 16:20:05 [bds.evt.162].[50003].connected c.type=1 cause=0 dev=50003 dev.type=9 ext=6805 file.count=2
+20130422 16:20:05 [bds.ech.35A].[50003].record.file cause=1 dev=50003 rec=20130422000049 recno=133
+20130422 16:20:29 [bds.evt.155].[50003].rec.end c.type=1 cause=0 date=20130422 dev=50003 dev.type=9 encry=no ext=6805 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50003.0000000133.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000049 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=133
+20130422 16:20:29 [bds.evt.164].[50003].released cause=0 date=20130422 dev=50003 dev.type=9 encry=no ext=6805 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50003.0000000133.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000049 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=133
+20130422 16:20:57 [bds.ech.35A].[50020].record.file cause=1 dev=50020 rec=0 recno=134
+20130422 16:20:57 [bds.evt.154].[50020].rec.started c.type=1 cause=1 dev=50020 dev.type=9 ext=6802 file.count=2 file.fmt=0 rec=-1 recno=134
+20130422 16:20:57 [bds.evt.162].[50020].connected c.type=1 cause=0 dev=50020 dev.type=9 ext=6802 file.count=2
+20130422 16:20:57 [bds.ech.35A].[50020].record.file cause=1 dev=50020 rec=20130422000050 recno=134
+20130422 16:23:16 [bds.evt.155].[50020].rec.end c.type=1 cause=0 date=20130422 dev=50020 dev.type=9 encry=no ext=6802 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50020.0000000134.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000050 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=134
+20130422 16:23:16 [bds.evt.164].[50020].released cause=0 date=20130422 dev=50020 dev.type=9 encry=no ext=6802 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50020.0000000134.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000050 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=134
+20130422 16:25:28 [bds.ech.35A].[50040].record.file cause=1 dev=50040 rec=0 recno=135
+20130422 16:25:28 [bds.evt.154].[50040].rec.started c.type=1 cause=1 dev=50040 dev.type=9 ext=6803 file.count=2 file.fmt=0 rec=-1 recno=135
+20130422 16:25:28 [bds.evt.162].[50040].connected c.type=1 cause=0 dev=50040 dev.type=9 ext=6803 file.count=2
+20130422 16:25:28 [bds.ech.35A].[50040].record.file cause=1 dev=50040 rec=20130422000051 recno=135
+20130422 16:25:55 [bds.ech.35A].[50030].record.file cause=1 dev=50030 rec=0 recno=136
+20130422 16:25:55 [bds.evt.154].[50030].rec.started c.type=1 cause=1 dev=50030 dev.type=9 ext=6802 file.count=2 file.fmt=0 rec=-1 recno=136
+20130422 16:25:55 [bds.evt.162].[50030].connected c.type=1 cause=0 dev=50030 dev.type=9 ext=6802 file.count=2
+20130422 16:25:55 [bds.ech.35A].[50030].record.file cause=1 dev=50030 rec=20130422000052 recno=136
+20130422 16:26:16 [bds.evt.155].[50040].rec.end c.type=1 cause=0 date=20130422 dev=50040 dev.type=9 encry=no ext=6803 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50040.0000000135.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000051 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=135
+20130422 16:26:16 [bds.evt.164].[50040].released cause=0 date=20130422 dev=50040 dev.type=9 encry=no ext=6803 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50040.0000000135.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000051 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=135
+20130422 16:26:22 [bds.evt.154].[50003].rec.started c.type=1 cause=1 dev=50003 dev.type=9 ext=6803 file.count=2 file.fmt=0 rec=-1 recno=137
+20130422 16:26:22 [bds.evt.162].[50003].connected c.type=1 cause=0 dev=50003 dev.type=9 ext=6803 file.count=2
+20130422 16:26:22 [bds.ech.35A].[50003].record.file cause=1 dev=50003 rec=0 recno=137
+20130422 16:26:22 [bds.ech.35A].[50003].record.file cause=1 dev=50003 rec=20130422000053 recno=137
+20130422 16:26:57 [bds.evt.155].[50003].rec.end c.type=1 cause=0 date=20130422 dev=50003 dev.type=9 encry=no ext=6803 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50003.0000000137.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000053 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=137
+20130422 16:26:57 [bds.ech.35D].[50003].stop.channel cause=1 dev=50003 rec=20130422000053 recno=137
+20130422 16:27:11 [bds.evt.155].[50030].rec.end c.type=1 cause=0 date=20130422 dev=50030 dev.type=9 encry=no ext=6802 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50030.0000000136.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000052 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=136
+20130422 16:27:11 [bds.evt.164].[50030].released cause=0 date=20130422 dev=50030 dev.type=9 encry=no ext=6802 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50030.0000000136.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000052 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=136
+20130422 16:27:15 [bds.ech.35A].[50004].record.file cause=1 dev=50004 rec=0 recno=138
+20130422 16:27:15 [bds.evt.154].[50004].rec.started c.type=1 cause=1 dev=50004 dev.type=9 ext=6803 file.count=2 file.fmt=0 rec=-1 recno=138
+20130422 16:27:15 [bds.evt.162].[50004].connected c.type=1 cause=0 dev=50004 dev.type=9 ext=6803 file.count=2
+20130422 16:27:15 [bds.ech.35A].[50004].record.file cause=1 dev=50004 rec=20130422000054 recno=138
+20130422 16:27:56 [bds.evt.155].[50004].rec.end c.type=1 cause=0 date=20130422 dev=50004 dev.type=9 encry=no ext=6803 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50004.0000000138.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000054 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=138
+20130422 16:27:56 [bds.evt.164].[50004].released cause=0 dev=50004 ext=6803 file.count=2 file.fmt=7 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous
+20130422 16:27:56 [bds.ech.35D].[50004].stop.channel cause=1 dev=50004 rec=20130422000054 recno=138
+20130422 16:29:28 [bds.ech.35A].[50007].record.file cause=1 dev=50007 rec=0 recno=139
+20130422 16:29:28 [bds.evt.154].[50007].rec.started c.type=1 cause=1 dev=50007 dev.type=9 ext=6803 file.count=2 file.fmt=0 rec=-1 recno=139
+20130422 16:29:28 [bds.evt.162].[50007].connected c.type=1 cause=0 dev=50007 dev.type=9 ext=6803 file.count=2
+20130422 16:29:28 [bds.ech.35A].[50007].record.file cause=1 dev=50007 rec=20130422000055 recno=139
+20130422 16:30:08 [bds.evt.155].[50007].rec.end c.type=1 cause=0 date=20130422 dev=50007 dev.type=9 encry=no ext=6803 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50007.0000000139.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000055 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=139
+20130422 16:30:08 [bds.evt.164].[50007].released cause=0 date=20130422 dev=50007 dev.type=9 encry=no ext=6803 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50007.0000000139.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000055 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=139
+20130422 16:34:53 [bds.ech.35A].[50022].record.file cause=1 dev=50022 rec=0 recno=140
+20130422 16:34:53 [bds.evt.154].[50022].rec.started c.type=1 cause=1 dev=50022 dev.type=9 ext=6805 file.count=2 file.fmt=0 rec=-1 recno=140
+20130422 16:34:53 [bds.evt.162].[50022].connected c.type=1 cause=0 dev=50022 dev.type=9 ext=6805 file.count=2
+20130422 16:34:53 [bds.ech.35A].[50022].record.file cause=1 dev=50022 rec=20130422000056 recno=140
+20130422 16:35:41 [bds.ech.35A].[50015].record.file cause=1 dev=50015 rec=0 recno=141
+20130422 16:35:41 [bds.evt.154].[50015].rec.started c.type=1 cause=1 dev=50015 dev.type=9 ext=6803 file.count=2 file.fmt=0 rec=-1 recno=141
+20130422 16:35:41 [bds.evt.162].[50015].connected c.type=1 cause=0 dev=50015 dev.type=9 ext=6803 file.count=2
+20130422 16:35:41 [bds.ech.35A].[50015].record.file cause=1 dev=50015 rec=20130422000057 recno=141
+20130422 16:37:58 [bds.ech.35A].[50036].record.file cause=1 dev=50036 rec=0 recno=142
+20130422 16:37:58 [bds.evt.154].[50036].rec.started c.type=1 cause=1 dev=50036 dev.type=9 ext=6802 file.count=2 file.fmt=0 rec=-1 recno=142
+20130422 16:37:58 [bds.evt.162].[50036].connected c.type=1 cause=0 dev=50036 dev.type=9 ext=6802 file.count=2
+20130422 16:37:58 [bds.ech.35A].[50036].record.file cause=1 dev=50036 rec=20130422000058 recno=142
+20130422 16:38:02 [bds.evt.155].[50022].rec.end c.type=1 cause=0 date=20130422 dev=50022 dev.type=9 encry=no ext=6805 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50022.0000000140.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000056 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=140
+20130422 16:38:02 [bds.evt.164].[50022].released cause=0 date=20130422 dev=50022 dev.type=9 encry=no ext=6805 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50022.0000000140.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000056 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=140
+20130422 16:38:07 [bds.evt.155].[50015].rec.end c.type=1 cause=0 date=20130422 dev=50015 dev.type=9 encry=no ext=6803 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50015.0000000141.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000057 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=141
+20130422 16:38:07 [bds.ech.35D].[50015].stop.channel cause=1 dev=50015 rec=20130422000057 recno=141
+20130422 16:38:08 [bds.ech.35A].[50030].record.file cause=1 dev=50030 rec=0 recno=143
+20130422 16:38:08 [bds.evt.154].[50030].rec.started c.type=1 cause=1 dev=50030 dev.type=9 ext=6801 file.count=2 file.fmt=0 rec=-1 recno=143
+20130422 16:38:08 [bds.evt.162].[50030].connected c.type=1 cause=0 dev=50030 dev.type=9 ext=6801 file.count=2
+20130422 16:38:08 [bds.ech.35A].[50030].record.file cause=1 dev=50030 rec=20130422000059 recno=143
+20130422 16:38:59 [bds.ech.35A].[50002].record.file cause=1 dev=50002 rec=0 recno=144
+20130422 16:38:59 [bds.evt.154].[50002].rec.started c.type=1 cause=1 dev=50002 dev.type=9 ext=6803 file.count=2 file.fmt=0 rec=-1 recno=144
+20130422 16:38:59 [bds.evt.162].[50002].connected c.type=1 cause=0 dev=50002 dev.type=9 ext=6803 file.count=2
+20130422 16:38:59 [bds.ech.35A].[50002].record.file cause=1 dev=50002 rec=20130422000060 recno=144
+20130422 16:39:26 [bds.evt.155].[50036].rec.end c.type=1 cause=0 date=20130422 dev=50036 dev.type=9 encry=no ext=6802 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50036.0000000142.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000058 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=142
+20130422 16:39:26 [bds.evt.164].[50036].released cause=0 date=20130422 dev=50036 dev.type=9 encry=no ext=6802 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50036.0000000142.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000058 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=142
+20130422 16:39:34 [bds.evt.164].[50002].released cause=0 date=20130422 dev=50002 dev.type=9 encry=no ext=6803 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50002.0000000144.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000060 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=144
+20130422 16:39:34 [bds.evt.155].[50002].rec.end c.type=1 cause=0 date=20130422 dev=50002 dev.type=9 encry=no ext=6803 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50002.0000000144.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000060 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=144
+20130422 16:39:34 [bds.ech.35D].[50002].stop.channel cause=1 dev=50002 rec=20130422000060 recno=144
+20130422 16:39:53 [bds.ech.35A].[50035].record.file cause=1 dev=50035 rec=0 recno=145
+20130422 16:39:53 [bds.evt.154].[50035].rec.started c.type=1 cause=1 dev=50035 dev.type=9 ext=6803 file.count=2 file.fmt=0 rec=-1 recno=145
+20130422 16:39:53 [bds.evt.162].[50035].connected c.type=1 cause=0 dev=50035 dev.type=9 ext=6803 file.count=2
+20130422 16:39:53 [bds.ech.35A].[50035].record.file cause=1 dev=50035 rec=20130422000061 recno=145
+20130422 16:40:18 [bds.ech.35A].[50048].record.file cause=1 dev=50048 rec=0 recno=146
+20130422 16:40:18 [bds.evt.154].[50048].rec.started c.type=1 cause=1 dev=50048 dev.type=9 ext=6050 file.count=2 file.fmt=0 rec=-1 recno=146
+20130422 16:40:18 [bds.evt.162].[50048].connected c.type=1 cause=0 dev=50048 dev.type=9 ext=6050 file.count=2
+20130422 16:40:18 [bds.ech.35A].[50048].record.file cause=1 dev=50048 rec=20130422000062 recno=146
+20130422 16:40:39 [bds.evt.155].[50035].rec.end c.type=1 cause=0 date=20130422 dev=50035 dev.type=9 encry=no ext=6803 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50035.0000000145.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000061 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=145
+20130422 16:40:39 [bds.evt.164].[50035].released cause=0 date=20130422 dev=50035 dev.type=9 encry=no ext=6803 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50035.0000000145.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000061 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=145
+20130422 16:40:55 [bds.ech.35A].[50042].record.file cause=1 dev=50042 rec=0 recno=147
+20130422 16:40:55 [bds.evt.154].[50042].rec.started c.type=1 cause=1 dev=50042 dev.type=9 ext=6805 file.count=2 file.fmt=0 rec=-1 recno=147
+20130422 16:40:55 [bds.evt.162].[50042].connected c.type=1 cause=0 dev=50042 dev.type=9 ext=6805 file.count=2
+20130422 16:40:55 [bds.ech.35A].[50042].record.file cause=1 dev=50042 rec=20130422000063 recno=147
+20130422 16:41:01 [bds.evt.155].[50042].rec.end c.type=1 cause=0 date=20130422 dev=50042 dev.type=9 encry=no ext=6805 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50042.0000000147.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000063 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=147
+20130422 16:41:01 [bds.evt.164].[50042].released cause=0 date=20130422 dev=50042 dev.type=9 encry=no ext=6805 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50042.0000000147.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000063 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=147
+20130422 16:41:04 [bds.ech.35A].[50013].record.file cause=1 dev=50013 rec=0 recno=148
+20130422 16:41:04 [bds.evt.154].[50013].rec.started c.type=1 cause=1 dev=50013 dev.type=9 ext=6803 file.count=2 file.fmt=0 rec=-1 recno=148
+20130422 16:41:04 [bds.evt.162].[50013].connected c.type=1 cause=0 dev=50013 dev.type=9 ext=6803 file.count=2
+20130422 16:41:04 [bds.ech.35A].[50013].record.file cause=1 dev=50013 rec=20130422000064 recno=148
+20130422 16:42:04 [bds.evt.154].[50017].rec.started c.type=1 cause=1 dev=50017 dev.type=9 ext=6805 file.count=2 file.fmt=0 rec=-1 recno=149
+20130422 16:42:04 [bds.evt.162].[50017].connected c.type=1 cause=0 dev=50017 dev.type=9 ext=6805 file.count=2
+20130422 16:42:04 [bds.ech.35A].[50017].record.file cause=1 dev=50017 rec=0 recno=149
+20130422 16:42:04 [bds.ech.35A].[50017].record.file cause=1 dev=50017 rec=20130422000065 recno=149
+20130422 16:42:20 [bds.evt.155].[50048].rec.end c.type=1 cause=0 date=20130422 dev=50048 dev.type=9 encry=no ext=6050 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50048.0000000146.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000062 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=146
+20130422 16:42:20 [bds.evt.164].[50048].released cause=0 date=20130422 dev=50048 dev.type=9 encry=no ext=6050 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50048.0000000146.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000062 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=146
+20130422 16:42:26 [bds.evt.155].[50013].rec.end c.type=1 cause=0 date=20130422 dev=50013 dev.type=9 encry=no ext=6803 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50013.0000000148.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000064 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=148
+20130422 16:42:26 [bds.evt.164].[50013].released cause=0 date=20130422 dev=50013 dev.type=9 encry=no ext=6803 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50013.0000000148.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000064 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=148
+20130422 16:42:28 [bds.ech.35A].[50041].record.file cause=1 dev=50041 rec=0 recno=150
+20130422 16:42:28 [bds.evt.154].[50041].rec.started c.type=1 cause=1 dev=50041 dev.type=9 ext=6802 file.count=2 file.fmt=0 rec=-1 recno=150
+20130422 16:42:28 [bds.evt.162].[50041].connected c.type=1 cause=0 dev=50041 dev.type=9 ext=6802 file.count=2
+20130422 16:42:28 [bds.ech.35A].[50041].record.file cause=1 dev=50041 rec=20130422000066 recno=150
+20130422 16:42:40 [bds.evt.155].[50017].rec.end c.type=1 cause=0 date=20130422 dev=50017 dev.type=9 encry=no ext=6805 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50017.0000000149.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000065 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=149
+20130422 16:42:40 [bds.evt.164].[50017].released cause=0 date=20130422 dev=50017 dev.type=9 encry=no ext=6805 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50017.0000000149.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000065 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=149
+20130422 16:42:46 [bds.evt.155].[50041].rec.end c.type=1 cause=0 date=20130422 dev=50041 dev.type=9 encry=no ext=6802 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50041.0000000150.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000066 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=150
+20130422 16:42:46 [bds.evt.164].[50041].released cause=0 date=20130422 dev=50041 dev.type=9 encry=no ext=6802 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50041.0000000150.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000066 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=150
+20130422 16:44:11 [bds.evt.155].[50030].rec.end c.type=1 cause=0 date=20130422 dev=50030 dev.type=9 encry=no ext=6801 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50030.0000000143.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000059 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=143
+20130422 16:44:11 [bds.evt.164].[50030].released cause=0 date=20130422 dev=50030 dev.type=9 encry=no ext=6801 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50030.0000000143.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000059 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=143
+20130422 16:44:27 [bds.ech.35A].[50038].record.file cause=1 dev=50038 rec=0 recno=151
+20130422 16:44:27 [bds.evt.154].[50038].rec.started c.type=1 cause=1 dev=50038 dev.type=9 ext=6048 file.count=2 file.fmt=0 rec=-1 recno=151
+20130422 16:44:27 [bds.evt.162].[50038].connected c.type=1 cause=0 dev=50038 dev.type=9 ext=6048 file.count=2
+20130422 16:44:27 [bds.ech.35A].[50038].record.file cause=1 dev=50038 rec=20130422000067 recno=151
+20130422 16:44:56 [bds.ech.35A].[50021].record.file cause=1 dev=50021 rec=0 recno=152
+20130422 16:44:56 [bds.evt.154].[50021].rec.started c.type=1 cause=1 dev=50021 dev.type=9 ext=6805 file.count=2 file.fmt=0 rec=-1 recno=152
+20130422 16:44:56 [bds.evt.162].[50021].connected c.type=1 cause=0 dev=50021 dev.type=9 ext=6805 file.count=2
+20130422 16:44:56 [bds.ech.35A].[50021].record.file cause=1 dev=50021 rec=20130422000068 recno=152
+20130422 16:47:20 [bds.evt.155].[50038].rec.end c.type=1 cause=0 date=20130422 dev=50038 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50038.0000000151.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000067 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=151
+20130422 16:47:20 [bds.evt.164].[50038].released cause=0 date=20130422 dev=50038 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50038.0000000151.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000067 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=151
+20130422 16:47:22 [bds.ech.35A].[50014].record.file cause=1 dev=50014 rec=0 recno=153
+20130422 16:47:22 [bds.evt.154].[50014].rec.started c.type=1 cause=1 dev=50014 dev.type=9 ext=6803 file.count=2 file.fmt=0 rec=-1 recno=153
+20130422 16:47:22 [bds.evt.162].[50014].connected c.type=1 cause=0 dev=50014 dev.type=9 ext=6803 file.count=2
+20130422 16:47:22 [bds.ech.35A].[50014].record.file cause=1 dev=50014 rec=20130422000069 recno=153
+20130422 16:47:44 [bds.ech.35A].[50036].record.file cause=1 dev=50036 rec=0 recno=154
+20130422 16:47:44 [bds.evt.154].[50036].rec.started c.type=1 cause=1 dev=50036 dev.type=9 ext=6048 file.count=2 file.fmt=0 rec=-1 recno=154
+20130422 16:47:44 [bds.evt.162].[50036].connected c.type=1 cause=0 dev=50036 dev.type=9 ext=6048 file.count=2
+20130422 16:47:44 [bds.ech.35A].[50036].record.file cause=1 dev=50036 rec=20130422000070 recno=154
+20130422 16:47:49 [bds.evt.155].[50014].rec.end c.type=1 cause=0 date=20130422 dev=50014 dev.type=9 encry=no ext=6803 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50014.0000000153.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000069 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=153
+20130422 16:47:49 [bds.evt.164].[50014].released cause=0 date=20130422 dev=50014 dev.type=9 encry=no ext=6803 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50014.0000000153.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000069 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=153
+20130422 16:48:15 [bds.evt.155].[50021].rec.end c.type=1 cause=0 date=20130422 dev=50021 dev.type=9 encry=no ext=6805 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50021.0000000152.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000068 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=152
+20130422 16:48:15 [bds.evt.164].[50021].released cause=0 date=20130422 dev=50021 dev.type=9 encry=no ext=6805 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50021.0000000152.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000068 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=152
+20130422 16:48:45 [bds.ech.35A].[50030].record.file cause=1 dev=50030 rec=0 recno=155
+20130422 16:48:45 [bds.evt.154].[50030].rec.started c.type=1 cause=1 dev=50030 dev.type=9 ext=6803 file.count=2 file.fmt=0 rec=-1 recno=155
+20130422 16:48:45 [bds.evt.162].[50030].connected c.type=1 cause=0 dev=50030 dev.type=9 ext=6803 file.count=2
+20130422 16:48:45 [bds.ech.35A].[50030].record.file cause=1 dev=50030 rec=20130422000071 recno=155
+20130422 16:48:57 [bds.evt.155].[50030].rec.end c.type=1 cause=0 date=20130422 dev=50030 dev.type=9 encry=no ext=6803 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50030.0000000155.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000071 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=155
+20130422 16:48:57 [bds.evt.164].[50030].released cause=0 date=20130422 dev=50030 dev.type=9 encry=no ext=6803 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50030.0000000155.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000071 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=155
+20130422 16:50:00 [bds.ech.35A].[50002].record.file cause=1 dev=50002 rec=0 recno=156
+20130422 16:50:00 [bds.evt.154].[50002].rec.started c.type=1 cause=1 dev=50002 dev.type=9 ext=6802 file.count=2 file.fmt=0 rec=-1 recno=156
+20130422 16:50:00 [bds.evt.162].[50002].connected c.type=1 cause=0 dev=50002 dev.type=9 ext=6802 file.count=2
+20130422 16:50:00 [bds.ech.35A].[50002].record.file cause=1 dev=50002 rec=20130422000072 recno=156
+20130422 16:50:26 [bds.evt.155].[50036].rec.end c.type=1 cause=0 date=20130422 dev=50036 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50036.0000000154.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000070 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=154
+20130422 16:50:26 [bds.evt.164].[50036].released cause=0 date=20130422 dev=50036 dev.type=9 encry=no ext=6048 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50036.0000000154.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000070 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=154
+20130422 16:53:06 [bds.evt.155].[50002].rec.end c.type=1 cause=0 date=20130422 dev=50002 dev.type=9 encry=no ext=6802 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50002.0000000156.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000072 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=156
+20130422 16:53:06 [bds.evt.164].[50002].released cause=0 date=20130422 dev=50002 dev.type=9 encry=no ext=6802 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50002.0000000156.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000072 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=156
+20130422 16:53:26 [bds.ech.35A].[50031].record.file cause=1 dev=50031 rec=0 recno=157
+20130422 16:53:26 [bds.evt.154].[50031].rec.started c.type=1 cause=1 dev=50031 dev.type=9 ext=6803 file.count=2 file.fmt=0 rec=-1 recno=157
+20130422 16:53:26 [bds.evt.162].[50031].connected c.type=1 cause=0 dev=50031 dev.type=9 ext=6803 file.count=2
+20130422 16:53:26 [bds.ech.35A].[50031].record.file cause=1 dev=50031 rec=20130422000073 recno=157
+20130422 16:55:10 [bds.ech.35A].[50009].record.file cause=1 dev=50009 rec=0 recno=158
+20130422 16:55:10 [bds.evt.154].[50009].rec.started c.type=1 cause=1 dev=50009 dev.type=9 ext=6802 file.count=2 file.fmt=0 rec=-1 recno=158
+20130422 16:55:10 [bds.evt.162].[50009].connected c.type=1 cause=0 dev=50009 dev.type=9 ext=6802 file.count=2
+20130422 16:55:10 [bds.ech.35A].[50009].record.file cause=1 dev=50009 rec=20130422000074 recno=158
+20130422 16:55:23 [bds.evt.155].[50009].rec.end c.type=1 cause=0 date=20130422 dev=50009 dev.type=9 encry=no ext=6802 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50009.0000000158.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000074 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=158
+20130422 16:55:23 [bds.evt.164].[50009].released cause=0 date=20130422 dev=50009 dev.type=9 encry=no ext=6802 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50009.0000000158.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000074 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=158
+20130422 16:55:56 [bds.evt.155].[50031].rec.end c.type=1 cause=0 date=20130422 dev=50031 dev.type=9 encry=no ext=6803 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50031.0000000157.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000073 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=157
+20130422 16:55:56 [bds.evt.164].[50031].released cause=0 date=20130422 dev=50031 dev.type=9 encry=no ext=6803 file.count=2 file.fmt=7 fname=d:\temp\20130422\20130422.50031.0000000157.g711 ftp.ip=192.168.8.10 ftp.root=record ftp.usr=anonymous rec=20130422000073 rec.ftp.ip=192.168.8.10 rec.ftp.root=temp rec.ftp.usr=anonymous recno=157
+20130422 17:03:03 [bds.ech.35A].[50047].record.file cause=1 dev=50047 rec=0 recno=159
+20130422 17:03:03 [bds.evt.154].[50047].rec.started c.type=1 cause=1 dev=50047 dev.type=9 ext=6803 file.count=2 file.fmt=0 rec=-1 recno=159
+20130422 17:03:03 [bds.evt.162].[50047].connected c.type=1 cause=0 dev=50047 dev.type=9 ext=6803 file.count=2
+20130422 17:03:03 [bds.ech.35A].[50047].record.file cause=1 dev=50047 rec=20130422000075 recno=159

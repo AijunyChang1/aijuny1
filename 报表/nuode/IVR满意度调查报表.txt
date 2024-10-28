@@ -1,0 +1,238 @@
+USE [rep_ccms]
+GO
+/****** Object:  StoredProcedure [dbo].[sp_get_ivr_survey]    Script Date: 06/26/2013 16:37:12 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		Summit.Lau
+-- Create date: 2012.07.05
+-- Description:	
+--                
+/*
+  sp_get_ivr_survey @DateBegin = 20130101 ,@DateEnd = 20130108
+					,@Calling = '8892'
+
+*/
+-- =============================================
+ALTER PROCEDURE [dbo].[sp_get_ivr_survey]
+    (
+      @ProjectId INT = NULL ,
+      @DateBegin BIGINT = NULL ,
+      @DateEnd BIGINT = NULL ,
+      @TimeBegin VARCHAR(10) = '000000' ,
+      @TimeEnd VARCHAR(10) = '235959' ,
+      @Agent VARCHAR(16) = '' ,
+      @Skill VARCHAR(16) = '' ,
+      @Dtmf      INT        = 0 ,         -- 评价类型	  @Calling   varchar(23) = '',       -- 主叫号码
+      @Preload BIT = 0
+    )
+AS 
+    BEGIN  
+        DECLARE 
+            @v_DateBegin VARCHAR(20) ,
+            @v_DateEnd VARCHAR(20) ,
+            @v_DateBegin_a VARCHAR(20) ,
+            @v_DateEnd_a VARCHAR(20) ,
+            @v_BeginTime VARCHAR(10) ,
+            @v_EndTime VARCHAR(10) ,
+            @v_Agent VARCHAR(16) ,
+            @v_Skill VARCHAR(16) ,
+            @Sql VARCHAR(MAX) ,
+            @SqlCount VARCHAR(MAX) ,
+            @Count INT ,
+            @dayoff INT ,
+            @hour1 INT ,
+            @hour2 INT ,
+            @i INT ,
+            @Error INT
+        SET @Error = 0
+        IF LEN(@TimeBegin) < 6
+            OR ISNULL(@TimeBegin, '0') = '0' 
+            SET @v_BeginTime = '000000'
+        ELSE 
+            SET @v_BeginTime = @TimeBegin
+        IF LEN(@TimeEnd) < 6
+            OR ISNULL(@TimeEnd, '0') = '0' 
+            SET @v_EndTime = '235959'
+        ELSE 
+            SET @v_EndTime = @TimeEnd
+       
+        SELECT  @v_DateBegin = Beg_Date ,
+                @v_DateEnd = End_Date
+        FROM    For_Date(@DateBegin, @DateEnd, @v_BeginTime, @v_EndTime)  --获得起始与结束时间
+        
+
+----获得坐席的登录时长
+------------------
+--;
+--        WITH    cte
+--                  AS 
+       
+    CREATE TABLE #TempSkill ( Skill VARCHAR(6) )  ---  技能组临时表
+        CREATE TABLE #TempAgent ( Agent VARCHAR(6) )  ---  坐席临时表
+        INSERT  INTO #TempSkill
+                SELECT  *
+                FROM    Format_Skill(@Skill)
+        INSERT  INTO #TempAgent
+                SELECT  *
+                FROM    Format_Agent(@Agent)
+    SELECT B.Agent,SUM(D5) D5,
+ SUM(D4) D4,
+ SUM(D3) D3,
+ SUM(D2) D2,
+ SUM(D1) D1
+  INTO #TempTable FROM 
+     (  
+			(SELECT  Agent,CallID UCID,
+		   CASE WHEN Dtmf = 5 THEN 1
+		   ELSE 0 END D5,
+		   CASE WHEN  Dtmf = 4 THEN 1
+		   ELSE 0 END D4,
+		   CASE WHEN  Dtmf = 3 THEN 1
+		   ELSE 0 END D3,
+		   CASE WHEN  Dtmf = 2 THEN 1
+		   ELSE 0 END D2,
+		   CASE WHEN  Dtmf = 1 THEN 1
+		   ELSE 0 END D1
+		 FROM vxi_ivr..Survey 
+		 where CONVERT(datetime,starttime) BETWEEN  @v_DateBegin AND  @v_DateEnd 	 
+           and 
+         len(CallID)>1
+		 ) A
+     inner join 
+  (select distinct Agent,Ucid,skill,calling from vxi_rec..records   -- 去除重复评分的记录
+  --vxi_ucd..Ucd
+     where len(Agent)>1 and  len(Ucid) >1
+     and
+     CONVERT(datetime,starttime) BETWEEN  @v_DateBegin AND  @v_DateEnd 
+  )B
+on A.ucid = B.ucid     
+      )
+      group by B.Agent
+      order by B.Agent  
+     
+     
+     print  @v_DateBegin
+     print  @v_DateEnd
+     SELECT * INTO #TempTable2
+     FROM 
+     (
+     SELECT DateTime,AgentSkillTargetID,B.PeripheralNumber ,  --- 坐席编号
+                                 SkillGroupSkillTargetID,--  技能
+--                                --B.PeripheralName Agent ,
+                                 CallGUID UCID,
+                            B.EnterpriseName AgentName ,
+                            CASE WHEN TalkTime > 0
+                                      AND PeripheralCallType IN ( 2, 1, 6 )
+                                 THEN 1
+                                 ELSE 0
+                            END Answer  --- 呼入应答数
+                            ,
+                            
+                            CASE WHEN PeripheralCallType = 4
+                                      AND TalkTime > 0 THEN 1
+                                 ELSE 0
+                            END TRANSFER   ---- 转接数
+                            --FROM    banggo.ipcc_sideA.dbo.t_Termination_Call_Detail A,
+                            FROM t_Termination_Call_Detail A,
+                            t_Agent B 
+                  WHERE     A.AgentSkillTargetID IS NOT NULL
+                            AND SkillGroupSkillTargetID IN ( SELECT
+                                                              Skill
+                                                             FROM
+                                                              #TempSkill )
+                            AND A.AgentSkillTargetID = B.SkillTargetID
+                            AND AgentSkillTargetID IN ( SELECT
+                                                              Agent
+                                                        FROM  #TempAgent )
+                            AND PeripheralCallType IN ( 2, 1, 6)
+                            AND A.DateTime BETWEEN  @v_DateBegin  
+                                           AND  @v_DateEnd 
+     ) S
+     
+   
+    -- select * from #TempTable
+     
+    select * into #Temp_Survey
+    from 
+    (
+     SELECT 
+     --F.UCID,
+     Z.Agent AgentId,
+     Z.AgentName,
+     --F.Skill,
+     D5 vcontent_n,
+     D4 content_n,
+     D3 commonly_n,
+     D2 uncontent_n,
+     D1 vuncontent_n          
+     FROM   
+     #TempTable  F 
+     inner join vxi_sys..Agent Z on F.Agent = Z.Agent
+     )S
+     
+     --select * from #Temp_Survey
+     
+     SELECT 
+     Z.Agent AgentId,
+     Z.AgentName,
+     
+     Answer ans_n,    
+     (vcontent_n+content_n+commonly_n+uncontent_n+vuncontent_n) trans_v, -- 评分量     
+     case when Answer > 0 then
+       cast((
+       
+       cast(dbo.Func_Defin_Rate((vcontent_n+content_n+commonly_n+uncontent_n+vuncontent_n),Answer) as float)
+       
+       *100) AS varchar(5)) + '%'
+       else '0'
+       end 
+        trans_r, -- 评分率
+     vcontent_n,
+     content_n,
+     commonly_n,
+     uncontent_n,
+     vuncontent_n
+     ,
+     case when (vcontent_n+content_n+commonly_n+uncontent_n+vuncontent_n) > 0 then
+      ROUND((vcontent_n*5+content_n*4+commonly_n*3+uncontent_n*2+vuncontent_n)/(vcontent_n+content_n+commonly_n+uncontent_n+vuncontent_n),0)
+     ELSE 0 END  avg_score, -- 平均分
+      case when (vcontent_n+content_n+commonly_n+uncontent_n+vuncontent_n) > 0 then
+       cast((
+       
+       cast(dbo.Func_Defin_Rate((vcontent_n+content_n),(vcontent_n+content_n+commonly_n+uncontent_n+vuncontent_n)) as float)       
+       *100) AS varchar(5)) + '%'
+     ELSE '0' END  Efficiency -- 满意度（4-5分评分个数/评分量）
+     
+        
+   from 
+   ( select AgentId,
+     AgentName,
+     --Skill,
+     sum(vcontent_n) vcontent_n,
+     sum(content_n) content_n,
+     sum(commonly_n) commonly_n,
+     sum(uncontent_n) uncontent_n,
+     sum(vuncontent_n) vuncontent_n
+     from 
+   #Temp_Survey 
+   group by AgentId,AgentName
+   --,skill
+   ) I
+   right join
+     (
+       SELECT AgentSkillTargetID,PeripheralNumber
+     ,AgentName,SUM(Answer) Answer
+     ,SUM(TRANSFER) TRANSFER
+     FROM #TempTable2 
+     GROUP BY AgentSkillTargetID,PeripheralNumber,AgentName
+     ) H
+     on H.PeripheralNumber = I.AgentId
+     --and H.SkillGroupSkillTargetID = I.skill --Ucd表Skill不全
+    inner join vxi_sys..Agent Z on H.PeripheralNumber = Z.Agent 
+    END
+
+
+

@@ -1,0 +1,312 @@
+USE [vxi_rep]
+GO
+/****** Object:  StoredProcedure [stat].[sp_stat_agent_status]    Script Date: 09/04/2013 09:32:22 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		Guozhi Song
+-- Updated:     Aijun Chang
+-- Create date: 2011.2.28
+-- Description: 坐席状态统计
+-- Test: 
+--	EXEC [stat].[sp_stat_agent_status] @RecDate=20130819, @GroupLevel = 'Hourly'
+--	EXEC [stat].[sp_stat_agent_status] @RecDate=20130819, @GroupLevel = 'Daily'
+--	EXEC [stat].[sp_stat_agent_status] @RecDate=20101201, @GroupLevel = 'Weekly'
+--	EXEC [stat].[sp_stat_agent_status] @RecDate=20101201, @GroupLevel = 'Monthly'
+--	EXEC [stat].[sp_stat_agent_status] @RecDate=20101201, @GroupLevel = 'Yearly'
+-- =============================================
+ALTER PROCEDURE [stat].[sp_stat_agent_status]
+	@RecDate	INT	= NULL,			-- 报表日期（用于日报表查询）格式：yyyymmdd/yyyymm/yyyy，注：mm = 0 表示年报，dd = 0 表示月报
+	@DateBegin	INT = NULL,
+	@DateEnd	INT = NULL,
+	@TimeBegin	INT = 0,
+	@TimeEnd	INT = 2359, 
+	@SkillGroup INT = NULL,
+	@Skill		NVARCHAR(200) = NULL,
+	@ProjectId	INT = NULL,
+	@AgentGroupId	INT = NULL,
+	@Agent		VARCHAR(200) = NULL,
+	@GroupLevel NVARCHAR(32) = NULL, --Hourly/Daily/Weekly/Monthly/Yearly 时段/日/周/月/年
+	@Preload	BIT = 0				-- 仅预览表标题
+AS		
+	DECLARE @Error INT
+BEGIN	
+	SET @Error = 0
+	SET NOCOUNT ON
+	
+	SET @Preload = ISNULL(@Preload, 1)
+	set @Agent = isnull(rtrim(@Agent), '')
+	
+	IF @GroupLevel IS NULL OR @GroupLevel NOT IN('Hourly', 'Daily', 'Weekly', 'Monthly', 'Yearly') BEGIN
+		RAISERROR('The value of @GroupLevel[%s] must in Hourly/Daily/Weekly/Monthly/Yearly', -1, -1, @GroupLevel)
+		SET @Error = -1
+		set @GroupLevel='Daily'
+		--GOTO ERROR_END
+	END
+					
+	IF (@RecDate IS NULL OR @RecDate <= 0) BEGIN
+		SET @RecDate = CONVERT(VARCHAR(8), GETDATE(), 112)	-- yyyyMMdd
+		SET @Error = @@ERROR
+	END
+	
+	IF ISDATE(@DateBegin) != 1 OR ISDATE(@DateEnd) != 1 OR @DateBegin > @DateEnd BEGIN
+		IF (@RecDate BETWEEN 19000101 AND 99991231) BEGIN
+			-- 作为yyyyMMdd处理
+			SELECT @DateBegin = @RecDate, @DateEnd = @RecDate
+			SET @Error = @@ERROR
+		END
+		ELSE IF (@RecDate BETWEEN 190011 AND 999912) BEGIN
+			-- 作为yyyyMM处理
+			SELECT @DateBegin = @RecDate*100 + 1, @DateEnd = @RecDate*100 + 31	-- 计算范围为1月
+			SET @Error = @@ERROR
+		END
+		ELSE IF (@RecDate BETWEEN 1900 AND 9999) BEGIN
+			-- 作为yyyy处理
+			SELECT @DateBegin = @RecDate*10000 + 101, @DateEnd = @RecDate*10000 + 1231	-- 计算范围为1年
+			SET @Error = @@ERROR		
+		END
+		ELSE SET @Error = 1;
+	END		
+			
+	IF @Error != 0 BEGIN
+		RAISERROR('The format of parameter ''@RecDate''[%d] is invalid, use AS ''yyyymmdd'' or ''yyyymm'' or ''yyyy'' ', 1, 1, @RecDate)
+		SET @Error = 1
+		GOTO ERROR_END
+	END
+		
+	IF ((NOT @TimeBegin >= 0) OR (NOT @TimeEnd <= 2359) OR (NOT @TimeBegin <= @TimeEnd))
+		SELECT @TimeBegin = 0, @TimeEnd = 2359		
+	
+	BEGIN TRY	
+		IF @GroupLevel = 'Hourly' BEGIN
+			;WITH cte AS(
+				SELECT d.RecDate, d.RecTime, d.Agent, 
+					LoginTime = MIN(d.LoginTime) , LogoutTime = MAX(d.LogoutTime), 
+					Login_n = SUM(d.Login_n), 
+					Login_t = SUM(d.Login_t), 
+					Ready_n = SUM(d.Ready_n), 
+					Ready_t = SUM(d.Ready_t), 
+					Acw_n = SUM(d.Acw_n), 
+					Acw_t = SUM(d.Acw_t), 
+					Idle_t = SUM(d.Idle_t)	
+				FROM stat.agent_hourly d
+				INNER JOIN rep_ccms..t_Agent a
+					ON d.Agent = a.PeripheralNumber			
+				WHERE @Preload = 0 
+					AND	d.RecDate BETWEEN @DateBegin AND @DateEnd
+					AND d.RecTime BETWEEN @TimeBegin AND @TimeEnd
+					and (@Agent = '' or charindex(','+rtrim(d.Agent)+',',','+@Agent+',') > 0)
+					and d.LoginTime is not NULL
+					and d.LogoutTime is not NULL
+
+				GROUP BY d.RecDate, d.RecTime, d.Agent
+				)	
+									
+			SELECT STR(RecDate) RecDate, STR(RecTime) RecTime, Agent,  
+				LoginTime, LogoutTime, Login_n login_num, Login_t, Ready_n, Ready_t, Acw_n, Acw_t, Idle_t
+			FROM cte
+			UNION ALL
+			SELECT 'Total' RecDate, '' RecTime, '' Agent, 
+				LoginTime = MIN(LoginTime), LogoutTime = MAX(LogoutTime), 
+				Login_num = SUM(Login_n), Login_t = SUM(Login_t), 
+				Ready_n = SUM(Ready_n), Ready_t = SUM(Ready_t), 
+				Acw_n = SUM(Acw_n), Acw_t = SUM(Acw_t), 
+				Idle_t = SUM(Idle_t)
+			FROM cte			
+		END
+		ELSE IF @GroupLevel = 'Daily' BEGIN
+			;WITH cte AS(
+				SELECT d.RecDate, d.Agent, 
+					LoginTime = MIN(d.LoginTime) , LogoutTime = MAX(d.LogoutTime), 
+					Login_n = SUM(d.Login_n), 
+					Login_t = SUM(d.Login_t), 
+					Ready_n = SUM(d.Ready_n), 
+					Ready_t = SUM(d.Ready_t), 
+					Acw_n = SUM(d.Acw_n), 
+					Acw_t = SUM(d.Acw_t), 
+					Idle_t = SUM(d.Idle_t),
+					Aux_n = SUM(ISNULL(Aux00_n, 0) + ISNULL(Aux01_n, 0) + ISNULL(Aux02_n, 0) + ISNULL(Aux03_n, 0) + ISNULL(Aux04_n, 0) + ISNULL(Aux05_n, 0) + ISNULL(Aux06_n, 0) + ISNULL(Aux07_n, 0) + ISNULL(Aux08_n, 0) + ISNULL(Aux09_n, 0)),
+					Aux_t = SUM(ISNULL(Aux00_t, 0) + ISNULL(Aux01_t, 0) + ISNULL(Aux02_t, 0) + ISNULL(Aux03_t, 0) + ISNULL(Aux04_t, 0) + ISNULL(Aux05_t, 0) + ISNULL(Aux06_t, 0) + ISNULL(Aux07_t, 0) + ISNULL(Aux08_t, 0) + ISNULL(Aux09_t, 0)),
+					Logout_n = SUM(ISNULL(Logout00_n, 0) + ISNULL(Logout01_n, 0) + ISNULL(Logout02_n, 0) + ISNULL(Logout03_n, 0) + ISNULL(Logout04_n, 0) + ISNULL(Logout05_n, 0) + ISNULL(Logout06_n, 0) + ISNULL(Logout07_n, 0) + ISNULL(Logout08_n, 0) + ISNULL(Logout09_n, 0)),
+					Logout_t = SUM(ISNULL(Logout00_t, 0) + ISNULL(Logout01_t, 0) + ISNULL(Logout02_t, 0) + ISNULL(Logout03_t, 0) + ISNULL(Logout04_t, 0) + ISNULL(Logout05_t, 0) + ISNULL(Logout06_t, 0) + ISNULL(Logout07_t, 0) + ISNULL(Logout08_t, 0) + ISNULL(Logout09_t, 0))
+				FROM stat.agent_daily d
+				INNER JOIN rep_ccms..t_Agent a
+					ON d.Agent = a.PeripheralNumber			
+				WHERE  @Preload = 0 
+					AND	d.RecDate BETWEEN @DateBegin AND @DateEnd
+					and (@Agent = '' or charindex(','+rtrim(d.Agent)+',',','+@Agent+',') > 0)
+					and d.LoginTime is not NULL
+					and d.LogoutTime is not NULL
+
+				GROUP BY d.RecDate, d.Agent
+				)	
+									
+			SELECT STR(RecDate) RecDate, Agent,   
+				LoginTime, LogoutTime, Login_n  login_num, Login_t, Ready_n, Ready_t, 
+				Acw_n, Acw_t, Idle_t, Aux_n, Aux_t, Login_n, Login_t
+			FROM cte
+			UNION ALL
+			SELECT 'Total' RecDate, '' Agent, 		 
+				LoginTime = MIN(LoginTime), LogoutTime = MAX(LogoutTime), 
+				Login_num = SUM(Login_n), Login_t = SUM(Login_t), 
+				Ready_n = SUM(Ready_n), Ready_t = SUM(Ready_t), 
+				Acw_n = SUM(Acw_n), Acw_t = SUM(Acw_t), 
+				Idle_t = SUM(Idle_t),
+				Aux_n = SUM(Aux_n), 
+				Aux_t = SUM(Aux_t), 
+				Login_n = SUM(Login_n), 
+				Login_t = SUM(Login_t)
+			FROM cte				
+		END
+		ELSE IF @GroupLevel = 'Weekly' BEGIN
+			SET DATEFIRST 7			 
+			
+			;WITH cte AS(
+				SELECT dbo.int_date_week(d.RecDate) RecDate, d.Agent,
+					LoginTime = MIN(d.LoginTime) , LogoutTime = MAX(d.LogoutTime), 
+					Login_n = SUM(d.Login_n), 
+					Login_t = SUM(d.Login_t), 
+					Ready_n = SUM(d.Ready_n), 
+					Ready_t = SUM(d.Ready_t), 
+					Acw_n = SUM(d.Acw_n), 
+					Acw_t = SUM(d.Acw_t), 
+					Idle_t = SUM(d.Idle_t),
+					Aux_n = SUM(ISNULL(Aux00_n, 0) + ISNULL(Aux01_n, 0) + ISNULL(Aux02_n, 0) + ISNULL(Aux03_n, 0) + ISNULL(Aux04_n, 0) + ISNULL(Aux05_n, 0) + ISNULL(Aux06_n, 0) + ISNULL(Aux07_n, 0) + ISNULL(Aux08_n, 0) + ISNULL(Aux09_n, 0)),
+					Aux_t = SUM(ISNULL(Aux00_t, 0) + ISNULL(Aux01_t, 0) + ISNULL(Aux02_t, 0) + ISNULL(Aux03_t, 0) + ISNULL(Aux04_t, 0) + ISNULL(Aux05_t, 0) + ISNULL(Aux06_t, 0) + ISNULL(Aux07_t, 0) + ISNULL(Aux08_t, 0) + ISNULL(Aux09_t, 0)),
+					Logout_n = SUM(ISNULL(Logout00_n, 0) + ISNULL(Logout01_n, 0) + ISNULL(Logout02_n, 0) + ISNULL(Logout03_n, 0) + ISNULL(Logout04_n, 0) + ISNULL(Logout05_n, 0) + ISNULL(Logout06_n, 0) + ISNULL(Logout07_n, 0) + ISNULL(Logout08_n, 0) + ISNULL(Logout09_n, 0)),
+					Logout_t = SUM(ISNULL(Logout00_t, 0) + ISNULL(Logout01_t, 0) + ISNULL(Logout02_t, 0) + ISNULL(Logout03_t, 0) + ISNULL(Logout04_t, 0) + ISNULL(Logout05_t, 0) + ISNULL(Logout06_t, 0) + ISNULL(Logout07_t, 0) + ISNULL(Logout08_t, 0) + ISNULL(Logout09_t, 0))
+				FROM stat.agent_daily d
+				INNER JOIN rep_ccms..t_Agent a
+					ON d.Agent = a.PeripheralNumber			
+				WHERE  @Preload = 0 
+					AND	d.RecDate BETWEEN @DateBegin AND @DateEnd
+					and (@Agent = '' or charindex(','+rtrim(d.Agent)+',',','+@Agent+',') > 0)
+				GROUP BY dbo.int_date_week(d.RecDate), d.Agent
+				)	
+									
+			SELECT STR(RecDate) RecDate, Agent, 
+				LoginTime, LogoutTime, Login_n login_num, Login_t, Ready_n, Ready_t, 
+				Acw_n, Acw_t, Idle_t, Aux_n, Aux_t, Login_n, Login_t
+			FROM cte
+			UNION ALL
+			SELECT 'Total' RecDate, '' Agent,  
+				LoginTime = MIN(LoginTime), LogoutTime = MAX(LogoutTime), 
+				Login_num = SUM(Login_n), Login_t = SUM(Login_t), 
+				Ready_n = SUM(Ready_n), Ready_t = SUM(Ready_t), 
+				Acw_n = SUM(Acw_n), Acw_t = SUM(Acw_t), 
+				Idle_t = SUM(Idle_t),
+				Aux_n = SUM(Aux_n), 
+				Aux_t = SUM(Aux_t), 
+				Login_n = SUM(Login_n), 
+				Login_t = SUM(Login_t)
+			FROM cte			
+		END
+		ELSE IF @GroupLevel = 'Monthly' BEGIN
+			;WITH cte AS(
+				SELECT d.RecDate RecDate, d.Agent, 
+					LoginTime = MIN(d.LoginTime) , LogoutTime = MAX(d.LogoutTime), 
+					Login_n = SUM(d.Login_n), 
+					Login_t = SUM(d.Login_t), 
+					Ready_n = SUM(d.Ready_n), 
+					Ready_t = SUM(d.Ready_t), 
+					Acw_n = SUM(d.Acw_n), 
+					Acw_t = SUM(d.Acw_t), 
+					Idle_t = SUM(d.Idle_t),
+					Aux_n = SUM(ISNULL(Aux00_n, 0) + ISNULL(Aux01_n, 0) + ISNULL(Aux02_n, 0) + ISNULL(Aux03_n, 0) + ISNULL(Aux04_n, 0) + ISNULL(Aux05_n, 0) + ISNULL(Aux06_n, 0) + ISNULL(Aux07_n, 0) + ISNULL(Aux08_n, 0) + ISNULL(Aux09_n, 0)),
+					Aux_t = SUM(ISNULL(Aux00_t, 0) + ISNULL(Aux01_t, 0) + ISNULL(Aux02_t, 0) + ISNULL(Aux03_t, 0) + ISNULL(Aux04_t, 0) + ISNULL(Aux05_t, 0) + ISNULL(Aux06_t, 0) + ISNULL(Aux07_t, 0) + ISNULL(Aux08_t, 0) + ISNULL(Aux09_t, 0)),
+					Logout_n = SUM(ISNULL(Logout00_n, 0) + ISNULL(Logout01_n, 0) + ISNULL(Logout02_n, 0) + ISNULL(Logout03_n, 0) + ISNULL(Logout04_n, 0) + ISNULL(Logout05_n, 0) + ISNULL(Logout06_n, 0) + ISNULL(Logout07_n, 0) + ISNULL(Logout08_n, 0) + ISNULL(Logout09_n, 0)),
+					Logout_t = SUM(ISNULL(Logout00_t, 0) + ISNULL(Logout01_t, 0) + ISNULL(Logout02_t, 0) + ISNULL(Logout03_t, 0) + ISNULL(Logout04_t, 0) + ISNULL(Logout05_t, 0) + ISNULL(Logout06_t, 0) + ISNULL(Logout07_t, 0) + ISNULL(Logout08_t, 0) + ISNULL(Logout09_t, 0))
+				FROM stat.agent_monthly d
+				INNER JOIN rep_ccms..t_Agent a
+					ON d.Agent = a.PeripheralNumber			
+				WHERE  @Preload = 0 
+					AND	d.RecDate/100 BETWEEN @DateBegin/100 AND @DateEnd/100
+					and (@Agent = '' or charindex(','+rtrim(d.Agent)+',',','+@Agent+',') > 0)
+					and d.LoginTime is not NULL
+					and d.LogoutTime is not NULL
+
+				GROUP BY d.RecDate, d.Agent
+				)	
+									
+			SELECT STR(RecDate) RecDate, Agent,  
+				LoginTime, LogoutTime, Login_n login_num, Login_t, Ready_n, Ready_t, 
+				Acw_n, Acw_t, Idle_t, Aux_n, Aux_t, Login_n, Login_t
+			FROM cte
+			UNION ALL
+			SELECT 'Total' RecDate, '' Agent,   
+				LoginTime = MIN(LoginTime), LogoutTime = MAX(LogoutTime), 
+				Login_num = SUM(Login_n), Login_t = SUM(Login_t), 
+				Ready_n = SUM(Ready_n), Ready_t = SUM(Ready_t), 
+				Acw_n = SUM(Acw_n), Acw_t = SUM(Acw_t), 
+				Idle_t = SUM(Idle_t),
+				Aux_n = SUM(Aux_n), 
+				Aux_t = SUM(Aux_t), 
+				Login_n = SUM(Login_n), 
+				Login_t = SUM(Login_t)
+			FROM cte				
+		END
+		ELSE IF @GroupLevel = 'Yearly' BEGIN
+			;WITH cte AS(
+				SELECT d.RecDate/10000 RecDate, d.Agent,
+					LoginTime = MIN(d.LoginTime) , LogoutTime = MAX(d.LogoutTime), 
+					Login_n = SUM(d.Login_n), 
+					Login_t = SUM(d.Login_t), 
+					Ready_n = SUM(d.Ready_n), 
+					Ready_t = SUM(d.Ready_t), 
+					Acw_n = SUM(d.Acw_n), 
+					Acw_t = SUM(d.Acw_t), 
+					Idle_t = SUM(d.Idle_t),
+					Aux_n = SUM(ISNULL(Aux00_n, 0) + ISNULL(Aux01_n, 0) + ISNULL(Aux02_n, 0) + ISNULL(Aux03_n, 0) + ISNULL(Aux04_n, 0) + ISNULL(Aux05_n, 0) + ISNULL(Aux06_n, 0) + ISNULL(Aux07_n, 0) + ISNULL(Aux08_n, 0) + ISNULL(Aux09_n, 0)),
+					Aux_t = SUM(ISNULL(Aux00_t, 0) + ISNULL(Aux01_t, 0) + ISNULL(Aux02_t, 0) + ISNULL(Aux03_t, 0) + ISNULL(Aux04_t, 0) + ISNULL(Aux05_t, 0) + ISNULL(Aux06_t, 0) + ISNULL(Aux07_t, 0) + ISNULL(Aux08_t, 0) + ISNULL(Aux09_t, 0)),
+					Logout_n = SUM(ISNULL(Logout00_n, 0) + ISNULL(Logout01_n, 0) + ISNULL(Logout02_n, 0) + ISNULL(Logout03_n, 0) + ISNULL(Logout04_n, 0) + ISNULL(Logout05_n, 0) + ISNULL(Logout06_n, 0) + ISNULL(Logout07_n, 0) + ISNULL(Logout08_n, 0) + ISNULL(Logout09_n, 0)),
+					Logout_t = SUM(ISNULL(Logout00_t, 0) + ISNULL(Logout01_t, 0) + ISNULL(Logout02_t, 0) + ISNULL(Logout03_t, 0) + ISNULL(Logout04_t, 0) + ISNULL(Logout05_t, 0) + ISNULL(Logout06_t, 0) + ISNULL(Logout07_t, 0) + ISNULL(Logout08_t, 0) + ISNULL(Logout09_t, 0))
+				FROM stat.agent_monthly d
+				INNER JOIN rep_ccms..t_Agent a
+					ON d.Agent =a.PeripheralNumber				
+				WHERE  @Preload = 0 
+					AND	d.RecDate/10000 BETWEEN @DateBegin/10000 AND @DateEnd/10000
+					and (@Agent = '' or charindex(','+rtrim(d.Agent)+',',','+@Agent+',') > 0)
+					and d.LoginTime is not NULL
+					and d.LogoutTime is not NULL
+
+				GROUP BY d.RecDate/10000, d.Agent
+				)	
+									
+			SELECT STR(RecDate) RecDate, Agent,   
+				LoginTime, LogoutTime, Login_n login_num, Login_t, Ready_n, Ready_t, 
+				Acw_n, Acw_t, Idle_t, Aux_n, Aux_t, Login_n, Login_t
+			FROM cte
+			UNION ALL
+			SELECT 'Total' RecDate, '' Agent,   
+				LoginTime = MIN(LoginTime), LogoutTime = MAX(LogoutTime), 
+				Login_num = SUM(Login_n), Login_t = SUM(Login_t), 
+				Ready_n = SUM(Ready_n), Ready_t = SUM(Ready_t), 
+				Acw_n = SUM(Acw_n), Acw_t = SUM(Acw_t), 
+				Idle_t = SUM(Idle_t),
+				Aux_n = SUM(Aux_n), 
+				Aux_t = SUM(Aux_t), 
+				Login_n = SUM(Login_n), 
+				Login_t = SUM(Login_t)
+			FROM cte			
+		END
+		
+		SET @Error = 0	
+	END TRY
+	BEGIN CATCH
+		SET @Error = -1
+		
+		GOTO ERROR_END
+	END CATCH
+	RETURN @@rowcount
+
+ERROR_END:	
+	PRINT '[stat].[sp_stat_agent_status]获取数据失败！'
+	SELECT RecDate = NULL, Agent = NULL, ProjectId = NULL, SkillGroup = NULL, skill = NULL, GroupId = NULL, 
+		LoginTime = NULL, LogoutTime = NULL, Login_num = NULL, Login_t = NULL, Ready_n = NULL, Ready_t = NULL, 
+		Acw_n = NULL, Acw_t = NULL, Idle_t = NULL, Aux_n = NULL, Aux_t = NULL, Login_n = NULL, Login_t = NULL
+
+	SET @Error = -1;
+	RETURN @Error
+END

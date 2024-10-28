@@ -1,0 +1,1831 @@
+Start Testing...
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: CreateReleaseMobiHEART\\\\\\\
+
+Test cases.
+1.Have not called CreateMobiHEART(), call ReleaseMobiHEART().
+2.Called CreateMobiHEART() first, then call ReleaseMobiHEART(). 
+3.Called CreateMobiHEART() first, then call ReleaseMobiHEART(), then call ReleaseMobiHEART() again.
+
+
+Test CreateReleaseMobiHEART(): pass.
+End testing for CreateReleaseMobiHEART
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: Initialize\\\\\\\
+
+Test cases: 
+1.sLicense: Space
+2.sLicense: 0
+3.sLicense: expired License
+4.sLicense: Update expires to 20120630
+5.sLicense: Wrong signature
+6.sLicense: Wrong licensor
+7.sLicense: A correct license
+
+
+Test Initialize(): pass.
+End testing for Initialize
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: SetImgFormat\\\\\\\
+
+Test cases: 
+Resolution: 320X240, 160X120, 176X144, 640X480,600X400, 800X600
+Color mode: MOBI_CM_RGB, MOBI_CM_RGBA, MOBI_CM_GREY,3
+Origin: TRUE, FALSE
+
+line: 286,  Function SetImgFormat()  return failed. Expected return:0. Actual Return:12.  param:WidthStep:320*3, Height:240, Width:320, ColorMode: MOBI_CM_RGBA, Origin: TRUE 
+line: 294,  Function SetImgFormat()  return failed. Expected return:0. Actual Return:12.  param:WidthStep:160*3, Height:120, Width:160, ColorMode: MOBI_CM_RGBA, Origin: true 
+line: 298,  Function SetImgFormat()  return failed. Expected return:0. Actual Return:12.  param:WidthStep:176*3, Height:144, Width:176, ColorMode: MOBI_CM_RGBA, Origin: false 
+line: 332,  Function SetImgFormat()  return failed. Expected return:0. Actual Return:12.  param:WidthStep:640*3, Height:480, Width:640, ColorMode: MOBI_CM_RGBA, Origin: TRUE 
+line: 340,  Function SetImgFormat()  return failed. Expected return:0. Actual Return:12.  param:WidthStep:600*3, Height:400, Width:600, ColorMode: MOBI_CM_RGBA, Origin: true 
+line: 344,  Function SetImgFormat()  return failed. Expected return:0. Actual Return:12.  param:WidthStep:800*3, Height:600, Width:800, ColorMode: MOBI_CM_RGBA, Origin: false 
+
+Test SetImgFormat(): fail.
+End testing for SetImgFormat
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: SetGetConfig\\\\\\\
+
+
+Test SetGetConfig(): pass.
+End testing for SetGetConfig
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: SetGetBTConfig\\\\\\\
+
+
+Test SetGetBTConfig(): pass.
+End testing for SetGetBTConfig
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: SetGetGRConfig\\\\\\\
+
+
+Test SetGetGRConfig(): pass.
+End testing for SetGetGRConfig
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: GetGRModes\\\\\\\
+
+line: 571,  Function GetGRModes()  return failed. Expected return:15. Actual Return:14.  param: 
+Number: 0, MobiHeart Gesture Mode: GR_STATUS
+Number: 1, MobiHeart Gesture Mode: GR_MOUSE
+Number: 2, MobiHeart Gesture Mode: GR_MOTION
+Number: 3, MobiHeart Gesture Mode: GR_MOTION_EXT_1
+Number: 4, MobiHeart Gesture Mode: GR_MOTION_EXT_2
+Number: 5, MobiHeart Gesture Mode: GR_MOTION_EXT_3
+Number: 6, MobiHeart Gesture Mode: GR_COMBINE
+Number: 7, MobiHeart Gesture Mode: GR_COMBINE_1
+Number: 8, MobiHeart Gesture Mode: GR_COMBINE_2
+Number: 9, MobiHeart Gesture Mode: GR_MEDIA_CENTER
+Number: 10, MobiHeart Gesture Mode: GR_SOLITAIRE
+Number: 11, MobiHeart Gesture Mode: GR_GOOGLE_EARTH
+Number: 12, MobiHeart Gesture Mode: GR_JOY_STICK
+Number: 13, MobiHeart Gesture Mode: GR_TREASURE_HUNTER
+Number: 14, Mode:6020556, Error: We shouldn't get here.
+
+Test GetGRModes(): fail.
+End testing for GetGRModes
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: GetGRModeName\\\\\\\
+
+ModeNum:0, Mode Name:modeStatus
+ModeNum:1, Mode Name:modeMouse
+ModeNum:2, Mode Name:modeMotion
+ModeNum:3, Mode Name:modeUndefine
+ModeNum:4, Mode Name:modeMotionExt1
+ModeNum:5, Mode Name:modeMotionExt2
+ModeNum:6, Mode Name:modeMotionExt3
+ModeNum:7, Mode Name:modeCombine
+ModeNum:8, Mode Name:modeCombine1
+ModeNum:9, Mode Name:modeCombine2
+ModeNum:10, Mode Name:modeMediaCenter
+ModeNum:11, Mode Name:modeSolitaire
+ModeNum:12, Mode Name:modeGoogleEarth
+ModeNum:13, Mode Name:modeJoyStick
+ModeNum:14, Mode Name:modeTreasureHunter
+ModeNum:15, Mode Name:modeUndefine
+
+Test GetGRModeName(): pass.
+End testing for GetGRModeName
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: GetGRGestures\\\\\\\
+
+Num: 0, Event: Undefine
+Num: 1, Event: gesNeutral
+Num: 2, Event: gesL5R7
+Num: 3, Event: gesL5R1
+Num: 4, Event: gesL5R6
+Num: 5, Event: gesL4R8
+Num: 6, Event: gesL1R8
+Num: 7, Event: gesL3R8
+Num: 8, Event: gesL4R7
+Num: 9, Event: gesL1R7
+Num: 10, Event: gesL4R1
+Num: 11, Event: gesL1R1
+Num: 12, Event: gesL3R7
+Num: 13, Event: gesL3R1
+Num: 14, Event: gesL4R6
+Num: 15, Event: gesL1R6
+Num: 16, Event: gesL3R6
+Num: 17, Event: gesL1R2
+Num: 18, Event: gesL2R1
+Num: 19, Event: gesL2R6
+Num: 20, Event: gesL2R7
+Num: 21, Event: gesL3R2
+Num: 22, Event: gesL4R2
+Num: 23, Event: gesL5R2
+Num: 24, Event: gesMouseMove
+Num: 25, Event: gesMouseClick
+Num: 26, Event: gesMouseDBClick
+Num: 27, Event: gesMouseLeftDown
+Num: 28, Event: gesLeftLeft
+Num: 29, Event: gesLeftRight
+Num: 30, Event: gesRightLeft
+Num: 31, Event: gesRightRight
+Num: 32, Event: gesLeftUp
+Num: 33, Event: gesLeftDown
+Num: 34, Event: gesRightUp
+Num: 35, Event: gesRightDown
+Num: 36, Event: gesBothUp
+Num: 37, Event: gesBothDown
+Num: 38, Event: gesBodyLeft
+Num: 39, Event: gesBodyRight
+Num: 40, Event: gesHandsFar
+Num: 41, Event: gesHandsClose
+Num: 42, Event: gesLeftRightFast
+Num: 43, Event: gesRightLeftFast
+Num: 44, Event:  gesStopLeftFast
+Num: 45, Event: gesStopRightFast
+Num: 46, Event: gesLeftUpShift
+Num: 47, Event:  gesRightUpShift
+Num: 48, Event: gesHeadTilt
+Num: 49, Event: gesHandsMovingFront
+Num: 50, Event:  gesLeftLiftShift
+Num: 51, Event: gesRightLiftShift
+Num: 52, Event: gesHandsMovingBodyLeft
+Num: 53, Event: gesHandsMovingBodyRight
+Num: 54, Event: gesLeftLiftShiftBodyLeft
+Num: 55, Event: gesLeftLiftShiftBodyRight
+Num: 56, Event: gesRightLiftShiftBodyLeft
+Num: 57, Event: gesRightLiftShiftBodyRight
+Num: 58, Event: gesLeftHigherRightMiddle
+Num: 59, Event: gesLeftLowerRightMiddle
+Num: 60, Event: gesLeftEqualRightMiddle
+Num: 61, Event: gesLeftHigherRightBottom
+Num: 62, Event: gesLeftLowerRightBottom
+Num: 63, Event: gesRightHold
+Num: 64, Event: gesBothUpChest
+Num: 65, Event: gesRightMiddle
+Num: 66, Event: gesLeftUpRightActive
+Num: 67, Event: gesLeftUpRightNotActive
+Num: 68, Event: gesLeftTilt
+Num: 69, Event: gesRightTilt
+Num: 70, Event: gesHandsMovingFrontStop
+Num: 71, Event: gesCrouch
+Num: 72, Event: gesCrouchUp
+Num: 73, Event: gesBodyHold
+We shouldn't get here. Num: 74, Event: 6020324
+
+Test GetGRGestures(): pass.
+End testing for GetGRGestures
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: GetGRGestureName\\\\\\\
+
+ModeNum:-1, Mode Name:gesUndefined
+ModeNum:0, Mode Name:gesNeutral
+ModeNum:1, Mode Name:gesL5R7
+ModeNum:2, Mode Name:gesL5R1
+ModeNum:3, Mode Name:gesL5R6
+ModeNum:4, Mode Name:gesL4R8
+ModeNum:5, Mode Name:gesL1R8
+ModeNum:6, Mode Name:gesL3R8
+ModeNum:7, Mode Name:gesL4R7
+ModeNum:8, Mode Name:gesL1R7
+ModeNum:9, Mode Name:gesL4R1
+ModeNum:10, Mode Name:gesL1R1
+ModeNum:11, Mode Name:gesL3R7
+ModeNum:12, Mode Name:gesL3R1
+ModeNum:13, Mode Name:gesL4R6
+ModeNum:14, Mode Name:gesL1R6
+ModeNum:15, Mode Name:gesL3R6
+ModeNum:16, Mode Name:gesL1R2
+ModeNum:17, Mode Name:gesL2R1
+ModeNum:18, Mode Name:gesL2R6
+ModeNum:19, Mode Name:gesL2R7
+ModeNum:20, Mode Name:gesL3R2
+ModeNum:21, Mode Name:gesL4R2
+ModeNum:22, Mode Name:gesL5R2
+ModeNum:23, Mode Name:gesMouseMove
+ModeNum:24, Mode Name:gesMouseClick
+ModeNum:25, Mode Name:gesMouseDBClick
+ModeNum:26, Mode Name:gesMouseLeftDown
+ModeNum:27, Mode Name:gesLeftLeft
+ModeNum:28, Mode Name:gesLeftRight
+ModeNum:29, Mode Name:gesRightLeft
+ModeNum:30, Mode Name:gesRightRight
+ModeNum:31, Mode Name:gesLeftUp
+ModeNum:32, Mode Name:gesLeftDown
+ModeNum:33, Mode Name:gesRightUp
+ModeNum:34, Mode Name:gesRightDown
+ModeNum:35, Mode Name:gesBothUp
+ModeNum:36, Mode Name:gesBothDown
+ModeNum:37, Mode Name:gesBodyLeft
+ModeNum:38, Mode Name:gesBodyRight
+ModeNum:39, Mode Name:gesHandsFar
+ModeNum:40, Mode Name:gesHandsClose
+ModeNum:41, Mode Name:gesLeftRightFast
+ModeNum:42, Mode Name:gesRightLeftFast
+ModeNum:43, Mode Name:gesStopLeftFast
+ModeNum:44, Mode Name:gesStopRightFast
+ModeNum:45, Mode Name:gesLeftUpShift
+ModeNum:46, Mode Name:gesRightUpShift
+ModeNum:47, Mode Name:gesHeadTilt
+ModeNum:48, Mode Name:gesHandsMovingFront
+ModeNum:49, Mode Name:gesLeftLiftShift
+ModeNum:50, Mode Name:gesRightLiftShift
+ModeNum:51, Mode Name:gesHandsMovingBodyLeft
+ModeNum:52, Mode Name:gesHandsMovingBodyRight
+ModeNum:53, Mode Name:gesLeftLiftShiftBodyLeft
+ModeNum:54, Mode Name:gesLeftLiftShiftBodyRight
+ModeNum:55, Mode Name:gesRightLiftShiftBodyLeft
+ModeNum:56, Mode Name:gesRightLiftShiftBodyRight
+ModeNum:57, Mode Name:gesLeftHigherRightMiddle
+ModeNum:58, Mode Name:gesLeftLowerRightMiddle
+ModeNum:59, Mode Name:gesLeftEqualRightMiddle
+ModeNum:60, Mode Name:gesLeftHigherRightBottom
+ModeNum:61, Mode Name:gesLeftLowerRightBottom
+ModeNum:62, Mode Name:gesRightHold
+ModeNum:63, Mode Name:gesBothUpChest
+ModeNum:64, Mode Name:gesRightMiddle
+ModeNum:65, Mode Name:gesLeftUpRightActive
+ModeNum:66, Mode Name:gesLeftUpRightNotActive
+ModeNum:67, Mode Name:gesLeftTilt
+ModeNum:68, Mode Name:gesRightTilt
+ModeNum:69, Mode Name:gesHandsMovingFrontStop
+ModeNum:70, Mode Name:gesCrouch
+ModeNum:71, Mode Name:gesCrouchUp
+ModeNum:72, Mode Name:gesBodyHold
+ModeNum:73, Mode Name:gesUndefined
+ModeNum:74, Mode Name:gesUndefined
+
+Test GetGRGestureName(): pass.
+End testing for GetGRGestureName
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: EnableLegs\\\\\\\
+
+
+Test EnableLegs(): pass.
+End testing for EnableLegs
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: EnableFingers\\\\\\\
+
+
+Test EnableFingers(): pass.
+End testing for EnableFingers
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: ProcessFrame\\\\\\\
+
+
+Test ProcessFrame(): pass.
+End testing for ProcessFrame
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+End Testing.
+Start Testing...
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: CreateReleaseMobiHEART\\\\\\\
+
+Test cases.
+1.Have not called CreateMobiHEART(), call ReleaseMobiHEART().
+2.Called CreateMobiHEART() first, then call ReleaseMobiHEART(). 
+3.Called CreateMobiHEART() first, then call ReleaseMobiHEART(), then call ReleaseMobiHEART() again.
+
+
+Test CreateReleaseMobiHEART(): pass.
+End testing for CreateReleaseMobiHEART
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: Initialize\\\\\\\
+
+Test cases: 
+1.sLicense: Space
+2.sLicense: 0
+3.sLicense: expired License
+4.sLicense: Update expires to 20120630
+5.sLicense: Wrong signature
+6.sLicense: Wrong licensor
+7.sLicense: A correct license
+
+
+Test Initialize(): pass.
+End testing for Initialize
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: SetImgFormat\\\\\\\
+
+Test cases: 
+Resolution: 320X240, 160X120, 176X144, 640X480,600X400, 800X600
+Color mode: MOBI_CM_RGB, MOBI_CM_RGBA, MOBI_CM_GREY,3
+Origin: TRUE, FALSE
+
+line: 286,  Function SetImgFormat()  return failed. Expected return:0. Actual Return:12.  param:WidthStep:320*3, Height:240, Width:320, ColorMode: MOBI_CM_RGBA, Origin: TRUE 
+line: 294,  Function SetImgFormat()  return failed. Expected return:0. Actual Return:12.  param:WidthStep:160*3, Height:120, Width:160, ColorMode: MOBI_CM_RGBA, Origin: true 
+line: 298,  Function SetImgFormat()  return failed. Expected return:0. Actual Return:12.  param:WidthStep:176*3, Height:144, Width:176, ColorMode: MOBI_CM_RGBA, Origin: false 
+line: 332,  Function SetImgFormat()  return failed. Expected return:0. Actual Return:12.  param:WidthStep:640*3, Height:480, Width:640, ColorMode: MOBI_CM_RGBA, Origin: TRUE 
+line: 340,  Function SetImgFormat()  return failed. Expected return:0. Actual Return:12.  param:WidthStep:600*3, Height:400, Width:600, ColorMode: MOBI_CM_RGBA, Origin: true 
+line: 344,  Function SetImgFormat()  return failed. Expected return:0. Actual Return:12.  param:WidthStep:800*3, Height:600, Width:800, ColorMode: MOBI_CM_RGBA, Origin: false 
+
+Test SetImgFormat(): fail.
+End testing for SetImgFormat
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: SetGetConfig\\\\\\\
+
+
+Test SetGetConfig(): pass.
+End testing for SetGetConfig
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: SetGetBTConfig\\\\\\\
+
+
+Test SetGetBTConfig(): pass.
+End testing for SetGetBTConfig
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: SetGetGRConfig\\\\\\\
+
+
+Test SetGetGRConfig(): pass.
+End testing for SetGetGRConfig
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: GetGRModes\\\\\\\
+
+line: 571,  Function GetGRModes()  return failed. Expected return:15. Actual Return:14.  param: 
+Number: 0, MobiHeart Gesture Mode: GR_STATUS
+Number: 1, MobiHeart Gesture Mode: GR_MOUSE
+Number: 2, MobiHeart Gesture Mode: GR_MOTION
+Number: 3, MobiHeart Gesture Mode: GR_MOTION_EXT_1
+Number: 4, MobiHeart Gesture Mode: GR_MOTION_EXT_2
+Number: 5, MobiHeart Gesture Mode: GR_MOTION_EXT_3
+Number: 6, MobiHeart Gesture Mode: GR_COMBINE
+Number: 7, MobiHeart Gesture Mode: GR_COMBINE_1
+Number: 8, MobiHeart Gesture Mode: GR_COMBINE_2
+Number: 9, MobiHeart Gesture Mode: GR_MEDIA_CENTER
+Number: 10, MobiHeart Gesture Mode: GR_SOLITAIRE
+Number: 11, MobiHeart Gesture Mode: GR_GOOGLE_EARTH
+Number: 12, MobiHeart Gesture Mode: GR_JOY_STICK
+Number: 13, MobiHeart Gesture Mode: GR_TREASURE_HUNTER
+Number: 14, Mode:6847812, Error: We shouldn't get here.
+
+Test GetGRModes(): fail.
+End testing for GetGRModes
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: GetGRModeName\\\\\\\
+
+ModeNum:0, Mode Name:modeStatus
+ModeNum:1, Mode Name:modeMouse
+ModeNum:2, Mode Name:modeMotion
+ModeNum:3, Mode Name:modeUndefine
+ModeNum:4, Mode Name:modeMotionExt1
+ModeNum:5, Mode Name:modeMotionExt2
+ModeNum:6, Mode Name:modeMotionExt3
+ModeNum:7, Mode Name:modeCombine
+ModeNum:8, Mode Name:modeCombine1
+ModeNum:9, Mode Name:modeCombine2
+ModeNum:10, Mode Name:modeMediaCenter
+ModeNum:11, Mode Name:modeSolitaire
+ModeNum:12, Mode Name:modeGoogleEarth
+ModeNum:13, Mode Name:modeJoyStick
+ModeNum:14, Mode Name:modeTreasureHunter
+ModeNum:15, Mode Name:modeUndefine
+
+Test GetGRModeName(): pass.
+End testing for GetGRModeName
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: GetGRGestures\\\\\\\
+
+Num: 0, Event: Undefine
+Num: 1, Event: gesNeutral
+Num: 2, Event: gesL5R7
+Num: 3, Event: gesL5R1
+Num: 4, Event: gesL5R6
+Num: 5, Event: gesL4R8
+Num: 6, Event: gesL1R8
+Num: 7, Event: gesL3R8
+Num: 8, Event: gesL4R7
+Num: 9, Event: gesL1R7
+Num: 10, Event: gesL4R1
+Num: 11, Event: gesL1R1
+Num: 12, Event: gesL3R7
+Num: 13, Event: gesL3R1
+Num: 14, Event: gesL4R6
+Num: 15, Event: gesL1R6
+Num: 16, Event: gesL3R6
+Num: 17, Event: gesL1R2
+Num: 18, Event: gesL2R1
+Num: 19, Event: gesL2R6
+Num: 20, Event: gesL2R7
+Num: 21, Event: gesL3R2
+Num: 22, Event: gesL4R2
+Num: 23, Event: gesL5R2
+Num: 24, Event: gesMouseMove
+Num: 25, Event: gesMouseClick
+Num: 26, Event: gesMouseDBClick
+Num: 27, Event: gesMouseLeftDown
+Num: 28, Event: gesLeftLeft
+Num: 29, Event: gesLeftRight
+Num: 30, Event: gesRightLeft
+Num: 31, Event: gesRightRight
+Num: 32, Event: gesLeftUp
+Num: 33, Event: gesLeftDown
+Num: 34, Event: gesRightUp
+Num: 35, Event: gesRightDown
+Num: 36, Event: gesBothUp
+Num: 37, Event: gesBothDown
+Num: 38, Event: gesBodyLeft
+Num: 39, Event: gesBodyRight
+Num: 40, Event: gesHandsFar
+Num: 41, Event: gesHandsClose
+Num: 42, Event: gesLeftRightFast
+Num: 43, Event: gesRightLeftFast
+Num: 44, Event:  gesStopLeftFast
+Num: 45, Event: gesStopRightFast
+Num: 46, Event: gesLeftUpShift
+Num: 47, Event:  gesRightUpShift
+Num: 48, Event: gesHeadTilt
+Num: 49, Event: gesHandsMovingFront
+Num: 50, Event:  gesLeftLiftShift
+Num: 51, Event: gesRightLiftShift
+Num: 52, Event: gesHandsMovingBodyLeft
+Num: 53, Event: gesHandsMovingBodyRight
+Num: 54, Event: gesLeftLiftShiftBodyLeft
+Num: 55, Event: gesLeftLiftShiftBodyRight
+Num: 56, Event: gesRightLiftShiftBodyLeft
+Num: 57, Event: gesRightLiftShiftBodyRight
+Num: 58, Event: gesLeftHigherRightMiddle
+Num: 59, Event: gesLeftLowerRightMiddle
+Num: 60, Event: gesLeftEqualRightMiddle
+Num: 61, Event: gesLeftHigherRightBottom
+Num: 62, Event: gesLeftLowerRightBottom
+Num: 63, Event: gesRightHold
+Num: 64, Event: gesBothUpChest
+Num: 65, Event: gesRightMiddle
+Num: 66, Event: gesLeftUpRightActive
+Num: 67, Event: gesLeftUpRightNotActive
+Num: 68, Event: gesLeftTilt
+Num: 69, Event: gesRightTilt
+Num: 70, Event: gesHandsMovingFrontStop
+Num: 71, Event: gesCrouch
+Num: 72, Event: gesCrouchUp
+Num: 73, Event: gesBodyHold
+We shouldn't get here. Num: 74, Event: 6847580
+
+Test GetGRGestures(): pass.
+End testing for GetGRGestures
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: GetGRGestureName\\\\\\\
+
+ModeNum:-1, Mode Name:gesUndefined
+ModeNum:0, Mode Name:gesNeutral
+ModeNum:1, Mode Name:gesL5R7
+ModeNum:2, Mode Name:gesL5R1
+ModeNum:3, Mode Name:gesL5R6
+ModeNum:4, Mode Name:gesL4R8
+ModeNum:5, Mode Name:gesL1R8
+ModeNum:6, Mode Name:gesL3R8
+ModeNum:7, Mode Name:gesL4R7
+ModeNum:8, Mode Name:gesL1R7
+ModeNum:9, Mode Name:gesL4R1
+ModeNum:10, Mode Name:gesL1R1
+ModeNum:11, Mode Name:gesL3R7
+ModeNum:12, Mode Name:gesL3R1
+ModeNStart Testing...
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: CreateReleaseMobiHEART\\\\\\\
+
+Test cases.
+1.Have not called CreateMobiHEART(), call ReleaseMobiHEART().
+2.Called CreateMobiHEART() first, then call ReleaseMobiHEART(). 
+3.Called CreateMobiHEART() first, then call ReleaseMobiHEART(), then call ReleaseMobiHEART() again.
+
+
+Test CreateReleaseMobiHEART(): pass.
+End testing for CreateReleaseMobiHEART
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: Initialize\\\\\\\
+
+Test cases: 
+1.sLicense: Space
+2.sLicense: 0
+3.sLicense: expired License
+4.sLicense: Update expires to 20120630
+5.sLicense: Wrong signature
+6.sLicense: Wrong licensor
+7.sLicense: A correct license
+
+
+Test Initialize(): pass.
+End testing for Initialize
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: SetImgFormat\\\\\\\
+
+Test cases: 
+Resolution: 320X240, 160X120, 176X144, 640X480,600X400, 800X600
+Color mode: MOBI_CM_RGB, MOBI_CM_RGBA, MOBI_CM_GREY,3
+Origin: TRUE, FALSE
+
+line: 286,  Function SetImgFormat()  return failed. Expected return:0. Actual Return:12.  param:WidthStep:320*3, Height:240, Width:320, ColorMode: MOBI_CM_RGBA, Origin: TRUE 
+line: 294,  Function SetImgFormat()  return failed. Expected return:0. Actual Return:12.  param:WidthStep:160*3, Height:120, Width:160, ColorMode: MOBI_CM_RGBA, Origin: true 
+line: 298,  Function SetImgFormat()  return failed. Expected return:0. Actual Return:12.  param:WidthStep:176*3, Height:144, Width:176, ColorMode: MOBI_CM_RGBA, Origin: false 
+line: 332,  Function SetImgFormat()  return failed. Expected return:0. Actual Return:12.  param:WidthStep:640*3, Height:480, Width:640, ColorMode: MOBI_CM_RGBA, Origin: TRUE 
+line: 340,  Function SetImgFormat()  return failed. Expected return:0. Actual Return:12.  param:WidthStep:600*3, Height:400, Width:600, ColorMode: MOBI_CM_RGBA, Origin: true 
+line: 344,  Function SetImgFormat()  return failed. Expected return:0. Actual Return:12.  param:WidthStep:800*3, Height:600, Width:800, ColorMode: MOBI_CM_RGBA, Origin: false 
+
+Test SetImgFormat(): fail.
+End testing for SetImgFormat
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: SetGetConfig\\\\\\\
+
+
+Test SetGetConfig(): pass.
+End testing for SetGetConfig
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: SetGetBTConfig\\\\\\\
+
+
+Test SetGetBTConfig(): pass.
+End testing for SetGetBTConfig
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: SetGetGRConfig\\\\\\\
+
+
+Test SetGetGRConfig(): pass.
+End testing for SetGetGRConfig
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: GetGRModes\\\\\\\
+
+line: 571,  Function GetGRModes()  return failed. Expected return:15. Actual Return:14.  param: 
+Number: 0, MobiHeart Gesture Mode: GR_STATUS
+Number: 1, MobiHeart Gesture Mode: GR_MOUSE
+Number: 2, MobiHeart Gesture Mode: GR_MOTION
+Number: 3, MobiHeart Gesture Mode: GR_MOTION_EXT_1
+Number: 4, MobiHeart Gesture Mode: GR_MOTION_EXT_2
+Number: 5, MobiHeart Gesture Mode: GR_MOTION_EXT_3
+Number: 6, MobiHeart Gesture Mode: GR_COMBINE
+Number: 7, MobiHeart Gesture Mode: GR_COMBINE_1
+Number: 8, MobiHeart Gesture Mode: GR_COMBINE_2
+Number: 9, MobiHeart Gesture Mode: GR_MEDIA_CENTER
+Number: 10, MobiHeart Gesture Mode: GR_SOLITAIRE
+Number: 11, MobiHeart Gesture Mode: GR_GOOGLE_EARTH
+Number: 12, MobiHeart Gesture Mode: GR_JOY_STICK
+Number: 13, MobiHeart Gesture Mode: GR_TREASURE_HUNTER
+Number: 14, Mode:6020556, Error: We shouldn't get here.
+
+Test GetGRModes(): fail.
+End testing for GetGRModes
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: GetGRModeName\\\\\\\
+
+ModeNum:0, Mode Name:modeStatus
+ModeNum:1, Mode Name:modeMouse
+ModeNum:2, Mode Name:modeMotion
+ModeNum:3, Mode Name:modeUndefine
+ModeNum:4, Mode Name:modeMotionExt1
+ModeNum:5, Mode Name:modeMotionExt2
+ModeNum:6, Mode Name:modeMotionExt3
+ModeNum:7, Mode Name:modeCombine
+ModeNum:8, Mode Name:modeCombine1
+ModeNum:9, Mode Name:modeCombine2
+ModeNum:10, Mode Name:modeMediaCenter
+ModeNum:11, Mode Name:modeSolitaire
+ModeNum:12, Mode Name:modeGoogleEarth
+ModeNum:13, Mode Name:modeJoyStick
+ModeNum:14, Mode Name:modeTreasureHunter
+ModeNum:15, Mode Name:modeUndefine
+
+Test GetGRModeName(): pass.
+End testing for GetGRModeName
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: GetGRGestures\\\\\\\
+
+Num: 0, Event: Undefine
+Num: 1, Event: gesNeutral
+Num: 2, Event: gesL5R7
+Num: 3, Event: gesL5R1
+Num: 4, Event: gesL5R6
+Num: 5, Event: gesL4R8
+Num: 6, Event: gesL1R8
+Num: 7, Event: gesL3R8
+Num: 8, Event: gesL4R7
+Num: 9, Event: gesL1R7
+Num: 10, Event: gesL4R1
+Num: 11, Event: gesL1R1
+Num: 12, Event: gesL3R7
+Num: 13, Event: gesL3R1
+Num: 14, Event: gesL4R6
+Num: 15, Event: gesL1R6
+Num: 16, Event: gesL3R6
+Num: 17, Event: gesL1R2
+Num: 18, Event: gesL2R1
+Num: 19, Event: gesL2R6
+Num: 20, Event: gesL2R7
+Num: 21, Event: gesL3R2
+Num: 22, Event: gesL4R2
+Num: 23, Event: gesL5R2
+Num: 24, Event: gesMouseMove
+Num: 25, Event: gesMouseClick
+Num: 26, Event: gesMouseDBClick
+Num: 27, Event: gesMouseLeftDown
+Num: 28, Event: gesLeftLeft
+Num: 29, Event: gesLeftRight
+Num: 30, Event: gesRightLeft
+Num: 31, Event: gesRightRight
+Num: 32, Event: gesLeftUp
+Num: 33, Event: gesLeftDown
+Num: 34, Event: gesRightUp
+Num: 35, Event: gesRightDown
+Num: 36, Event: gesBothUp
+Num: 37, Event: gesBothDown
+Num: 38, Event: gesBodyLeft
+Num: 39, Event: gesBodyRight
+Num: 40, Event: gesHandsFar
+Num: 41, Event: gesHandsClose
+Num: 42, Event: gesLeftRightFast
+Num: 43, Event: gesRightLeftFast
+Num: 44, Event:  gesStopLeftFast
+Num: 45, Event: gesStopRightFast
+Num: 46, Event: gesLeftUpShift
+Num: 47, Event:  gesRightUpShift
+Num: 48, Event: gesHeadTilt
+Num: 49, Event: gesHandsMovingFront
+Num: 50, Event:  gesLeftLiftShift
+Num: 51, Event: gesRightLiftShift
+Num: 52, Event: gesHandsMovingBodyLeft
+Num: 53, Event: gesHandsMovingBodyRight
+Num: 54, Event: gesLeftLiftShiftBodyLeft
+Num: 55, Event: gesLeftLiftShiftBodyRight
+Num: 56, Event: gesRightLiftShiftBodyLeft
+Num: 57, Event: gesRightLiftShiftBodyRight
+Num: 58, Event: gesLeftHigherRightMiddle
+Num: 59, Event: gesLeftLowerRightMiddle
+Num: 60, Event: gesLeftEqualRightMiddle
+Num: 61, Event: gesLeftHigherRightBottom
+Num: 62, Event: gesLeftLowerRightBottom
+Num: 63, Event: gesRightHold
+Num: 64, Event: gesBothUpChest
+Num: 65, Event: gesRightMiddle
+Num: 66, Event: gesLeftUpRightActive
+Num: 67, Event: gesLeftUpRightNotActive
+Num: 68, Event: gesLeftTilt
+Num: 69, Event: gesRightTilt
+Num: 70, Event: gesHandsMovingFrontStop
+Num: 71, Event: gesCrouch
+Num: 72, Event: gesCrouchUp
+Num: 73, Event: gesBodyHold
+We shouldn't get here. Num: 74, Event: 6020324
+
+Test GetGRGestures(): pass.
+End testing for GetGRGestures
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: GetGRGestureName\\\\\\\
+
+ModeNum:-1, Mode Name:gesUndefined
+ModeNum:0, Mode Name:gesNeutral
+ModeNum:1, Mode Name:gesL5R7
+ModeNum:2, Mode Name:gesL5R1
+ModeNum:3, Mode Name:gesL5R6
+ModeNum:4, Mode Name:gesL4R8
+ModeNum:5, Mode Name:gesL1R8
+ModeNum:6, Mode Name:gesL3R8
+ModeNum:7, Mode Name:gesL4R7
+ModeNum:8, Mode Name:gesL1R7
+ModeNum:9, Mode Name:gesL4R1
+ModeNum:10, Mode Name:gesL1R1
+ModeNum:11, Mode Name:gesL3R7
+ModeNum:12, Mode Name:gesL3R1
+ModeNum:13, Mode Name:gesL4R6
+ModeNum:14, Mode Name:gesL1R6
+ModeNum:15, Mode Name:gesL3R6
+ModeNum:16, Mode Name:gesL1R2
+ModeNum:17, Mode Name:gesL2R1
+ModeNum:18, Mode Name:gesL2R6
+ModeNum:19, Mode Name:gesL2R7
+ModeNum:20, Mode Name:gesL3R2
+ModeNum:21, Mode Name:gesL4R2
+ModeNum:22, Mode Name:gesL5R2
+ModeNum:23, Mode Name:gesMouseMove
+ModeNum:24, Mode Name:gesMouseClick
+ModeNum:25, Mode Name:gesMouseDBClick
+ModeNum:26, Mode Name:gesMouseLeftDown
+ModeNum:27, Mode Name:gesLeftLeft
+ModeNum:28, Mode Name:gesLeftRight
+ModeNum:29, Mode Name:gesRightLeft
+ModeNum:30, Mode Name:gesRightRight
+ModeNum:31, Mode Name:gesLeftUp
+ModeNum:32, Mode Name:gesLeftDown
+ModeNum:33, Mode Name:gesRightUp
+ModeNum:34, Mode Name:gesRightDown
+ModeNum:35, Mode Name:gesBothUp
+ModeNum:36, Mode Name:gesBothDown
+ModeNum:37, Mode Name:gesBodyLeft
+ModeNum:38, Mode Name:gesBodyRight
+ModeNum:39, Mode Name:gesHandsFar
+ModeNum:40, Mode Name:gesHandsClose
+ModeNum:41, Mode Name:gesLeftRightFast
+ModeNum:42, Mode Name:gesRightLeftFast
+ModeNum:43, Mode Name:gesStopLeftFast
+ModeNum:44, Mode Name:gesStopRightFast
+ModeNum:45, Mode Name:gesLeftUpShift
+ModeNum:46, Mode Name:gesRightUpShift
+ModeNum:47, Mode Name:gesHeadTilt
+ModeNum:48, Mode Name:gesHandsMovingFront
+ModeNum:49, Mode Name:gesLeftLiftShift
+ModeNum:50, Mode Name:gesRightLiftShift
+ModeNum:51, Mode Name:gesHandsMovingBodyLeft
+ModeNum:52, Mode Name:gesHandsMovingBodyRight
+ModeNum:53, Mode Name:gesLeftLiftShiftBodyLeft
+ModeNum:54, Mode Name:gesLeftLiftShiftBodyRight
+ModeNum:55, Mode Name:gesRightLiftShiftBodyLeft
+ModeNum:56, Mode Name:gesRightLiftShiftBodyRight
+ModeNum:57, Mode Name:gesLeftHigherRightMiddle
+ModeNum:58, Mode Name:gesLeftLowerRightMiddle
+ModeNum:59, Mode Name:gesLeftEqualRightMiddle
+ModeNum:60, Mode Name:gesLeftHigherRightBottom
+ModeNum:61, Mode Name:gesLeftLowerRightBottom
+ModeNum:62, Mode Name:gesRightHold
+ModeNum:63, Mode Name:gesBothUpChest
+ModeNum:64, Mode Name:gesRightMiddle
+ModeNum:65, Mode Name:gesLeftUpRightActive
+ModeNum:66, Mode Name:gesLeftUpRightNotActive
+ModeNum:67, Mode Name:gesLeftTilt
+ModeNum:68, Mode Name:gesRightTilt
+ModeNum:69, Mode Name:gesHandsMovingFrontStop
+ModeNum:70, Mode Name:gesCrouch
+ModeNum:71, Mode Name:gesCrouchUp
+ModeNum:72, Mode Name:gesBodyHold
+ModeNum:73, Mode Name:gesUndefined
+ModeNum:74, Mode Name:gesUndefined
+
+Test GetGRGestureName(): pass.
+End testing for GetGRGestureName
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: EnableLegs\\\\\\\
+
+
+Test EnableLegs(): pass.
+End testing for EnableLegs
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: EnableFingers\\\\\\\
+
+
+Test EnableFingers(): pass.
+End testing for EnableFingers
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: ProcessFrame\\\\\\\
+
+
+Test ProcessFrame(): pass.
+End testing for ProcessFrame
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+End Testing.
+Start Testing...
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: CreateReleaseMobiHEART\\\\\\\
+
+Test cases.
+1.Have not called CreateMobiHEART(), call ReleaseMobiHEART().
+2.Called CreateMobiHEART() first, then call ReleaseMobiHEART(). 
+3.Called CreateMobiHEART() first, then call ReleaseMobiHEART(), then call ReleaseMobiHEART() again.
+
+
+Test CreateReleaseMobiHEART(): pass.
+End testing for CreateReleaseMobiHEART
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: Initialize\\\\\\\
+
+Test cases: 
+1.sLicense: Space
+2.sLicense: 0
+3.sLicense: expired License
+4.sLicense: Update expires to 20120630
+5.sLicense: Wrong signature
+6.sLicense: Wrong licensor
+7.sLicense: A correct license
+
+
+Test Initialize(): pass.
+End testing for Initialize
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: SetImgFormat\\\\\\\
+
+Test cases: 
+Resolution: 320X240, 160X120, 176X144, 640X480,600X400, 800X600
+Color mode: MOBI_CM_RGB, MOBI_CM_RGBA, MOBI_CM_GREY,3
+Origin: TRUE, FALSE
+
+line: 286,  Function SetImgFormat()  return failed. Expected return:0. Actual Return:12.  param:WidthStep:320*3, Height:240, Width:320, ColorMode: MOBI_CM_RGBA, Origin: TRUE 
+line: 294,  Function SetImgFormat()  return failed. Expected return:0. Actual Return:12.  param:WidthStep:160*3, Height:120, Width:160, ColorMode: MOBI_CM_RGBA, Origin: true 
+line: 298,  Function SetImgFormat()  return failed. Expected return:0. Actual Return:12.  param:WidthStep:176*3, Height:144, Width:176, ColorMode: MOBI_CM_RGBA, Origin: false 
+line: 332,  Function SetImgFormat()  return failed. Expected return:0. Actual Return:12.  param:WidthStep:640*3, Height:480, Width:640, ColorMode: MOBI_CM_RGBA, Origin: TRUE 
+line: 340,  Function SetImgFormat()  return failed. Expected return:0. Actual Return:12.  param:WidthStep:600*3, Height:400, Width:600, ColorMode: MOBI_CM_RGBA, Origin: true 
+line: 344,  Function SetImgFormat()  return failed. Expected return:0. Actual Return:12.  param:WidthStep:800*3, Height:600, Width:800, ColorMode: MOBI_CM_RGBA, Origin: false 
+
+Test SetImgFormat(): fail.
+End testing for SetImgFormat
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: SetGetConfig\\\\\\\
+
+
+Test SetGetConfig(): pass.
+End testing for SetGetConfig
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: SetGetBTConfig\\\\\\\
+
+
+Test SetGetBTConfig(): pass.
+End testing for SetGetBTConfig
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: SetGetGRConfig\\\\\\\
+
+
+Test SetGetGRConfig(): pass.
+End testing for SetGetGRConfig
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: GetGRModes\\\\\\\
+
+line: 571,  Function GetGRModes()  return failed. Expected return:15. Actual Return:14.  param: 
+Number: 0, MobiHeart Gesture Mode: GR_STATUS
+Number: 1, MobiHeart Gesture Mode: GR_MOUSE
+Number: 2, MobiHeart Gesture Mode: GR_MOTION
+Number: 3, MobiHeart Gesture Mode: GR_MOTION_EXT_1
+Number: 4, MobiHeart Gesture Mode: GR_MOTION_EXT_2
+Number: 5, MobiHeart Gesture Mode: GR_MOTION_EXT_3
+Number: 6, MobiHeart Gesture Mode: GR_COMBINE
+Number: 7, MobiHeart Gesture Mode: GR_COMBINE_1
+Number: 8, MobiHeart Gesture Mode: GR_COMBINE_2
+Number: 9, MobiHeart Gesture Mode: GR_MEDIA_CENTER
+Number: 10, MobiHeart Gesture Mode: GR_SOLITAIRE
+Number: 11, MobiHeart Gesture Mode: GR_GOOGLE_EARTH
+Number: 12, MobiHeart Gesture Mode: GR_JOY_STICK
+Number: 13, MobiHeart Gesture Mode: GR_TREASURE_HUNTER
+Number: 14, Mode:6847812, Error: We shouldn't get here.
+
+Test GetGRModes(): fail.
+End testing for GetGRModes
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: GetGRModeName\\\\\\\
+
+ModeNum:0, Mode Name:modeStatus
+ModeNum:1, Mode Name:modeMouse
+ModeNum:2, Mode Name:modeMotion
+ModeNum:3, Mode Name:modeUndefine
+ModeNum:4, Mode Name:modeMotionExt1
+ModeNum:5, Mode Name:modeMotionExt2
+ModeNum:6, Mode Name:modeMotionExt3
+ModeNum:7, Mode Name:modeCombine
+ModeNum:8, Mode Name:modeCombine1
+ModeNum:9, Mode Name:modeCombine2
+ModeNum:10, Mode Name:modeMediaCenter
+ModeNum:11, Mode Name:modeSolitaire
+ModeNum:12, Mode Name:modeGoogleEarth
+ModeNum:13, Mode Name:modeJoyStick
+ModeNum:14, Mode Name:modeTreasureHunter
+ModeNum:15, Mode Name:modeUndefine
+
+Test GetGRModeName(): pass.
+End testing for GetGRModeName
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: GetGRGestures\\\\\\\
+
+Num: 0, Event: Undefine
+Num: 1, Event: gesNeutral
+Num: 2, Event: gesL5R7
+Num: 3, Event: gesL5R1
+Num: 4, Event: gesL5R6
+Num: 5, Event: gesL4R8
+Num: 6, Event: gesL1R8
+Num: 7, Event: gesL3R8
+Num: 8, Event: gesL4R7
+Num: 9, Event: gesL1R7
+Num: 10, Event: gesL4R1
+Num: 11, Event: gesL1R1
+Num: 12, Event: gesL3R7
+Num: 13, Event: gesL3R1
+Num: 14, Event: gesL4R6
+Num: 15, Event: gesL1R6
+Num: 16, Event: gesL3R6
+Num: 17, Event: gesL1R2
+Num: 18, Event: gesL2R1
+Num: 19, Event: gesL2R6
+Num: 20, Event: gesL2R7
+Num: 21, Event: gesL3R2
+Num: 22, Event: gesL4R2
+Num: 23, Event: gesL5R2
+Num: 24, Event: gesMouseMove
+Num: 25, Event: gesMouseClick
+Num: 26, Event: gesMouseDBClick
+Num: 27, Event: gesMouseLeftDown
+Num: 28, Event: gesLeftLeft
+Num: 29, Event: gesLeftRight
+Num: 30, Event: gesRightLeft
+Num: 31, Event: gesRightRight
+Num: 32, Event: gesLeftUp
+Num: 33, Event: gesLeftDown
+Num: 34, Event: gesRightUp
+Num: 35, Event: gesRightDown
+Num: 36, Event: gesBothUp
+Num: 37, Event: gesBothDown
+Num: 38, Event: gesBodyLeft
+Num: 39, Event: gesBodyRight
+Num: 40, Event: gesHandsFar
+Num: 41, Event: gesHandsClose
+Num: 42, Event: gesLeftRightFast
+Num: 43, Event: gesRightLeftFast
+Num: 44, Event:  gesStopLeftFast
+Num: 45, Event: gesStopRightFast
+Num: 46, Event: gesLeftUpShift
+Num: 47, Event:  gesRightUpShift
+Num: 48, Event: gesHeadTilt
+Num: 49, Event: gesHandsMovingFront
+Num: 50, Event:  gesLeftLiftShift
+Num: 51, Event: gesRightLiftShift
+Num: 52, Event: gesHandsMovingBodyLeft
+Num: 53, Event: gesHandsMovingBodyRight
+Num: 54, Event: gesLeftLiftShiftBodyLeft
+Num: 55, Event: gesLeftLiftShiftBodyRight
+Num: 56, Event: gesRightLiftShiftBodyLeft
+Num: 57, Event: gesRightLiftShiftBodyRight
+Num: 58, Event: gesLeftHigherRightMiddle
+Num: 59, Event: gesLeftLowerRightMiddle
+Num: 60, Event: gesLeftEqualRightMiddle
+Num: 61, Event: gesLeftHigherRightBottom
+Num: 62, Event: gesLeftLowerRightBottom
+Num: 63, Event: gesRightHold
+Num: 64, Event: gesBothUpChest
+Num: 65, Event: gesRightMiddle
+Num: 66, Event: gesLeftUpRightActive
+Num: 67, Event: gesLeftUpRightNotActive
+Num: 68, Event: gesLeftTilt
+Num: 69, Event: gesRightTilt
+Num: 70, Event: gesHandsMovingFrontStop
+Num: 71, Event: gesCrouch
+Num: 72, Event: gesCrouchUp
+Num: 73, Event: gesBodyHold
+We shouldn't get here. Num: 74, Event: 6847580
+
+Test GetGRGestures(): pass.
+End testing for GetGRGestures
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: GetGRGestureName\\\\\\\
+
+ModeNum:-1, Mode Name:gesUndefined
+ModeNum:0, Mode Name:gesNeutral
+ModeNum:1, Mode Name:gesL5R7
+ModeNum:2, Mode Name:gesL5R1
+ModeNum:3, Mode Name:gesL5R6
+ModeNum:4, Mode Name:gesL4R8
+ModeNum:5, Mode Name:gesL1R8
+ModeNum:6, Mode Name:gesL3R8
+ModeNum:7, Mode Name:gesL4R7
+ModeNum:8, Mode Name:gesL1R7
+ModeNum:9, Mode Name:gesL4R1
+ModeNum:10, Mode Name:gesL1R1
+ModeNum:11, Mode Name:gesL3R7
+ModeNum:12, Mode Name:gesL3R1
+ModeNStart Testing...
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: CreateReleaseMobiHEART\\\\\\\
+
+Test cases.
+1.Have not called CreateMobiHEART(), call ReleaseMobiHEART().
+2.Called CreateMobiHEART() first, then call ReleaseMobiHEART(). 
+3.Called CreateMobiHEART() first, then call ReleaseMobiHEART(), then call ReleaseMobiHEART() again.
+
+
+Test CreateReleaseMobiHEART(): pass.
+End testing for CreateReleaseMobiHEART
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: Initialize\\\\\\\
+
+Test cases: 
+1.sLicense: Space
+2.sLicense: 0
+3.sLicense: expired License
+4.sLicense: Update expires to 20120630
+5.sLicense: Wrong signature
+6.sLicense: Wrong licensor
+7.sLicense: A correct license
+
+
+Test Initialize(): pass.
+End testing for Initialize
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: SetImgFormat\\\\\\\
+
+Test cases: 
+Resolution: 320X240, 160X120, 176X144, 640X480,600X400, 800X600
+Color mode: MOBI_CM_RGB, MOBI_CM_RGBA, MOBI_CM_GREY,3
+Origin: TRUE, FALSE
+
+line: 286,  Function SetImgFormat()  return failed. Expected return:0. Actual Return:12.  param:WidthStep:320*3, Height:240, Width:320, ColorMode: MOBI_CM_RGBA, Origin: TRUE 
+line: 294,  Function SetImgFormat()  return failed. Expected return:0. Actual Return:12.  param:WidthStep:160*3, Height:120, Width:160, ColorMode: MOBI_CM_RGBA, Origin: true 
+line: 298,  Function SetImgFormat()  return failed. Expected return:0. Actual Return:12.  param:WidthStep:176*3, Height:144, Width:176, ColorMode: MOBI_CM_RGBA, Origin: false 
+line: 332,  Function SetImgFormat()  return failed. Expected return:0. Actual Return:12.  param:WidthStep:640*3, Height:480, Width:640, ColorMode: MOBI_CM_RGBA, Origin: TRUE 
+line: 340,  Function SetImgFormat()  return failed. Expected return:0. Actual Return:12.  param:WidthStep:600*3, Height:400, Width:600, ColorMode: MOBI_CM_RGBA, Origin: true 
+line: 344,  Function SetImgFormat()  return failed. Expected return:0. Actual Return:12.  param:WidthStep:800*3, Height:600, Width:800, ColorMode: MOBI_CM_RGBA, Origin: false 
+
+Test SetImgFormat(): fail.
+End testing for SetImgFormat
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: SetGetConfig\\\\\\\
+
+
+Test SetGetConfig(): pass.
+End testing for SetGetConfig
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: SetGetBTConfig\\\\\\\
+
+
+Test SetGetBTConfig(): pass.
+End testing for SetGetBTConfig
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: SetGetGRConfig\\\\\\\
+
+
+Test SetGetGRConfig(): pass.
+End testing for SetGetGRConfig
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: GetGRModes\\\\\\\
+
+line: 571,  Function GetGRModes()  return failed. Expected return:15. Actual Return:14.  param: 
+Number: 0, MobiHeart Gesture Mode: GR_STATUS
+Number: 1, MobiHeart Gesture Mode: GR_MOUSE
+Number: 2, MobiHeart Gesture Mode: GR_MOTION
+Number: 3, MobiHeart Gesture Mode: GR_MOTION_EXT_1
+Number: 4, MobiHeart Gesture Mode: GR_MOTION_EXT_2
+Number: 5, MobiHeart Gesture Mode: GR_MOTION_EXT_3
+Number: 6, MobiHeart Gesture Mode: GR_COMBINE
+Number: 7, MobiHeart Gesture Mode: GR_COMBINE_1
+Number: 8, MobiHeart Gesture Mode: GR_COMBINE_2
+Number: 9, MobiHeart Gesture Mode: GR_MEDIA_CENTER
+Number: 10, MobiHeart Gesture Mode: GR_SOLITAIRE
+Number: 11, MobiHeart Gesture Mode: GR_GOOGLE_EARTH
+Number: 12, MobiHeart Gesture Mode: GR_JOY_STICK
+Number: 13, MobiHeart Gesture Mode: GR_TREASURE_HUNTER
+Number: 14, Mode:6847812, Error: We shouldn't get here.
+
+Test GetGRModes(): fail.
+End testing for GetGRModes
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: GetGRModeName\\\\\\\
+
+ModeNum:0, Mode Name:modeStatus
+ModeNum:1, Mode Name:modeMouse
+ModeNum:2, Mode Name:modeMotion
+ModeNum:3, Mode Name:modeUndefine
+ModeNum:4, Mode Name:modeMotionExt1
+ModeNum:5, Mode Name:modeMotionExt2
+ModeNum:6, Mode Name:modeMotionExt3
+ModeNum:7, Mode Name:modeCombine
+ModeNum:8, Mode Name:modeCombine1
+ModeNum:9, Mode Name:modeCombine2
+ModeNum:10, Mode Name:modeMediaCenter
+ModeNum:11, Mode Name:modeSolitaire
+ModeNum:12, Mode Name:modeGoogleEarth
+ModeNum:13, Mode Name:modeJoyStick
+ModeNum:14, Mode Name:modeTreasureHunter
+ModeNum:15, Mode Name:modeUndefine
+
+Test GetGRModeName(): pass.
+End testing for GetGRModeName
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: GetGRGestures\\\\\\\
+
+Num: 0, Event: Undefine
+Num: 1, Event: gesNeutral
+Num: 2, Event: gesL5R7
+Num: 3, Event: gesL5R1
+Num: 4, Event: gesL5R6
+Num: 5, Event: gesL4R8
+Num: 6, Event: gesL1R8
+Num: 7, Event: gesL3R8
+Num: 8, Event: gesL4R7
+Num: 9, Event: gesL1R7
+Num: 10, Event: gesL4R1
+Num: 11, Event: gesL1R1
+Num: 12, Event: gesL3R7
+Num: 13, Event: gesL3R1
+Num: 14, Event: gesL4R6
+Num: 15, Event: gesL1R6
+Num: 16, Event: gesL3R6
+Num: 17, Event: gesL1R2
+Num: 18, Event: gesL2R1
+Num: 19, Event: gesL2R6
+Num: 20, Event: gesL2R7
+Num: 21, Event: gesL3R2
+Num: 22, Event: gesL4R2
+Num: 23, Event: gesL5R2
+Num: 24, Event: gesMouseMove
+Num: 25, Event: gesMouseClick
+Num: 26, Event: gesMouseDBClick
+Num: 27, Event: gesMouseLeftDown
+Num: 28, Event: gesLeftLeft
+Num: 29, Event: gesLeftRight
+Num: 30, Event: gesRightLeft
+Num: 31, Event: gesRightRight
+Num: 32, Event: gesLeftUp
+Num: 33, Event: gesLeftDown
+Num: 34, Event: gesRightUp
+Num: 35, Event: gesRightDown
+Num: 36, Event: gesBothUp
+Num: 37, Event: gesBothDown
+Num: 38, Event: gesBodyLeft
+Num: 39, Event: gesBodyRight
+Num: 40, Event: gesHandsFar
+Num: 41, Event: gesHandsClose
+Num: 42, Event: gesLeftRightFast
+Num: 43, Event: gesRightLeftFast
+Num: 44, Event:  gesStopLeftFast
+Num: 45, Event: gesStopRightFast
+Num: 46, Event: gesLeftUpShift
+Num: 47, Event:  gesRightUpShift
+Num: 48, Event: gesHeadTilt
+Num: 49, Event: gesHandsMovingFront
+Num: 50, Event:  gesLeftLiftShift
+Num: 51, Event: gesRightLiftShift
+Num: 52, Event: gesHandsMovingBodyLeft
+Num: 53, Event: gesHandsMovingBodyRight
+Num: 54, Event: gesLeftLiftShiftBodyLeft
+Num: 55, Event: gesLeftLiftShiftBodyRight
+Num: 56, Event: gesRightLiftShiftBodyLeft
+Num: 57, Event: gesRightLiftShiftBodyRight
+Num: 58, Event: gesLeftHigherRightMiddle
+Num: 59, Event: gesLeftLowerRightMiddle
+Num: 60, Event: gesLeftEqualRightMiddle
+Num: 61, Event: gesLeftHigherRightBottom
+Num: 62, Event: gesLeftLowerRightBottom
+Num: 63, Event: gesRightHold
+Num: 64, Event: gesBothUpChest
+Num: 65, Event: gesRightMiddle
+Num: 66, Event: gesLeftUpRightActive
+Num: 67, Event: gesLeftUpRightNotActive
+Num: 68, Event: gesLeftTilt
+Num: 69, Event: gesRightTilt
+Num: 70, Event: gesHandsMovingFrontStop
+Num: 71, Event: gesCrouch
+Num: 72, Event: gesCrouchUp
+Num: 73, Event: gesBodyHold
+We shouldn't get here. Num: 74, Event: 6847580
+
+Test GetGRGestures(): pass.
+End testing for GetGRGestures
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: GetGRGestureName\\\\\\\
+
+ModeNum:-1, Mode Name:gesUndefined
+ModeNum:0, Mode Name:gesNeutral
+ModeNum:1, Mode Name:gesL5R7
+ModeNum:2, Mode Name:gesL5R1
+ModeNum:3, Mode Name:gesL5R6
+ModeNum:4, Mode Name:gesL4R8
+ModeNum:5, Mode Name:gesL1R8
+ModeNum:6, Mode Name:gesL3R8
+ModeNum:7, Mode Name:gesL4R7
+ModeNum:8, Mode Name:gesL1R7
+ModeNum:9, Mode Name:gesL4R1
+ModeNum:10, Mode Name:gesL1R1
+ModeNum:11, Mode Name:gesL3R7
+ModeNum:12, Mode Name:gesL3R1
+ModeNStart Testing...
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: CreateReleaseMobiHEART\\\\\\\
+
+Test cases.
+1.Have not called CreateMobiHEART(), call ReleaseMobiHEART().
+2.Called CreateMobiHEART() first, then call ReleaseMobiHEART(). 
+3.Called CreateMobiHEART() first, then call ReleaseMobiHEART(), then call ReleaseMobiHEART() again.
+
+
+Test CreateReleaseMobiHEART(): pass.
+End testing for CreateReleaseMobiHEART
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: Initialize\\\\\\\
+
+Test cases: 
+1.sLicense: Space
+2.sLicense: 0
+3.sLicense: expired License
+4.sLicense: Update expires to 20120630
+5.sLicense: Wrong signature
+6.sLicense: Wrong licensor
+7.sLicense: A correct license
+
+
+Test Initialize(): pass.
+End testing for Initialize
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: SetImgFormat\\\\\\\
+
+Test cases: 
+Resolution: 320X240, 160X120, 176X144, 640X480,600X400, 800X600
+Color mode: MOBI_CM_RGB, MOBI_CM_RGBA, MOBI_CM_GREY,3
+Origin: TRUE, FALSE
+
+line: 286,  Function SetImgFormat()  return failed. Expected return:0. Actual Return:12.  param:WidthStep:320*3, Height:240, Width:320, ColorMode: MOBI_CM_RGBA, Origin: TRUE 
+line: 294,  Function SetImgFormat()  return failed. Expected return:0. Actual Return:12.  param:WidthStep:160*3, Height:120, Width:160, ColorMode: MOBI_CM_RGBA, Origin: true 
+line: 298,  Function SetImgFormat()  return failed. Expected return:0. Actual Return:12.  param:WidthStep:176*3, Height:144, Width:176, ColorMode: MOBI_CM_RGBA, Origin: false 
+line: 332,  Function SetImgFormat()  return failed. Expected return:0. Actual Return:12.  param:WidthStep:640*3, Height:480, Width:640, ColorMode: MOBI_CM_RGBA, Origin: TRUE 
+line: 340,  Function SetImgFormat()  return failed. Expected return:0. Actual Return:12.  param:WidthStep:600*3, Height:400, Width:600, ColorMode: MOBI_CM_RGBA, Origin: true 
+line: 344,  Function SetImgFormat()  return failed. Expected return:0. Actual Return:12.  param:WidthStep:800*3, Height:600, Width:800, ColorMode: MOBI_CM_RGBA, Origin: false 
+
+Test SetImgFormat(): fail.
+End testing for SetImgFormat
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: SetGetConfig\\\\\\\
+
+
+Test SetGetConfig(): pass.
+End testing for SetGetConfig
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: SetGetBTConfig\\\\\\\
+
+
+Test SetGetBTConfig(): pass.
+End testing for SetGetBTConfig
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: SetGetGRConfig\\\\\\\
+
+
+Test SetGetGRConfig(): pass.
+End testing for SetGetGRConfig
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: GetGRModes\\\\\\\
+
+line: 571,  Function GetGRModes()  return failed. Expected return:15. Actual Return:14.  param: 
+Number: 0, MobiHeart Gesture Mode: GR_STATUS
+Number: 1, MobiHeart Gesture Mode: GR_MOUSE
+Number: 2, MobiHeart Gesture Mode: GR_MOTION
+Number: 3, MobiHeart Gesture Mode: GR_MOTION_EXT_1
+Number: 4, MobiHeart Gesture Mode: GR_MOTION_EXT_2
+Number: 5, MobiHeart Gesture Mode: GR_MOTION_EXT_3
+Number: 6, MobiHeart Gesture Mode: GR_COMBINE
+Number: 7, MobiHeart Gesture Mode: GR_COMBINE_1
+Number: 8, MobiHeart Gesture Mode: GR_COMBINE_2
+Number: 9, MobiHeart Gesture Mode: GR_MEDIA_CENTER
+Number: 10, MobiHeart Gesture Mode: GR_SOLITAIRE
+Number: 11, MobiHeart Gesture Mode: GR_GOOGLE_EARTH
+Number: 12, MobiHeart Gesture Mode: GR_JOY_STICK
+Number: 13, MobiHeart Gesture Mode: GR_TREASURE_HUNTER
+Number: 14, Mode:6651204, Error: We shouldn't get here.
+
+Test GetGRModes(): fail.
+End testing for GetGRModes
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: GetGRModeName\\\\\\\
+
+ModeNum:0, Mode Name:modeStatus
+ModeNum:1, Mode Name:modeMouse
+ModeNum:2, Mode Name:modeMotion
+ModeNum:3, Mode Name:modeUndefine
+ModeNum:4, Mode Name:modeMotionExt1
+ModeNum:5, Mode Name:modeMotionExt2
+ModeNum:6, Mode Name:modeMotionExt3
+ModeNum:7, Mode Name:modeCombine
+ModeNum:8, Mode Name:modeCombine1
+ModeNum:9, Mode Name:modeCombine2
+ModeNum:10, Mode Name:modeMediaCenter
+ModeNum:11, Mode Name:modeSolitaire
+ModeNum:12, Mode Name:modeGoogleEarth
+ModeNum:13, Mode Name:modeJoyStick
+ModeNum:14, Mode Name:modeTreasureHunter
+ModeNum:15, Mode Name:modeUndefine
+
+Test GetGRModeName(): pass.
+End testing for GetGRModeName
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: GetGRGestures\\\\\\\
+
+Num: 0, Event: Undefine
+Num: 1, Event: gesNeutral
+Num: 2, Event: gesL5R7
+Num: 3, Event: gesL5R1
+Num: 4, Event: gesL5R6
+Num: 5, Event: gesL4R8
+Num: 6, Event: gesL1R8
+Num: 7, Event: gesL3R8
+Num: 8, Event: gesL4R7
+Num: 9, Event: gesL1R7
+Num: 10, Event: gesL4R1
+Num: 11, Event: gesL1R1
+Num: 12, Event: gesL3R7
+Num: 13, Event: gesL3R1
+Num: 14, Event: gesL4R6
+Num: 15, Event: gesL1R6
+Num: 16, Event: gesL3R6
+Num: 17, Event: gesL1R2
+Num: 18, Event: gesL2R1
+Num: 19, Event: gesL2R6
+Num: 20, Event: gesL2R7
+Num: 21, Event: gesL3R2
+Num: 22, Event: gesL4R2
+Num: 23, Event: gesL5R2
+Num: 24, Event: gesMouseMove
+Num: 25, Event: gesMouseClick
+Num: 26, Event: gesMouseDBClick
+Num: 27, Event: gesMouseLeftDown
+Num: 28, Event: gesLeftLeft
+Num: 29, Event: gesLeftRight
+Num: 30, Event: gesRightLeft
+Num: 31, Event: gesRightRight
+Num: 32, Event: gesLeftUp
+Num: 33, Event: gesLeftDown
+Num: 34, Event: gesRightUp
+Num: 35, Event: gesRightDown
+Num: 36, Event: gesBothUp
+Num: 37, Event: gesBothDown
+Num: 38, Event: gesBodyLeft
+Num: 39, Event: gesBodyRight
+Num: 40, Event: gesHandsFar
+Num: 41, Event: gesHandsClose
+Num: 42, Event: gesLeftRightFast
+Num: 43, Event: gesRightLeftFast
+Num: 44, Event:  gesStopLeftFast
+Num: 45, Event: gesStopRightFast
+Num: 46, Event: gesLeftUpShift
+Num: 47, Event:  gesRightUpShift
+Num: 48, Event: gesHeadTilt
+Num: 49, Event: gesHandsMovingFront
+Num: 50, Event:  gesLeftLiftShift
+Num: 51, Event: gesRightLiftShift
+Num: 52, Event: gesHandsMovingBodyLeft
+Num: 53, Event: gesHandsMovingBodyRight
+Num: 54, Event: gesLeftLiftShiftBodyLeft
+Num: 55, Event: gesLeftLiftShiftBodyRight
+Num: 56, Event: gesRightLiftShiftBodyLeft
+Num: 57, Event: gesRightLiftShiftBodyRight
+Num: 58, Event: gesLeftHigherRightMiddle
+Num: 59, Event: gesLeftLowerRightMiddle
+Num: 60, Event: gesLeftEqualRightMiddle
+Num: 61, Event: gesLeftHigherRightBottom
+Num: 62, Event: gesLeftLowerRightBottom
+Num: 63, Event: gesRightHold
+Num: 64, Event: gesBothUpChest
+Num: 65, Event: gesRightMiddle
+Num: 66, Event: gesLeftUpRightActive
+Num: 67, Event: gesLeftUpRightNotActive
+Num: 68, Event: gesLeftTilt
+Num: 69, Event: gesRightTilt
+Num: 70, Event: gesHandsMovingFrontStop
+Num: 71, Event: gesCrouch
+Num: 72, Event: gesCrouchUp
+Num: 73, Event: gesBodyHold
+We shouldn't get here. Num: 74, Event: 6650972
+
+Test GetGRGestures(): pass.
+End testing for GetGRGestures
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\\\\\Module: MobiHeart    Function: GetGRGestureName\\\\\\\
+
+ModeNum:-1, Mode Name:gesUndefined
+ModeNum:0, Mode Name:gesNeutral
+ModeNum:1, Mode Name:gesL5R7
+ModeNum:2, Mode Name:gesL5R1
+ModeNum:3, Mode Name:gesL5R6
+ModeNum:4, Mode Name:gesL4R8
+ModeNum:5, Mode Name:gesL1R8
+ModeNum:6, Mode Name:gesL3R8
+ModeNum:7, Mode Name:gesL4R7
+ModeNum:8, Mode Name:gesL1R7
+ModeNum:9, Mode Name:gesL4R1
+ModeNum:10, Mode Name:gesL1R1
+ModeNum:11, Mode Name:gesL3R7
+ModeNum:12, Mode Name:gesL3R1
+ModeN

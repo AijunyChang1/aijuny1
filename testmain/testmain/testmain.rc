@@ -1,0 +1,191 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 中文(中华人民共和国) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#include ""res\\testmain.rc2""  // 非 Microsoft Visual C++ 编辑的资源\r\n"
+    "#include ""afxres.rc""     // 标准组件\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\testmain.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_TESTMAIN_DIALOG DIALOGEX 0, 0, 552, 294
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "testmain"
+FONT 9, "宋体", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,288,261,50,16,NOT WS_VISIBLE
+    PUSHBUTTON      "关闭",IDCANCEL,459,262,50,16
+    CTEXT           "TODO: 在此放置对话框控件。",IDC_STATIC,73,243,300,8,NOT WS_VISIBLE
+    EDITTEXT        IDC_NUM1,96,37,49,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "主叫第一号码：",IDC_STATIC,37,40,58,10
+    LTEXT           "-",IDC_STATIC,158,41,8,8
+    EDITTEXT        IDC_NUM2,228,37,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "拨打间隔(S):",IDC_STATIC,37,79,48,14
+    EDITTEXT        IDC_EDIT3,97,75,45,13,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "线程数:",IDC_STATIC,37,58,46,12
+    EDITTEXT        IDC_EDIT4,96,56,48,13,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "端口:",IDC_STATIC,38,96,27,13
+    EDITTEXT        IDC_Port,96,95,45,14,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_Send,495,15,30,12,ES_AUTOHSCROLL
+    LTEXT           "发送窗:",IDC_STATIC,453,17,34,18
+    LTEXT           "接受窗:",IDC_STATIC,15,119,41,11
+    EDITTEXT        IDC_EDIT_RECV,15,131,501,102,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | WS_VSCROLL | WS_HSCROLL
+    PUSHBUTTON      "清除",IDC_BUTTON1,15,239,49,16
+    LTEXT           "被叫第一号码：",IDC_STATIC,170,41,57,11
+    LTEXT           "VRS IP:",IDC_STATIC,37,18,31,14
+    EDITTEXT        IDC_EDIT6,317,7,73,14,ES_AUTOHSCROLL | NOT WS_VISIBLE
+    PUSHBUTTON      "开始测试",IDC_BUTTON2,313,50,78,27
+    GROUPBOX        "设置",IDC_STATIC,15,7,270,105
+    CONTROL         "",IDC_IPADDRESS1,"SysIPAddress32",WS_TABSTOP,95,16,100,15
+    PUSHBUTTON      "软电话登入登出",IDC_SOFT_CALL,313,91,78,26,WS_DISABLED
+    PUSHBUTTON      "已拨电话数\r\n\r\n点击查看...",IDC_BUTTON3,433,34,84,52,BS_MULTILINE | BS_FLAT
+    PUSHBUTTON      "录音率...",IDC_BUTTON4,435,94,79,24
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,2,0,0
+ PRODUCTVERSION 1,2,0,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080403a8"
+        BEGIN
+            VALUE "CompanyName", "TODO: <公司名>"
+            VALUE "FileDescription", "TODO: <文件说明>"
+            VALUE "FileVersion", "1.2"
+            VALUE "InternalName", "testmain.exe"
+            VALUE "LegalCopyright", "TODO: (C) <公司名>。保留所有权利。"
+            VALUE "OriginalFilename", "testmain.exe"
+            VALUE "ProductName", "TODO: <产品名>"
+            VALUE "ProductVersion", "1.2"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 936
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_TESTMAIN_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 545
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 287
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // 中文(中华人民共和国) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+LANGUAGE 4, 2
+#pragma code_page(936)
+#include "res\testmain.rc2"  // 非 Microsoft Visual C++ 编辑的资源
+#include "afxres.rc"     // 标准组件
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

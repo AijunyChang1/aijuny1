@@ -1,0 +1,461 @@
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/fix8/!svn/ver/27532/TeliDH/trunk/src/common
+END
+VirtualKey.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/fix8/!svn/ver/23603/TeliDH/trunk/src/common/VirtualKey.cpp
+END
+VideoDlg.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/fix8/!svn/ver/23603/TeliDH/trunk/src/common/VideoDlg.h
+END
+flash.h
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/fix8/!svn/ver/26611/TeliDH/trunk/src/common/flash.h
+END
+Settings.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/fix8/!svn/ver/26553/TeliDH/trunk/src/common/Settings.h
+END
+Config.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/fix8/!svn/ver/25892/TeliDH/trunk/src/common/Config.cpp
+END
+DirIter.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/fix8/!svn/ver/23603/TeliDH/trunk/src/common/DirIter.hpp
+END
+FSUtil.h
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/fix8/!svn/ver/26561/TeliDH/trunk/src/common/FSUtil.h
+END
+ASMarshal.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/fix8/!svn/ver/26560/TeliDH/trunk/src/common/ASMarshal.cpp
+END
+Unzipper.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/fix8/!svn/ver/23603/TeliDH/trunk/src/common/Unzipper.cpp
+END
+TkGesSrc2.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/fix8/!svn/ver/26595/TeliDH/trunk/src/common/TkGesSrc2.h
+END
+Util.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/fix8/!svn/ver/27484/TeliDH/trunk/src/common/Util.cpp
+END
+UserMsgs.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/fix8/!svn/ver/27532/TeliDH/trunk/src/common/UserMsgs.h
+END
+SelCamDlg2.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/fix8/!svn/ver/23603/TeliDH/trunk/src/common/SelCamDlg2.cpp
+END
+Action.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/fix8/!svn/ver/25892/TeliDH/trunk/src/common/Action.cpp
+END
+VideoDlg2.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/fix8/!svn/ver/23603/TeliDH/trunk/src/common/VideoDlg2.cpp
+END
+TrackMgr.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/fix8/!svn/ver/26646/TeliDH/trunk/src/common/TrackMgr.h
+END
+Mode.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/fix8/!svn/ver/23603/TeliDH/trunk/src/common/Mode.cpp
+END
+FSWatcher.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/fix8/!svn/ver/23603/TeliDH/trunk/src/common/FSWatcher.cpp
+END
+HugeCursor.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/fix8/!svn/ver/23603/TeliDH/trunk/src/common/HugeCursor.cpp
+END
+mdump.h
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/fix8/!svn/ver/26611/TeliDH/trunk/src/common/mdump.h
+END
+TkGesSrc.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/fix8/!svn/ver/25892/TeliDH/trunk/src/common/TkGesSrc.h
+END
+DragWnd.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/fix8/!svn/ver/26561/TeliDH/trunk/src/common/DragWnd.h
+END
+mp3tag.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/fix8/!svn/ver/24898/TeliDH/trunk/src/common/mp3tag.cpp
+END
+VideoDlg.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/fix8/!svn/ver/23603/TeliDH/trunk/src/common/VideoDlg.cpp
+END
+flash.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/fix8/!svn/ver/25181/TeliDH/trunk/src/common/flash.cpp
+END
+Task.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/fix8/!svn/ver/23603/TeliDH/trunk/src/common/Task.cpp
+END
+MediaWatcher.h
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/fix8/!svn/ver/26560/TeliDH/trunk/src/common/MediaWatcher.h
+END
+image_proc.c
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/fix8/!svn/ver/23603/TeliDH/trunk/src/common/image_proc.c
+END
+TkGesSrc2.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/fix8/!svn/ver/26727/TeliDH/trunk/src/common/TkGesSrc2.cpp
+END
+image_proc.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/fix8/!svn/ver/23603/TeliDH/trunk/src/common/image_proc.h
+END
+Unzipper.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/fix8/!svn/ver/26611/TeliDH/trunk/src/common/Unzipper.h
+END
+TkGesSrc.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/fix8/!svn/ver/26724/TeliDH/trunk/src/common/TkGesSrc.cpp
+END
+Hotkeys.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/fix8/!svn/ver/23603/TeliDH/trunk/src/common/Hotkeys.cpp
+END
+Mode.h
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/fix8/!svn/ver/25892/TeliDH/trunk/src/common/Mode.h
+END
+FSWatcher.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/fix8/!svn/ver/26560/TeliDH/trunk/src/common/FSWatcher.h
+END
+HugeCursor.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/fix8/!svn/ver/23603/TeliDH/trunk/src/common/HugeCursor.h
+END
+MediaWatcher.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/fix8/!svn/ver/26611/TeliDH/trunk/src/common/MediaWatcher.cpp
+END
+Webcam.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/fix8/!svn/ver/23603/TeliDH/trunk/src/common/Webcam.cpp
+END
+SelCamDlg.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/fix8/!svn/ver/23603/TeliDH/trunk/src/common/SelCamDlg.h
+END
+KeyMapper.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/fix8/!svn/ver/25892/TeliDH/trunk/src/common/KeyMapper.h
+END
+Task.h
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/fix8/!svn/ver/23603/TeliDH/trunk/src/common/Task.h
+END
+RGB24Buffer.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/fix8/!svn/ver/24899/TeliDH/trunk/src/common/RGB24Buffer.cpp
+END
+sce.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/fix8/!svn/ver/23603/TeliDH/trunk/src/common/sce.cpp
+END
+Thread.h
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/fix8/!svn/ver/26611/TeliDH/trunk/src/common/Thread.h
+END
+gesture.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/fix8/!svn/ver/23603/TeliDH/trunk/src/common/gesture.cpp
+END
+KeyRunner.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/fix8/!svn/ver/23603/TeliDH/trunk/src/common/KeyRunner.cpp
+END
+TrayMgr.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/fix8/!svn/ver/26595/TeliDH/trunk/src/common/TrayMgr.h
+END
+Presets.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/fix8/!svn/ver/23603/TeliDH/trunk/src/common/Presets.h
+END
+SelCamDlg.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/fix8/!svn/ver/23603/TeliDH/trunk/src/common/SelCamDlg.cpp
+END
+Hotkeys.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/fix8/!svn/ver/26595/TeliDH/trunk/src/common/Hotkeys.h
+END
+KeyMapper.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/fix8/!svn/ver/25892/TeliDH/trunk/src/common/KeyMapper.cpp
+END
+Tracker.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/fix8/!svn/ver/25892/TeliDH/trunk/src/common/Tracker.h
+END
+Settings.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/fix8/!svn/ver/26553/TeliDH/trunk/src/common/Settings.cpp
+END
+Autorun.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/fix8/!svn/ver/23603/TeliDH/trunk/src/common/Autorun.h
+END
+Webcam.h
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/fix8/!svn/ver/23787/TeliDH/trunk/src/common/Webcam.h
+END
+VirtualKey.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/fix8/!svn/ver/23603/TeliDH/trunk/src/common/VirtualKey.h
+END
+FSUtil.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/fix8/!svn/ver/27342/TeliDH/trunk/src/common/FSUtil.cpp
+END
+Thread.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/fix8/!svn/ver/23603/TeliDH/trunk/src/common/Thread.cpp
+END
+TrackMgr.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/fix8/!svn/ver/26727/TeliDH/trunk/src/common/TrackMgr.cpp
+END
+Config.h
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/fix8/!svn/ver/25892/TeliDH/trunk/src/common/Config.h
+END
+sce.h
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/fix8/!svn/ver/23603/TeliDH/trunk/src/common/sce.h
+END
+RGB24Buffer.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/fix8/!svn/ver/26560/TeliDH/trunk/src/common/RGB24Buffer.h
+END
+ASMarshal.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/fix8/!svn/ver/26611/TeliDH/trunk/src/common/ASMarshal.h
+END
+Util.h
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/fix8/!svn/ver/27453/TeliDH/trunk/src/common/Util.h
+END
+SelCamDlg2.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/fix8/!svn/ver/23603/TeliDH/trunk/src/common/SelCamDlg2.h
+END
+Action.h
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/fix8/!svn/ver/25892/TeliDH/trunk/src/common/Action.h
+END
+mdump.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/fix8/!svn/ver/25068/TeliDH/trunk/src/common/mdump.cpp
+END
+gesture.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/fix8/!svn/ver/23603/TeliDH/trunk/src/common/gesture.h
+END
+VideoDlg2.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/fix8/!svn/ver/26611/TeliDH/trunk/src/common/VideoDlg2.h
+END
+TrayMgr.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/fix8/!svn/ver/23977/TeliDH/trunk/src/common/TrayMgr.cpp
+END
+Presets.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/fix8/!svn/ver/23603/TeliDH/trunk/src/common/Presets.cpp
+END
+DragWnd.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/fix8/!svn/ver/23603/TeliDH/trunk/src/common/DragWnd.cpp
+END
+FPSDetector.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/fix8/!svn/ver/26561/TeliDH/trunk/src/common/FPSDetector.h
+END
+KeyRunner.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/fix8/!svn/ver/23603/TeliDH/trunk/src/common/KeyRunner.h
+END
+Tracker.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/fix8/!svn/ver/25892/TeliDH/trunk/src/common/Tracker.cpp
+END
+Autorun.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/fix8/!svn/ver/23603/TeliDH/trunk/src/common/Autorun.cpp
+END

@@ -1,0 +1,5 @@
+GTest: http://www.cnitblog.com/zouzheng/archive/2009/09/28/61612.html
+
+       http://www.cppprog.com/2009/0105/38.html
+
+CPPUnit: http://www.vckbase.com/document/viewdoc/?id=1258

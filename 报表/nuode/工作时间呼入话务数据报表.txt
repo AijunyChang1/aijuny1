@@ -1,0 +1,255 @@
+USE [rep_ccms]
+GO
+/****** Object:  StoredProcedure [dbo].[SP_TraffND_Work_Detail]    Script Date: 06/26/2013 16:27:44 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		Summit.Lau
+-- Create date: 2012.07.05
+-- Description:	整体话务数据日报表 (需严格提供正确的参数，参数正确与否的逻辑判断需要页面过滤)
+--              分段输出 用户所需数据，且在分段时 在此段内无数据时 不进行输出和统计  
+/*
+  sp_Outbound_Call_Report @DateBegin = 20111101 ,@DateEnd = 20111101 ,@TimeBegin = '151030' ,@TimeEnd = '093000',@Skill = '5000'
+  SP_TraffND_Work_Detail @DateBegin = 20110401 ,@DateEnd = 20111201,@TimeBegin = '180303',@TimeEnd = '090336'
+  SP_TraffND_Work_Detail @Project = '', @DateBegin = '2012-11-01 00:00:00' ,@DateEnd = '2012-12-02 00:00:00' 
+  SP_TraffND_Work_Detail @Project = '', @DateBegin = 20110101 ,@DateEnd = 20121201 
+  SP_TraffND_Work_Detail @DateBegin = 20110101 ,@DateEnd = 20120101 ,@Calling = '8892'
+*/
+-- =============================================
+ALTER PROCEDURE [dbo].[SP_TraffND_Work_Detail]
+    (
+       @ProjectId  varchar(15), -- 项目名称(同被叫号码DigitsDialed)
+       @DateBegin BIGINT = NULL ,
+       @DateEnd BIGINT = NULL ,
+       @TimeBegin VARCHAR(10) = '000000' ,
+       @TimeEnd VARCHAR(10) = '235959' ,
+       @Agent VARCHAR(16) = '' ,
+       @Skill VARCHAR(16) = '' ,
+       @Preload BIT = 0
+    )
+AS 
+    BEGIN  
+        DECLARE  
+            @v_DateBegin VARCHAR(20) ,
+            @v_DateEnd VARCHAR(20) ,
+            @v_DateBegin_s VARCHAR(20) ,
+            @v_DateEnd_s VARCHAR(20) ,
+            @v_DateBegin_a VARCHAR(20) ,
+            @v_DateEnd_a VARCHAR(20) ,
+            @v_BeginTime VARCHAR(10) ,
+            @v_EndTime VARCHAR(10) ,
+            @v_Agent VARCHAR(16) ,
+            @v_Skill VARCHAR(16) ,
+            @Sql VARCHAR(MAX) ,
+            @SqlCount VARCHAR(MAX) ,
+            @Count INT ,
+            @dayoff INT ,
+            @hour1 INT ,
+            @hour2 INT ,
+            @i INT ,
+            @Error INT
+        SET @Error = 0
+         
+        IF LEN(@TimeBegin) < 6
+            OR ISNULL(@TimeBegin, '0') = '0' 
+            SET @v_BeginTime = '000000'
+        ELSE 
+            SET @v_BeginTime = @TimeBegin
+        IF LEN(@TimeEnd) < 6
+            OR ISNULL(@TimeEnd, '0') = '0' 
+            SET @v_EndTime = '235959'
+        ELSE 
+            SET @v_EndTime = @TimeEnd
+       
+        SELECT  @v_DateBegin = Beg_Date ,
+                @v_DateEnd = End_Date
+        FROM    For_Date(@DateBegin, @DateEnd, @v_BeginTime, @v_EndTime)  --获得起始与结束时间
+        CREATE TABLE #TempSkill ( Skill VARCHAR(6) )  ---  技能组临时表
+        CREATE TABLE #TempAgent ( Agent VARCHAR(6) )  ---  坐席临时表
+        INSERT  INTO #TempSkill
+                SELECT  *
+                FROM    Format_Skill(@Skill)
+        INSERT  INTO #TempAgent
+                SELECT  *
+                FROM    Format_Agent(@Agent)
+        CREATE TABLE #TempTime ( GetTime VARCHAR(20) ) ----时间临时表
+        SELECT  @v_DateBegin_s = CONVERT(VARCHAR(10), @DateBegin, 120)
+                + ' 00:00:00'
+--        SELECT  @v_DateEnd_s = CONVERT(VARCHAR(10), CONVERT(DATETIME,@DateEnd)+1, 120)
+--                + ' 00:00:00'    
+        SELECT  @v_DateEnd_s = CONVERT(VARCHAR(10), @DateEnd, 120)
+        --        + ' 00:00:00'            
+        --INSERT  INTO #TempTime
+        --        SELECT  CONVERT(VARCHAR(19), DATEADD(dd, rn * 1,
+        --                                             @v_DateBegin_s), 120) dt
+        --        FROM    ( SELECT    rn = row_number() OVER ( ORDER BY GETDATE() )
+        --                            - 1
+        --                  FROM      sysobjects ,
+        --                            syscolumns
+        --                ) t
+        --        WHERE   DATEADD(dd, rn * 1, @v_DateBegin_s) <= @DateEnd      
+                
+                
+  
+        SELECT  *
+        INTO    #TempTable
+        FROM    ( SELECT
+                            A.HOUR ,
+                            A.DateTime ,
+                            A.DigitsDialed,
+                             datename(weekday,A.DateTime) WEEK,
+                            case when dbo.Func_Ver_Times(A.DigitsDialed,A.DateTime) = 1 then 'Work'
+                                                          else 'Rest'
+                                                          end Status,
+                              case when dbo.Func_Ver_Times(A.DigitsDialed,A.DateTime) = 1 then 1
+                                                          else 0
+                                                          end StatusCode, -- Work/Rest Code                                                      
+                            B.PeripheralNumber ,  --- 坐席编号
+                            B.EnterpriseName AgentName ,
+                            A.SkillGroupSkillTargetID ,
+                            A.AgentSkillTargetID ,
+                            A.Incall,--Call In Number
+                            A.InDuration,--Call In All Time
+                            A.InAnswer, --Call In Answer
+                            A.InTalkTime,-- Call In TalkTime
+                            
+                            Case  when dbo.Func_Ver_Times(A.DigitsDialed,A.DateTime) = 1 then A.Incall
+                                            else 0 end WorkInCall,
+                            Case  when dbo.Func_Ver_Times(A.DigitsDialed,A.DateTime) = 0 then A.Incall
+                                            else 0 end RestInCall, 
+                            
+                            Case  when dbo.Func_Ver_Times(A.DigitsDialed,A.DateTime) = 1 then A.InDuration
+                                            else 0 end WorkInDuration,
+                            Case  when dbo.Func_Ver_Times(A.DigitsDialed,A.DateTime) = 0 then A.InDuration
+                                            else 0 end RestInDuration, 
+                            
+                            Case  when dbo.Func_Ver_Times(A.DigitsDialed,A.DateTime) = 1 then A.InAnswer
+                                            else 0 end WorkInAnswer,
+                            Case  when dbo.Func_Ver_Times(A.DigitsDialed,A.DateTime) = 0 then A.InAnswer
+                                            else 0 end RestInAnswer, 
+                            
+                            Case  when dbo.Func_Ver_Times(A.DigitsDialed,A.DateTime) = 1 then A.InTalkTime
+                                            else 0 end WorkTalkTime,
+                            Case  when dbo.Func_Ver_Times(A.DigitsDialed,A.DateTime) = 0 then A.InTalkTime
+                                            else 0 end RestTalkTime, 
+                                            
+                            Case  when dbo.Func_Ver_Times(A.DigitsDialed,A.DateTime) = 1 then  InAbandNum
+                                            else 0 end WorkInAbandNum,
+                            Case  when dbo.Func_Ver_Times(A.DigitsDialed,A.DateTime) = 0 then InAbandNum
+                                            else 0 end RestInAbandNum,                 
+                            Case  when dbo.Func_Ver_Times(A.DigitsDialed,A.DateTime) = 1 then InAbandTime
+                                            else 0 end WorkInAbandTime,
+                            Case  when dbo.Func_Ver_Times(A.DigitsDialed,A.DateTime) = 0 then InAbandTime
+                                            else 0 end RestInAbandTime,                 
+                            Case  when dbo.Func_Ver_Times(A.DigitsDialed,A.DateTime) = 1 then InAbandRingNum
+                                            else 0 end WorkInAbandRingNum,
+                            Case  when dbo.Func_Ver_Times(A.DigitsDialed,A.DateTime) = 0 then InAbandRingNum
+                                            else 0 end RestInAbandRingNum,                    
+                            Case  when dbo.Func_Ver_Times(A.DigitsDialed,A.DateTime) = 1 then InAbandRingTime
+                                            else 0 end WorkInAbandRingTime,
+                            Case  when dbo.Func_Ver_Times(A.DigitsDialed,A.DateTime) = 0 then InAbandRingTime
+                                            else 0 end RestInAbandRingTime,                    
+                            Case  when dbo.Func_Ver_Times(A.DigitsDialed,A.DateTime) = 1 then InQueueAbandNum
+                                            else 0 end WorkInQueueAbandNum,
+                            Case  when dbo.Func_Ver_Times(A.DigitsDialed,A.DateTime) = 0 then InQueueAbandNum
+                                            else 0 end RestInQueueAbandNum,                    
+                            Case  when dbo.Func_Ver_Times(A.DigitsDialed,A.DateTime) = 1 then InQueueAbandTime
+                                            else 0 end WorkInQueueAbandTime,
+                            Case  when dbo.Func_Ver_Times(A.DigitsDialed,A.DateTime) = 0 then InQueueAbandTime
+                                            else 0 end RestInQueueAbandTime,                    
+                            Case  when dbo.Func_Ver_Times(A.DigitsDialed,A.DateTime) = 1 then InAbandDelayNum
+                                            else 0 end WorkInAbandDelayNum,
+                            Case  when dbo.Func_Ver_Times(A.DigitsDialed,A.DateTime) = 0 then InAbandDelayNum
+                                            else 0 end RestInAbandDelayNum,                    
+                            Case  when dbo.Func_Ver_Times(A.DigitsDialed,A.DateTime) = 1 then InAbandDelayTime
+                                            else 0 end WorkInAbandDelayTime,
+                            Case  when dbo.Func_Ver_Times(A.DigitsDialed,A.DateTime) = 0 then InAbandDelayTime
+                                            else 0 end RestInAbandDelayTime,                     
+                                                           
+                            A.InAbandNum,-- Call In Aband number
+                            A.InAbandTime, -- Call In Aband Time
+                            A.InAbandRingNum, -- Call In Ring Aband number
+                            A.InAbandRingTime, -- Call In Ring Aband Time
+                            A.InQueueAbandNum, -- Call In Queue Aband number
+                            A.InQueueAbandTime, -- Call In Queue Aband Time
+                            A.InAbandDelayNum, -- Call In Report AgentID Aband Number
+                            A.InAbandDelayTime -- Call In Report AgentID Aband Time
+                  FROM      V_TERM_CALL_DETAIL_HOUR A ,
+                            t_Agent B
+                  WHERE     A.AgentSkillTargetID IS NOT NULL
+                            AND SkillGroupSkillTargetID IN ( SELECT
+                                                              Skill
+                                                             FROM
+                                                              #TempSkill )
+                            AND A.AgentSkillTargetID = B.SkillTargetID
+                            AND AgentSkillTargetID IN ( SELECT
+                                                              Agent
+                                                        FROM  #TempAgent )
+                            AND PeripheralCallType IN ( 2, 1, 6)
+                            AND ANI is not null
+                            AND ISNUMERIC(ANI) > 0
+                            AND A.DigitsDialed  = case when len(@ProjectId) > 0 then @ProjectId
+                                                       else DigitsDialed end          
+                            AND A.DateTime BETWEEN  @v_DateBegin  
+                                           AND  @v_DateEnd 
+                ) T
+   
+   select --HOUR 
+          '汇    总' RecTime,
+          ' ' Project,
+          ' ' Skill,
+          ' ' AgentID,
+          ' ' AgentName,
+          --SkillGroupSkillTargetId Skill,
+         -- PeripheralNumber AgentID,
+         -- B.AgentName,
+          SUM(InCall) InCall,
+          SUM(InAnswer) InAnswer,
+          cast(cast([dbo].[Func_Defin_Rate](SUM(InAnswer),SUM(InCall)) as float) * 100 as varchar(4)) + '%' RateInAnswer,         
+          SUM(WorkInCall) WorkInCall,
+          SUM(WorkInDuration) WorkInDuration,
+          SUM(WorkInAnswer) WorkInAnswer,
+          SUM(WorkTalkTime) WorkTalkTime,
+          SUM(WorkInAbandNum) WorkInAbandNum,
+          SUM(WorkInAbandTime) WorkInAbandTime,
+          SUM(WorkInAbandRingNum) WorkInAbandRingNum,
+          SUM(WorkInAbandRingTime) WorkInAbandRingTime,
+          SUM(WorkInQueueAbandNum) WorkInQueueAbandNum,
+          SUM(WorkInQueueAbandTime) WorkInQueueAbandTime,
+          SUM(WorkInAbandDelayNum) WorkInAbandDelayNum,
+          SUM(WorkInAbandDelayTime) WorkInAbandDelayTime
+       from #TempTable  A
+       where StatusCode = 1  
+      union 
+        select Hour RecTime,
+               DigitsDialed Project,
+          SkillGroupSkillTargetId Skill,
+          PeripheralNumber AgentID,
+          B.AgentName,
+          SUM(InCall) InCall,
+          SUM(InAnswer) InAnswer,
+          cast(cast([dbo].[Func_Defin_Rate](SUM(InAnswer),SUM(InCall)) as float) * 100 as varchar(4)) + '%' RateInAnswer,         
+          SUM(WorkInCall) WorkInCall,
+          SUM(WorkInDuration) WorkInDuration,
+          SUM(WorkInAnswer) WorkInAnswer,
+          SUM(WorkTalkTime) WorkTalkTime,
+          SUM(WorkInAbandNum) WorkInAbandNum,
+          SUM(WorkInAbandTime) WorkInAbandTime,
+          SUM(WorkInAbandRingNum) WorkInAbandRingNum,
+          SUM(WorkInAbandRingTime) WorkInAbandRingTime,
+          SUM(WorkInQueueAbandNum) WorkInQueueAbandNum,
+          SUM(WorkInQueueAbandTime) WorkInQueueAbandTime,
+          SUM(WorkInAbandDelayNum) WorkInAbandDelayNum,
+          SUM(WorkInAbandDelayTime) WorkInAbandDelayTime 
+       from #TempTable  A
+       inner join vxi_sys..Agent B
+       on A.PeripheralNumber = B.Agent     
+       where StatusCode = 1  
+       group by HOUR,DigitsDialed,SkillGroupSkillTargetId,PeripheralNumber,B.AgentName
+       order by RecTime desc    
+       
+                   
+    END
+

@@ -1,0 +1,19 @@
+select * from vxi_def..modules where modname like '%分机%'
+
+
+
+
+
+
+select * from vxi_def.node where nodename  like '%Call%' 
+
+select * from vxi_def.modules where modid='rep.call.in.Service'
+
+
+select * from vxi_def..Fields   //全局查询字段
+
+select * from vxi_def..Flow    // 查报表项 
+
+update vxi_def..Modules set Schitems='begdate=DateBegin,enddate=DateEnd,begtime=TimeBegin,endtime=TimeEnd,Skill,agent,period2' where ModId like '%ccms.inbound.detail%' //设置选择项
+
+insert into vxi_def..Fields(tabname,Field,Format,Enabled) values ('*','0-60s','width:90',1)

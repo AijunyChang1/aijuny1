@@ -1,0 +1,15 @@
+vxi_ivr.sql
+vxi_pds.sql
+vxi_rec.sql
+vxi_rep.sql
+vxi_rtd.sql
+vxi_ucd.sql
+vxi_sys.sql
+vxi_chat.sql
+vxi_setup.sql
+rep_uccx.sql
+rep_ccms.sql
+vxi_def.sql
+vxi_crm.sql
+visionone_common.sql
+visionone_visionone.sql
